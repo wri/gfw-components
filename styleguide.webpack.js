@@ -23,15 +23,25 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=gfw__[name]_[local]',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: 'gfw__[name]_[local]',
+              },
+            }
+          },
           'resolve-url-loader',
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [ './node_modules', './src/styles' ]
+              sassOptions: {
+                includePaths: [ './node_modules', './src/styles' ]
                 .map(d => path.join(__dirname, d))
                 .map(g => glob.sync(g))
                 .reduce((a, c) => a.concat(c), [])
+              }
             }
           }
         ]
