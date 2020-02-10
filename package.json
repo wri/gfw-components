@@ -2,7 +2,7 @@
   "name": "@vizzuality/gfw-components",
   "version": "0.1.0",
   "private": true,
-  "main": "./src/index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "styleguidist server",
     "build": "styleguidist build",

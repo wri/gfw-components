@@ -32,7 +32,7 @@ const config = {
               options: {
                 modules: true,
                 importLoaders: 1,
-                localIdentName: 'cw__[name]_[local]'
+                localIdentName: 'gfw__[name]_[local]'
               }
             },
             {
