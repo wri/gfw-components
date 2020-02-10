@@ -1,5 +1,5 @@
 {
-  "name": "gfw-components",
+  "name": "@vizzuality/gfw-components",
   "version": "0.1.0",
   "private": true,
   "main": "./src/index.js",
@@ -64,5 +64,21 @@
     "webpack": "4.16.3",
     "webpack-bundle-analyzer": "2.13.1",
     "webpack-cli": "3.1.0"
-  }
+  },
+  "description": "Showcase of GFW components with the use of react Styleguidist library.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vizzuality/gfw-components.git"
+  },
+  "keywords": [
+    "gfw",
+    "gfw-components",
+    "vizzuality"
+  ],
+  "author": "Marta Gajowczyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vizzuality/gfw-components/issues"
+  },
+  "homepage": "https://github.com/Vizzuality/gfw-components#readme"
 }
