@@ -38,10 +38,12 @@ const config = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [ './node_modules', './src/styles' ]
-                  .map(d => path.join(__dirname, d))
-                  .map(g => glob.sync(g))
-                  .reduce((a, c) => a.concat(c), [])
+                sassOptions: {
+                  includePaths: [ './node_modules', './src/styles' ]
+                    .map(d => path.join(__dirname, d))
+                    .map(g => glob.sync(g))
+                    .reduce((a, c) => a.concat(c), [])
+                }
               }
             }
           ]
@@ -91,7 +93,7 @@ const config = {
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new CompressionPlugin({
-      asset: '[path].gz[query]',
+      filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$/,
       threshold: 10240,
