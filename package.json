@@ -17,6 +17,10 @@
     "react": "16.8.0",
     "react-dom": "16.8.0"
   },
+  "resolutions": {
+    "debug": "4.1.1",
+    "@hapi/cryptiles": "5.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
