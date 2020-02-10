@@ -1,5 +1,5 @@
 {
-  "name": "@vizzuality/gfw-components",
+  "name": "gfw-components",
   "version": "0.1.0",
   "main": "dist/bundle.js",
   "scripts": {
