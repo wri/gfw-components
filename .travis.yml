@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "10.13.0"
-
+script: 'true'
 deploy:
   provider: npm
   email: marta.gajowczyk@vizzuality.com
