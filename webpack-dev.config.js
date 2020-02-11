@@ -5,6 +5,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const BundleAnalyzerPlugin = require(
+  'webpack-bundle-analyzer'
+).BundleAnalyzerPlugin;
 
 const config = {
   entry: './src/index.js',
@@ -95,7 +98,8 @@ const config = {
       test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$/,
       threshold: 10240,
       minRatio: 0.8
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 };
 
