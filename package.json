@@ -10,6 +10,13 @@
     "deploy": "yarn run build && gh-pages -d styleguide"
   },
   "dependencies": {},
+  "resolutions": {
+    "@hapi/cryptiles": "5.0.0",
+    "webpack-dev-server": "3.10.3",
+    "js-yaml": "3.13.1",
+    "open": "7.0.2",
+    "serialize-javascript": "2.1.2"
+  },
   "peerDependencies": {
     "classnames": "2.2.6",
     "lodash": "4.17.10",
