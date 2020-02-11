@@ -7,6 +7,25 @@ const { version } = require('./package.json');
 
 module.exports = {
   title: `GFW components | ${version}`,
+  theme: {
+    color: {
+      link: '#97BD3D',
+      linkHover: '#97BD3D'
+    }
+  },
+  styles: {
+    StyleGuide: {
+      sidebar: {
+        backgroundColor: '#333333',
+        color: '#97BD3D'
+      }
+    },
+    Logo: {
+      logo: {
+        color: '#97BD3D'
+      }
+    }
+  },
   template: {
     head: {
       links: [
