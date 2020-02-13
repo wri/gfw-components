@@ -1,0 +1,14 @@
+@import '../../styles/settings.scss';
+
+.c-tip {
+  padding: rem(10px);
+  background-color: $tip;
+  font-size: 12px;
+  color: $slate;
+
+  &.tooltip-dark {
+    background-color: $slate;
+    color: $white;
+    opacity: 0.8;
+  }
+}

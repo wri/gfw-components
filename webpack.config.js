@@ -1,5 +1,4 @@
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -21,31 +20,32 @@ const config = {
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
       { test: /\.svg$/, use: [ { loader: 'svg-sprite-loader' } ] },
       {
-        test: /\.scss$/,
+        test: /\.module\.scss$/i,
         use: ExtractTextPlugin.extract({
           use: [
             {
               loader: 'css-loader',
               options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: 'gfw__[name]_[local]'
-              }
+                modules: { 
+                  localIdentName: 'gfw__[name]_[local]'
+                },
+                importLoaders: 2
+              },
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                sassOptions: {
-                  includePaths: [ './node_modules', './src/styles' ]
-                    .map(d => path.join(__dirname, d))
-                    .map(g => glob.sync(g))
-                    .reduce((a, c) => a.concat(c), [])
-                }
-              }
-            }
+            'sass-loader'
           ]
         })
-      }
+      },
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/i,
+        use: ExtractTextPlugin.extract({
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 2 } },
+            'sass-loader'
+          ]
+        })
+      },
     ]
   },
   externals: [ 'react', 'react-dom', 'classnames', 'lodash', 'prop-types' ],
@@ -56,7 +56,8 @@ const config = {
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
       styles: path.resolve(__dirname, 'src/styles/'),
-      utils: path.resolve(__dirname, 'src/utils/')
+      assets: path.resolve(__dirname, 'src/assets'),
+      utils: path.resolve(__dirname, 'src/utils')
     }
   },
   optimization: {
