@@ -25,6 +25,7 @@ class NavAlt extends PureComponent {
     const txData = {};
     // localStorage && JSON.parse(localStorage.getItem('txlive:languages'));
     // const txLang = localStorage && JSON.parse(localStorage.getItem('txlive:selectedlang'));
+    const txLang = 'en';
     const languages =
       txData &&
       txData.source &&
@@ -36,7 +37,7 @@ class NavAlt extends PureComponent {
     this.state = {
       showHeader: false,
       languages,
-      lang: txLang || 'en',
+      lang: txLang,
       showLang: false,
       showMore: false,
       showMyGfw: false
