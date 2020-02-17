@@ -22,8 +22,8 @@ class NavAlt extends PureComponent {
   constructor(props) {
     super(props);
 
-    const txData = JSON.parse(localStorage.getItem('txlive:languages'));
-    const txLang = JSON.parse(localStorage.getItem('txlive:selectedlang'));
+    const txData = localStorage && JSON.parse(localStorage.getItem('txlive:languages'));
+    const txLang = localStorage && JSON.parse(localStorage.getItem('txlive:selectedlang'));
     const languages =
       txData &&
       txData.source &&
@@ -62,7 +62,7 @@ class NavAlt extends PureComponent {
   }
 
   handleLangSelect(lang) {
-    localStorage.setItem('txlive:selectedlang', `"${lang}"`);
+    localStorage && localStorage.setItem('txlive:selectedlang', `"${lang}"`);
     window.Transifex.live.translateTo(lang);
     this.setState({ lang, showLang: false, showMore: false });
     window.Transifex.live.onTranslatePage(newLang => {
