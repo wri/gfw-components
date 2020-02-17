@@ -8,7 +8,6 @@ class DropdownMenu extends PureComponent {
   render() {
     const { className, options, handleSelect, hideMenu, selected } = this.props;
 
-    console.log('otpios?', options);
     return (
       <ul className={`c-dropdown-menu ${className || ''}`}>
         {options &&
