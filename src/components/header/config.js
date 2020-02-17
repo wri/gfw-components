@@ -2,13 +2,6 @@ import gfwFires from 'assets/logos/gfw-fires.png';
 import gfwPro from 'assets/logos/gfw-pro.png';
 import forestWatcher from 'assets/logos/gfw-watcher.png';
 
-import developer from 'assets/icons/developer.svg';
-import howto from 'assets/icons/howto.svg';
-import sgf from 'assets/icons/sgf.svg';
-import openData from 'assets/icons/open-data.svg';
-import blog from 'assets/icons/blog.svg';
-import forum from 'assets/icons/forum.svg';
-
 export default {
   navMain: [
     {

@@ -13,10 +13,12 @@ import gfwLogo from 'assets/logos/gfw.png';
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 
+import config from './config';
+
 import './header.scss';
 import 'styles/grid.scss';
 
-class Header extends PureComponent {
+class HeaderComponent extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     setModalContactUsOpen: PropTypes.func,
@@ -134,6 +136,10 @@ class Header extends PureComponent {
       </Fragment>
     );
   }
+}
+
+const Header = () => {
+  return <HeaderComponent {...config} />
 }
 
 export default Header;
