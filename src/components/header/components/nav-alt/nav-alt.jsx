@@ -7,12 +7,6 @@ import Icon from 'components/icon';
 import DropdownMenu from 'components/header/components/dropdown-menu';
 import SubmenuPanel from 'components/header/components/submenu-panel';
 
-import arrowIcon from 'assets/icons/arrow-down.svg';
-import myGfwIcon from 'assets/icons/mygfw.svg';
-import closeIcon from 'assets/icons/close.svg';
-import moreIcon from 'assets/icons/more.svg';
-import menuIcon from 'assets/icons/menu.svg';
-
 import './nav-alt.scss';
 
 class NavAlt extends PureComponent {
@@ -113,9 +107,9 @@ class NavAlt extends PureComponent {
                     {(activeLang && activeLang.label) || 'English'}
                     <Icon
                       className={cx('icon-arrow', {
-                        active: showLang
+                       active: showLang
                       })}
-                      icon={arrowIcon}
+                      name="icon-arrow-down"
                     />
                   </button>
                   {showLang && (
@@ -144,7 +138,7 @@ class NavAlt extends PureComponent {
                       >
                         My GFW
                         <Icon
-                          icon={myGfwIcon}
+                          name="icon-mygfw"
                           className={cx({ 'logged-in': loggedIn })}
                         />
                       </a>
@@ -166,7 +160,7 @@ class NavAlt extends PureComponent {
                     >
                       My GFW
                       <Icon
-                        icon={myGfwIcon}
+                        name="icon-mygfw"
                         className={cx({ 'logged-in': loggedIn })}
                       />
                     </a>
@@ -179,7 +173,7 @@ class NavAlt extends PureComponent {
                 >
                   My GFW
                   <Icon
-                    icon={myGfwIcon}
+                    name="icon-mygfw"
                     className={cx({ 'logged-in': loggedIn })}
                   />
                 </a>
@@ -205,13 +199,13 @@ class NavAlt extends PureComponent {
               {isDesktop && (
                 <Icon
                   className={showMorePanel ? 'icon-close' : 'icon-more'}
-                  icon={showMorePanel ? closeIcon : moreIcon}
+                  name={showMorePanel ? "icon-close" : "icon-more"}
                 />
               )}
               {!isDesktop && (
                 <Icon
-                  className={showMorePanel ? 'icon-close' : 'icon-menu'}
-                  icon={showMorePanel ? closeIcon : menuIcon}
+                  className={showMorePanel ? "icon-close" : "icon-menu"}
+                  name={showMorePanel ? "icon-close" : "icon-menu"}
                 />
               )}
             </button>

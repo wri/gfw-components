@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'components/icon';
 import Button from 'components/button';
 import debounce from 'lodash/debounce';
 import cx from 'classnames';
-
-import searchIcon from 'assets/icons/search.svg';
-import closeIcon from 'assets/icons/close.svg';
+import Icon from 'components/icon';
 import './search.scss';
 import './themes/search-small.scss';
 
@@ -53,7 +50,7 @@ class Search extends Component {
           disabled={disabled}
         />
         <button onClick={onSubmit}>
-          <Icon icon={searchIcon} className="icon-search" />
+          <Icon name="icon-search" className="icon-search" />
         </button>
         {search && (
           <Button
@@ -61,7 +58,7 @@ class Search extends Component {
             theme="theme-button-clear theme-button-small square"
             onClick={() => this.handleChange('')}
           >
-            <Icon icon={closeIcon} className="icon-close" />
+            <Icon name="icon-close" className="icon-close" />
           </Button>
         )}
       </div>

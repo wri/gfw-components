@@ -89,32 +89,32 @@ export default {
     {
       label: 'Developer Tools',
       extLink: 'http://developers.globalforestwatch.org',
-      icon: developer
+      icon: 'icon-developer'
     },
     {
       label: 'How to Portal',
       extLink: 'https://www.globalforestwatch.org/howto',
-      icon: howto
+      icon: 'icon-howto'
     },
     {
       label: 'Grants & Fellowships',
       path: '/grants-and-fellowships',
-      icon: sgf
+      icon: 'icon-sgf'
     },
     {
       label: 'Open data portal',
       extLink: 'https://data.globalforestwatch.org/',
-      icon: openData
+      icon: 'icon-opendata'
     },
     {
       label: 'Blog',
       extLink: 'https://blog.globalforestwatch.org',
-      icon: blog
+      icon: 'icon-blog'
     },
     {
       label: 'Discussion Forum',
       extLink: 'https://groups.google.com/forum/#!forum/globalforestwatch',
-      icon: forum
+      icon: 'icon-forum'
     }
   ]
 };

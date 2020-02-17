@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isTouch } from 'utils/browser';
 import cx from 'classnames';
 
-import { Tooltip } from 'react-tippy';
-import Tip from 'components/tip';
+// import Tip from 'components/tip';
 // import { track } from 'app/analytics';
 
 import './button.scss';
@@ -46,7 +44,6 @@ const Button = props => {
     }
   };
 
-  const isDeviceTouch = isTouch();
   let button = null;
   if (extLink) {
     button = (
@@ -103,21 +100,6 @@ const Button = props => {
     );
   }
 
-  if (tooltip) {
-    return (
-      <Tooltip
-        theme="tip"
-        position="top"
-        arrow
-        disabled={isDeviceTouch}
-        html={<Tip text={tooltip.text} />}
-        hideOnClick
-        {...tooltip}
-      >
-        {button}
-      </Tooltip>
-    );
-  }
   return button;
 };
 

@@ -5,9 +5,6 @@ import cx from 'classnames';
 import Icon from 'components/icon';
 import Search from 'components/search';
 
-import moreIcon from 'assets/icons/more.svg';
-import myGfwIcon from 'assets/icons/mygfw.svg';
-
 import DropdownMenu from '../dropdown-menu';
 
 import './submenu-panel.scss';
@@ -76,7 +73,7 @@ class Header extends PureComponent {
               >
                 My GFW
                 <Icon
-                  icon={myGfwIcon}
+                  name="icon-mygfw"
                   className={cx({ 'logged-in': loggedIn })}
                 />
               </a>
@@ -128,7 +125,7 @@ class Header extends PureComponent {
                 className="app-card"
               >
                 <div className="all-apps">
-                  <Icon className="icon-more" icon={moreIcon} />
+                  <Icon className="icon-more" name="icon-more" />
                   Explore all apps
                 </div>
               </a>
@@ -141,7 +138,7 @@ class Header extends PureComponent {
                 <li key={m.label} className="column small-12 medium-4 large-3">
                   {m.path ? (
                     <a href={m.path} onClick={hideMenu}>
-                      <Icon icon={m.icon} />
+                      <Icon name={m.icon} />
                       {m.label}
                     </a>
                   ) : (
@@ -150,7 +147,7 @@ class Header extends PureComponent {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Icon icon={m.icon} />
+                      <Icon name={m.icon} />
                       {m.label}
                     </a>
                   )}

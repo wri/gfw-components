@@ -1,21 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import './icon.scss';
 
-const Icon = ({ icon, className }) => (
-  <svg className={`c-icon ${className}`} viewBox={icon.viewBox || '0 0 32 32'}>
-    <use xlinkHref={`#${icon.id || icon}`} />
-  </svg>
-);
+function Icon({ className = null, name }) {
+  return (
+    <svg className={cx('c-icon', { [className]: !!className })}>
+      <use xlinkHref={`#${name}`} />
+    </svg>
+  );
+}
 
 Icon.propTypes = {
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  name: PropTypes.string.isRequired,
   className: PropTypes.string
-};
-
-Icon.defaultProps = {
-  className: ''
 };
 
 export default Icon;

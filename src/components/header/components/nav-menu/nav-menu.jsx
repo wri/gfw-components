@@ -5,7 +5,6 @@ import OutsideClickHandler from 'react-outside-click-handler';
 
 import Icon from 'components/icon';
 import DropdownMenu from 'components/header/components/dropdown-menu';
-import arrowIcon from 'assets/icons/arrow-down.svg';
 
 import './nav-menu.scss';
 
@@ -58,12 +57,12 @@ class NavMenu extends PureComponent {
                     )
                   }
                 >
-                  <Icon
-                    className={cx('icon-arrow', {
-                      active: activeSubmenu === item.label
-                    })}
-                    icon={arrowIcon}
-                  />
+                <Icon
+                  className={cx('icon-arrow', {
+                    active: activeSubmenu === item.label
+                  })}
+                  name="icon-arrow-down"
+                />
                 </button>
                 {activeSubmenu === item.label && (
                   <DropdownMenu

@@ -1,7 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { SCREEN_M } from 'utils/constants';
+import Icons from 'components/icons';
+
 import MediaQuery from 'react-responsive';
 
 import gfwLogo from 'assets/logos/gfw.png';
@@ -61,72 +63,75 @@ class Header extends PureComponent {
     const { fullScreenOpen } = this.state;
 
     return (
-      <MediaQuery minWidth={SCREEN_M}>
-        {isDesktop => (
-          <div
-            className={cx(
-              'c-header',
-              { 'full-screen': fullScreen },
-              { 'full-screen-open': fullScreenOpen },
-              className
-            )}
-          >
-            <div className={cx('row', { expanded: fullScreen })}>
-              <div className="column small-12">
-                {!fullScreen || fullScreenOpen ? (
-                  <a href="/" className="logo">
-                    <img
-                      src={gfwLogo}
-                      alt="Global Forest Watch"
-                      width="76"
-                      height="76"
-                    />
-                  </a>
-                ) : (
-                  <button
-                    className="logo map-tour-main-menu"
-                    onClick={() => this.setState({ fullScreenOpen: true })}
-                  >
-                    <img
-                      src={gfwLogo}
-                      alt="Global Forest Watch"
-                      width="76"
-                      height="76"
-                    />
-                  </button>
-                )}
-                {(!fullScreen || fullScreenOpen) && (
-                  <div className="nav">
-                    {isDesktop &&
-                      !hideMenu && (
-                      <NavMenu
-                        className="nav-menu"
-                        menuItems={navMain}
-                        fullScreen={fullScreen}
+      <Fragment>
+        <Icons />
+        <MediaQuery minWidth={SCREEN_M}>
+          {isDesktop => (
+            <div
+              className={cx(
+                'c-header',
+                { 'full-screen': fullScreen },
+                { 'full-screen-open': fullScreenOpen },
+                className
+              )}
+            >
+              <div className={cx('row', { expanded: fullScreen })}>
+                <div className="column small-12">
+                  {!fullScreen || fullScreenOpen ? (
+                    <a href="/" className="logo">
+                      <img
+                        src={gfwLogo}
+                        alt="Global Forest Watch"
+                        width="76"
+                        height="76"
                       />
-                    )}
-                    <NavAlt
-                      showSubmenu={fullScreen && fullScreenOpen}
-                      closeSubMenu={() =>
-                        this.setState({ fullScreenOpen: false })
-                      }
-                      isDesktop={isDesktop}
-                      moreLinks={moreLinks}
-                      myGfwLinks={myGfwLinks}
-                      navMain={navMain}
-                      apps={apps}
-                      toggleContactUs={setModalContactUsOpen}
-                      loggedIn={loggedIn}
-                      setQueryToUrl={setQueryToUrl}
-                      setLangToUrl={setLangToUrl}
-                    />
-                  </div>
-                )}
+                    </a>
+                  ) : (
+                    <button
+                      className="logo map-tour-main-menu"
+                      onClick={() => this.setState({ fullScreenOpen: true })}
+                    >
+                      <img
+                        src={gfwLogo}
+                        alt="Global Forest Watch"
+                        width="76"
+                        height="76"
+                      />
+                    </button>
+                  )}
+                  {(!fullScreen || fullScreenOpen) && (
+                    <div className="nav">
+                      {isDesktop &&
+                        !hideMenu && (
+                        <NavMenu
+                          className="nav-menu"
+                          menuItems={navMain}
+                          fullScreen={fullScreen}
+                        />
+                      )}
+                      <NavAlt
+                        showSubmenu={fullScreen && fullScreenOpen}
+                        closeSubMenu={() =>
+                          this.setState({ fullScreenOpen: false })
+                        }
+                        isDesktop={isDesktop}
+                        moreLinks={moreLinks}
+                        myGfwLinks={myGfwLinks}
+                        navMain={navMain}
+                        apps={apps}
+                        toggleContactUs={setModalContactUsOpen}
+                        loggedIn={loggedIn}
+                        setQueryToUrl={setQueryToUrl}
+                        setLangToUrl={setLangToUrl}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </MediaQuery>
+          )}
+        </MediaQuery>
+      </Fragment>
     );
   }
 }

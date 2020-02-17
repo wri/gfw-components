@@ -7624,11 +7624,6 @@ pluralize@7.0.0, pluralize@^7.0.0:
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
   integrity sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
 
-popper.js@^1.11.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
-  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
-
 portfinder@^1.0.25:
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.25.tgz#254fd337ffba869f4b9d37edc298059cb4d35eca"
@@ -8556,13 +8551,6 @@ react-styleguidist@7.1.0:
     unist-util-visit "^1.3.1"
     webpack-dev-server "^2.11.2"
     webpack-merge "^4.1.3"
-
-react-tippy@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/react-tippy/-/react-tippy-1.3.4.tgz#9db14375ef696017d33aaf24b444b3dbb0168b2a"
-  integrity sha512-56eLAtcNoRBOmMessnm3U6PF//OqbqKp1oxwjoOwi/JKqo/y132zNcIl8QQCMnS6ITa3c6ZVaRAq4K1FGhloJQ==
-  dependencies:
-    popper.js "^1.11.1"
 
 react@16.8.0:
   version "16.8.0"
@@ -10482,11 +10470,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-ua-parser-js@^0.7.21:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
-  integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
 
 uglify-es@^3.3.4:
   version "3.3.9"
