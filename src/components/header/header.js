@@ -104,7 +104,8 @@ class HeaderComponent extends PureComponent {
                   {(!fullScreen || fullScreenOpen) && (
                     <div className="nav">
                       {isDesktop &&
-                        !hideMenu && (
+                        !hideMenu &&
+                        navMain && (
                         <NavMenu
                           className="nav-menu"
                           menuItems={navMain}
