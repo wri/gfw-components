@@ -39,6 +39,11 @@ $full-screen-height: rem(76px);
     @media screen and (min-width: 850px) {
       padding-left: rem(100px);
     }
+
+    // do not display on mobile
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   li {

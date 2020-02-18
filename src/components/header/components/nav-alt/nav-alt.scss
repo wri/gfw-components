@@ -4,6 +4,21 @@
   overflow: hidden;
 }
 
+.render-on-desktop {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.render-on-mobile {
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
+
 .c-nav-alt {
   display: flex;
   justify-content: flex-end;
@@ -20,7 +35,7 @@
     padding-left: rem(10px);
   }
 
-  > li {
+  * > li, > li {
     margin-left: rem(20px);
     position: relative;
     font-size: rem(12px);

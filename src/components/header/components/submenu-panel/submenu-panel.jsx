@@ -31,7 +31,6 @@ class Header extends PureComponent {
       moreLinks,
       showSubmenu,
       onClick,
-      isMobile,
       navMain,
       activeLang,
       languages,
@@ -59,7 +58,7 @@ class Header extends PureComponent {
             onChange={this.handleSearchChange}
             onSubmit={this.handleSubmit}
           />
-          {isMobile && (
+          <div className="render-on-mobile">
             <div className="menu-section">
               <DropdownMenu
                 className="sub-menu -plain"
@@ -78,8 +77,8 @@ class Header extends PureComponent {
                 />
               </a>
             </div>
-          )}
-          {isMobile && (
+          </div>
+          <div className="render-on-mobile">
             <div className="menu-section">
               <h4>Select a language</h4>
               <DropdownMenu
@@ -91,15 +90,16 @@ class Header extends PureComponent {
                 }}
               />
             </div>
-          )}
-          {isMobile &&
-            !loggedIn && (
-            <div className="menu-section">
-              <a className="nav-link" href="/my-gfw">
-                  My GFW
-              </a>
-            </div>
-          )}
+          </div>
+          <div className="render-on-mobile">
+            {!loggedIn && (
+              <div className="menu-section">
+                <a className="nav-link" href="/my-gfw">
+                    My GFW
+                </a>
+              </div>
+            )}
+          </div>
           <div className="menu-section">
             <h4>Other applications</h4>
             <div className="apps-slider">
@@ -178,7 +178,6 @@ Header.propTypes = {
   moreLinks: PropTypes.array,
   showSubmenu: PropTypes.bool,
   onClick: PropTypes.func,
-  isMobile: PropTypes.bool,
   navMain: PropTypes.array,
   activeLang: PropTypes.object,
   languages: PropTypes.array,

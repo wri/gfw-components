@@ -97,7 +97,7 @@ export default {
     {
       label: 'Open data portal',
       extLink: 'https://data.globalforestwatch.org/',
-      icon: 'icon-opendata'
+      icon: 'icon-open-data'
     },
     {
       label: 'Blog',

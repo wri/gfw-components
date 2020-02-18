@@ -1,5 +1,17 @@
 @import 'styles/settings.scss';
 
+.render-on-desktop {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.render-on-mobile {
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
+
 .c-submenu-panel {
   background-color: $white;
   padding: rem(40px) rem(16px) rem(20px);

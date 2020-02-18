@@ -11,7 +11,6 @@ import './nav-alt.scss';
 
 class NavAlt extends PureComponent {
   static propTypes = {
-    isDesktop: PropTypes.bool,
     loggedIn: PropTypes.bool,
     showSubmenu: PropTypes.bool,
     closeSubMenu: PropTypes.func,
@@ -82,20 +81,14 @@ class NavAlt extends PureComponent {
   };
 
   render() {
-    const { isDesktop, showSubmenu, loggedIn, myGfwLinks } = this.props;
+    const { showSubmenu, loggedIn, myGfwLinks } = this.props;
     const { showLang, showMore, showMyGfw, languages, lang } = this.state;
     const activeLang = languages && languages.find(l => l.value === lang);
     const showMorePanel = showMore || showSubmenu;
-    let moreMenuText = 'menu';
-    if (showSubmenu && isDesktop) {
-      moreMenuText = 'close';
-    } else if (isDesktop) {
-      moreMenuText = 'more';
-    }
 
     return (
       <ul className={cx('c-nav-alt', { 'full-screen': showSubmenu })}>
-        {isDesktop && (
+        <div className="render-on-desktop">
           <Fragment>
             <li className="alt-link">
               <OutsideClickHandler
@@ -186,7 +179,7 @@ class NavAlt extends PureComponent {
               )}
             </li>
           </Fragment>
-        )}
+        </div>
         <li className="alt-link">
           <OutsideClickHandler
             onOutsideClick={() => this.setState({ showMore: false })}
@@ -201,24 +194,33 @@ class NavAlt extends PureComponent {
                 }
               }}
             >
-              {moreMenuText}
-              {isDesktop && (
+              <span className="render-on-mobile">
+                menu
+              </span>
+              {showSubmenu && (
+                <span className="render-on-desktop">
+                  close
+                </span>
+              )}
+              <div className="render-on-desktop">
+                more
+              </div>
+              <div className="render-on-desktop">
                 <Icon
                   className={showMorePanel ? 'icon-close' : 'icon-more'}
                   name={showMorePanel ? "icon-close" : "icon-more"}
                 />
-              )}
-              {!isDesktop && (
+              </div>
+              <div className="render-on-mobile">
                 <Icon
                   className={showMorePanel ? "icon-close" : "icon-menu"}
                   name={showMorePanel ? "icon-close" : "icon-menu"}
                 />
-              )}
+              </div>
             </button>
             {showMorePanel && (
               <SubmenuPanel
                 className="submenu-panel"
-                isMobile={!isDesktop}
                 languages={languages}
                 activeLang={activeLang}
                 handleLangSelect={this.handleLangSelect}
