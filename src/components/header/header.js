@@ -15,8 +15,8 @@ import NavAlt from './components/nav-alt';
 
 import config from './config';
 
+import 'styles/index.scss';
 import './header.scss';
-import 'styles/grid.scss';
 
 class HeaderComponent extends PureComponent {
   static propTypes = {

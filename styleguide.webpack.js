@@ -1,4 +1,5 @@
 const path = require('path');
+const glob = require('glob');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
 module.exports = {
@@ -27,7 +28,14 @@ module.exports = {
           'style-loader',
           { loader: 'css-loader', options: { importLoaders: 2 } },
           'resolve-url-loader',
-          'sass-loader'
+          { 
+            loader: 'sass-loader',
+            options: {
+            includePaths: [ './node_modules', './src/styles' ]
+                .map(d => path.join(__dirname, d))
+                .map(g => glob.sync(g))
+                .reduce((a, c) => a.concat(c), [])
+          } }
         ],
       },
       {

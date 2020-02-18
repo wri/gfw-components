@@ -1,4 +1,5 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -28,7 +29,15 @@ const config = {
         use: ExtractTextPlugin.extract({
           use: [
             { loader: 'css-loader', options: { importLoaders: 2 } },
-            'sass-loader'
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [ './node_modules', './src/styles' ]
+                    .map(d => path.join(__dirname, d))
+                    .map(g => glob.sync(g))
+                    .reduce((a, c) => a.concat(c), [])
+              }
+            }
           ]
         })
       },
