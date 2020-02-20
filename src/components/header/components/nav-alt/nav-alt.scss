@@ -44,6 +44,10 @@
       margin-left: rem(30px);
     }
 
+    @media screen and (max-width: 758px) {
+      margin-left: 0;
+    }
+
     svg {
       margin-top: -1px;
       margin-left: rem(5px);

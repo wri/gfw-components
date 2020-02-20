@@ -133,7 +133,7 @@ class Header extends PureComponent {
           </div>
           <div className="menu-section">
             <h4>More in GFW</h4>
-            <ul className="row more-links">
+            <ul className="row more-links m-display-block">
               {moreLinks.map(m => (
                 <li key={m.label} className="column small-12 medium-4 large-3">
                   {m.path ? (
