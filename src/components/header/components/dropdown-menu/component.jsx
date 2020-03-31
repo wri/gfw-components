@@ -1,92 +1,114 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import OutsideClickHandler from 'react-outside-click-handler';
 
-import { APP_URL } from 'utils/constants';
+import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import './styles.scss';
 
 class DropdownMenu extends PureComponent {
   static propTypes = {
-    className: PropTypes.string,
+    label: PropTypes.string,
+    selected: PropTypes.object,
     options: PropTypes.array,
     handleSelect: PropTypes.func,
-    hideMenu: PropTypes.func,
-    selected: PropTypes.object,
+    appUrl: PropTypes.string,
+    active: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
+  state = {
+    open: false
+  }
+
   render() {
     const {
-      className,
+      label,
+      selected,
       options,
       handleSelect,
-      hideMenu,
-      selected,
       NavLinkComponent,
+      appUrl,
+      active,
+      pathname
     } = this.props;
+    const { open } = this.state;
 
     return (
-      <ul className={`c-dropdown-menu ${className || ''}`}>
-        {options &&
-          options.map((l) => (
-            <li
-              key={l.value || l.label}
-              className={cx({ active: selected && selected.value === l.value })}
-            >
-              {handleSelect || l.onSelect ? (
-                <button
-                  onClick={(e) =>
-                    l.onSelect ? l.onSelect(e) : handleSelect(l.value)}
-                >
-                  {l.label}
-                </button>
-              ) : (
-                <Fragment>
-                  {l.href && (
-                    <Fragment>
-                      {NavLinkComponent ? (
-                        <NavLinkComponent
-                          href={l.href}
-                          as={l.as}
-                          activeClassName="active"
-                          className="nested"
-                        >
-                          <button onClick={hideMenu}>{l.label}</button>
-                        </NavLinkComponent>
-                      ) : (
-                        <a
-                          href={`${APP_URL}${l.as || l.href}`}
-                          className={cx(
-                            {
-                              active:
-                                typeof window !== 'undefined' &&
-                                window.location.pathname.includes(
-                                  l.as || l.href
-                                ),
-                            },
-                            'nested'
-                          )}
-                        >
-                          <button onClick={hideMenu}>{l.label}</button>
-                        </a>
-                      )}
-                    </Fragment>
-                  )}
-                  {l.extLink && (
-                    <a
-                      href={l.extLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {l.label}
-                    </a>
-                  )}
-                </Fragment>
-              )}
-            </li>
-          ))}
-      </ul>
+      <div className="c-dropdown-menu">
+        <OutsideClickHandler
+          onOutsideClick={() => this.setState({ open: false })}
+        >
+          <button
+            className={cx('nav-link', { active })}
+            onClick={() => this.setState({ open: !open })}
+            aria-label={label}
+          >
+            {label}
+            <ArrowIcon className={cx('icon-arrow', { active: open })} />
+          </button>
+          {open &&
+            <ul className="dropdown-menu">
+              {options &&
+                options.map((l) => (
+                  <li
+                    key={l.value || l.label}
+                    className={cx({ active: selected && selected.value === l.value })}
+                  >
+                    {l.onClick ? (
+                      <button onClick={() => {
+                        l.onClick(l.value);
+                        this.setState({ open: false })
+                      }}
+                      >
+                        {l.label}
+                      </button>
+                    ) : (
+                      <Fragment>
+                        {l.href && (
+                          <Fragment>
+                            {NavLinkComponent ? (
+                              <NavLinkComponent
+                                href={l.href}
+                                as={l.as}
+                                activeClassName="active"
+                                className="nested"
+                              >
+                                <button onClick={() => this.setState({ open: false })}>{l.label}</button>
+                              </NavLinkComponent>
+                            ) : (
+                              <a
+                                href={`${appUrl}${l.as || l.href}`}
+                                className={cx(
+                                  {
+                                    active: pathname && pathname.includes(l.as || l.href)
+                                  },
+                                  'nested'
+                                )}
+                              >
+                                <button onClick={() => this.setState({ open: false })}>{l.label}</button>
+                              </a>
+                            )}
+                          </Fragment>
+                        )}
+                        {l.extLink && (
+                          <a
+                            href={l.extLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {l.label}
+                          </a>
+                        )}
+                      </Fragment>
+                    )}
+                  </li>
+                ))}
+            </ul>
+          }
+        </OutsideClickHandler>
+      </div>
     );
   }
 }

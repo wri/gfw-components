@@ -64,21 +64,11 @@ $full-screen-height: rem(76px);
           background-color: $green-gfw;
         }
       }
-
-      &.hidden {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-      }
     }
 
     .nav-link,
-    .menu-link {
+    .menu-link,
+    > div {
       position: relative;
       font-family: $font-family-1;
       color: $slate;

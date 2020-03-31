@@ -5,12 +5,13 @@ import cx from 'classnames';
 import { Media, mediaStyles, MediaContextProvider } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
 
-import config from './config';
+import defaultConfig from './config';
 import gfwLogo from 'assets/logos/gfw.png?webp';
 import Developer from 'assets/icons/developer.svg?sprite';
 
+import NavLink from 'components/header/components/nav-link';
 import NavMenu from './components/nav-menu';
-// import NavAlt from './components/nav-alt';
+import NavAlt from './components/nav-alt';
 // import SubmenuPanel from './components/submenu-panel';
 
 import './styles.scss';
@@ -18,28 +19,23 @@ import './styles.scss';
 class Header extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    navMain: PropTypes.array.isRequired,
-    apps: PropTypes.array.isRequired,
-    moreLinks: PropTypes.array.isRequired,
-    fullScreen: PropTypes.bool,
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
-    hideMenu: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
-    myGfwLinks: PropTypes.array.isRequired,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     openContactUsModal: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     className: '',
-    fullScreen: false,
     loggedIn: false,
-    hideMenu: false,
+    appUrl: APP_URL,
+    config: defaultConfig
   };
 
   state = {
-    fullScreenOpen: false,
+    pathname: '',
+    showSubmenu: false
   };
 
   // componentDidMount() {
@@ -50,16 +46,11 @@ class Header extends PureComponent {
   //   $style.innerHTML = mediaStyles;
   // }
 
-  componentDidUpdate(prevProps) {
-    const { fullScreen } = this.props;
-    if (fullScreen && !prevProps.fullScreen) {
-      this.closeFullScreen();
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      this.setState({ pathname: window.location.pathname })
     }
   }
-
-  closeFullScreen = () => {
-    this.setState({ fullScreenOpen: false });
-  };
 
   render() {
     const {
@@ -70,98 +61,62 @@ class Header extends PureComponent {
       setQueryToUrl,
       loggingIn,
       NavLinkComponent,
+      appUrl,
+      config
     } = this.props;
     const {
       moreLinks,
       myGfwLinks,
       apps,
-      navMain
-    } = config;
-    const { fullScreenOpen } = this.state;
+      navMain,
+      languages
+    } = config || {};
+    const { showSubmenu } = this.state;
 
     return (
       <MediaContextProvider>
-        <div
-          className={cx(
-            'c-header',
-            { 'full-screen': fullScreen },
-            { 'full-screen-open': fullScreenOpen },
-            className
-          )}
-        >
-          <div className={cx('row', { expanded: fullScreen })}>
+        <div className={cx('c-header', className)}>
+          <div className="row">
             <div className="column small-12 ">
-              {!fullScreen || fullScreenOpen ? (
-                <Fragment>
-                  {NavLinkComponent ? (
-                    <NavLinkComponent href="/" className="logo">
-                      <img
-                        src={gfwLogo}
-                        alt="Global Forest Watch"
-                        width="76"
-                        height="76"
-                      />
-                    </NavLinkComponent>
-                  ) : (
-                    <a href={APP_URL} className="logo">
-                      <img
-                        src={gfwLogo}
-                        alt="Global Forest Watch"
-                        width="76"
-                        height="76"
-                      />
-                    </a>
-                  )}
-                </Fragment>
-              ) : (
-                <button
-                  className="logo map-tour-main-menu"
-                  onClick={() => this.setState({ fullScreenOpen: true })}
-                  type="button"
-                >
-                  <img
-                    src={gfwLogo}
-                    alt="Global Forest Watch"
-                    width="76"
-                    height="76"
-                  />
-                </button>
-              )}
-              {(!fullScreen || fullScreenOpen) && (
-                <div className="nav">
+              <NavLink className="logo" href="/" appUrl={appUrl}>
+                <img
+                  src={gfwLogo}
+                  alt="Global Forest Watch"
+                  width="76"
+                  height="76"
+                />
+              </NavLink>
+              <div className="nav">
+                {navMain &&
                   <Media greaterThanOrEqual="md" className="nav-menu">
                     <NavMenu
+                      {...this.props}
+                      {...this.state}
                       menuItems={navMain}
-                      fullScreen={fullScreen}
-                      NavLinkComponent={NavLinkComponent}
                     />
                   </Media>
-                  {/* <NavAlt
-                    showSubmenu={fullScreen && fullScreenOpen}
-                    closeSubMenu={() => this.setState({ fullScreenOpen: false })}
-                    moreLinks={moreLinks}
-                    myGfwLinks={myGfwLinks}
-                    navMain={navMain}
-                    apps={apps}
-                    openContactUsModal={openContactUsModal}
-                    loggedIn={loggedIn}
-                    loggingIn={loggingIn}
-                    setQueryToUrl={setQueryToUrl}
-                    NavLinkComponent={NavLinkComponent}
-                  /> */}
-                </div>
-              )}
+                }
+                <NavAlt
+                  languages={languages}
+                  closeSubMenu={() => this.setState({ showSubmenu: false })}
+                  loggedIn={loggedIn}
+                  loggingIn={loggingIn}
+                  NavLinkComponent={NavLinkComponent}
+                />
+              </div>
             </div>
           </div>
-          {/* <SubmenuPanel
-            relative
-            className="submenu-panel"
-            languages={[]}
-            activeLang="en"
-            handleLangSelect={this.handleLangSelect}
-            hideMenu={this.handleCloseSubmenu}
-            {...config}
-          /> */}
+          {/* {showSubmenu &&
+            <SubmenuPanel
+              relative
+              className="submenu-panel"
+              languages={[]}
+              activeLang="en"
+              handleLangSelect={this.handleLangSelect}
+              hideMenu={this.handleCloseSubmenu}
+              {...config}
+            />
+          } */}
         </div>
       </MediaContextProvider>
     );

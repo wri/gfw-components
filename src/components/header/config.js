@@ -128,4 +128,30 @@ export default {
       icon: forum,
     },
   ],
+  languages: [
+    {
+      label: 'English',
+      value: 'en'
+    },
+    {
+      label: '中文',
+      value: 'zh'
+    },
+    {
+      label: 'Français',
+      value: 'fr'
+    },
+    {
+      label: 'Bahasa Indonesia',
+      value: 'id'
+    },
+    {
+      label: 'Português (Brasil)',
+      value: 'pt_BR'
+    },
+    {
+      label: 'Español (Mexico)',
+      value: 'es_MX'
+    },
+  ]
 };
