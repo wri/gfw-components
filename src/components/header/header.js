@@ -1,38 +1,54 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Icons from 'components/icons';
 
-import gfwLogo from 'assets/logos/gfw.png';
-// import ContactUs from 'components/modals/contact-us';
-// import ClimateModal from 'components/modals/climate';
-
-import NavMenu from './components/nav-menu';
-import NavAlt from './components/nav-alt';
+import { Media, mediaStyles, MediaContextProvider } from 'utils/responsive';
+import { APP_URL } from 'utils/constants';
 
 import config from './config';
+import gfwLogo from 'assets/logos/gfw.png?webp';
+import Developer from 'assets/icons/developer.svg?sprite';
 
-import 'styles/index.scss';
-import './header.scss';
+import NavMenu from './components/nav-menu';
+// import NavAlt from './components/nav-alt';
+// import SubmenuPanel from './components/submenu-panel';
 
-class HeaderComponent extends PureComponent {
+import './styles.scss';
+
+class Header extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    setModalContactUsOpen: PropTypes.func,
-    navMain: PropTypes.array,
-    apps: PropTypes.array,
-    moreLinks: PropTypes.array,
+    navMain: PropTypes.array.isRequired,
+    apps: PropTypes.array.isRequired,
+    moreLinks: PropTypes.array.isRequired,
     fullScreen: PropTypes.bool,
     loggedIn: PropTypes.bool,
+    loggingIn: PropTypes.bool,
     hideMenu: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
-    setLangToUrl: PropTypes.func,
-    myGfwLinks: PropTypes.array
+    myGfwLinks: PropTypes.array.isRequired,
+    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    openContactUsModal: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    className: '',
+    fullScreen: false,
+    loggedIn: false,
+    hideMenu: false,
   };
 
   state = {
-    fullScreenOpen: false
+    fullScreenOpen: false,
   };
+
+  // componentDidMount() {
+  //   console.log(mediaStyles);
+  //   const $style = document.createElement("style");
+  //   document.head.appendChild($style);
+  //   $style.type = 'text/css';
+  //   $style.innerHTML = mediaStyles;
+  // }
 
   componentDidUpdate(prevProps) {
     const { fullScreen } = this.props;
@@ -41,29 +57,30 @@ class HeaderComponent extends PureComponent {
     }
   }
 
-  closeFullScreen() {
+  closeFullScreen = () => {
     this.setState({ fullScreenOpen: false });
   };
 
   render() {
     const {
       className,
-      hideMenu,
-      navMain,
-      moreLinks,
-      myGfwLinks,
-      apps,
-      setModalContactUsOpen,
+      openContactUsModal,
       loggedIn,
       fullScreen,
       setQueryToUrl,
-      setLangToUrl
+      loggingIn,
+      NavLinkComponent,
     } = this.props;
+    const {
+      moreLinks,
+      myGfwLinks,
+      apps,
+      navMain
+    } = config;
     const { fullScreenOpen } = this.state;
 
     return (
-      <Fragment>
-        <Icons />
+      <MediaContextProvider>
         <div
           className={cx(
             'c-header',
@@ -73,20 +90,34 @@ class HeaderComponent extends PureComponent {
           )}
         >
           <div className={cx('row', { expanded: fullScreen })}>
-            <div className="column small-12">
+            <div className="column small-12 ">
               {!fullScreen || fullScreenOpen ? (
-                <a href="/" className="logo">
-                  <img
-                    src={gfwLogo}
-                    alt="Global Forest Watch"
-                    width="76"
-                    height="76"
-                  />
-                </a>
+                <Fragment>
+                  {NavLinkComponent ? (
+                    <NavLinkComponent href="/" className="logo">
+                      <img
+                        src={gfwLogo}
+                        alt="Global Forest Watch"
+                        width="76"
+                        height="76"
+                      />
+                    </NavLinkComponent>
+                  ) : (
+                    <a href={APP_URL} className="logo">
+                      <img
+                        src={gfwLogo}
+                        alt="Global Forest Watch"
+                        width="76"
+                        height="76"
+                      />
+                    </a>
+                  )}
+                </Fragment>
               ) : (
                 <button
                   className="logo map-tour-main-menu"
                   onClick={() => this.setState({ fullScreenOpen: true })}
+                  type="button"
                 >
                   <img
                     src={gfwLogo}
@@ -98,39 +129,43 @@ class HeaderComponent extends PureComponent {
               )}
               {(!fullScreen || fullScreenOpen) && (
                 <div className="nav">
-                  {!hideMenu && navMain && (
+                  <Media greaterThanOrEqual="md" className="nav-menu">
                     <NavMenu
-                      className="nav-menu"
                       menuItems={navMain}
                       fullScreen={fullScreen}
+                      NavLinkComponent={NavLinkComponent}
                     />
-                  )}
-                  <NavAlt
+                  </Media>
+                  {/* <NavAlt
                     showSubmenu={fullScreen && fullScreenOpen}
-                    closeSubMenu={() =>
-                      this.setState({ fullScreenOpen: false })
-                    }
+                    closeSubMenu={() => this.setState({ fullScreenOpen: false })}
                     moreLinks={moreLinks}
                     myGfwLinks={myGfwLinks}
                     navMain={navMain}
                     apps={apps}
-                    toggleContactUs={setModalContactUsOpen}
+                    openContactUsModal={openContactUsModal}
                     loggedIn={loggedIn}
+                    loggingIn={loggingIn}
                     setQueryToUrl={setQueryToUrl}
-                    setLangToUrl={setLangToUrl}
-                  />
+                    NavLinkComponent={NavLinkComponent}
+                  /> */}
                 </div>
               )}
             </div>
           </div>
+          {/* <SubmenuPanel
+            relative
+            className="submenu-panel"
+            languages={[]}
+            activeLang="en"
+            handleLangSelect={this.handleLangSelect}
+            hideMenu={this.handleCloseSubmenu}
+            {...config}
+          /> */}
         </div>
-      </Fragment>
+      </MediaContextProvider>
     );
   }
-}
-
-const Header = () => {
-  return <HeaderComponent {...config} />
 }
 
 export default Header;

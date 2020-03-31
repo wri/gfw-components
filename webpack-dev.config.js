@@ -22,7 +22,12 @@ const config = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: [ { loader: 'svg-sprite-loader' } ] },
+      { test: /\.svg$/, use: [ { loader: '@svgr/webpack', options: {
+        svgoConfig: {
+          plugins: {
+            removeViewBox: false
+          }
+        }}, } ] },
       {
         test: /\.scss$/,
         exclude: /\.module\.scss$/i,

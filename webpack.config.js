@@ -19,7 +19,7 @@ const config = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: [ { loader: 'svg-sprite-loader' } ] },
+      { test: /\.svg$/, use: [ { loader: '@svgr/webpack' } ] },
       {
         test: /\.module\.scss$/i,
         use: ExtractTextPlugin.extract({
@@ -27,7 +27,7 @@ const config = {
             {
               loader: 'css-loader',
               options: {
-                modules: { 
+                modules: {
                   localIdentName: 'gfw__[name]_[local]'
                 },
                 importLoaders: 2

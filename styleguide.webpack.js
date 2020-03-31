@@ -19,7 +19,7 @@ module.exports = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: 'svg-sprite-loader' },
+      { test: /\.svg$/, use: '@svgr/webpack' },
       {
         // For pure CSS (without CSS modules)
         test: /\.scss$/i,
@@ -28,7 +28,7 @@ module.exports = {
           'style-loader',
           { loader: 'css-loader', options: { importLoaders: 2 } },
           'resolve-url-loader',
-          { 
+          {
             loader: 'sass-loader',
             options: {
             includePaths: [ './node_modules', './src/styles' ]
