@@ -5,11 +5,10 @@ import cx from 'classnames';
 import { APP_URL } from 'utils/constants';
 import { Media } from 'utils/responsive';
 
-import Icon from 'components/icon';
 import Search from 'components/search';
 
-import moreIcon from 'assets/icons/more.svg?sprite';
-import myGfwIcon from 'assets/icons/mygfw.svg?sprite';
+import MoreIcon from 'assets/icons/more.svg?sprite';
+import MyGfwIcon from 'assets/icons/mygfw.svg?sprite';
 
 import DropdownMenu from '../dropdown-menu';
 
@@ -111,8 +110,7 @@ class Header extends PureComponent {
               >
                 <button onClick={hideMenu}>
                   My GFW
-                  <Icon
-                    icon={myGfwIcon}
+                  <MyGfwIcon
                     className={cx({ 'logged-in': loggedIn })}
                   />
                 </button>
@@ -128,8 +126,7 @@ class Header extends PureComponent {
               >
                 <button onClick={hideMenu}>
                   My GFW
-                  <Icon
-                    icon={myGfwIcon}
+                  <MyGfwIcon
                     className={cx({ 'logged-in': loggedIn })}
                   />
                 </button>
@@ -174,7 +171,7 @@ class Header extends PureComponent {
                 className="app-card"
               >
                 <div className="all-apps">
-                  <Icon className="icon-more" icon={moreIcon} />
+                  <MoreIcon className="icon-more" icon={moreIcon} />
                   Explore all apps
                 </div>
               </a>
@@ -190,7 +187,7 @@ class Header extends PureComponent {
                       {NavLinkComponent ? (
                         <NavLinkComponent href={m.href}>
                           <button onClick={hideMenu}>
-                            <Icon icon={m.icon} />
+                            <m.icon/>
                             {m.label}
                           </button>
                         </NavLinkComponent>
@@ -204,7 +201,7 @@ class Header extends PureComponent {
                           })}
                         >
                           <button onClick={hideMenu}>
-                            <Icon icon={m.icon} />
+                            <m.icon />
                             {m.label}
                           </button>
                         </a>
@@ -216,7 +213,7 @@ class Header extends PureComponent {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Icon icon={m.icon} />
+                      <m.icon />
                       {m.label}
                     </a>
                   )}

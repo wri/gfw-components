@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import Button from 'components/button';
 import debounce from 'lodash/debounce';
 import cx from 'classnames';
-import Icon from 'components/icon';
+
+import SearchIcon from 'assets/icons/search.svg';
+
 import './search.scss';
 import './themes/search-small.scss';
 
@@ -58,7 +60,7 @@ class Search extends Component {
             theme="theme-button-clear theme-button-small square"
             onClick={() => this.handleChange('')}
           >
-            <Icon name="icon-close" className="icon-close" />
+            <SearchIcon className="icon-close" />
           </Button>
         )}
       </div>

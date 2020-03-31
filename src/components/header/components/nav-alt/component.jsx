@@ -6,13 +6,12 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { Media } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
 
-import Icon from 'components/icon';
 import DropdownMenu from 'components/header/components/dropdown-menu';
 import NavLink from 'components/header/components/nav-link';
 import SubmenuPanel from 'components/header/components/submenu-panel';
 
 import arrowIcon from 'assets/icons/arrow-down.svg?sprite';
-import myGfwIcon from 'assets/icons/mygfw.svg?sprite';
+import MyGfwIcon from 'assets/icons/mygfw.svg?sprite';
 import closeIcon from 'assets/icons/close.svg?sprite';
 import moreIcon from 'assets/icons/more.svg?sprite';
 import menuIcon from 'assets/icons/menu.svg?sprite';
@@ -102,8 +101,7 @@ class NavAlt extends PureComponent {
             NavLinkComponent={NavLinkComponent}
           >
             My GFW
-            <Icon
-              icon={myGfwIcon}
+            <MyGfwIcon
               className={cx({ 'logged-in': loggedIn })}
             />
           </NavLink>
