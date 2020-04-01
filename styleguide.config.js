@@ -14,11 +14,12 @@ module.exports = {
       linkHover: '#97BD3D',
       border: '#e5e5df',
       error: '#ed1846',
-      baseBackground: '#fff'
+      baseBackground: '#fff',
+      focus: 'transparent'
     },
     fontFamily: { base: '"Fira Sans", Arial, sans-serif' },
     fontSize: {
-      base: 18,
+      base: 16,
       text: 16,
       small: 14,
       h1: 60,
@@ -29,7 +30,7 @@ module.exports = {
     }
   },
   styles: {
-    StyleGuide: { sidebar: { backgroundColor: '#ffffff', color: '#97BD3D' } },
+    StyleGuide: { sidebar: { backgroundColor: '#ffffff', color: '#555' } },
     Logo: { logo: { color: '#97BD3D' } }
   },
   template: {
