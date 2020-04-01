@@ -6,13 +6,34 @@ const webpackConfig = require('./styleguide.webpack.js');
 const { version } = require('./package.json');
 
 module.exports = {
-  title: `GFW components | ${version}`,
-  theme: { color: { link: '#97BD3D', linkHover: '#97BD3D' } },
+  title: `Global Forest Watch Components | ${version}`,
+  theme: {
+    color: {
+      base: '#555',
+      link: '#97BD3D',
+      linkHover: '#97BD3D',
+      border: '#e5e5df',
+      error: '#ed1846',
+      baseBackground: '#fff'
+    },
+    fontFamily: { base: '"Fira Sans", Arial, sans-serif' },
+    fontSize: {
+      base: 18,
+      text: 16,
+      small: 14,
+      h1: 60,
+      h2: 48,
+      h3: 36,
+      h4: 18,
+      h5: 12
+    }
+  },
   styles: {
-    StyleGuide: { sidebar: { backgroundColor: '#333333', color: '#97BD3D' } },
+    StyleGuide: { sidebar: { backgroundColor: '#ffffff', color: '#97BD3D' } },
     Logo: { logo: { color: '#97BD3D' } }
   },
   template: {
+    favicon: '/public/favicon.ico',
     head: {
       links: [
         {
@@ -30,5 +51,6 @@ module.exports = {
 
     return `import { ${upperFirst(componentName)} } from 'gfw-components';`;
   },
+  styleguideComponents: { Logo: path.join(__dirname, 'src/styleguide/logo') },
   webpackConfig
 };
