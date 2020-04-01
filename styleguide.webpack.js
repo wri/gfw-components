@@ -19,7 +19,15 @@ module.exports = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: '@svgr/webpack' },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: { svgoConfig: { plugins: { removeViewBox: false } } }
+          }
+        ]
+      },
       {
         // For pure CSS (without CSS modules)
         test: /\.scss$/i,
