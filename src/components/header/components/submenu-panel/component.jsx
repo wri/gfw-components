@@ -52,8 +52,6 @@ class Header extends PureComponent {
     const { openContactUsModal } = this.props;
     if (openContactUsModal) {
       openContactUsModal();
-    } else {
-      window.location.href = `https://www.globalforestwatch.org/search?query=${this.state.search}`;
     }
   };
 
@@ -118,7 +116,7 @@ class Header extends PureComponent {
             <ul>
               {
                 languages && languages.map(item => (
-                  <li className="nav-item">
+                  <li key={item.label} className="nav-item">
                     <button
                       className={cx({
                           active: activeLang && activeLang.label === item.label

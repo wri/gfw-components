@@ -6,14 +6,23 @@ import cx from 'classnames';
 
 import SearchIcon from 'assets/icons/search.svg';
 
-import './search.scss';
+import './styles.scss';
 import './themes/search-small.scss';
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { search: props.input };
-  }
+  static propTypes = {
+    input: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    disabled: PropTypes.bool,
+    className: PropTypes.string,
+    theme: PropTypes.string
+  };
+
+  static defaultProps = { input: '' };
+
+  state = { search: this.props.input };
 
   handleChange = value => {
     this.setState({ search: value });
@@ -70,17 +79,5 @@ class Search extends Component {
     );
   }
 }
-
-Search.propTypes = {
-  input: PropTypes.string,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  onSubmit: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  theme: PropTypes.string
-};
-
-Search.defaultProps = { input: '' };
 
 export default Search;
