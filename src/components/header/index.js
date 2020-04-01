@@ -42,7 +42,6 @@ class Header extends PureComponent {
   //   $style.type = 'text/css';
   //   $style.innerHTML = mediaStyles;
   // }
-
   componentDidMount() {
     if (typeof window !== 'undefined') {
       this.setState({ pathname: window.location.pathname });
@@ -68,7 +67,6 @@ class Header extends PureComponent {
       languages
     } = config || {};
     // const { showSubmenu } = this.state;
-
     return (
       <MediaContextProvider>
         <div className={cx('c-header', className)}>
