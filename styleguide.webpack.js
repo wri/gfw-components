@@ -27,16 +27,19 @@ module.exports = {
         use: [
           'style-loader',
           { loader: 'css-loader', options: { importLoaders: 2 } },
-          'resolve-url-loader',
+          'sass-loader',
           {
             loader: 'sass-loader',
             options: {
-            includePaths: [ './node_modules', './src/styles' ]
-                .map(d => path.join(__dirname, d))
-                .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), [])
-          } }
-        ],
+              sassOptions: {
+                includePaths: [ './node_modules', './src/styles' ]
+                  .map(d => path.join(__dirname, d))
+                  .map(g => glob.sync(g))
+                  .reduce((a, c) => a.concat(c), [])
+              }
+            }
+          }
+        ]
       },
       {
         // For CSS modules
@@ -45,12 +48,10 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: { localIdentName: 'gfw__[name]_[local]' }
-            },
-          },
-        ],
-      },
+            options: { modules: { localIdentName: 'gfw__[name]_[local]' } }
+          }
+        ]
+      }
     ]
   },
   plugins: []

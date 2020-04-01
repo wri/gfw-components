@@ -36,7 +36,6 @@ class Header extends PureComponent {
   state = { pathname: '', showSubmenu: false };
 
   // componentDidMount() {
-  //   console.log(mediaStyles);
   //   const $style = document.createElement("style");
   //   document.head.appendChild($style);
   //   $style.type = 'text/css';
