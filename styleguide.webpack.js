@@ -3,7 +3,7 @@ const glob = require('glob');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   resolve: {
     extensions: [ '.js', '.jsx', '.json' ],
     plugins: [ new DirectoryNamedWebpackPlugin(true) ],
