@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-import { Media, MediaContextProvider } from 'utils/responsive';
+import { Media, MediaContextProvider, mediaStyles } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
 
 import gfwLogo from 'assets/logos/gfw.png';
@@ -13,7 +13,8 @@ import CloseIcon from 'assets/icons/close.svg';
 import NavLink from 'components/header/components/nav-link';
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
-// import SubmenuPanel from './components/submenu-panel';
+import SubmenuPanel from './components/submenu-panel';
+
 import defaultConfig from './config';
 
 import './styles.scss';
@@ -27,7 +28,8 @@ class Header extends PureComponent {
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
     openContactUsModal: PropTypes.func.isRequired,
     appUrl: PropTypes.string,
-    navMain: PropTypes.array
+    navMain: PropTypes.array,
+    relative: PropTypes.bool
   };
 
   static defaultProps = {
@@ -37,36 +39,35 @@ class Header extends PureComponent {
     ...defaultConfig
   };
 
-  state = { pathname: '', showSubmenu: false };
+  state = { pathname: '', showSubmenu: false, clickOutside: false };
 
-  // componentDidMount() {
-  //   const $style = document.createElement("style");
-  //   document.head.appendChild($style);
-  //   $style.type = 'text/css';
-  //   $style.innerHTML = mediaStyles;
-  // }
   componentDidMount() {
     if (typeof window !== 'undefined') {
       this.setState({ pathname: window.location.pathname });
+      const $style = document.createElement('style');
+      document.head.appendChild($style);
+      $style.type = 'text/css';
+      $style.innerHTML = mediaStyles;
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { relative } = this.props;
     const { showSubmenu } = this.state;
-    if (prevState.showMore && !showSubmenu) {
+    if (!relative && prevState.showSubmenu && !showSubmenu) {
       document.body.classList.remove('Header__no-scroll');
-    } else if (!prevState.showSubmenu && showSubmenu) {
+    } else if (!relative && !prevState.showSubmenu && showSubmenu) {
       document.body.classList.add('Header__no-scroll');
     }
   }
 
   render() {
-    const { className, appUrl, navMain } = this.props;
-    const { showSubmenu } = this.state;
+    const { className, appUrl, navMain, relative } = this.props;
+    const { showSubmenu, clickOutside } = this.state;
 
     return (
       <MediaContextProvider>
-        <div className={cx('c-header', className)}>
+        <div className={cx('c-header', { relative }, className)}>
           <div className="row">
             <div className="column small-12 ">
               <NavLink className="logo" href="/" appUrl={appUrl}>
@@ -93,13 +94,20 @@ class Header extends PureComponent {
                 </Media>
                 <Media lessThan="md-bg" className="nav-mobile">
                   <OutsideClickHandler
-                    onOutsideClick={() => this.setState({ showSubmenu: false })}
+                    onOutsideClick={() => {
+                      if (!showSubmenu && !clickOutside) {
+                        this.setState({ showSubmenu: false });
+                      }
+                    }}
                   >
                     <li className="nav-item nav-more">
                       <button
                         className="nav-link"
-                        onClick={() =>
-                          this.setState({ showSubmenu: !showSubmenu })}
+                        onClick={() => {
+                          if (!showSubmenu && !clickOutside) {
+                            this.setState({ showSubmenu: true });
+                          }
+                        }}
                       >
                         {showSubmenu ? 'close' : 'more'}
                         {
@@ -114,6 +122,21 @@ class Header extends PureComponent {
               </div>
             </div>
           </div>
+          {
+            showSubmenu && (
+            <OutsideClickHandler
+              onOutsideClick={() => {
+                    this.setState({ showSubmenu: false, clickOutside: true });
+                    setTimeout(
+                      () => this.setState({ clickOutside: false }),
+                      50
+                    );
+                  }}
+            >
+              <SubmenuPanel {...this.props} {...this.state} />
+            </OutsideClickHandler>
+              )
+          }
         </div>
       </MediaContextProvider>
     );

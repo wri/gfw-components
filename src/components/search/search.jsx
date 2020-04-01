@@ -12,9 +12,7 @@ import './themes/search-small.scss';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      search: props.input
-    };
+    this.state = { search: props.input };
   }
 
   handleChange = value => {
@@ -30,12 +28,15 @@ class Search extends Component {
     }
   };
 
-  debouncedChange = debounce(() => {
-    const { onChange } = this.props;
-    if (onChange) {
-      this.props.onChange(this.state.search);
-    }
-  }, 150);
+  debouncedChange = debounce(
+    () => {
+      const { onChange } = this.props;
+      if (onChange) {
+        this.props.onChange(this.state.search);
+      }
+    },
+    150
+  );
 
   render() {
     const { search } = this.state;
@@ -52,9 +53,10 @@ class Search extends Component {
           disabled={disabled}
         />
         <button onClick={onSubmit}>
-          <Icon name="icon-search" className="icon-search" />
+          <SearchIcon className="icon-search" />
         </button>
-        {search && (
+        {
+          search && (
           <Button
             className="clear-btn"
             theme="theme-button-clear theme-button-small square"
@@ -62,7 +64,8 @@ class Search extends Component {
           >
             <SearchIcon className="icon-close" />
           </Button>
-        )}
+            )
+        }
       </div>
     );
   }
@@ -78,8 +81,6 @@ Search.propTypes = {
   theme: PropTypes.string
 };
 
-Search.defaultProps = {
-  input: ''
-};
+Search.defaultProps = { input: '' };
 
 export default Search;

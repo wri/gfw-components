@@ -7,8 +7,8 @@ import { Media } from 'utils/responsive';
 
 import Search from 'components/search';
 
-import MoreIcon from 'assets/icons/more.svg?sprite';
-import MyGfwIcon from 'assets/icons/mygfw.svg?sprite';
+import MoreIcon from 'assets/icons/more.svg';
+import MyGfwIcon from 'assets/icons/mygfw.svg';
 
 import DropdownMenu from '../dropdown-menu';
 
@@ -28,13 +28,12 @@ class Header extends PureComponent {
     handleLangSelect: PropTypes.func,
     openContactUsModal: PropTypes.func,
     loggedIn: PropTypes.bool,
+    relative: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
-    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
   };
 
-  state = {
-    search: '',
-  };
+  state = { search: '' };
 
   handleSubmit = () => {
     const { setQueryToUrl, hideMenu } = this.props;
@@ -46,7 +45,7 @@ class Header extends PureComponent {
     hideMenu();
   };
 
-  handleSearchChange = (search) => {
+  handleSearchChange = search => {
     this.setState({ search });
   };
 
@@ -102,36 +101,35 @@ class Header extends PureComponent {
               hideMenu={hideMenu}
               NavLinkComponent={NavLinkComponent}
             />
-            {NavLinkComponent ? (
-              <NavLinkComponent
-                href="/my-gfw"
-                activeClassName="active"
-                className="nav-link my-gfw-link"
-              >
-                <button onClick={hideMenu}>
-                  My GFW
-                  <MyGfwIcon
-                    className={cx({ 'logged-in': loggedIn })}
-                  />
-                </button>
-              </NavLinkComponent>
-            ) : (
-              <a
-                href={`${APP_URL}/my-gfw`}
-                className={cx('nav-link my-gfw-link', {
-                  active:
-                    typeof window !== 'undefined' &&
-                    window.location.pathname.includes('my-gfw'),
-                })}
-              >
-                <button onClick={hideMenu}>
-                  My GFW
-                  <MyGfwIcon
-                    className={cx({ 'logged-in': loggedIn })}
-                  />
-                </button>
-              </a>
-            )}
+            {
+              NavLinkComponent
+                ? (
+                  <NavLinkComponent
+                    href="/my-gfw"
+                    activeClassName="active"
+                    className="nav-link my-gfw-link"
+                  >
+                    <button onClick={hideMenu}>
+                      My GFW
+                      <MyGfwIcon className={cx({ 'logged-in': loggedIn })} />
+                    </button>
+                  </NavLinkComponent>
+)
+                : (
+                  <a
+                    href={`${APP_URL}/my-gfw`}
+                    className={cx('nav-link my-gfw-link', {
+                    active: typeof window !== 'undefined' &&
+                      window.location.pathname.includes('my-gfw')
+                  })}
+                  >
+                    <button onClick={hideMenu}>
+                      My GFW
+                      <MyGfwIcon className={cx({ 'logged-in': loggedIn })} />
+                    </button>
+                  </a>
+)
+            }
           </Media>
           <Media lessThan="md" className="menu-section">
             <div className="menu-section">
@@ -140,7 +138,7 @@ class Header extends PureComponent {
                 className="sub-menu -plain"
                 options={languages}
                 selected={activeLang}
-                handleSelect={(lang) => {
+                handleSelect={lang => {
                   handleLangSelect(lang);
                 }}
               />
@@ -149,8 +147,8 @@ class Header extends PureComponent {
           <div className="menu-section">
             <h4>Other applications</h4>
             <div className="apps-slider">
-              {apps &&
-                apps.map((d) => (
+              {
+                apps && apps.map(d => (
                   <a
                     key={d.label}
                     href={d.extLink}
@@ -163,7 +161,8 @@ class Header extends PureComponent {
                       style={{ backgroundImage: `url('${d.image}')` }}
                     />
                   </a>
-                ))}
+                  ))
+              }
               <a
                 href="https://developers.globalforestwatch.org"
                 target="_blank"
@@ -171,7 +170,7 @@ class Header extends PureComponent {
                 className="app-card"
               >
                 <div className="all-apps">
-                  <MoreIcon className="icon-more" icon={moreIcon} />
+                  <MoreIcon className="icon-more" />
                   Explore all apps
                 </div>
               </a>
@@ -180,74 +179,81 @@ class Header extends PureComponent {
           <div className="menu-section">
             <h4>More in GFW</h4>
             <ul className="row more-links">
-              {moreLinks.map((m) => (
+              {moreLinks.map(m => (
                 <li key={m.label} className="column small-12 medium-4 large-3">
-                  {m.href ? (
-                    <Fragment>
-                      {NavLinkComponent ? (
-                        <NavLinkComponent href={m.href}>
-                          <button onClick={hideMenu}>
-                            <m.icon/>
-                            {m.label}
-                          </button>
-                        </NavLinkComponent>
-                      ) : (
-                        <a
-                          href={`${APP_URL}${m.href}`}
-                          className={cx({
-                            active:
-                              typeof window !== 'undefined' &&
-                              window.location.pathname.includes(m.href),
-                          })}
-                        >
-                          <button onClick={hideMenu}>
-                            <m.icon />
-                            {m.label}
-                          </button>
-                        </a>
-                      )}
-                    </Fragment>
-                  ) : (
-                    <a
-                      href={m.extLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <m.icon />
-                      {m.label}
-                    </a>
-                  )}
+                  {
+                    m.href ? (
+                      <Fragment>
+                        {
+                          NavLinkComponent ? (
+                            <NavLinkComponent href={m.href}>
+                              <button onClick={hideMenu}>
+                                <m.icon />
+                                {m.label}
+                              </button>
+                            </NavLinkComponent>
+) : (
+  <a
+    href={`${APP_URL}${m.href}`}
+    className={cx({
+                                active: typeof window !== 'undefined' &&
+                                  window.location.pathname.includes(m.href)
+                              })}
+  >
+    <button onClick={hideMenu}>
+      <m.icon />
+      {m.label}
+    </button>
+  </a>
+)
+                        }
+                      </Fragment>
+) : (
+  <a
+    href={m.extLink}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <m.icon />
+    {m.label}
+  </a>
+)
+                  }
                 </li>
               ))}
             </ul>
           </div>
           <div className="legal-section">
-            {NavLinkComponent ? (
-              <NavLinkComponent href="/terms">
-                <button onClick={hideMenu} className="title">
-                  Terms
-                </button>
-              </NavLinkComponent>
-            ) : (
-              <a href={`${APP_URL}/terms`}>
-                <button onClick={hideMenu} className="title">
-                  Terms
-                </button>
-              </a>
-            )}
-            {NavLinkComponent ? (
-              <NavLinkComponent href="/privacy-policy">
-                <button onClick={hideMenu} className="title">
-                  Privacy Policy
-                </button>
-              </NavLinkComponent>
-            ) : (
-              <a href={`${APP_URL}/privacy-policy`}>
-                <button onClick={hideMenu} className="title">
-                  Privacy Policy
-                </button>
-              </a>
-            )}
+            {
+              NavLinkComponent ? (
+                <NavLinkComponent href="/terms">
+                  <button onClick={hideMenu} className="title">
+                    Terms
+                  </button>
+                </NavLinkComponent>
+) : (
+  <a href={`${APP_URL}/terms`}>
+    <button onClick={hideMenu} className="title">
+      Terms
+    </button>
+  </a>
+)
+            }
+            {
+              NavLinkComponent ? (
+                <NavLinkComponent href="/privacy-policy">
+                  <button onClick={hideMenu} className="title">
+                    Privacy Policy
+                  </button>
+                </NavLinkComponent>
+) : (
+  <a href={`${APP_URL}/privacy-policy`}>
+    <button onClick={hideMenu} className="title">
+      Privacy Policy
+    </button>
+  </a>
+)
+            }
             <button className="title" onClick={this.handleContactUsOpen}>
               Contact us
             </button>
@@ -272,7 +278,7 @@ Header.propTypes = {
   openContactUsModal: PropTypes.func,
   loggedIn: PropTypes.bool,
   setQueryToUrl: PropTypes.func,
-  NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
 };
 
 export default Header;

@@ -17,8 +17,6 @@
     }
   }
 
-  > div {
-    height: 100%;
 
     .nav-link {
       .my-gfw-icon {
@@ -44,11 +42,10 @@
 
     .nav-more {
       > .nav-link {
-        padding-right: 0;
-        margin-right: 0;
+        padding-right: 0 !important;
+        margin-right: 0 !important;
       }
     }
-  }
 
   // @media screen and (min-width: $screen-m) {
   //   flex: none;

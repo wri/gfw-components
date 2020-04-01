@@ -14,6 +14,11 @@ $header-height: rem(56px);
   width: 100%;
   border-bottom: solid 1px $border;
 
+  &.relative {
+    height: auto;
+    min-height: $header-height;
+  }
+
   .logo {
     position: absolute;
     top: 0;

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import OutsideClickHandler from 'react-outside-click-handler';
 
 import DropdownMenu from 'components/header/components/dropdown-menu';
 import NavLink from 'components/header/components/nav-link';
@@ -19,6 +18,7 @@ class NavAlt extends PureComponent {
     languages: PropTypes.array,
     pathname: PropTypes.string,
     appUrl: PropTypes.string,
+    clickOutside: PropTypes.bool,
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
@@ -54,7 +54,8 @@ class NavAlt extends PureComponent {
       pathname,
       appUrl,
       handleShowSubmenu,
-      showSubmenu
+      showSubmenu,
+      clickOutside
     } = this.props;
     const { languages, lang } = this.state;
     const activeLang = languages && languages.find(l => l.value === lang);
@@ -89,21 +90,23 @@ class NavAlt extends PureComponent {
             />
           </NavLink>
         </div>
-        <OutsideClickHandler onOutsideClick={() => handleShowSubmenu(false)}>
-          <li className="nav-item nav-more">
-            <button
-              className="nav-link"
-              onClick={() => handleShowSubmenu(!showSubmenu)}
-            >
-              {showSubmenu ? 'close' : 'more'}
-              {
-                showSubmenu
-                  ? <CloseIcon className="icon-submenu icon-close" />
-                  : <MoreIcon className="icon-submenu icon-more" />
+        <li className="nav-item nav-more">
+          <button
+            className="nav-link"
+            onClick={() => {
+              if (!showSubmenu && !clickOutside) {
+                handleShowSubmenu(true);
               }
-            </button>
-          </li>
-        </OutsideClickHandler>
+            }}
+          >
+            {showSubmenu ? 'close' : 'more'}
+            {
+              showSubmenu
+                ? <CloseIcon className="icon-submenu icon-close" />
+                : <MoreIcon className="icon-submenu icon-more" />
+            }
+          </button>
+        </li>
       </div>
     );
   }
