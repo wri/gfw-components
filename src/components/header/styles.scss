@@ -2,7 +2,6 @@
 @import '~styles/settings.scss';
 
 $header-height: rem(56px);
-$full-screen-height: rem(76px);
 
 .c-header {
   height: $header-height;
@@ -15,8 +14,8 @@ $full-screen-height: rem(76px);
     position: absolute;
     top: 0;
     z-index: 2;
-    cursor: pointer;
-    width: rem(76px);
+    width: 76px;
+    height: 76px;
   }
 
   .nav {
@@ -24,9 +23,7 @@ $full-screen-height: rem(76px);
     justify-content: space-between;
     position: relative;
     height: $header-height;
-  }
 
-  .nav-menu {
     padding-left: 0;
 
     @media screen and (min-width: $screen-m) {
@@ -34,7 +31,7 @@ $full-screen-height: rem(76px);
     }
 
     @media screen and (min-width: 850px) {
-      padding-left: rem(100px);
+      padding-left: rem(90px);
     }
 
     &.mobile {
@@ -42,12 +39,45 @@ $full-screen-height: rem(76px);
     }
   }
 
-  li {
+  .nav-item {
     height: 100%;
     position: relative;
-    font-size: rem(14px);
 
+    .nested {
+      padding: 0;
+      margin: 0;
+    }
+
+    > a,
+    > button,
+    > div,
     .nav-link {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: $slate;
+      font-size: 14px;
+      text-transform: uppercase;
+      padding: 0 rem(10px);
+      margin: 0 rem(5px);
+      position: relative;
+
+      svg {
+        fill: $slate;
+      }
+
+      &:hover {
+        color: darken($slate, 30%);
+
+        svg {
+          fill: darken($slate, 30%);
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
       &::after {
         content: '';
         height: rem(5px);
@@ -62,65 +92,6 @@ $full-screen-height: rem(76px);
         &::after {
           background-color: $green-gfw;
         }
-      }
-    }
-
-    .nav-link,
-    .menu-link,
-    > div {
-      position: relative;
-      font-family: $font-family-1;
-      color: $slate;
-      height: 100%;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-
-      &:hover {
-        color: darken($slate, 30%);
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    svg {
-      fill: $slate;
-
-      &:hover {
-        color: darken($slate, 30%);
-      }
-    }
-  }
-
-  &.full-screen {
-    height: 0;
-    border-bottom-width: 0;
-
-    .nav-menu {
-      padding-left: rem(80px);
-    }
-
-    @media screen and (min-width: $screen-m) {
-      .logo {
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
-
-      .nav {
-        height: $full-screen-height;
-      }
-    }
-
-    &.full-screen-open {
-      height: $header-height;
-      border-bottom-width: 1px;
-
-      @media screen and (min-width: $screen-m) {
-        height: $full-screen-height;
       }
     }
   }

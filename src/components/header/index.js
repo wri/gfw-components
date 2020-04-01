@@ -8,10 +8,11 @@ import { APP_URL } from 'utils/constants';
 import gfwLogo from 'assets/logos/gfw.png?webp';
 
 import NavLink from 'components/header/components/nav-link';
-import defaultConfig from './config';
 import NavMenu from './components/nav-menu';
-import NavAlt from './components/nav-alt';
+// import NavAlt from './components/nav-alt';
 // import SubmenuPanel from './components/submenu-panel';
+import defaultConfig from './config';
+
 import './styles.scss';
 
 class Header extends PureComponent {
@@ -23,14 +24,14 @@ class Header extends PureComponent {
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
     openContactUsModal: PropTypes.func.isRequired,
     appUrl: PropTypes.string,
-    config: PropTypes.object
+    navMain: PropTypes.array
   };
 
   static defaultProps = {
     className: '',
     loggedIn: false,
     appUrl: APP_URL,
-    config: defaultConfig
+    ...defaultConfig
   };
 
   state = { pathname: '', showSubmenu: false };
@@ -48,24 +49,8 @@ class Header extends PureComponent {
   }
 
   render() {
-    const {
-      className,
-      // openContactUsModal,
-      loggedIn,
-      // setQueryToUrl,
-      loggingIn,
-      NavLinkComponent,
-      appUrl,
-      config
-    } = this.props;
-    const {
-      // moreLinks,
-      // myGfwLinks,
-      // apps,
-      navMain,
-      languages
-    } = config || {};
-    // const { showSubmenu } = this.state;
+    const { className, appUrl, navMain } = this.props;
+
     return (
       <MediaContextProvider>
         <div className={cx('c-header', className)}>
@@ -82,7 +67,7 @@ class Header extends PureComponent {
               <div className="nav">
                 {
                   navMain && (
-                  <Media greaterThanOrEqual="md" className="nav-menu">
+                  <Media greaterThanOrEqual="md">
                     <NavMenu
                       {...this.props}
                       {...this.state}
@@ -91,17 +76,10 @@ class Header extends PureComponent {
                   </Media>
                     )
                 }
-                <NavAlt
-                  languages={languages}
-                  closeSubMenu={() => this.setState({ showSubmenu: false })}
-                  loggedIn={loggedIn}
-                  loggingIn={loggingIn}
-                  NavLinkComponent={NavLinkComponent}
-                />
+                {}
               </div>
             </div>
           </div>
-          {}
         </div>
       </MediaContextProvider>
     );

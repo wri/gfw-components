@@ -70,13 +70,3 @@ $vertical-modal-padding-mobile: rem(20px);
 @function rem($px, $base: 16px) {
   @return ($px / $base) * 1rem;
 }
-
-@keyframes pulse
-{
-  0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
-  }
-}
