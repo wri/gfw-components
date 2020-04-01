@@ -1,19 +1,17 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import { Media, mediaStyles, MediaContextProvider } from 'utils/responsive';
+import { Media, MediaContextProvider } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
 
-import defaultConfig from './config';
 import gfwLogo from 'assets/logos/gfw.png?webp';
-import Developer from 'assets/icons/developer.svg?sprite';
 
 import NavLink from 'components/header/components/nav-link';
+import defaultConfig from './config';
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 // import SubmenuPanel from './components/submenu-panel';
-
 import './styles.scss';
 
 class Header extends PureComponent {
@@ -22,8 +20,10 @@ class Header extends PureComponent {
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
-    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
     openContactUsModal: PropTypes.func.isRequired,
+    appUrl: PropTypes.string,
+    config: PropTypes.object
   };
 
   static defaultProps = {
@@ -33,10 +33,7 @@ class Header extends PureComponent {
     config: defaultConfig
   };
 
-  state = {
-    pathname: '',
-    showSubmenu: false
-  };
+  state = { pathname: '', showSubmenu: false };
 
   // componentDidMount() {
   //   console.log(mediaStyles);
@@ -48,30 +45,29 @@ class Header extends PureComponent {
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      this.setState({ pathname: window.location.pathname })
+      this.setState({ pathname: window.location.pathname });
     }
   }
 
   render() {
     const {
       className,
-      openContactUsModal,
+      // openContactUsModal,
       loggedIn,
-      fullScreen,
-      setQueryToUrl,
+      // setQueryToUrl,
       loggingIn,
       NavLinkComponent,
       appUrl,
       config
     } = this.props;
     const {
-      moreLinks,
-      myGfwLinks,
-      apps,
+      // moreLinks,
+      // myGfwLinks,
+      // apps,
       navMain,
       languages
     } = config || {};
-    const { showSubmenu } = this.state;
+    // const { showSubmenu } = this.state;
 
     return (
       <MediaContextProvider>
@@ -87,7 +83,8 @@ class Header extends PureComponent {
                 />
               </NavLink>
               <div className="nav">
-                {navMain &&
+                {
+                  navMain && (
                   <Media greaterThanOrEqual="md" className="nav-menu">
                     <NavMenu
                       {...this.props}
@@ -95,6 +92,7 @@ class Header extends PureComponent {
                       menuItems={navMain}
                     />
                   </Media>
+                    )
                 }
                 <NavAlt
                   languages={languages}
@@ -106,17 +104,7 @@ class Header extends PureComponent {
               </div>
             </div>
           </div>
-          {/* {showSubmenu &&
-            <SubmenuPanel
-              relative
-              className="submenu-panel"
-              languages={[]}
-              activeLang="en"
-              handleLangSelect={this.handleLangSelect}
-              hideMenu={this.handleCloseSubmenu}
-              {...config}
-            />
-          } */}
+          {}
         </div>
       </MediaContextProvider>
     );

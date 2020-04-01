@@ -1,6 +1,6 @@
-/node_modules
-/dist
-/styleguide
+node_modules
+dist
+styleguide
 
 package-lock.json
 
