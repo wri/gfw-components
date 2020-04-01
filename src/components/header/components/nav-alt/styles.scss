@@ -1,133 +1,167 @@
 @import '~styles/settings.scss';
 
-.Header__no-scroll {
-  overflow: hidden;
-}
-
 .c-nav-alt {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 100%;
   border-left: solid 1px $border;
-  flex: 1;
+  padding-left: 20px;
 
-  @media screen and (min-width: $screen-m) {
-    flex: none;
-  }
-
-  @media screen and (min-width: 850px) {
-    padding-left: rem(10px);
-  }
-
-  > li {
-    margin-left: rem(20px);
-    position: relative;
-    font-size: rem(12px);
-
-    @media screen and (min-width: 850px) {
-      margin-left: rem(30px);
-    }
-
-    svg {
-      margin-top: -1px;
-      margin-left: rem(5px);
+  .lang-selector {
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100px;
     }
   }
 
-  .alt-link {
-    > div {
-      height: 100%;
+  > div {
+    height: 100%;
+
+    .nav-link {
+      .my-gfw-icon {
+        width: 15px;
+        height: 15px;
+        min-width: 15px;
+        margin-left: 5px;
+
+        &.logged-in {
+          fill: $green-gfw;
+        }
+      }
     }
 
-    .logged-in {
-      fill: $green-gfw;
+    .animate-user-icon {
+      animation: user-icon 2s ease-in-out infinite;
     }
 
-    .lang-btn {
-      max-width: rem(90px);
+    .icon-more {
+      width: 15px;
+      height: 15px;
+    }
 
-      @media screen and (min-width: 850px) {
-        max-width: 100%;
+    .nav-more {
+      > .nav-link {
+        padding-right: 0;
+        margin-right: 0;
       }
     }
   }
 
-  .submenu {
-    position: absolute;
-    right: -5px;
-    top: rem(55px);
-    z-index: 1;
-  }
+  // @media screen and (min-width: $screen-m) {
+  //   flex: none;
+  // }
 
-  .submenu-link {
-    min-width: 60px;
-  }
+  // @media screen and (min-width: 850px) {
+  //   padding-left: rem(10px);
+  // }
 
-  .submenu-panel {
-    position: fixed;
-    top: rem(56px);
-    right: 0;
-    width: 100vw;
-    overflow: hidden;
-    height: calc(100% - 56px);
-    overflow-y: auto;
+  // > li {
+  //   margin-left: rem(20px);
+  //   position: relative;
+  //   font-size: rem(12px);
 
-    @media screen and (min-width: $screen-m) {
-      right: rem(-20px);
-      position: absolute;
-      height: auto;
-    }
+  //   @media screen and (min-width: 850px) {
+  //     margin-left: rem(30px);
+  //   }
 
-    @media screen and (min-width: $screen-xl) {
-      right: calc(-50vw + #{$screen-xl / 2} - #{$desktop-gutter});
-    }
-  }
+  //   svg {
+  //     margin-top: -1px;
+  //     margin-left: rem(5px);
+  //   }
+  // }
 
-  .icon-close,
-  .icon-arrow {
-    height: rem(10px);
-  }
+  // .alt-link {
+  //   > div {
+  //     height: 100%;
+  //   }
 
-  .icon-arrow {
-    &.active {
-      transform: rotate(180deg);
-    }
-  }
+  //   .logged-in {
+  //     fill: $green-gfw;
+  //   }
 
-  .mygfw-header {
-    padding: rem(25px) rem(30px) rem(30px);
-    border: solid 1px $border;
-    height: auto;
+  //   .lang-btn {
+  //     max-width: rem(90px);
 
-    p {
-      text-transform: none;
-      text-align: left;
-    }
+  //     @media screen and (min-width: 850px) {
+  //       max-width: 100%;
+  //     }
+  //   }
+  // }
 
-    @media screen and (min-width: $screen-m) {
-      width: rem(520px);
-    }
-  }
+  // .submenu {
+  //   position: absolute;
+  //   right: -5px;
+  //   top: rem(55px);
+  //   z-index: 1;
+  // }
 
-  &.full-screen {
-    @media screen and (min-width: $screen-m) {
-      .submenu-panel {
-        top: rem(76px);
-        position: fixed;
-        height: calc(100% - 76px);
-        right: 0;
-      }
-    }
+  // .submenu-link {
+  //   min-width: 60px;
+  // }
 
-    .submenu {
-      top: rem(75px);
-    }
-  }
+  // .submenu-panel {
+  //   position: fixed;
+  //   top: rem(56px);
+  //   right: 0;
+  //   width: 100vw;
+  //   overflow: hidden;
+  //   height: calc(100% - 56px);
+  //   overflow-y: auto;
 
-  .animate-user-icon {
-    animation: user-icon 2s ease-in-out infinite;
-  }
+  //   @media screen and (min-width: $screen-m) {
+  //     right: rem(-20px);
+  //     position: absolute;
+  //     height: auto;
+  //   }
+
+  //   @media screen and (min-width: $screen-xl) {
+  //     right: calc(-50vw + #{$screen-xl / 2} - #{$desktop-gutter});
+  //   }
+  // }
+
+  // .icon-close,
+  // .icon-arrow {
+  //   height: rem(10px);
+  // }
+
+  // .icon-arrow {
+  //   &.active {
+  //     transform: rotate(180deg);
+  //   }
+  // }
+
+  // .mygfw-header {
+  //   padding: rem(25px) rem(30px) rem(30px);
+  //   border: solid 1px $border;
+  //   height: auto;
+
+  //   p {
+  //     text-transform: none;
+  //     text-align: left;
+  //   }
+
+  //   @media screen and (min-width: $screen-m) {
+  //     width: rem(520px);
+  //   }
+  // }
+
+  // &.full-screen {
+  //   @media screen and (min-width: $screen-m) {
+  //     .submenu-panel {
+  //       top: rem(76px);
+  //       position: fixed;
+  //       height: calc(100% - 76px);
+  //       right: 0;
+  //     }
+  //   }
+
+  //   .submenu {
+  //     top: rem(75px);
+  //   }
+  // }
 }
 
 @keyframes user-icon {

@@ -34,7 +34,7 @@ class NavMenu extends PureComponent {
                 ? (
                   <DropdownMenu
                     className="nested"
-                    label="topics"
+                    label={item.label}
                     options={item.submenu}
                     NavLinkComponent={NavLinkComponent}
                     active={!!pathname && pathname.includes(item.as || item.href)}

@@ -3,6 +3,10 @@
 
 $header-height: rem(56px);
 
+.Header__no-scroll {
+  overflow: hidden;
+}
+
 .c-header {
   height: $header-height;
   background: $white;
@@ -20,13 +24,14 @@ $header-height: rem(56px);
 
   .nav {
     display: flex;
-    justify-content: space-between;
     position: relative;
+    justify-content: flex-end;
     height: $header-height;
 
     padding-left: 0;
 
     @media screen and (min-width: $screen-m) {
+      justify-content: flex-start;
       padding-left: rem(80px);
     }
 
@@ -36,6 +41,22 @@ $header-height: rem(56px);
 
     &.mobile {
       padding-left: 0;
+    }
+  }
+
+  .nav-desktop {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: $header-height;
+    width: 100%;
+  }
+
+  .nav-mobile {
+    display: flex;
+
+    @media screen and (min-width: 860px) {
+      display: none;
     }
   }
 
@@ -64,6 +85,7 @@ $header-height: rem(56px);
 
       svg {
         fill: $slate;
+        margin-top: -2px;
       }
 
       &:hover {
@@ -94,5 +116,19 @@ $header-height: rem(56px);
         }
       }
     }
+  }
+
+  .icon-submenu {
+    margin-left: 5px;
+  }
+
+  .icon-close {
+    width: 15px;
+    height: 10px;
+  }
+
+  .icon-menu {
+    width: 15px;
+    height: 15px;
   }
 }

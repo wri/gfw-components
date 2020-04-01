@@ -9,8 +9,9 @@ const ExampleAppMedia = createMedia({
   breakpoints: {
     sm: SCREEN_S,
     md: SCREEN_M,
+    'md-bg': 860,
     lg: SCREEN_L,
-    xl: SCREEN_XL,
+    xl: SCREEN_XL
   }
 });
 

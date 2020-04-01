@@ -8,9 +8,10 @@
   }
 
   .icon-arrow {
-    height: rem(10px);
-    width: rem(10px);
-    margin-left: rem(5px);
+    height: 10px;
+    width: 10px;
+    min-width: 10px;
+    margin-left: 5px;
 
     &.active {
       transform: rotate(180deg);
@@ -22,16 +23,16 @@
     top: 55px;
     left: -70%;
     background-color: $white;
-    width: rem(200px);
+    width: 200px;
     border: solid 1px $border;
 
     > li {
       > button,
       > a {
-        padding: rem(15px) 0;
+        padding: 15px 0;
 
         @media screen and (min-width: $screen-m) {
-          padding: rem(15px) rem(20px);
+          padding: 15px 20px;
         }
 
         &.nested {
@@ -43,7 +44,7 @@
       a {
         display: block;
         text-transform: uppercase;
-        font-size: rem(14px);
+        font-size: 14px;
         width: 100%;
         color: $slate;
         text-align: left;
@@ -51,10 +52,10 @@
         > button {
           color: inherit;
           text-transform: inherit;
-          padding: rem(15px) 0;
+          padding: 15px 0;
 
           @media screen and (min-width: $screen-m) {
-            padding: rem(15px) rem(20px);
+            padding: 15px 20px;
           }
         }
 

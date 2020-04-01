@@ -9,6 +9,7 @@ class NavLink extends PureComponent {
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
     className: PropTypes.string,
+    active: PropTypes.bool,
     children: PropTypes.node.isRequired,
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
   };
@@ -21,7 +22,8 @@ class NavLink extends PureComponent {
       NavLinkComponent,
       pathname,
       className,
-      children
+      children,
+      active
     } = this.props;
 
     return NavLinkComponent
@@ -40,7 +42,7 @@ class NavLink extends PureComponent {
         <a
           href={`${appUrl}${asPath || href}`}
           className={cx(className, {
-          active: pathname && pathname.includes(asPath || href)
+          active: active || !!pathname && pathname.includes(asPath || href)
         })}
         >
           {children}

@@ -44,7 +44,7 @@ class DropdownMenu extends PureComponent {
             onClick={() => this.setState({ open: !open })}
             aria-label={label}
           >
-            {label}
+            <span>{label}</span>
             <ArrowIcon className={cx('icon-arrow', { active: open })} />
           </button>
           {

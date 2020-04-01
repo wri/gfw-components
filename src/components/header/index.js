@@ -1,15 +1,18 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 import { Media, MediaContextProvider } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
 
-import gfwLogo from 'assets/logos/gfw.png?webp';
+import gfwLogo from 'assets/logos/gfw.png';
+import MenuIcon from 'assets/icons/menu.svg';
+import CloseIcon from 'assets/icons/close.svg';
 
 import NavLink from 'components/header/components/nav-link';
 import NavMenu from './components/nav-menu';
-// import NavAlt from './components/nav-alt';
+import NavAlt from './components/nav-alt';
 // import SubmenuPanel from './components/submenu-panel';
 import defaultConfig from './config';
 
@@ -48,8 +51,18 @@ class Header extends PureComponent {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { showSubmenu } = this.state;
+    if (prevState.showMore && !showSubmenu) {
+      document.body.classList.remove('Header__no-scroll');
+    } else if (!prevState.showSubmenu && showSubmenu) {
+      document.body.classList.add('Header__no-scroll');
+    }
+  }
+
   render() {
     const { className, appUrl, navMain } = this.props;
+    const { showSubmenu } = this.state;
 
     return (
       <MediaContextProvider>
@@ -65,17 +78,39 @@ class Header extends PureComponent {
                 />
               </NavLink>
               <div className="nav">
-                {
-                  navMain && (
-                  <Media greaterThanOrEqual="md">
-                    <NavMenu
-                      {...this.props}
-                      {...this.state}
-                      menuItems={navMain}
-                    />
-                  </Media>
-                    )
-                }
+                <Media greaterThanOrEqual="md-bg" className="nav-desktop">
+                  <NavMenu
+                    {...this.props}
+                    {...this.state}
+                    menuItems={navMain}
+                  />
+                  <NavAlt
+                    {...this.props}
+                    {...this.state}
+                    handleShowSubmenu={show =>
+                      this.setState({ showSubmenu: show })}
+                  />
+                </Media>
+                <Media lessThan="md-bg" className="nav-mobile">
+                  <OutsideClickHandler
+                    onOutsideClick={() => this.setState({ showSubmenu: false })}
+                  >
+                    <li className="nav-item nav-more">
+                      <button
+                        className="nav-link"
+                        onClick={() =>
+                          this.setState({ showSubmenu: !showSubmenu })}
+                      >
+                        {showSubmenu ? 'close' : 'more'}
+                        {
+                          showSubmenu
+                            ? <CloseIcon className="icon-submenu icon-close" />
+                            : <MenuIcon className="icon-submenu icon-menu" />
+                        }
+                      </button>
+                    </li>
+                  </OutsideClickHandler>
+                </Media>
               </div>
             </div>
           </div>
