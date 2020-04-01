@@ -4,6 +4,8 @@
   background-color: $white;
   padding: rem(40px) rem(16px) rem(20px);
   box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
+  max-height: calc(100vh - 56px);
+  overflow-y: scroll;
 
   @media screen and (min-width: $screen-m-bg) {
     height: auto;
