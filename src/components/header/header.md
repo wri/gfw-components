@@ -1,6 +1,5 @@
 ```js
 <Header
   relative
-  openContactUsModal={() => {}}
 />
 ```

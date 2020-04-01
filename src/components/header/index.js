@@ -26,7 +26,7 @@ class Header extends PureComponent {
     loggingIn: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
-    openContactUsModal: PropTypes.func.isRequired,
+    openContactUsModal: PropTypes.func,
     appUrl: PropTypes.string,
     navMain: PropTypes.array,
     relative: PropTypes.bool,
