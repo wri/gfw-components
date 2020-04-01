@@ -1,16 +1,14 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import { APP_URL } from 'utils/constants';
 import { Media } from 'utils/responsive';
 
+import NavLink from 'components/header/components/nav-link';
 import Search from 'components/search';
 
 import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';
-
-import DropdownMenu from '../dropdown-menu';
 
 import './styles.scss';
 
@@ -28,8 +26,9 @@ class Header extends PureComponent {
     handleLangSelect: PropTypes.func,
     openContactUsModal: PropTypes.func,
     loggedIn: PropTypes.bool,
-    relative: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
+    appUrl: PropTypes.string,
+    pathname: PropTypes.string,
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
   };
 
@@ -63,30 +62,19 @@ class Header extends PureComponent {
       className,
       apps,
       moreLinks,
-      showSubmenu,
-      onClick,
       navMain,
-      activeLang,
       languages,
+      activeLang,
       handleLangSelect,
       loggedIn,
       hideMenu,
       NavLinkComponent,
-      relative
+      appUrl,
+      pathname
     } = this.props;
 
     return (
-      <div
-        className={cx(
-          'c-submenu-panel',
-          { 'full-screen': showSubmenu },
-          { relative },
-          className
-        )}
-        onClick={onClick}
-        role="button"
-        tabIndex={0}
-      >
+      <div className={cx('c-submenu-panel', className)}>
         <div className="submenu-wrapper">
           <Search
             className="menu-search"
@@ -94,55 +82,59 @@ class Header extends PureComponent {
             onChange={this.handleSearchChange}
             onSubmit={this.handleSubmit}
           />
-          <Media lessThan="md" className="menu-section">
-            <DropdownMenu
-              className="sub-menu -plain"
-              options={navMain}
-              hideMenu={hideMenu}
-              NavLinkComponent={NavLinkComponent}
-            />
-            {
-              NavLinkComponent
-                ? (
-                  <NavLinkComponent
-                    href="/my-gfw"
-                    activeClassName="active"
-                    className="nav-link my-gfw-link"
-                  >
-                    <button onClick={hideMenu}>
-                      My GFW
-                      <MyGfwIcon className={cx({ 'logged-in': loggedIn })} />
-                    </button>
-                  </NavLinkComponent>
-)
-                : (
-                  <a
-                    href={`${APP_URL}/my-gfw`}
-                    className={cx('nav-link my-gfw-link', {
-                    active: typeof window !== 'undefined' &&
-                      window.location.pathname.includes('my-gfw')
-                  })}
-                  >
-                    <button onClick={hideMenu}>
-                      My GFW
-                      <MyGfwIcon className={cx({ 'logged-in': loggedIn })} />
-                    </button>
-                  </a>
-)
-            }
+          <Media lessThan="md-bg" className="menu-section">
+            <ul>
+              {
+                navMain && navMain.map(item => (
+                  <li key={item.label} className="nav-item">
+                    <NavLink
+                      {...item}
+                      pathname={pathname}
+                      appUrl={appUrl}
+                      NavLinkComponent={NavLinkComponent}
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                  ))
+              }
+              <li className="nav-item">
+                <NavLink
+                  href="/my-gfw"
+                  pathname={pathname}
+                  appUrl={appUrl}
+                  NavLinkComponent={NavLinkComponent}
+                >
+                  My GFW
+                  <MyGfwIcon
+                    className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
+                  />
+                </NavLink>
+              </li>
+            </ul>
           </Media>
-          <Media lessThan="md" className="menu-section">
-            <div className="menu-section">
-              <h4>Select a language</h4>
-              <DropdownMenu
-                className="sub-menu -plain"
-                options={languages}
-                selected={activeLang}
-                handleSelect={lang => {
-                  handleLangSelect(lang);
-                }}
-              />
-            </div>
+          <Media lessThan="md-bg" className="menu-section">
+            <h4>Select a language</h4>
+            <ul>
+              {
+                languages && languages.map(item => (
+                  <li className="nav-item">
+                    <button
+                      className={cx({
+                          active: activeLang && activeLang.label === item.label
+                        })}
+                      {...item}
+                      onClick={() => {
+                          handleLangSelect(item.value);
+                          hideMenu();
+                        }}
+                    >
+                      {item.label}
+                    </button>
+                  </li>
+                  ))
+              }
+            </ul>
           </Media>
           <div className="menu-section">
             <h4>Other applications</h4>
@@ -182,81 +174,62 @@ class Header extends PureComponent {
               {moreLinks.map(m => (
                 <li key={m.label} className="column small-12 medium-4 large-3">
                   {
-                    m.href ? (
-                      <Fragment>
-                        {
-                          NavLinkComponent ? (
-                            <NavLinkComponent href={m.href}>
-                              <button onClick={hideMenu}>
-                                <m.icon />
-                                {m.label}
-                              </button>
-                            </NavLinkComponent>
-) : (
-  <a
-    href={`${APP_URL}${m.href}`}
-    className={cx({
-                                active: typeof window !== 'undefined' &&
-                                  window.location.pathname.includes(m.href)
-                              })}
-  >
-    <button onClick={hideMenu}>
-      <m.icon />
-      {m.label}
-    </button>
-  </a>
-)
-                        }
-                      </Fragment>
-) : (
-  <a
-    href={m.extLink}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <m.icon />
-    {m.label}
-  </a>
-)
+                    m.href && (
+                    <NavLink
+                      {...m}
+                      appUrl={appUrl}
+                      pathname={pathname}
+                      NavLinkComponent={NavLinkComponent}
+                    >
+                      <button onClick={hideMenu}>
+                        <m.icon />
+                        {m.label}
+                      </button>
+                    </NavLink>
+                      )
+                  }
+                  {
+                    !m.href && (
+                    <a
+                      href={m.extLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <m.icon />
+                      {m.label}
+                    </a>
+                      )
                   }
                 </li>
               ))}
             </ul>
           </div>
           <div className="legal-section">
-            {
-              NavLinkComponent ? (
-                <NavLinkComponent href="/terms">
-                  <button onClick={hideMenu} className="title">
-                    Terms
-                  </button>
-                </NavLinkComponent>
-) : (
-  <a href={`${APP_URL}/terms`}>
-    <button onClick={hideMenu} className="title">
-      Terms
-    </button>
-  </a>
-)
-            }
-            {
-              NavLinkComponent ? (
-                <NavLinkComponent href="/privacy-policy">
-                  <button onClick={hideMenu} className="title">
-                    Privacy Policy
-                  </button>
-                </NavLinkComponent>
-) : (
-  <a href={`${APP_URL}/privacy-policy`}>
-    <button onClick={hideMenu} className="title">
-      Privacy Policy
-    </button>
-  </a>
-)
-            }
-            <button className="title" onClick={this.handleContactUsOpen}>
-              Contact us
-            </button>
+            <NavLink
+              className="title"
+              href="/terms"
+              appUrl={appUrl}
+              NavLinkComponent={NavLinkComponent}
+            >
+              <button onClick={hideMenu}>
+                Terms
+              </button>
+            </NavLink>
+            <NavLink
+              className="title"
+              href="/privacy-policy"
+              appUrl={appUrl}
+              NavLinkComponent={NavLinkComponent}
+            >
+              <button onClick={hideMenu}>
+                Privacy Policy
+              </button>
+            </NavLink>
+            <div>
+              <button className="title" onClick={this.handleContactUsOpen}>
+                Contact us
+              </button>
+            </div>
           </div>
         </div>
       </div>

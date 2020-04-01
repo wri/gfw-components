@@ -5,11 +5,7 @@
   padding: rem(40px) rem(16px) rem(20px);
   box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
 
-  &.relative {
-    border-top: solid 1px $border;
-  }
-
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-m-bg) {
     height: auto;
   }
 
@@ -22,33 +18,35 @@
     margin: auto;
   }
 
-  .my-gfw-link {
-
-    &.active {
-      color: $green-gfw;
-
-      &:after {
-        background-color: transparent !important;
-      }
-    }
-
+  .nav-item {
+    a,
     button {
-      text-transform: uppercase;
-      width: 100%;
-      padding: rem(15px) 0;
       display: flex;
-      color: inherit;
+      align-items: center;
+      padding: 15px 0 !important;
 
-      @media screen and (min-width: $screen-m) {
-        padding: rem(15px) rem(20px);
+      &.active {
+        color: $green-gfw;
+
+        &:after {
+          background-color: transparent !important;
+        }
+
+        &:hover {
+          color: darken($green-gfw, 10%)
+        }
       }
     }
+  }
+
+  .my-gfw-icon {
+    margin-left: 5px;
   }
 
   .menu-search {
     margin-bottom: rem(20px);
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-m-bg) {
       margin-bottom: rem(40px);
     }
   }
@@ -60,6 +58,12 @@
     font-size: rem(14px);
     margin-bottom: rem(23px);
     text-align: left;
+
+    button {
+      text-transform: uppercase;
+      color: #aaa;
+      font-size: rem(14px);
+    }
   }
 
   .menu-section {
@@ -72,7 +76,7 @@
       -webkit-overflow-scrolling: touch;
       display: flex;
       margin-left: rem(-16px);
-      width: calc(100% + 16px);
+      width: calc(100% + 32px);
       padding: 0 rem(16px);
     }
 
@@ -115,8 +119,15 @@
     }
 
     .more-links {
+      display: block;
+
+      @media screen and (min-width: $screen-m-bg) {
+        display: flex;
+      }
+
       > li {
         margin-bottom: rem(20px);
+        padding-left: 0;
 
         a,
         button {
@@ -145,25 +156,13 @@
     display: flex;
     flex-direction: column;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-m-bg) {
       flex-direction: row;
 
       > a,
       button {
         margin-right: rem(30px);
         cursor: pointer;
-      }
-    }
-  }
-
-  &.full-screen {
-    .more-links {
-      margin-left: rem(-16px) !important;
-      margin-right: rem(-16px) !important;
-
-      @media screen and (min-width: $screen-m) {
-        margin-left: rem(-20px) !important;
-        margin-right: rem(-20px) !important;
       }
     }
   }

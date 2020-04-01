@@ -16,34 +16,14 @@ class NavAlt extends PureComponent {
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
     languages: PropTypes.array,
+    activeLang: PropTypes.object,
     pathname: PropTypes.string,
     appUrl: PropTypes.string,
     clickOutside: PropTypes.bool,
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
+    handleLangSelect: PropTypes.func,
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
-  };
-
-  state = { lang: 'en', languages: this.props.languages };
-
-  componentDidMount() {
-    if (
-      typeof window !== 'undefined' && window.Transifex && window.Transifex.live
-    ) {
-      const languages = window.Transifex.live.getAllLanguages();
-      this.setState({
-        lang: window.Transifex.live.detectLanguage(),
-        languages: languages &&
-          languages.map(l => ({ label: l.name, value: l.code }))
-      });
-    }
-  }
-
-  handleLangSelect = lang => {
-    if (typeof window !== 'undefined' && window.Transifex) {
-      window.Transifex.live.translateTo(lang);
-    }
-    this.setState({ lang });
   };
 
   render() {
@@ -55,10 +35,11 @@ class NavAlt extends PureComponent {
       appUrl,
       handleShowSubmenu,
       showSubmenu,
-      clickOutside
+      clickOutside,
+      handleLangSelect,
+      languages,
+      activeLang
     } = this.props;
-    const { languages, lang } = this.state;
-    const activeLang = languages && languages.find(l => l.value === lang);
 
     return (
       <div className="c-nav-alt">
@@ -69,7 +50,7 @@ class NavAlt extends PureComponent {
             options={languages.map(l => ({
               label: l.label,
               value: l.value,
-              onClick: newLang => this.handleLangSelect(newLang)
+              onClick: newLang => handleLangSelect(newLang)
             }))}
             NavLinkComponent={NavLinkComponent}
           />

@@ -29,7 +29,8 @@ class Header extends PureComponent {
     openContactUsModal: PropTypes.func.isRequired,
     appUrl: PropTypes.string,
     navMain: PropTypes.array,
-    relative: PropTypes.bool
+    relative: PropTypes.bool,
+    languages: PropTypes.array
   };
 
   static defaultProps = {
@@ -39,7 +40,13 @@ class Header extends PureComponent {
     ...defaultConfig
   };
 
-  state = { pathname: '', showSubmenu: false, clickOutside: false };
+  state = {
+    pathname: '',
+    showSubmenu: false,
+    clickOutside: false,
+    lang: 'en',
+    languages: this.props.languages
+  };
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
@@ -48,6 +55,17 @@ class Header extends PureComponent {
       document.head.appendChild($style);
       $style.type = 'text/css';
       $style.innerHTML = mediaStyles;
+    }
+
+    if (
+      typeof window !== 'undefined' && window.Transifex && window.Transifex.live
+    ) {
+      const languages = window.Transifex.live.getAllLanguages();
+      this.setState({
+        lang: window.Transifex.live.detectLanguage(),
+        languages: languages &&
+          languages.map(l => ({ label: l.name, value: l.code }))
+      });
     }
   }
 
@@ -61,9 +79,17 @@ class Header extends PureComponent {
     }
   }
 
+  handleLangSelect = lang => {
+    if (typeof window !== 'undefined' && window.Transifex) {
+      window.Transifex.live.translateTo(lang);
+    }
+    this.setState({ lang });
+  };
+
   render() {
     const { className, appUrl, navMain, relative } = this.props;
-    const { showSubmenu, clickOutside } = this.state;
+    const { showSubmenu, clickOutside, languages, lang } = this.state;
+    const activeLang = languages && languages.find(l => l.value === lang);
 
     return (
       <MediaContextProvider>
@@ -88,6 +114,7 @@ class Header extends PureComponent {
                   <NavAlt
                     {...this.props}
                     {...this.state}
+                    activeLang={activeLang}
                     handleShowSubmenu={show =>
                       this.setState({ showSubmenu: show })}
                   />
@@ -133,7 +160,13 @@ class Header extends PureComponent {
                     );
                   }}
             >
-              <SubmenuPanel {...this.props} {...this.state} />
+              <SubmenuPanel
+                {...this.props}
+                {...this.state}
+                handleLangSelect={this.handleLangSelect}
+                activeLang={activeLang}
+                hideMenu={() => this.setState({ showSubmenu: false })}
+              />
             </OutsideClickHandler>
               )
           }

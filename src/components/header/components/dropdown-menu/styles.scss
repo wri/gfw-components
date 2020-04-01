@@ -30,7 +30,7 @@
       > a {
         padding: 15px 0;
 
-        @media screen and (min-width: $screen-m) {
+        @media screen and (min-width: $screen-m-bg) {
           padding: 15px 20px;
         }
 
@@ -53,7 +53,7 @@
           text-transform: inherit;
           padding: 15px 0;
 
-          @media screen and (min-width: $screen-m) {
+          @media screen and (min-width: $screen-m-bg) {
             padding: 15px 20px;
           }
         }

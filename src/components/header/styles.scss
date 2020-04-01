@@ -35,7 +35,7 @@ $header-height: rem(56px);
 
     padding-left: 0;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-m-bg) {
       justify-content: flex-start;
       padding-left: rem(80px);
     }
@@ -135,5 +135,11 @@ $header-height: rem(56px);
   .icon-menu {
     width: 15px;
     height: 15px;
+  }
+
+  .my-gfw-icon {
+    width: 15px;
+    height: 15px;
+    min-width: 15px;
   }
 }
