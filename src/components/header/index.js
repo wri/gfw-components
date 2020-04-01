@@ -76,7 +76,6 @@ class Header extends PureComponent {
                   </Media>
                     )
                 }
-                {}
               </div>
             </div>
           </div>
