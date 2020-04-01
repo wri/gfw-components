@@ -47,7 +47,7 @@
     "file-loader": "1.1.11",
     "gh-pages": "1.2.0",
     "husky": "^4.2.3",
-    "lint-staged": "7.2.0",
+    "lint-staged": "^10.1.1",
     "lodash": "4.17.10",
     "node-sass": "4.5.3",
     "postcss-loader": "2.0.6",
