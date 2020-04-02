@@ -14,3 +14,6 @@ export { default as SGFIcon } from './assets/icons/sgf.svg';
 
 // Components
 export { default as Header } from './components/header';
+
+// Responsive
+export { Media, MediaContextProvider, Desktop, Mobile } from 'utils/responsive';

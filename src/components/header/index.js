@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-import { Media, MediaContextProvider, mediaStyles } from 'utils/responsive';
+import { Media, MediaContextProvider } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
 
 import gfwLogo from 'assets/logos/gfw.png';
@@ -25,20 +25,20 @@ class Header extends PureComponent {
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
-    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
     openContactUsModal: PropTypes.func,
     appUrl: PropTypes.string,
     navMain: PropTypes.array,
     relative: PropTypes.bool,
     languages: PropTypes.array,
-    pathname: PropTypes.string,
+    pathname: PropTypes.string
   };
 
   static defaultProps = {
     className: '',
     loggedIn: false,
     appUrl: APP_URL,
-    ...defaultConfig,
+    ...defaultConfig
   };
 
   state = {
@@ -46,28 +46,22 @@ class Header extends PureComponent {
     showSubmenu: false,
     clickOutside: false,
     lang: 'en',
-    languages: this.props.languages,
+    languages: this.props.languages
   };
 
   componentDidMount() {
     if (!this.props.pathname && typeof window !== 'undefined') {
       this.setState({ pathname: window.location.pathname });
-      const $style = document.createElement('style');
-      document.head.appendChild($style);
-      $style.type = 'text/css';
-      $style.innerHTML = mediaStyles;
     }
 
     if (
-      typeof window !== 'undefined' &&
-      window.Transifex &&
-      window.Transifex.live
+      typeof window !== 'undefined' && window.Transifex && window.Transifex.live
     ) {
       const languages = window.Transifex.live.getAllLanguages();
       this.setState({
         lang: window.Transifex.live.detectLanguage(),
-        languages:
-          languages && languages.map((l) => ({ label: l.name, value: l.code })),
+        languages: languages &&
+          languages.map(l => ({ label: l.name, value: l.code }))
       });
     }
   }
@@ -82,7 +76,7 @@ class Header extends PureComponent {
     }
   }
 
-  handleLangSelect = (lang) => {
+  handleLangSelect = lang => {
     if (typeof window !== 'undefined' && window.Transifex) {
       window.Transifex.live.translateTo(lang);
     }
@@ -92,7 +86,7 @@ class Header extends PureComponent {
   render() {
     const { className, appUrl, navMain, relative } = this.props;
     const { showSubmenu, clickOutside, languages, lang } = this.state;
-    const activeLang = languages && languages.find((l) => l.value === lang);
+    const activeLang = languages && languages.find(l => l.value === lang);
 
     return (
       <MediaContextProvider>
@@ -119,7 +113,7 @@ class Header extends PureComponent {
                     {...this.state}
                     activeLang={activeLang}
                     handleLangSelect={this.handleLangSelect}
-                    handleShowSubmenu={(show) =>
+                    handleShowSubmenu={show =>
                       this.setState({ showSubmenu: show })}
                   />
                 </Media>
@@ -141,11 +135,11 @@ class Header extends PureComponent {
                         }}
                       >
                         {showSubmenu ? 'close' : 'more'}
-                        {showSubmenu ? (
-                          <CloseIcon className="icon-submenu icon-close" />
-                        ) : (
-                          <MenuIcon className="icon-submenu icon-menu" />
-                        )}
+                        {
+                          showSubmenu
+                            ? <CloseIcon className="icon-submenu icon-close" />
+                            : <MenuIcon className="icon-submenu icon-menu" />
+                        }
                       </button>
                     </li>
                   </OutsideClickHandler>
@@ -153,12 +147,16 @@ class Header extends PureComponent {
               </div>
             </div>
           </div>
-          {showSubmenu && (
+          {
+            showSubmenu && (
             <OutsideClickHandler
               onOutsideClick={() => {
-                this.setState({ showSubmenu: false, clickOutside: true });
-                setTimeout(() => this.setState({ clickOutside: false }), 50);
-              }}
+                    this.setState({ showSubmenu: false, clickOutside: true });
+                    setTimeout(
+                      () => this.setState({ clickOutside: false }),
+                      50
+                    );
+                  }}
             >
               <SubmenuPanel
                 {...this.props}
@@ -168,7 +166,8 @@ class Header extends PureComponent {
                 hideMenu={() => this.setState({ showSubmenu: false })}
               />
             </OutsideClickHandler>
-          )}
+              )
+          }
         </div>
       </MediaContextProvider>
     );
