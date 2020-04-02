@@ -17,5 +17,10 @@ const ExampleAppMedia = createMedia({
 
 // Make styles for injection into the header of the page
 export const mediaStyles = ExampleAppMedia.createMediaStyle();
-
 export const { Media, MediaContextProvider } = ExampleAppMedia;
+
+/* eslint react/prop-types: 0 */
+export const Mobile = props => <Media lessThan="md">{props.children}</Media>;
+export const Desktop = props => (
+  <Media greaterThanOrEqual="md">{props.children}</Media>
+);
