@@ -80,8 +80,8 @@ class Header extends PureComponent {
             onChange={this.handleSearchChange}
             onSubmit={this.handleSubmit}
           />
-          <Media lessThan="md-bg" className="menu-section">
-            <ul>
+          <Media lessThan="md-bg">
+            <ul className="menu-section">
               {
                 navMain && navMain.map(item => (
                   <li key={item.label} className="nav-item">
@@ -111,28 +111,31 @@ class Header extends PureComponent {
               </li>
             </ul>
           </Media>
-          <Media lessThan="md-bg" className="menu-section">
-            <h4>Select a language</h4>
-            <ul>
-              {
-                languages && languages.map(item => (
-                  <li key={item.label} className="nav-item">
-                    <button
-                      className={cx({
-                          active: activeLang && activeLang.label === item.label
-                        })}
-                      {...item}
-                      onClick={() => {
-                          handleLangSelect(item.value);
-                          hideMenu();
-                        }}
-                    >
-                      {item.label}
-                    </button>
-                  </li>
-                  ))
-              }
-            </ul>
+          <Media lessThan="md-bg">
+            <div className="menu-section">
+              <h4>Select a language</h4>
+              <ul>
+                {
+                  languages && languages.map(item => (
+                    <li key={item.label} className="nav-item">
+                      <button
+                        className={cx({
+                            active: activeLang &&
+                              activeLang.label === item.label
+                          })}
+                        {...item}
+                        onClick={() => {
+                            handleLangSelect(item.value);
+                            hideMenu();
+                          }}
+                      >
+                        {item.label}
+                      </button>
+                    </li>
+                    ))
+                }
+              </ul>
+            </div>
           </Media>
           <div className="menu-section">
             <h4>Other applications</h4>
