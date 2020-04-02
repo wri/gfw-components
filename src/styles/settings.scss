@@ -1,11 +1,12 @@
 /* FONTS */
-$font-family-1: 'Fira Sans', sans-serif;
+$font-family-1: 'Fira Sans', Arial, sans-serif;
 $font-size-xs: rem(12px);
 $font-size-s: rem(13px);
 
 /* SCREENS */
 $screen-s: 20rem;
 $screen-m: 48rem;
+$screen-m-bg: 53.75rem;
 $screen-l: 64rem;
 $screen-xl: 70rem;
 
@@ -69,14 +70,4 @@ $vertical-modal-padding-mobile: rem(20px);
 /* stylelint-disable */
 @function rem($px, $base: 16px) {
   @return ($px / $base) * 1rem;
-}
-
-@keyframes pulse
-{
-  0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
-  }
 }

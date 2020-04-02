@@ -3,7 +3,7 @@ const glob = require('glob');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   resolve: {
     extensions: [ '.js', '.jsx', '.json' ],
     plugins: [ new DirectoryNamedWebpackPlugin(true) ],
@@ -19,7 +19,15 @@ module.exports = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: 'svg-sprite-loader' },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: { svgoConfig: { plugins: { removeViewBox: false } } }
+          }
+        ]
+      },
       {
         // For pure CSS (without CSS modules)
         test: /\.scss$/i,
@@ -27,16 +35,19 @@ module.exports = {
         use: [
           'style-loader',
           { loader: 'css-loader', options: { importLoaders: 2 } },
-          'resolve-url-loader',
-          { 
+          'sass-loader',
+          {
             loader: 'sass-loader',
             options: {
-            includePaths: [ './node_modules', './src/styles' ]
-                .map(d => path.join(__dirname, d))
-                .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), [])
-          } }
-        ],
+              sassOptions: {
+                includePaths: [ './node_modules', './src/styles' ]
+                  .map(d => path.join(__dirname, d))
+                  .map(g => glob.sync(g))
+                  .reduce((a, c) => a.concat(c), [])
+              }
+            }
+          }
+        ]
       },
       {
         // For CSS modules
@@ -45,12 +56,10 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: { localIdentName: 'gfw__[name]_[local]' }
-            },
-          },
-        ],
-      },
+            options: { modules: { localIdentName: 'gfw__[name]_[local]' } }
+          }
+        ]
+      }
     ]
   },
   plugins: []

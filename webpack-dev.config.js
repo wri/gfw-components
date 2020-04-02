@@ -5,9 +5,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
-const BundleAnalyzerPlugin = require(
+const {BundleAnalyzerPlugin} = require(
   'webpack-bundle-analyzer'
-).BundleAnalyzerPlugin;
+);
 
 const config = {
   entry: './src/index.js',
@@ -22,20 +22,31 @@ const config = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: [ { loader: 'svg-sprite-loader' } ] },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: { svgoConfig: { plugins: { removeViewBox: false } } }
+          }
+        ]
+      },
       {
         test: /\.scss$/,
         exclude: /\.module\.scss$/i,
         use: ExtractTextPlugin.extract({
           use: [
             { loader: 'css-loader', options: { importLoaders: 2 } },
+            'sass-loader',
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [ './node_modules', './src/styles' ]
+                sassOptions: {
+                  includePaths: [ './node_modules', './src/styles' ]
                     .map(d => path.join(__dirname, d))
                     .map(g => glob.sync(g))
                     .reduce((a, c) => a.concat(c), [])
+                }
               }
             }
           ]
@@ -47,13 +58,11 @@ const config = {
           use: [
             {
               loader: 'css-loader',
-              options: {
-                modules: { localIdentName: 'gfw__[name]_[local]' }
-              },
-            },
+              options: { modules: { localIdentName: 'gfw__[name]_[local]' } }
+            }
           ]
         })
-      },
+      }
     ]
   },
   externals: [ 'react', 'react-dom', 'classnames', 'lodash', 'prop-types' ],

@@ -3,17 +3,26 @@ import PropTypes from 'prop-types';
 import Button from 'components/button';
 import debounce from 'lodash/debounce';
 import cx from 'classnames';
-import Icon from 'components/icon';
-import './search.scss';
+
+import SearchIcon from 'assets/icons/search.svg';
+
+import './styles.scss';
 import './themes/search-small.scss';
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: props.input
-    };
-  }
+  static propTypes = {
+    input: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    disabled: PropTypes.bool,
+    className: PropTypes.string,
+    theme: PropTypes.string
+  };
+
+  static defaultProps = { input: '' };
+
+  state = { search: this.props.input };
 
   handleChange = value => {
     this.setState({ search: value });
@@ -28,12 +37,15 @@ class Search extends Component {
     }
   };
 
-  debouncedChange = debounce(() => {
-    const { onChange } = this.props;
-    if (onChange) {
-      this.props.onChange(this.state.search);
-    }
-  }, 150);
+  debouncedChange = debounce(
+    () => {
+      const { onChange } = this.props;
+      if (onChange) {
+        this.props.onChange(this.state.search);
+      }
+    },
+    150
+  );
 
   render() {
     const { search } = this.state;
@@ -50,34 +62,22 @@ class Search extends Component {
           disabled={disabled}
         />
         <button onClick={onSubmit}>
-          <Icon name="icon-search" className="icon-search" />
+          <SearchIcon className="icon-search" />
         </button>
-        {search && (
+        {
+          search && (
           <Button
             className="clear-btn"
             theme="theme-button-clear theme-button-small square"
             onClick={() => this.handleChange('')}
           >
-            <Icon name="icon-close" className="icon-close" />
+            <SearchIcon className="icon-close" />
           </Button>
-        )}
+            )
+        }
       </div>
     );
   }
 }
-
-Search.propTypes = {
-  input: PropTypes.string,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  onSubmit: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  theme: PropTypes.string
-};
-
-Search.defaultProps = {
-  input: ''
-};
 
 export default Search;

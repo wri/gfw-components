@@ -1,0 +1,54 @@
+@import '~styles/settings.scss';
+
+.c-nav-alt {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  border-left: solid 1px $border;
+  padding-left: 20px;
+
+  .lang-selector {
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100px;
+    }
+  }
+
+  .nav-link {
+    .my-gfw-icon {
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      margin-left: 5px;
+
+      &.logged-in {
+        fill: $green-gfw;
+      }
+    }
+  }
+
+  .animate-user-icon {
+    animation: user-icon 2s ease-in-out infinite;
+  }
+
+  .icon-more {
+    width: 15px;
+    height: 15px;
+  }
+
+  .nav-more {
+    > .nav-link {
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+      width: 70px;
+    }
+  }
+}
+
+@keyframes user-icon {
+  from, to { opacity: 1 }
+  50% { opacity: 0.5 }
+}

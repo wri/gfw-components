@@ -6,36 +6,45 @@ const webpackConfig = require('./styleguide.webpack.js');
 const { version } = require('./package.json');
 
 module.exports = {
-  title: `GFW components | ${version}`,
+  title: `Global Forest Watch Components | ${version}`,
   theme: {
     color: {
+      base: '#555',
       link: '#97BD3D',
-      linkHover: '#97BD3D'
+      linkHover: '#97BD3D',
+      border: '#e5e5df',
+      error: '#ed1846',
+      baseBackground: '#fff',
+      focus: 'transparent'
+    },
+    fontFamily: { base: '"Fira Sans", Arial, sans-serif' },
+    fontSize: {
+      base: 16,
+      text: 16,
+      small: 14,
+      h1: 60,
+      h2: 48,
+      h3: 36,
+      h4: 18,
+      h5: 12
     }
   },
   styles: {
-    StyleGuide: {
-      sidebar: {
-        backgroundColor: '#333333',
-        color: '#97BD3D'
-      }
-    },
-    Logo: {
-      logo: {
-        color: '#97BD3D'
-      }
-    }
+    StyleGuide: { sidebar: { backgroundColor: '#ffffff', color: '#555' } },
+    Logo: { logo: { color: '#97BD3D' } }
   },
   template: {
+    favicon: '/public/favicon.ico',
     head: {
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Roboto+Mono'
+          href: 'https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap'
         }
       ]
     }
   },
+  components: 'src/components/**/index.js',
   skipComponentsWithoutExample: true,
   getComponentPathLine: componentPath => {
     const dirname = path.dirname(componentPath, '.js');
@@ -43,5 +52,6 @@ module.exports = {
 
     return `import { ${upperFirst(componentName)} } from 'gfw-components';`;
   },
+  styleguideComponents: { Logo: path.join(__dirname, 'src/styleguide/logo') },
   webpackConfig
 };

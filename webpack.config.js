@@ -19,7 +19,15 @@ const config = {
     rules: [
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      { test: /\.svg$/, use: [ { loader: 'svg-sprite-loader' } ] },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: { svgoConfig: { plugins: { removeViewBox: false } } }
+          }
+        ]
+      },
       {
         test: /\.module\.scss$/i,
         use: ExtractTextPlugin.extract({
@@ -27,11 +35,9 @@ const config = {
             {
               loader: 'css-loader',
               options: {
-                modules: { 
-                  localIdentName: 'gfw__[name]_[local]'
-                },
+                modules: { localIdentName: 'gfw__[name]_[local]' },
                 importLoaders: 2
-              },
+              }
             },
             'sass-loader'
           ]
@@ -43,18 +49,21 @@ const config = {
         use: ExtractTextPlugin.extract({
           use: [
             { loader: 'css-loader', options: { importLoaders: 2 } },
+            'sass-loader',
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [ './node_modules', './src/styles' ]
+                sassOptions: {
+                  includePaths: [ './node_modules', './src/styles' ]
                     .map(d => path.join(__dirname, d))
                     .map(g => glob.sync(g))
                     .reduce((a, c) => a.concat(c), [])
+                }
               }
             }
           ]
         })
-      },
+      }
     ]
   },
   externals: [ 'react', 'react-dom', 'classnames', 'lodash', 'prop-types' ],

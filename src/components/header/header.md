@@ -1,3 +1,5 @@
 ```js
-<Header />
+<Header
+  relative
+/>
 ```
