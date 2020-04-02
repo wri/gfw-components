@@ -134,7 +134,7 @@ class Header extends PureComponent {
                           }
                         }}
                       >
-                        {showSubmenu ? 'close' : 'more'}
+                        {showSubmenu ? 'close' : 'menu'}
                         {
                           showSubmenu
                             ? <CloseIcon className="icon-submenu icon-close" />

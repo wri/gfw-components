@@ -122,6 +122,11 @@ $header-height: rem(56px);
     }
   }
 
+  .nav-more > .nav-link {
+    padding-right: 0;
+    margin-right: 0;
+  }
+
   .icon-submenu {
     margin-left: 5px;
   }
