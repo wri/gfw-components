@@ -2,7 +2,7 @@ import {
   HOWTO_URL,
   DATA_PORTAL_URL,
   BLOG_URL,
-  DEVELOPERS_URL,
+  DEVELOPERS_URL
 } from 'utils/constants';
 
 import gfwFires from 'assets/logos/gfw-fires.png?webp';
@@ -18,14 +18,8 @@ import forum from 'assets/icons/forum.svg?sprite';
 
 export default {
   navMain: [
-    {
-      label: 'Map',
-      href: '/map',
-    },
-    {
-      label: 'Dashboard',
-      href: '/dashboards/global',
-    },
+    { label: 'Map', href: '/map' },
+    { label: 'Dashboard', href: '/dashboards/global' },
     {
       label: 'Topics',
       href: '/topics',
@@ -33,125 +27,51 @@ export default {
         {
           label: 'Biodiversity',
           as: '/topics/biodiversity',
-          href: '/topics/[topic]',
+          href: '/topics/[topic]'
         },
-        {
-          label: 'Climate',
-          as: '/topics/climate',
-          href: '/topics/[topic]',
-        },
+        { label: 'Climate', as: '/topics/climate', href: '/topics/[topic]' },
         {
           label: 'Commodities',
           as: '/topics/commodities',
-          href: '/topics/[topic]',
+          href: '/topics/[topic]'
         },
-        {
-          label: 'Water',
-          as: '/topics/water',
-          href: '/topics/[topic]',
-        },
-      ],
+        { label: 'Water', as: '/topics/water', href: '/topics/[topic]' }
+      ]
     },
-    {
-      label: 'Blog',
-      extLink: BLOG_URL,
-    },
-    {
-      label: 'About',
-      href: '/about',
-    },
-  ],
-  myGfwLinks: [
-    {
-      label: 'My subscriptions',
-      extLink: '/my-gfw/subscriptions',
-    },
-    {
-      label: 'My profile',
-      href: '/my-gfw',
-    },
-    {
-      label: 'Logout',
-      extLink: '/auth/logout',
-      onSelect: (e) => {
-        e.preventDefault();
-        logout();
-      },
-    },
+    { label: 'Blog', extLink: BLOG_URL },
+    { label: 'About', href: '/about' }
   ],
   apps: [
     {
       label: 'GFW Fires',
       extLink: 'http://fires.globalforestwatch.org',
-      image: gfwFires,
+      image: gfwFires
     },
     {
       label: 'GFW Pro',
       extLink: 'https://pro.globalforestwatch.org',
-      image: gfwPro,
+      image: gfwPro
     },
     {
       label: 'Forest Watcher',
       extLink: 'http://forestwatcher.globalforestwatch.org',
-      image: forestWatcher,
-    },
+      image: forestWatcher
+    }
   ],
   moreLinks: [
-    {
-      label: 'Developer Tools',
-      extLink: DEVELOPERS_URL,
-      icon: developer,
-    },
-    {
-      label: 'How to Portal',
-      extLink: HOWTO_URL,
-      icon: howto,
-    },
+    { label: 'Developer Tools', extLink: DEVELOPERS_URL, icon: developer },
+    { label: 'How to Portal', extLink: HOWTO_URL, icon: howto },
     {
       label: 'Grants & Fellowships',
       href: '/grants-and-fellowships',
-      icon: sgf,
+      icon: sgf
     },
-    {
-      label: 'Open data portal',
-      extLink: DATA_PORTAL_URL,
-      icon: openData,
-    },
-    {
-      label: 'Blog',
-      extLink: BLOG_URL,
-      icon: blog,
-    },
+    { label: 'Open data portal', extLink: DATA_PORTAL_URL, icon: openData },
+    { label: 'Blog', extLink: BLOG_URL, icon: blog },
     {
       label: 'Discussion Forum',
       extLink: 'https://groups.google.com/forum/#!forum/globalforestwatch',
-      icon: forum,
-    },
-  ],
-  languages: [
-    {
-      label: 'English',
-      value: 'en'
-    },
-    {
-      label: '中文',
-      value: 'zh'
-    },
-    {
-      label: 'Français',
-      value: 'fr'
-    },
-    {
-      label: 'Bahasa Indonesia',
-      value: 'id'
-    },
-    {
-      label: 'Português (Brasil)',
-      value: 'pt_BR'
-    },
-    {
-      label: 'Español (Mexico)',
-      value: 'es_MX'
-    },
+      icon: forum
+    }
   ]
 };
