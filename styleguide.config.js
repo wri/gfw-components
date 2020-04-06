@@ -36,6 +36,18 @@ module.exports = {
   template: {
     favicon: '/public/favicon.ico',
     head: {
+      scripts: [
+        {
+          type: 'text/javascript',
+          src: '//cdn.transifex.com/live.js',
+          rel: 'preconnect'
+        },
+        {
+          type: 'text/javascript',
+          src: 'public/transifex.js',
+          rel: 'preconnect'
+        }
+      ],
       links: [
         {
           rel: 'stylesheet',
