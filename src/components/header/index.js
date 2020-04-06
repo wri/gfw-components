@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
+import qs from 'query-string';
+
+import { checkLoggedIn } from 'services/user';
 
 import { Media, MediaContextProvider } from 'utils/responsive';
 import { APP_URL } from 'utils/constants';
@@ -50,20 +53,9 @@ class Header extends PureComponent {
   };
 
   componentDidMount() {
-    if (!this.props.pathname && typeof window !== 'undefined') {
-      this.setState({ pathname: window.location.pathname });
-    }
-
-    if (
-      typeof window !== 'undefined' && window.Transifex && window.Transifex.live
-    ) {
-      const languages = window.Transifex.live.getAllLanguages();
-      this.setState({
-        lang: window.Transifex.live.detectLanguage(),
-        languages: languages &&
-          languages.map(l => ({ label: l.name, value: l.code }))
-      });
-    }
+    this.checkLoggedIn();
+    this.getLanguages();
+    this.findPathname();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -75,6 +67,56 @@ class Header extends PureComponent {
       document.body.classList.add('Header__no-scroll');
     }
   }
+
+  checkLoggedIn = () => {
+    const query = typeof window !== 'undefined' &&
+      qs.parse(window.location.search) ||
+      {};
+    const urlToken = query && query.token;
+    const token = urlToken || localStorage.getItem('userToken');
+    this.setState({ loggedIn: false, loggingIn: true });
+
+    if (urlToken) {
+      delete query.token;
+      const cleanQuery = query && qs.stringify(query);
+      window.history.pushState(
+        {},
+        '',
+        `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}`
+      );
+    }
+
+    checkLoggedIn(token)
+      .then(response => {
+        if (response.status < 400 && response.data) {
+          this.setState({ loggedIn: true, loggingIn: false });
+        } else {
+          this.setState({ loggedIn: false, loggingIn: false });
+        }
+      })
+      .catch(() => {
+        this.setState({ loggedIn: false, loggingIn: false });
+      });
+  };
+
+  getLanguages = () => {
+    if (
+      typeof window !== 'undefined' && window.Transifex && window.Transifex.live
+    ) {
+      const languages = window.Transifex.live.getAllLanguages();
+      this.setState({
+        lang: window.Transifex.live.detectLanguage(),
+        languages: languages &&
+          languages.map(l => ({ label: l.name, value: l.code }))
+      });
+    }
+  };
+
+  findPathname = () => {
+    if (!this.props.pathname && typeof window !== 'undefined') {
+      this.setState({ pathname: window.location.pathname });
+    }
+  };
 
   handleLangSelect = lang => {
     if (typeof window !== 'undefined' && window.Transifex) {

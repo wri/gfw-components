@@ -10,6 +10,9 @@ export const APP_URL = 'https://www.globalforestwatch.org';
 export const WEB_URL = process.env.FEATURE_ENV === 'staging'
   ? 'https://staging.globalforestwatch.org'
   : 'https://www.globalforestwatch.org';
+export const GFW_API = process.env.FEATURE_ENV === 'staging'
+  ? 'https://staging-api.globalforestwatch.org'
+  : 'https://production-api.globalforestwatch.org';
 export const CARTO_API = 'https://wri-01.carto.com/api/v2';
 export const RESOURCE_WATCH_API = 'https://api.resourcewatch.org/v1';
 export const CLIMATE_WATCH_API = 'https://www.climatewatchdata.org/api/v1';

@@ -11,7 +11,8 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components/'),
       styles: path.resolve(__dirname, 'src/styles/'),
       assets: path.resolve(__dirname, 'src/assets'),
-      utils: path.resolve(__dirname, 'src/utils')
+      utils: path.resolve(__dirname, 'src/utils'),
+      services: path.resolve(__dirname, 'src/services')
     }
   },
   node: { fs: 'empty', net: 'empty' },
