@@ -23,7 +23,7 @@ class NavAlt extends PureComponent {
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
-    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
   };
 
   render() {
@@ -38,28 +38,32 @@ class NavAlt extends PureComponent {
       clickOutside,
       handleLangSelect,
       languages,
-      activeLang,
+      activeLang
     } = this.props;
 
     return (
       <div className="c-nav-alt">
-        <div className="nav-item lang-selector">
-          <DropdownMenu
-            className="nested notranslate"
-            label={activeLang && activeLang.label}
-            options={languages.map((l) => ({
-              label: l.label,
-              value: l.value,
-              onClick: handleLangSelect,
-            }))}
-            NavLinkComponent={NavLinkComponent}
-          />
-        </div>
+        {
+          languages && (
+          <div className="nav-item lang-selector">
+            <DropdownMenu
+              className="nested notranslate"
+              label={activeLang && activeLang.label}
+              options={languages.map(l => ({
+                    label: l.label,
+                    value: l.value,
+                    onClick: handleLangSelect
+                  }))}
+              NavLinkComponent={NavLinkComponent}
+            />
+          </div>
+            )
+        }
         <div className="nav-item">
           <NavLink
             href="/my-gfw"
             className={cx('nav-link', {
-              'animate-user-icon': !loggedIn && loggingIn,
+              'animate-user-icon': !loggedIn && loggingIn
             })}
             pathname={pathname}
             appUrl={appUrl}
@@ -81,11 +85,11 @@ class NavAlt extends PureComponent {
             }}
           >
             {showSubmenu ? 'close' : 'more'}
-            {showSubmenu ? (
-              <CloseIcon className="icon-submenu icon-close" />
-            ) : (
-              <MoreIcon className="icon-submenu icon-more" />
-            )}
+            {
+              showSubmenu
+                ? <CloseIcon className="icon-submenu icon-close" />
+                : <MoreIcon className="icon-submenu icon-more" />
+            }
           </button>
         </li>
       </div>

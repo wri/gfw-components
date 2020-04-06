@@ -10,6 +10,12 @@ yarn && yarn start
 
 This will set up the app running on port 6060.
 
+## Transifex support
+
+Global Forest Watch uses Transifex Live as a tool for translating its applications. If you including the GFW header from a registered domain inside the WRI transifex account you may access this feature. To do so you just need to include the transifex script and API key in the header of your site: https://docs.transifex.com/live/installing-the-javascript-snippet.
+
+The header will then automatically detect the snippet and render the language selector.
+
 ## Publishing to NPM
 
 Merging PRs to master or pushing commits directly into master triggers Travis CI that checks if the commit is tagged and if it is, it automatically publishes a new version to NPM.
