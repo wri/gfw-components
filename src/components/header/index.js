@@ -74,7 +74,6 @@ class Header extends PureComponent {
       {};
     const urlToken = query && query.token;
     const token = urlToken || localStorage.getItem('userToken');
-    this.setState({ loggedIn: false, loggingIn: true });
 
     if (urlToken) {
       delete query.token;
@@ -86,17 +85,20 @@ class Header extends PureComponent {
       );
     }
 
-    checkLoggedIn(token)
-      .then(response => {
-        if (response.status < 400 && response.data) {
-          this.setState({ loggedIn: true, loggingIn: false });
-        } else {
+    if (token) {
+      this.setState({ loggedIn: false, loggingIn: true });
+      checkLoggedIn(token)
+        .then(response => {
+          if (response.status < 400 && response.data) {
+            this.setState({ loggedIn: true, loggingIn: false });
+          } else {
+            this.setState({ loggedIn: false, loggingIn: false });
+          }
+        })
+        .catch(() => {
           this.setState({ loggedIn: false, loggingIn: false });
-        }
-      })
-      .catch(() => {
-        this.setState({ loggedIn: false, loggingIn: false });
-      });
+        });
+    }
   };
 
   getLanguages = () => {
