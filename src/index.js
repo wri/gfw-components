@@ -14,6 +14,9 @@ export { default as SGFIcon } from './assets/icons/sgf.svg';
 
 // Components
 export { default as Header } from './components/header';
+export { default as Footer } from './components/footer';
+export { default as Button } from './components/button';
+export { default as Carousel } from './components/carousel';
 
 // Responsive
 export {
