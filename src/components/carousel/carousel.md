@@ -1,4 +1,4 @@
-A wrapper component for react-slick lib with standardized styles.
+A wrapper component for react-slick lib with standardized styles. This includes handling the responsive setting params react slick offers when imported by an SSR application.
 
 ```js
   <Carousel
