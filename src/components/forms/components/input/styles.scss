@@ -6,8 +6,8 @@
   border: solid 1px $border;
   outline: none;
   color: $slate;
-  height: rem(40px);
-  padding: 0 rem(12px);
+  height: 40px;
+  padding: 0 12px;
   width: 100%;
 
   &::placeholder {
@@ -15,8 +15,8 @@
   }
 
   &.textarea {
-    height: rem(110px);
-    padding: rem(12px);
+    height: 110px;
+    padding: 12px;
     line-height: 1.5;
     resize: none;
   }

@@ -1,7 +1,7 @@
 /* FONTS */
 $font-family-1: 'Fira Sans', Arial, sans-serif;
-$font-size-xs: rem(12px);
-$font-size-s: rem(13px);
+$font-size-xs: 12px;
+$font-size-s: 13px;
 
 /* SCREENS */
 $screen-s: 20rem;
@@ -60,14 +60,8 @@ $font-color-6: $slate-light;
 $pop-box-shadow: 1px 1px 10px 0 rgba($slate, 0.25);
 $tooltip-box-shadow: 0 4px 20px 4px rgba(0, 20, 60, 0.1), 0 4px 80px -8px rgba(0, 20, 60, 0.2);
 
-$horizontal-modal-padding-desktop: rem(100px);
-$vertical-modal-padding-desktop: rem(40px);
+$horizontal-modal-padding-desktop: 100px;
+$vertical-modal-padding-desktop: 40px;
 
-$horizontal-modal-padding-mobile: rem(25px);
-$vertical-modal-padding-mobile: rem(20px);
-
-//rem converter
-/* stylelint-disable */
-@function rem($px, $base: 16px) {
-  @return ($px / $base) * 1rem;
-}
+$horizontal-modal-padding-mobile: 25px;
+$vertical-modal-padding-mobile: 20px;

@@ -61,7 +61,7 @@ body {
 
   @media screen and (min-width: $screen-m) {
     width: auto;
-    max-width: rem(900px);
+    max-width: 900px;
 
     .modal-title {
       padding: $vertical-modal-padding-desktop $horizontal-modal-padding-desktop 0;
@@ -74,7 +74,7 @@ body {
     }
 
     .modal-content {
-      padding: rem(30px) $horizontal-modal-padding-desktop $vertical-modal-padding-desktop;
+      padding: 30px $horizontal-modal-padding-desktop $vertical-modal-padding-desktop;
     }
   }
 
@@ -93,8 +93,8 @@ body {
     }
 
     svg {
-      width: rem(15px);
-      height: rem(15px);
+      width: 15px;
+      height: 15px;
       fill: $slate;
     }
   }

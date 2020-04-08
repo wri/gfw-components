@@ -10,7 +10,7 @@
 
   .footer-main {
     .footer-links {
-      padding-top: rem(30px);
+      padding-top: 30px;
 
       li a {
         font-size: 14px;
@@ -37,13 +37,13 @@
         align-items: center;
 
         li {
-          margin-right: rem(25px);
+          margin-right: 25px;
         }
       }
 
       .footer-links-social {
         display: flex;
-        margin-top: rem(15px);
+        margin-top: 15px;
 
         @media screen and (min-width: $screen-m) {
           justify-content: flex-end;
@@ -56,11 +56,11 @@
           height: 50px;
           min-width: 50px;
           border-radius: 100%;
-          margin-right: rem(8px);
+          margin-right: 8px;
 
           @media screen and (min-width: $screen-m) {
             margin-right: 0;
-            margin-left: rem(15px);
+            margin-left: 15px;
           }
 
           &:hover {
@@ -80,23 +80,23 @@
       .footer-contact-us {
         display: flex;
         flex-direction: column;
-        margin-top: rem(20px);
+        margin-top: 20px;
         border-bottom: solid 1px #aaa;
-        margin-bottom: rem(30px);
-        padding-bottom: rem(30px);
+        margin-bottom: 30px;
+        padding-bottom: 30px;
 
         @media screen and (min-width: $screen-m) {
           justify-content: space-between;
           flex-direction: row;
-          margin-top: rem(30px);
+          margin-top: 30px;
         }
 
         .contact-btn {
-          font-size: rem(12px);
+          font-size: 12px;
           color: #aaa;
           cursor: pointer;
-          margin-bottom: rem(10px);
-          height: rem(30px);
+          margin-bottom: 10px;
+          height: 30px;
           text-align: left;
 
           @media screen and (min-width: $screen-m) {
@@ -110,9 +110,9 @@
         }
 
         .subscribe-btn {
-          height: rem(36px);
-          width: rem(300px);
-          font-size: rem(14px);
+          height: 36px;
+          width: 300px;
+          font-size: 14px;
         }
       }
     }
@@ -128,7 +128,7 @@
         }
 
         .wri-logo {
-          margin: rem(30px) 0;
+          margin: 30px 0;
           width: 143px;
           height: 47px;
         }
@@ -146,7 +146,7 @@
         .partners-slide {
           width: 100%;
           margin: 0;
-          margin-top: rem(10px);
+          margin-top: 10px;
         }
 
         .carousel-slide {
@@ -197,18 +197,18 @@
         }
 
         .slick-next {
-          right: rem(-15px);
+          right: -15px;
         }
 
         .slick-prev {
-          left: rem(-15px);
+          left: -15px;
         }
       }
     }
   }
 
   .footer-terms {
-    padding-bottom: rem(25px);
+    padding-bottom: 25px;
     color: #999;
     font-size: 12px;
     letter-spacing: 0.1px;

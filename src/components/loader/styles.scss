@@ -14,8 +14,8 @@
   z-index: 1;
 
   .spinner {
-    height: rem(38px);
-    width: rem(38px);
+    height: 38px;
+    width: 38px;
     animation: rotate 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
     border: 5px solid transparent;
     border-top-color: rgba($slate, 0.7);
@@ -23,10 +23,10 @@
   }
 
   .message {
-    margin-top: rem(10px);
-    font-size: rem(14px);
+    margin-top: 10px;
+    font-size: 14px;
     background-color: rgba($white, 0.5);
-    padding: rem(5px) rem(8px);
+    padding: 5px 8px;
   }
 }
 

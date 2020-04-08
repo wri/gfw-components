@@ -9,14 +9,14 @@
   position: relative;
 
   span {
-    font-size: rem(14px);
+    font-size: 14px;
     color: $error;
-    margin-bottom: rem(20px);
+    margin-bottom: 20px;
 
     @media screen and (min-width: $screen-m) {
       align-self: flex-start;
-      margin-right: rem(20px);
-      margin-bottom: rem(30px);
+      margin-right: 20px;
+      margin-bottom: 30px;
     }
 
     &.success {

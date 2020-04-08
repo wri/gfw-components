@@ -1,16 +1,16 @@
 @import '~styles/settings';
-$button-height: rem(40px);
+$button-height: 40px;
 
 .c-button {
   height: $button-height;
   font-family: $font-family-1;
-  border-radius: rem(20px);
-  padding: 0 rem(15px);
+  border-radius: 20px;
+  padding: 0 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $green-gfw;
-  font-size: rem(16px);
+  font-size: 16px;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.1;
@@ -32,8 +32,8 @@ $button-height: rem(40px);
 
   svg {
     fill: $white;
-    width: rem(15px);
-    height: rem(15px);
+    width: 15px;
+    height: 15px;
   }
 
   &:hover {

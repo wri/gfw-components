@@ -2,7 +2,7 @@
 
 .c-form-radio {
   .radio-option {
-    margin-bottom: rem(15px);
+    margin-bottom: 15px;
     cursor: pointer;
 
     label {
@@ -10,22 +10,22 @@
       flex-direction: row;
       align-items: center;
       cursor: pointer;
-      margin-bottom: rem(5px);
+      margin-bottom: 5px;
 
       span {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: rem(16px);
-        height: rem(16px);
+        width: 16px;
+        height: 16px;
         border-radius: 100%;
         border: solid 1px $slate;
-        margin-right: rem(10px);
+        margin-right: 10px;
 
         &::after {
           content: '';
-          width: rem(8px);
-          height: rem(8px);
+          width: 8px;
+          height: 8px;
           background-color: $green-gfw;
           border-radius: 100%;
           display: none;

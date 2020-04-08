@@ -5,24 +5,24 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin: rem(20px) 0 rem(20px);
+    margin: 20px 0 20px;
 
     label {
       cursor: pointer;
-      padding-left: rem(10px);
+      padding-left: 10px;
     }
   }
 
   input[type=checkbox] {
     position: relative;
-    width: rem(25px);
-    height: rem(25px);
-    min-width: rem(25px);
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
     border: 1px solid $border;
     appearance: none;
     color: $green-gfw;
     cursor: pointer;
-    border-radius: rem(4px);
+    border-radius: 4px;
 
     &::-ms-check {
       display: none;
@@ -36,10 +36,10 @@
   input[type=checkbox]::before {
     content: "✔";
     position: absolute;
-    left: rem(5px);
-    top: rem(2px);
+    left: 5px;
+    top: 2px;
     visibility: hidden;
-    font-size: rem(16px);
+    font-size: 16px;
   }
 
   input[type=checkbox]:checked::before {

@@ -36,13 +36,13 @@
 
   .clear-btn {
     position: absolute;
-    right: rem(40px);
+    right: 40px;
     top: calc(50% - 10px);
     cursor: pointer;
 
     .icon-close {
-      width: rem(10px);
-      height: rem(10px);
+      width: 10px;
+      height: 10px;
     }
   }
 }

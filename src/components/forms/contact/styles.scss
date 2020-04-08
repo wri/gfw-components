@@ -2,27 +2,27 @@
 
 .c-contact-form {
   .subtitle {
-    margin-bottom: rem(30px);
-    font-size: rem(16px);
+    margin-bottom: 30px;
+    font-size: 16px;
   }
 
   h4 {
-    font-size: rem(16px);
-    margin-bottom: rem(5px);
+    font-size: 16px;
+    margin-bottom: 5px;
   }
 
   p {
-    margin-bottom: rem(20px);
+    margin-bottom: 20px;
   }
 
   input,
   textarea,
   select {
-    max-width: rem(350px);
+    max-width: 350px;
   }
 
   .submit-btn {
-    min-width: rem(180px);
+    min-width: 180px;
   }
 
   .feedback-message {
@@ -30,17 +30,17 @@
     align-items: flex-start;
     flex-direction: column;
     background-color: #fff;
-    max-width: rem(500px);
+    max-width: 500px;
 
     h3 {
-      font-size: rem(20px);
-      margin-bottom: rem(30px);
+      font-size: 20px;
+      margin-bottom: 30px;
       text-transform: none;
       opacity: 1;
     }
 
     p {
-      margin-bottom: rem(30px);
+      margin-bottom: 30px;
     }
 
     .button-group {

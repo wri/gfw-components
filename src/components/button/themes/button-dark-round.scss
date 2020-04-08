@@ -1,7 +1,7 @@
 @import '~styles/settings.scss';
 
-$icon-size: rem(50px);
-$margin: rem(5px);
+$icon-size: 50px;
+$margin: 5px;
 
 .theme-button-dark-round {
   width: $icon-size;
@@ -16,11 +16,11 @@ $margin: rem(5px);
     width: auto;
 
     .value {
-      height: rem(40px);
+      height: 40px;
       width: 100%;
       color: $slate-light;
       white-space: initial;
-      font-size: rem(11px);
+      font-size: 11px;
       text-transform: uppercase;
     }
   }
