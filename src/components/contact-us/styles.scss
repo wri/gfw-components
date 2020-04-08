@@ -1,0 +1,9 @@
+@import '~styles/settings.scss';
+
+.c-contact-us-modal {
+  @media screen and (min-width: $screen-m) {
+    .modal-content {
+      min-width: rem(700px);
+    }
+  }
+}
