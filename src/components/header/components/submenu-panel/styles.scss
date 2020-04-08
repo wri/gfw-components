@@ -28,14 +28,14 @@
       padding: 15px 0 !important;
 
       &.active {
-        color: $green-gfw;
+        color: $green;
 
         &:after {
           background-color: transparent !important;
         }
 
         &:hover {
-          color: darken($green-gfw, 10%)
+          color: darken($green, 10%)
         }
       }
     }

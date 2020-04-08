@@ -7,7 +7,7 @@
   background-color: $white;
   border-radius: 0;
   font-size: 10px;
-  color: $slate-light;
+  color: $slate-dark;
 
   svg {
     fill: $slate;
@@ -19,7 +19,7 @@
 
   &.active {
     svg {
-      fill: $green-gfw;
+      fill: $green;
     }
   }
 

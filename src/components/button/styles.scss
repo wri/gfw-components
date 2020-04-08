@@ -3,13 +3,13 @@ $button-height: 40px;
 
 .c-button {
   height: $button-height;
-  font-family: $font-family-1;
+  font-family: $font-family;
   border-radius: 20px;
   padding: 0 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $green-gfw;
+  background-color: $green;
   font-size: 16px;
   text-transform: uppercase;
   text-align: center;
@@ -37,7 +37,7 @@ $button-height: 40px;
   }
 
   &:hover {
-    background-color: darken($green-gfw, 10%);
+    background-color: darken($green, 10%);
   }
 
   &.disabled {

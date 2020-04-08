@@ -93,6 +93,7 @@ class ContactForm extends PureComponent {
       </a>
     </p>
     <form onSubmit={handleSubmit}>
+      <input value="heelo there" />
       <Input
         name="email"
         type="email"
