@@ -24,7 +24,7 @@ const images = require.context('assets/logos/partners', true);
 class Footer extends PureComponent {
   static propTypes = {
     NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
-    openContactUsModal: PropTypes.func.isRequired
+    openContactUsModal: PropTypes.func
   };
 
   renderCarousel = slidesToShow => (
