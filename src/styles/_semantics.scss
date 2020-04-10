@@ -119,6 +119,9 @@ textarea {
   font-size: 14px;
   color: $slate;
   font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
   &::placeholder {
     color: #a8a8a8;

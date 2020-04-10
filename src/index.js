@@ -18,6 +18,9 @@ export { default as Footer } from './components/footer';
 export { default as Button } from './components/button';
 export { default as Carousel } from './components/carousel';
 
+// Forms
+export { default as ContactUsForm } from './components/forms/contact-us';
+
 // Responsive
 export {
   Media,

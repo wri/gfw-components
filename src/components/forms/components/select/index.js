@@ -7,6 +7,7 @@ import cx from 'classnames';
 import { composeValidators } from 'components/forms/validations';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
+import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import './styles.scss';
 
@@ -48,16 +49,19 @@ class Select extends PureComponent {
         type="select"
         multiple={multiple}
       >
-        {({ input, meta }) => (
-          <FieldWrapper
-            label={label}
-            name={name}
-            {...meta}
-            hidden={hidden}
-            required={required}
-          >
+        {({ input, meta }) => console.log(input, meta) || (
+        <FieldWrapper
+          label={label}
+          name={name}
+          {...meta}
+          hidden={hidden}
+          required={required}
+        >
+          <div className="c-form-select">
             <select
-              className={cx('c-form-select', { multiple })}
+              className={cx('select-input', { multiple }, {
+                    placeholder: !input.value
+                  })}
               {...input}
               multiple={multiple}
             >
@@ -65,10 +69,12 @@ class Select extends PureComponent {
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
-              ))}
+                  ))}
             </select>
-          </FieldWrapper>
-        )}
+            <ArrowIcon className="arrow-icon" />
+          </div>
+        </FieldWrapper>
+          )}
       </Field>
     );
   }
