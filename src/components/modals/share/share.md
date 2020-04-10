@@ -1,0 +1,2 @@
+```js
+<ShareModal open />

@@ -6,8 +6,6 @@ import { composeValidators } from 'components/forms/validations';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
-import './styles.scss';
-
 class Input extends PureComponent {
   static propTypes = {
     type: PropTypes.string,
@@ -18,7 +16,7 @@ class Input extends PureComponent {
     name: PropTypes.string,
     required: PropTypes.bool,
     collapse: PropTypes.bool,
-    infoClick: PropTypes.func
+    infoClick: PropTypes.func,
   };
 
   render() {
@@ -31,7 +29,7 @@ class Input extends PureComponent {
       hidden,
       required,
       infoClick,
-      collapse
+      collapse,
     } = this.props;
 
     return (
@@ -51,25 +49,21 @@ class Input extends PureComponent {
             collapse={collapse}
             value={input.value}
           >
-            {
-              type === 'textarea'
-                ? (
-                  <textarea
-                    className="c-form-input textarea"
-                    {...input}
-                    type={type}
-                    placeholder={placeholder}
-                  />
-)
-                : (
-                  <input
-                    className="c-form-input"
-                    {...input}
-                    type={type}
-                    placeholder={placeholder}
-                  />
-)
-            }
+            {type === 'textarea' ? (
+              <textarea
+                className="c-form-input textarea"
+                {...input}
+                type={type}
+                placeholder={placeholder}
+              />
+            ) : (
+              <input
+                className="c-form-input"
+                {...input}
+                type={type}
+                placeholder={placeholder}
+              />
+            )}
           </FieldWrapper>
         )}
       </Field>
