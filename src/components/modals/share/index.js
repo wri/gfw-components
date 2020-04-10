@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TwitterIcon from 'assets/icons/social/twitter.svg';
 import FacebookIcon from 'assets/icons/social/facebook.svg';
 
-// import Switch from 'components/ui/switch';
+import Switch from 'components/switch';
 import Button from 'components/button';
 import Loader from 'components/loader';
 import Modal from 'components/modals/modal';
@@ -26,7 +26,7 @@ class ShareModal extends PureComponent {
   static defaultProps = {
     title: 'Share this view',
     shareUrl: '',
-    embedUrl: '',
+    embedUrl: 'dsassdaddaddaddadddsdad',
     embedSettings: { width: 670, height: 490 },
   };
 
@@ -89,74 +89,71 @@ class ShareModal extends PureComponent {
         title={title}
         className="c-share-modal"
       >
-        <div className="share-content">
-          <div className="actions">
-            {/* {embedUrl ? (
-              <Switch
-                className="share-switch-tab"
-                theme="theme-switch-light"
-                value={selected}
-                options={[
-                  { label: 'LINK', value: 'link' },
-                  { label: 'EMBED', value: 'embed' }
-                ]}
-                onChange={
-                  selected === 'embed'
-                    ? () => setShareSelected('link')
-                    : () => setShareSelected('embed')
-                }
+        <div className="actions">
+          {embedUrl && (
+            <Switch
+              className="share-switch-tab"
+              theme="theme-switch-light"
+              value={selected}
+              options={[
+                { label: 'LINK', value: 'link' },
+                { label: 'EMBED', value: 'embed' },
+              ]}
+              onChange={() =>
+                this.setState({
+                  selected: selected === 'embed' ? 'link' : 'embed',
+                })}
+            />
+          )}
+          <p className="info">
+            {selected === 'embed'
+              ? 'Click and paste HTML to embed in website'
+              : 'Click and paste link in email or IM'}
+          </p>
+          <div className="input-wrapper">
+            <div className="input-container">
+              {loading && selected !== 'embed' && (
+                <Loader className="input-loader" />
+              )}
+              <input
+                ref={(input) => {
+                  this.textInput = input;
+                }}
+                type="text"
+                value={!loading ? inputValue : ''}
+                readOnly
+                onClick={this.handleFocus}
               />
-            ) : null} */}
-            <p className="info">
-              {selected === 'embed'
-                ? 'Click and paste HTML to embed in website'
-                : 'Click and paste link in email or IM'}
-            </p>
-            <div className="input-wrapper">
-              <div className="input-container">
-                {loading && selected !== 'embed' && (
-                  <Loader className="input-loader" />
-                )}
-                <input
-                  ref={(input) => {
-                    this.textInput = input;
-                  }}
-                  type="text"
-                  value={!loading ? inputValue : ''}
-                  readOnly
-                  onClick={this.handleFocus}
-                />
-              </div>
-              <Button
-                theme="button-medium"
-                className="copy-button"
-                onClick={() => this.handleCopyToClipboard(this.textInput)}
-                disabled={loading}
-              >
-                {copied ? 'COPIED!' : 'COPY'}
-              </Button>
             </div>
-          </div>
-          <div className="social-container">
-            <a
-              href={`https://twitter.com/intent/tweet?text=${title}&via=globalforests&url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              theme="button-medium"
+              className="copy-button"
+              onClick={() => this.handleCopyToClipboard(this.textInput)}
+              disabled={loading}
             >
-              <Button theme="button-light round big" className="social-btn">
-                <TwitterIcon className="social-icon" />
-              </Button>
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button theme="button-light round big" className="social-btn">
-                <FacebookIcon className="social-icon" />
-              </Button>
-            </a>
+              {copied ? 'COPIED!' : 'COPY'}
+            </Button>
           </div>
+        </div>
+        <div className="social-container">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${title}&via=globalforests&url=${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button theme="button-light round big" className="social-btn">
+              <TwitterIcon className="social-icon" />
+            </Button>
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer.php?u=${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button theme="button-light round big" className="social-btn">
+              <FacebookIcon className="social-icon" />
+            </Button>
+          </a>
         </div>
       </Modal>
     );

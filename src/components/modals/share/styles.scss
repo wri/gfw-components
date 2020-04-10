@@ -3,8 +3,16 @@ $input-button-width: 100px;
 
 .c-share-modal {
   @media screen and (min-width: $screen-m) {
-    width: 430px;
+    width: 600px;
     min-width: 320px;
+  }
+
+  .modal-content {
+    padding-bottom: 30px;
+
+    @media screen and (min-width: $screen-m) {
+      padding-bottom: 60px;
+    }
   }
 
   .share-switch-tab {
@@ -13,11 +21,6 @@ $input-button-width: 100px;
   }
 
   .info {
-    text-align: left;
-    color: #555;
-    font-size: 16px;
-    line-height: 30px;
-    width: 100%;
     margin-bottom: 10px;
   }
 
@@ -79,21 +82,5 @@ $input-button-width: 100px;
       width: 20px;
       height: 20px;
     }
-
-    // .twitter {
-    //   background-color: $twitter;
-
-    //   &:hover {
-    //     background-color: darken($twitter, 10%);
-    //   }
-    // }
-
-    // .facebook {
-    //   background-color: $facebook;
-
-    //   &:hover {
-    //     background-color: darken($facebook, 10%);
-    //   }
-    // }
   }
 }
