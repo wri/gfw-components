@@ -17,9 +17,31 @@ export { default as Header } from './components/header';
 export { default as Footer } from './components/footer';
 export { default as Button } from './components/button';
 export { default as Carousel } from './components/carousel';
+export { default as Loader } from './components/loader';
+export { default as Search } from './components/search';
 
 // Forms
 export { default as ContactUsForm } from './components/forms/contact-us';
+export {
+  default as FormCheckbox
+} from './components/forms/components/checkbox';
+export { default as FormError } from './components/forms/components/error';
+export {
+  default as FormFieldWrapper
+} from './components/forms/components/field-wrapper';
+export { default as FormInput } from './components/forms/components/input';
+export {
+  default as FormInputTags
+} from './components/forms/components/input-tags';
+export { default as FormRadio } from './components/forms/components/radio';
+export { default as FormSelect } from './components/forms/components/select';
+export { default as FormSubmit } from './components/forms/components/submit';
+export * as validations from './components/forms/validations';
+export { Form, FORM_ERROR } from 'react-final-form';
+
+// Modals
+export { default as Modal } from './components/modals/modal';
+export { default as ContactUsModal } from './components/modals/contact-us';
 
 // Responsive
 export {
