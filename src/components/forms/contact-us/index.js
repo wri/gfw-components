@@ -74,6 +74,15 @@ class ContactUsForm extends PureComponent {
                       </h3>
                       <p>Interested in getting news and updates from us?</p>
                       <div className="button-group">
+                        <a
+                          href="https://www.globalforestwatch.org/subscribe"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button onClick={resetForm || (() => reset())}>
+                            Subscribe
+                          </Button>
+                        </a>
                         <Button
                           className="close-button"
                           onClick={resetForm || (() => reset())}

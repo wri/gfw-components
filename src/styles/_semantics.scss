@@ -31,6 +31,7 @@ h2 {
 h3 {
   font-size: 28px;
   line-height: 30px;
+  font-weight: 300;
 
   @media screen and (min-width: $screen-m) {
     font-size: 36px;
@@ -59,16 +60,8 @@ h5 {
 
 a {
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
   text-decoration: none;
   transition: all 150ms ease-out;
-
-  &:hover,
-  &:active,
-  &:visited {
-    text-decoration: underline;
-  }
 }
 
 p {
@@ -77,8 +70,13 @@ p {
 
   a {
     color: $green;
+    font-size: 16px;
+    line-height: 24px;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:visited {
+      text-decoration: underline;
       color: $green-dark;
     }
   }
