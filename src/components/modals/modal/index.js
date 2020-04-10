@@ -19,6 +19,7 @@ class Modal extends PureComponent {
     children: PropTypes.node,
     title: PropTypes.string,
     className: PropTypes.string,
+    renderFooter: PropTypes.bool,
     customStyles: PropTypes.object
   };
 
@@ -35,7 +36,8 @@ class Modal extends PureComponent {
       className,
       loading,
       customStyles,
-      onAfterOpen
+      onAfterOpen,
+      renderFooter
     } = this.props;
 
     return (
@@ -81,6 +83,7 @@ class Modal extends PureComponent {
         {loading && <Loader />}
         {!loading && title && <p className="modal-title">{title}</p>}
         {!loading && <div className="modal-content">{children}</div>}
+        {renderFooter && <div className="footer-banner" />}
       </ReactModal>
     );
   }

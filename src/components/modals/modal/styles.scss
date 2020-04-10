@@ -47,6 +47,8 @@ body {
   .modal-content {
     padding: $vertical-modal-padding-mobile $horizontal-modal-padding-mobile;
     margin: auto;
+    z-index: 1;
+    position: relative;
 
     .element-fullwidth {
       width: calc(100% + 2 * #{$horizontal-modal-padding-mobile});
@@ -97,5 +99,14 @@ body {
       height: 15px;
       fill: $slate;
     }
+  }
+
+  .footer-banner {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    height: 80px;
+    background-color: #E5E5DF;
   }
 }

@@ -49,32 +49,32 @@ class Select extends PureComponent {
         type="select"
         multiple={multiple}
       >
-        {({ input, meta }) => console.log(input, meta) || (
-        <FieldWrapper
-          label={label}
-          name={name}
-          {...meta}
-          hidden={hidden}
-          required={required}
-        >
-          <div className="c-form-select">
-            <select
-              className={cx('select-input', { multiple }, {
-                    placeholder: !input.value
-                  })}
-              {...input}
-              multiple={multiple}
-            >
-              {optionWithPlaceholder.map(option => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-                  ))}
-            </select>
-            <ArrowIcon className="arrow-icon" />
-          </div>
-        </FieldWrapper>
-          )}
+        {({ input, meta }) => (
+          <FieldWrapper
+            label={label}
+            name={name}
+            {...meta}
+            hidden={hidden}
+            required={required}
+          >
+            <div className="c-form-select">
+              <select
+                className={cx('select-input', { multiple }, {
+                  placeholder: !input.value
+                })}
+                {...input}
+                multiple={multiple}
+              >
+                {optionWithPlaceholder.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <ArrowIcon className="arrow-icon" />
+            </div>
+          </FieldWrapper>
+        )}
       </Field>
     );
   }
