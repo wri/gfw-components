@@ -122,6 +122,7 @@ textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #a8a8a8;
