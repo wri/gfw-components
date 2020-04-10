@@ -18,7 +18,7 @@ import { topics, tools } from './config';
 
 import './styles.scss';
 
-class ContactForm extends PureComponent {
+class ContactUsForm extends PureComponent {
   static propTypes = {
     // sendContactForm: PropTypes.func.isRequired,
     resetForm: PropTypes.func,
@@ -93,7 +93,6 @@ class ContactForm extends PureComponent {
       </a>
     </p>
     <form onSubmit={handleSubmit}>
-      <input value="heelo there" />
       <Input
         name="email"
         type="email"
@@ -141,4 +140,4 @@ class ContactForm extends PureComponent {
   }
 }
 
-export default ContactForm;
+export default ContactUsForm;

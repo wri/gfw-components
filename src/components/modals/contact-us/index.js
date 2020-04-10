@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import ContactForm from 'components/forms/contact';
-import Modal from 'components/modal';
+import Modal from 'components/modals/modal';
 
 import './styles.scss';
 

@@ -1,5 +1,5 @@
 ```js
-import Button from '../button';
+import Button from '../../button';
 
 const [open, setIsOpen] = React.useState(false);
 
