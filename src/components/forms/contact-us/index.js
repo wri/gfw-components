@@ -74,7 +74,6 @@ class ContactUsForm extends PureComponent {
                       </h3>
                       <p>Interested in getting news and updates from us?</p>
                       <div className="button-group">
-                        {}
                         <Button
                           className="close-button"
                           onClick={resetForm || (() => reset())}
@@ -91,6 +90,7 @@ class ContactUsForm extends PureComponent {
       <a href="mailto:katie.lyons@wri.org">
         katie.lyons@wri.org
       </a>
+      .
     </p>
     <form onSubmit={handleSubmit}>
       <Input

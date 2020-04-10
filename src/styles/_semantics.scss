@@ -111,3 +111,20 @@ button {
     outline: none;
   }
 }
+
+input,
+textarea {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: $slate;
+  font-family: inherit;
+
+  &::placeholder {
+    color: #a8a8a8;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
