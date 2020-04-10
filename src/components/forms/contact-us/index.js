@@ -20,7 +20,6 @@ import './styles.scss';
 
 class ContactUsForm extends PureComponent {
   static propTypes = {
-    // sendContactForm: PropTypes.func.isRequired,
     resetForm: PropTypes.func,
     initialValues: PropTypes.object
   };
