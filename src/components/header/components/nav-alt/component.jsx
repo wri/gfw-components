@@ -75,7 +75,7 @@ class NavAlt extends PureComponent {
             />
           </NavLink>
         </div>
-        <li className="nav-item nav-more">
+        <div className="nav-item nav-more">
           <button
             className="nav-link"
             onClick={() => {
@@ -91,7 +91,7 @@ class NavAlt extends PureComponent {
                 : <MoreIcon className="icon-submenu icon-more" />
             }
           </button>
-        </li>
+        </div>
       </div>
     );
   }
