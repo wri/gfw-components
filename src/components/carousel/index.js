@@ -16,12 +16,12 @@ const defaultSettings = {
   slidesToScroll: 1,
   customPaging: i => <button aria-label={`slide ${i}`} />,
   nextArrow: (
-    <Button theme="square" ariaLabel="carousel next">
+    <Button theme="round" ariaLabel="carousel next">
       <ArrowIcon />
     </Button>
   ),
   prevArrow: (
-    <Button theme="square" ariaLabel="carousel previous">
+    <Button theme="round" ariaLabel="carousel previous">
       <ArrowIcon />
     </Button>
   )

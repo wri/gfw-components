@@ -6,40 +6,29 @@ import { Tooltip } from 'react-tippy';
 import Tip from 'components/tip';
 
 import './styles.scss';
-import './themes/button-light.scss';
-// eslint-disable-line
-import './themes/button-small.scss';
-// eslint-disable-line
-import './themes/button-xsmall.scss';
-// eslint-disable-line
-import './themes/button-medium.scss';
-// eslint-disable-line
-import './themes/button-tiny.scss';
-// eslint-disable-line
-import './themes/button-grey.scss';
-// eslint-disable-line
-import './themes/button-grey-filled.scss';
-// eslint-disable-line
-import './themes/button-clear.scss';
-// eslint-disable-line
-import './themes/button-map-control.scss';
-// eslint-disable-line
-import './themes/button-dashed.scss';
-// eslint-disable-line
-import './themes/button-dark-round.scss';
-
-// eslint-disable-line
+import './themes/light.scss';
+import './themes/dark.scss';
+import './themes/clear.scss';
+// import './themes/button-small.scss';
+// import './themes/button-xsmall.scss';
+// import './themes/button-medium.scss';
+// import './themes/button-tiny.scss';
+// import './themes/button-grey.scss';
+// import './themes/button-grey-filled.scss';
+// import './themes/button-clear.scss';
+// import './themes/button-map-control.scss';
+// import './themes/button-dashed.scss';
+// import './themes/button-dark-round.scss';
 class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     theme: PropTypes.string,
     disabled: PropTypes.bool,
-    active: PropTypes.bool,
     onClick: PropTypes.func,
     tooltip: PropTypes.object,
     ariaLabel: PropTypes.string
-  }; /* Fixes Safari 10 flexbox issues with button elements */
+  };
 
   renderButton = () => {
     const {
@@ -47,21 +36,17 @@ class Button extends PureComponent {
       className,
       theme,
       disabled,
-      active,
       onClick,
       ariaLabel
     } = this.props;
 
     return (
       <button
-        className={cx('c-button', theme, className, { disabled }, {
-          active
-        })}
+        className={cx('c-button', theme, className, { disabled })}
         onClick={onClick}
         disabled={disabled}
         aria-label={ariaLabel}
       >
-        {}
         <div className="button-wrapper">
           {children}
         </div>
@@ -72,16 +57,18 @@ class Button extends PureComponent {
   render() {
     const { tooltip } = this.props;
 
-    return tooltip ? (
-      <Tooltip
-        /* theme="tip" */
-        /* position="top" */
-        /* arrow */
-        html={<Tip text={tooltip.text} />}
-      >
-        {this.renderButton()}
-      </Tooltip>
-) : this.renderButton();
+    return tooltip
+      ? (
+        <Tooltip
+          theme="tip"
+          position="top"
+          arrow
+          html={<Tip text={tooltip.text} />}
+        >
+          {this.renderButton()}
+        </Tooltip>
+)
+      : this.renderButton();
   }
 }
 

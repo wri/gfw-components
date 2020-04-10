@@ -1,0 +1,17 @@
+@import '~styles/settings.scss';
+
+.button-clear {
+  background-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  svg {
+    fill: $slate;
+
+    &:hover {
+      fill: $slate-dark;
+    }
+  }
+}

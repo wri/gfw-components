@@ -1,43 +1,35 @@
-#### Default
+#### States
 ```js
-<Button>Global Forest Watch</Button>
+<Button>Default</Button>
+<br />
+<Button theme="big">Big button</Button>
+<br />
+<Button theme="small">Small button</Button>
+<br />
+<Button theme="round">$</Button>
+<br />
+<Button theme="square">Square</Button>
 ```
 
-#### Light
+#### Colors
 ```js
-<Button theme="theme-button-light">Global Forest Watch</Button>
+<Button>Default</Button>
+<br />
+<Button theme="button-light">Light</Button>
+<br />
+<Button theme="button-dark">Dark</Button>
 ```
 
-#### With Icon
+#### Disabled
 ```js
-import ArrowIcon from '../../assets/icons/arrow-down.svg';
-<Button theme="theme-button-light"><ArrowIcon /></Button>
+<Button theme="disabled">Default</Button>
+<br />
+<Button theme="button-light disabled">Light</Button>
+<br />
+<Button theme="button-dark disabled">Dark</Button>
 ```
 
-#### With tooltip
-
-You can add a react tippy tooltip to any button with the `tooltip` prop. It accepts an object with any of the props listed in the lib: https://github.com/tvkhoa/react-tippy.
-
+#### Tooltip
 ```js
-<Button theme="theme-button-light" tooltip={{ text: 'Thanks for hovering' }}>Global Forest Watch</Button>
-```
-
-#### Themes
-There are themes for buttons available also. You can chain themes inside the theme prop to access these
-```js
-<Button theme="theme-button-medium">Global Forest Watch</Button>
-<br />
-<Button theme="theme-button-small">Global Forest Watch</Button>
-<br />
-<Button theme="theme-button-grey">Global Forest Watch</Button>
-<br />
-<Button theme="theme-button-small theme-button-grey">Global Forest Watch</Button>
-<br />
-<Button theme="theme-button-tiny">Global Forest Watch</Button>
-<br />
-<Button theme="theme-button-xsmall">Global Forest Watch</Button>
-<br />
-<Button theme="theme-button-medium square">$</Button>
-<br />
-
+<Button theme="theme-button-light" tooltip={{ text: 'Thanks for hovering' }}>With tooltip</Button>
 ```

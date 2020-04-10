@@ -1,0 +1,9 @@
+@import '~styles/settings.scss';
+
+.button-dark {
+  background-color: $slate;
+
+  &:hover {
+    background-color: $slate-dark;
+  }
+}

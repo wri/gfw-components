@@ -35,18 +35,12 @@ class Footer extends PureComponent {
         slidesToScroll: slidesToShow,
         infinite: true,
         nextArrow: (
-          <Button
-            theme="theme-button-clear square"
-            ariaLabel="next partners logos"
-          >
+          <Button theme="button-clear round" ariaLabel="next partners logos">
             <ArrowIcon />
           </Button>
         ),
         prevArrow: (
-          <Button
-            theme="theme-button-clear square"
-            ariaLabel="prev partners logos"
-          >
+          <Button theme="button-clear round" ariaLabel="prev partners logos">
             <ArrowIcon />
           </Button>
         ),
