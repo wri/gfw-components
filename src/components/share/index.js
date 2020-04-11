@@ -17,6 +17,7 @@ class Share extends PureComponent {
     title: PropTypes.string,
     shareUrl: PropTypes.string,
     embedUrl: PropTypes.string,
+    embed: PropTypes.string,
     embedSettings: PropTypes.object,
   };
 
@@ -34,6 +35,11 @@ class Share extends PureComponent {
     shareUrl:
       this.props.shareUrl ||
       (typeof window !== 'undefined' ? window.location.href : ''),
+    embedUrl:
+      this.props.embedUrl ||
+      (this.props.embed && typeof window !== 'undefined'
+        ? window.location.href
+        : ''),
   };
 
   componentDidMount() {
@@ -67,8 +73,8 @@ class Share extends PureComponent {
   };
 
   render() {
-    const { title, embedUrl, embedSettings } = this.props;
-    const { selected, loading, copied, shareUrl } = this.state;
+    const { title, embedSettings } = this.props;
+    const { selected, loading, copied, shareUrl, embedUrl } = this.state;
     const { width, height } = embedSettings || {};
 
     const inputValue =

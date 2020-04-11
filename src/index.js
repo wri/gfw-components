@@ -29,6 +29,7 @@ export { default as Button } from './components/button';
 export { default as Carousel } from './components/carousel';
 export { default as Loader } from './components/loader';
 export { default as Search } from './components/search';
+export { default as Share } from './components/share';
 
 // Forms
 export { default as ContactUsForm } from './components/forms/contact-us';
@@ -47,6 +48,7 @@ export { Form, FORM_ERROR } from 'react-final-form';
 export { default as Modal } from './components/modals/modal';
 export { default as ContactUsModal } from './components/modals/contact-us';
 export { default as MetaModal } from './components/modals/meta';
+export { default as ShareModal } from './components/modals/share';
 
 // Responsive
 export {
