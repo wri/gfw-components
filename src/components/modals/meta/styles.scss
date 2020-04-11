@@ -145,12 +145,12 @@ $mobile-margin: 10px;
     background-color: #E5E5DF;
     margin: 0 -30px -30px;
     margin-left: -25px;
-    width: 100%;
+    width: calc(100% + 50px);
     padding: 20px 25px 10px;
 
     @media screen and (min-width: $screen-m) {
       margin-left: -100px;
-      width: 100%;
+      width: calc(100% + 200px);
       padding: 20px 100px;
       flex-direction: row;
       justify-content: flex-end;
