@@ -31,52 +31,43 @@ body {
 .c-modal {
   background: #fff;
   outline: none;
-
-  /* Predefined modal size when loading content */
   min-width: 200px;
   min-height: 150px;
-
-  .modal-title {
-    padding: $vertical-modal-padding-mobile $horizontal-modal-padding-mobile 0;
-    color: $greyish-brown;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 30px;
-  }
-
-  .modal-content {
-    padding: $vertical-modal-padding-mobile $horizontal-modal-padding-mobile;
-    margin: auto;
-    z-index: 1;
-    position: relative;
-
-    .element-fullwidth {
-      width: calc(100% + 2 * #{$horizontal-modal-padding-mobile});
-      margin-left: -$horizontal-modal-padding-mobile;
-
-      @media screen and (min-width: $screen-m) {
-        width: calc(100% + 2 * #{$horizontal-modal-padding-desktop});
-        margin-left: -$horizontal-modal-padding-desktop;
-      }
-    }
-  }
 
   @media screen and (min-width: $screen-m) {
     width: auto;
     max-width: 900px;
+  }
 
-    .modal-title {
-      padding: $vertical-modal-padding-desktop $horizontal-modal-padding-desktop 0;
+  .modal-title {
+    padding: 20px 25px 0;
+
+    @media screen and (min-width: $screen-m) {
+      padding: 40px 100px 0;
       color: #333;
-      line-height: 40px;
       margin: 0 auto;
-      font-size: 30px;
-      font-weight: 300;
       text-align: left;
     }
+  }
 
-    .modal-content {
-      padding: 30px $horizontal-modal-padding-desktop $vertical-modal-padding-desktop;
+  .modal-content {
+    padding: 20px 25px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+
+    @media screen and (min-width: $screen-m) {
+      padding: 30px 100px 40px;
+    }
+
+    .element-fullwidth {
+      width: calc(100% + 2 * #{25px});
+      margin-left: -25px;
+
+      @media screen and (min-width: $screen-m) {
+        width: calc(100% + 2 * #{100px});
+        margin-left: -100px;
+      }
     }
   }
 
@@ -86,18 +77,11 @@ body {
     right: 15px;
     border: none;
     outline: none;
-    cursor: pointer;
     z-index: 10;
 
     @media screen and (min-width: $screen-m) {
       top: 25px;
       right: 25px;
-    }
-
-    svg {
-      width: 15px;
-      height: 15px;
-      fill: $slate;
     }
   }
 

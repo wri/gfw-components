@@ -47,6 +47,7 @@
     "no-restricted-globals": "off",
     "react/sort-comp": "off",
     "import/no-extraneous-dependencies": "off",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "camelcase": "off"
   }
 }

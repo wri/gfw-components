@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Loader from 'components/loader';
+import Button from 'components/button';
 import CloseIcon from 'assets/icons/close.svg';
 
 import './styles.scss';
@@ -20,7 +21,7 @@ class Modal extends PureComponent {
     title: PropTypes.string,
     className: PropTypes.string,
     renderFooter: PropTypes.bool,
-    customStyles: PropTypes.object
+    customStyles: PropTypes.object,
   };
 
   static defaultProps = { contentLabel: '' };
@@ -37,7 +38,7 @@ class Modal extends PureComponent {
       loading,
       customStyles,
       onAfterOpen,
-      renderFooter
+      renderFooter,
     } = this.props;
 
     return (
@@ -46,42 +47,42 @@ class Modal extends PureComponent {
         isOpen={open}
         onRequestClose={onRequestClose}
         style={
-          customStyles ||
-            {
-              overlay: {
-                zIndex: 10000,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 5px 15px 0 rgba(71, 44, 184, 0.1)',
-                backgroundColor: 'rgba(17, 55, 80, 0.4)',
-                overflow: 'auto'
-              },
-              content: {
-                position: 'relative',
-                top: 'auto',
-                left: 'auto',
-                right: 'auto',
-                bottom: 'auto',
-                margin: 'auto',
-                padding: '0',
-                border: 'none',
-                borderRadius: 0
-              }
-            }
+          customStyles || {
+            overlay: {
+              zIndex: 10000,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 5px 15px 0 rgba(71, 44, 184, 0.1)',
+              backgroundColor: 'rgba(17, 55, 80, 0.4)',
+              overflow: 'auto',
+            },
+            content: {
+              position: 'relative',
+              top: 'auto',
+              left: 'auto',
+              right: 'auto',
+              bottom: 'auto',
+              margin: 'auto',
+              padding: '0',
+              border: 'none',
+              borderRadius: 0,
+            },
+          }
         }
         contentLabel={contentLabel}
         onAfterOpen={onAfterOpen}
         ariaHideApp={false}
       >
-        <button
+        <Button
+          theme="button-clear round"
           className={`modal-close ${closeClass}`}
           onClick={onRequestClose}
         >
           <CloseIcon />
-        </button>
+        </Button>
         {loading && <Loader />}
-        {!loading && title && <p className="modal-title">{title}</p>}
+        {!loading && title && <h3 className="modal-title">{title}</h3>}
         {!loading && <div className="modal-content">{children}</div>}
         {renderFooter && <div className="footer-banner" />}
       </ReactModal>

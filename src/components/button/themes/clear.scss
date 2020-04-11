@@ -2,15 +2,17 @@
 
 .button-clear {
   background-color: transparent;
-
-  &:hover {
-    background-color: transparent;
-  }
+  color: $slate;
 
   svg {
     fill: $slate;
+  }
 
-    &:hover {
+  &:hover {
+    background-color: transparent;
+    color: $slate-dark;
+
+    svg {
       fill: $slate-dark;
     }
   }
