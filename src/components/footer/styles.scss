@@ -1,214 +1,195 @@
 @import '~styles/settings.scss';
 
 .c-footer {
-  font-family: $font-family;
   background: #eceee8;
 
-  .footer-subscribe {
-    background-color: #fff;
-  }
+  .footer-links {
+    padding-top: 60px;
 
-  .footer-main {
-    .footer-links {
-      padding-top: 30px;
+    .footer-links-texts {
+      height: 100%;
+      display: flex;
+      align-items: center;
 
-      li a {
-        font-size: 14px;
-        line-height: 1.86;
-        letter-spacing: 0.1px;
-        color: $slate;
-        text-transform: uppercase;
-        cursor: pointer;
+      li {
+        margin-right: 25px;
 
-        &:hover {
-          color: darken($slate, 20%);
+        a {
+          font-size: 14px;
+          color: $slate;
+          text-transform: uppercase;
+
+          &:hover {
+            color: $slate-dark;
+            text-decoration: underline;
+          }
         }
       }
+    }
 
-      svg {
-        fill: #444;
-        height: 25px;
-        width: 25px;
+    .footer-links-social {
+      display: flex;
+      margin-top: 15px;
+
+      @media screen and (min-width: $screen-m) {
+        justify-content: flex-end;
+        margin-top: 0;
       }
 
-      .footer-links-texts {
-        height: 100%;
-        display: flex;
-        align-items: center;
-
-        li {
-          margin-right: 25px;
-        }
-      }
-
-      .footer-links-social {
-        display: flex;
-        margin-top: 15px;
+      li {
+        margin-right: 8px;
 
         @media screen and (min-width: $screen-m) {
-          justify-content: flex-end;
-          margin-top: 0;
+          margin-right: 0;
+          margin-left: 15px;
         }
 
-        li {
-          border: 1px solid rgba(0, 0, 153, 0.2);
-          width: 50px;
-          height: 50px;
-          min-width: 50px;
-          border-radius: 100%;
-          margin-right: 8px;
-
-          @media screen and (min-width: $screen-m) {
-            margin-right: 0;
-            margin-left: 15px;
-          }
+        button {
+          border-color: rgba($grey, 0.2);
+          background-color: transparent;
 
           &:hover {
             background-color: $white;
           }
 
-          a {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+          svg {
+            height: 25px;
+            width: 25px;
           }
-        }
-      }
-
-      .footer-contact-us {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-        border-bottom: solid 1px #aaa;
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-
-        @media screen and (min-width: $screen-m) {
-          justify-content: space-between;
-          flex-direction: row;
-          margin-top: 30px;
-        }
-
-        .contact-btn {
-          font-size: 12px;
-          color: #aaa;
-          cursor: pointer;
-          margin-bottom: 10px;
-          height: 30px;
-          text-align: left;
-
-          @media screen and (min-width: $screen-m) {
-            text-align: center;
-            margin-bottom: 0;
-          }
-
-          &:hover {
-            color: darken(#aaa, 20%);
-          }
-        }
-
-        .subscribe-btn {
-          height: 36px;
-          width: 300px;
-          font-size: 14px;
         }
       }
     }
 
-    .footer-partners {
-      .footer-wri {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+    .footer-contact-us {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      border-bottom: solid 1px $grey;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
 
-        @media screen and (min-width: $screen-m) {
-          align-items: flex-start;
-        }
-
-        .wri-logo {
-          margin: 30px 0;
-          width: 143px;
-          height: 47px;
-        }
+      @media screen and (min-width: $screen-m) {
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 30px;
       }
 
-      .footer-partners-slide {
-        p {
+      .contact-btn {
+        font-size: 12px;
+        color: $grey;
+        margin-bottom: 10px;
+        height: 30px;
+        text-align: left;
+
+        @media screen and (min-width: $screen-m) {
           text-align: center;
-
-          @media screen and (min-width: $screen-m) {
-            text-align: left;
-          }
+          margin-bottom: 0;
         }
 
-        .partners-slide {
-          width: 100%;
-          margin: 0;
-          margin-top: 10px;
-        }
-
-        .carousel-slide {
-          a {
-            position: relative;
-            display: block;
-
-            .logo-color {
-              position: absolute;
-              height: auto;
-              width: auto;
-              left: 0;
-              right: 0;
-              top: 0;
-              bottom: 0;
-              opacity: 0;
-            }
-          }
-
-          &:hover {
-            .logo-grey {
-              opacity: 0;
-            }
-
-            .logo-color {
-              opacity: 1;
-            }
-          }
-        }
-
-        .slick-list {
-          overflow: hidden;
-        }
-
-        .slick-slide {
-          align-items: center;
-          justify-content: center;
-
-          img {
-            color: black;
-            text-decoration: none;
-            margin: auto;
-          }
-        }
-
-        .slick-arrow {
-          top: calc(50% - 20px);
-        }
-
-        .slick-next {
-          right: -15px;
-        }
-
-        .slick-prev {
-          left: -15px;
+        &:hover {
+          color: darken(#aaa, 20%);
         }
       }
     }
   }
 
+  .footer-partners {
+    p {
+      font-size: 14px;
+      color: $slate;
+    }
+
+    .footer-wri {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+
+      @media screen and (min-width: $screen-m) {
+        align-items: flex-start;
+      }
+
+      .wri-logo {
+        margin: 30px 0;
+        width: 143px;
+        height: 47px;
+      }
+    }
+
+    .footer-partners-slide {
+      p {
+        text-align: center;
+
+        @media screen and (min-width: $screen-m) {
+          text-align: left;
+        }
+      }
+
+      .partners-slide {
+        width: 100%;
+        margin: 0;
+        margin-top: 10px;
+      }
+
+      .carousel-slide {
+        a {
+          position: relative;
+          display: block;
+
+          .logo-color {
+            position: absolute;
+            height: auto;
+            width: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+          }
+        }
+
+        &:hover {
+          .logo-grey {
+            opacity: 0;
+          }
+
+          .logo-color {
+            opacity: 1;
+          }
+        }
+      }
+
+      .slick-list {
+        overflow: hidden;
+      }
+
+      .slick-slide {
+        align-items: center;
+        justify-content: center;
+
+        img {
+          color: black;
+          text-decoration: none;
+          margin: auto;
+        }
+      }
+
+      .slick-arrow {
+        top: calc(50% - 20px);
+      }
+
+      .slick-next {
+        right: -15px;
+      }
+
+      .slick-prev {
+        left: -15px;
+      }
+    }
+  }
+
   .footer-terms {
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     color: #999;
     font-size: 12px;
     letter-spacing: 0.1px;
