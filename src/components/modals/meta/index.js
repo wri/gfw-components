@@ -158,7 +158,7 @@ class MetaModal extends PureComponent {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button theme="button-clear" extLink={learn_more}>
+                    <Button theme="button-clear">
                       <LinkIcon />
                       LEARN MORE
                     </Button>
