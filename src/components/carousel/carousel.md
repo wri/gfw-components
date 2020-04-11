@@ -9,30 +9,12 @@ A wrapper component for react-slick lib with standardized styles. This includes 
       lazyLoad: true
     }}
   >
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
-        Slide 1
+    {[1, 2, 3, 4, 5, 6].map(i => (
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
+          Slide {i}
+        </div>
       </div>
-    </div>
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
-        Slide 2
-      </div>
-    </div>
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
-        Slide 3
-      </div>
-    </div>
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
-        Slide 4
-      </div>
-    </div>
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
-        Slide 5
-      </div>
-    </div>
+    ))}
   </Carousel>
 ```
