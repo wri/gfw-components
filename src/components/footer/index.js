@@ -76,7 +76,7 @@ class Footer extends PureComponent {
             <div className="column small-12 medium-6">
               <ul className="footer-links-texts">
                 {links.map((link) => (
-                  <li>
+                  <li key={link.label}>
                     <a
                       href={link.link}
                       target="_blank"
@@ -91,7 +91,7 @@ class Footer extends PureComponent {
             <div className="column small-12 medium-6">
               <ul className="footer-links-social">
                 {socialLinks.map((link) => (
-                  <li>
+                  <li key={link.label}>
                     <a
                       href={link.link}
                       target="_blank"

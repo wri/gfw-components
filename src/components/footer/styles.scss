@@ -4,7 +4,7 @@
   background: #eceee8;
 
   .footer-links {
-    padding-top: 60px;
+    padding-top: 30px;
 
     .footer-links-texts {
       height: 100%;
@@ -126,9 +126,10 @@
       }
 
       .partners-slide {
-        width: 100%;
+        width: calc(100% - 16px);
         margin: 0;
         margin-top: 10px;
+        margin-left: 8px;
       }
 
       .carousel-slide {
@@ -174,17 +175,17 @@
         }
       }
 
-      .slick-arrow {
-        top: calc(50% - 20px);
-      }
+      // .slick-arrow {
+      //   top: calc(50% - 20px);
+      // }
 
-      .slick-next {
-        right: -15px;
-      }
+      // .slick-next {
+      //   right: -15px;
+      // }
 
-      .slick-prev {
-        left: -15px;
-      }
+      // .slick-prev {
+      //   left: -15px;
+      // }
     }
   }
 
