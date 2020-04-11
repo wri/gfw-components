@@ -13,7 +13,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   node: { fs: 'empty', net: 'empty' },
   module: {
@@ -25,56 +25,46 @@ const config = {
         use: [
           {
             loader: '@svgr/webpack',
-            options: { svgoConfig: { plugins: { removeViewBox: false } } }
-          }
-        ]
+            options: { svgoConfig: { plugins: { removeViewBox: false } } },
+          },
+        ],
       },
       {
         test: /\.scss$/,
-        exclude: /\.module\.scss$/i,
+        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           use: [
             { loader: 'css-loader', options: { importLoaders: 2 } },
+            'postcss-loader',
             'sass-loader',
             {
               loader: 'sass-loader',
               options: {
                 sassOptions: {
-                  includePaths: [ './node_modules', './src/styles' ]
-                    .map(d => path.join(__dirname, d))
-                    .map(g => glob.sync(g))
-                    .reduce((a, c) => a.concat(c), [])
-                }
-              }
-            }
-          ]
-        })
+                  includePaths: ['./node_modules', './src/styles']
+                    .map((d) => path.join(__dirname, d))
+                    .map((g) => glob.sync(g))
+                    .reduce((a, c) => a.concat(c), []),
+                },
+              },
+            },
+          ],
+        }),
       },
-      {
-        test: /\.module\.scss$/i,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: { modules: { localIdentName: 'gfw__[name]_[local]' } }
-            }
-          ]
-        })
-      }
-    ]
+    ],
   },
-  externals: [ 'react', 'react-dom', 'classnames', 'lodash', 'prop-types' ],
+  externals: ['react', 'react-dom', 'classnames', 'lodash', 'prop-types'],
   resolve: {
-    extensions: [ '.js', '.jsx', '.json' ],
+    extensions: ['.js', '.jsx', '.json'],
     symlinks: false,
-    plugins: [ new DirectoryNamedWebpackPlugin(true) ],
+    plugins: [new DirectoryNamedWebpackPlugin(true)],
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
       styles: path.resolve(__dirname, 'src/styles/'),
       assets: path.resolve(__dirname, 'src/assets'),
       utils: path.resolve(__dirname, 'src/utils'),
-      services: path.resolve(__dirname, 'src/services')
-    }
+      services: path.resolve(__dirname, 'src/services'),
+    },
   },
   optimization: {
     minimizer: [
@@ -92,17 +82,17 @@ const config = {
             dead_code: true,
             evaluate: true,
             if_return: true,
-            join_vars: true
-          }
-        }
-      })
-    ]
+            join_vars: true,
+          },
+        },
+      }),
+    ],
   },
   plugins: [
     new ExtractTextPlugin({
       disable: false,
       allChunks: true,
-      filename: '[name].css'
+      filename: '[name].css',
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
@@ -111,10 +101,10 @@ const config = {
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$/,
       threshold: 10240,
-      minRatio: 0.8
+      minRatio: 0.8,
     }),
-    new BundleAnalyzerPlugin()
-  ]
+    new BundleAnalyzerPlugin(),
+  ],
 };
 
 module.exports = config;

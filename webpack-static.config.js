@@ -1,5 +1,4 @@
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -15,7 +14,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'gfw-assets.latest.js',
-    libraryTarget: 'var'
+    libraryTarget: 'var',
   },
   node: { fs: 'empty', net: 'empty' },
   module: {
@@ -27,60 +26,40 @@ const config = {
         use: [
           {
             loader: '@svgr/webpack',
-            options: { svgoConfig: { plugins: { removeViewBox: false } } }
-          }
-        ]
+            options: { svgoConfig: { plugins: { removeViewBox: false } } },
+          },
+        ],
       },
       {
         test: /\.module\.scss$/i,
+        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           use: [
             {
               loader: 'css-loader',
               options: {
                 modules: { localIdentName: 'gfw__[name]_[local]' },
-                importLoaders: 2
-              }
+                importLoaders: 2,
+              },
             },
-            'sass-loader'
-          ]
-        })
-      },
-      {
-        test: /\.scss$/,
-        exclude: /\.module\.scss$/i,
-        use: ExtractTextPlugin.extract({
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 2 } },
             'sass-loader',
-            {
-              loader: 'sass-loader',
-              options: {
-                sassOptions: {
-                  includePaths: [ './node_modules', './src/styles' ]
-                    .map(d => path.join(__dirname, d))
-                    .map(g => glob.sync(g))
-                    .reduce((a, c) => a.concat(c), [])
-                }
-              }
-            }
-          ]
-        })
-      }
-    ]
+          ],
+        }),
+      },
+    ],
   },
-  externals: [ 'react', 'react-dom', 'classnames', 'lodash', 'prop-types' ],
+  externals: ['react', 'react-dom', 'classnames', 'lodash', 'prop-types'],
   resolve: {
-    extensions: [ '.js', '.jsx', '.json' ],
+    extensions: ['.js', '.jsx', '.json'],
     symlinks: false,
-    plugins: [ new DirectoryNamedWebpackPlugin(true) ],
+    plugins: [new DirectoryNamedWebpackPlugin(true)],
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
       styles: path.resolve(__dirname, 'src/styles/'),
       assets: path.resolve(__dirname, 'src/assets'),
       utils: path.resolve(__dirname, 'src/utils'),
-      services: path.resolve(__dirname, 'src/services')
-    }
+      services: path.resolve(__dirname, 'src/services'),
+    },
   },
   optimization: {
     minimizer: [
@@ -98,17 +77,17 @@ const config = {
             dead_code: true,
             evaluate: true,
             if_return: true,
-            join_vars: true
-          }
-        }
-      })
-    ]
+            join_vars: true,
+          },
+        },
+      }),
+    ],
   },
   plugins: [
     new ExtractTextPlugin({
       disable: false,
       allChunks: true,
-      filename: 'gfw-assets.latest.css'
+      filename: 'gfw-assets.latest.css',
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
@@ -117,7 +96,7 @@ const config = {
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$/,
       threshold: 10240,
-      minRatio: 0.8
+      minRatio: 0.8,
     }),
     new S3Plugin({
       directory: 'dist',
@@ -125,11 +104,11 @@ const config = {
       s3Options: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        region: 'us-east-1'
+        region: 'us-east-1',
       },
-      s3UploadOptions: { Bucket: 'gfw-assets/static' }
-    })
-  ]
+      s3UploadOptions: { Bucket: 'gfw-assets/static' },
+    }),
+  ],
 };
 
 module.exports = config;
