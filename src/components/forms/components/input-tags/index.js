@@ -6,7 +6,7 @@ import ReactTagsInput from 'react-tagsinput';
 
 import { composeValidators } from 'components/forms/validations';
 
-import Pill from 'components/ui/pill';
+import Pill from 'components/pill';
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
 import './styles.scss';
@@ -19,7 +19,7 @@ class Input extends PureComponent {
     validate: PropTypes.array,
     label: PropTypes.string,
     name: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
   };
 
   render() {
@@ -50,7 +50,7 @@ class Input extends PureComponent {
                   className="input-pill"
                   active
                   label={tag}
-                  onRemove={e => {
+                  onRemove={(e) => {
                     e.preventDefault();
                     onRemove(key);
                   }}
