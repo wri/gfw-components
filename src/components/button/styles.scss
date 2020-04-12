@@ -1,24 +1,22 @@
 @import '~styles/settings';
-$button-height: rem(40px);
+$button-height: 40px;
 
 .c-button {
   height: $button-height;
-  font-family: $font-family-1;
-  border-radius: rem(20px);
-  padding: 0 rem(15px);
+  border-radius: 20px;
+  padding: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $green-gfw;
-  font-size: rem(16px);
+  background-color: $green;
+  font-size: 14px;
   text-transform: uppercase;
   text-align: center;
-  line-height: 1.1;
+  line-height: 14px;
   font-weight: 500;
   color: $white;
   cursor: pointer;
   transition: background-color 150ms ease-out;
-  text-decoration: none;
   width: fit-content;
 
   .button-wrapper {
@@ -27,44 +25,52 @@ $button-height: rem(40px);
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 100%;
+    margin-top: 1px;
+    font-weight: inherit;
   }
 
   svg {
     fill: $white;
-    width: rem(15px);
-    height: rem(15px);
+    width: 15px;
+    height: 15px;
   }
 
   &:hover {
-    background-color: darken($green-gfw, 10%);
+    background-color: $green-dark;
+    text-decoration: none;
   }
 
   &.disabled {
     pointer-events: none;
-    cursor: not-allowed;
-    background-color: $grey-dark;
-
-    svg {
-      fill: #ddd;
-    }
-
-    &:hover {
-      background-color: $grey-dark;
-    }
+    opacity: 50%;
   }
 
   &:focus {
     outline: none;
   }
 
-  &.square {
+  &.round {
     width: $button-height;
     min-width: $button-height;
     padding: 0;
   }
 
-  &.wide {
-    width: 100%;
+  &.square {
+    border-radius: 0;
+  }
+
+  &.big {
+    height: 48px;
+    font-size: 24px;
+    border-radius: 24px;
+
+    &.round {
+      border-radius: 25px;
+      width: 48px;
+    }
+  }
+
+  &.small {
+    height: 20px;
   }
 }

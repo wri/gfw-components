@@ -11,7 +11,11 @@ class NavLink extends PureComponent {
     className: PropTypes.string,
     active: PropTypes.bool,
     children: PropTypes.node.isRequired,
-    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
+    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  };
+
+  static defaultProps = {
+    appUrl: 'https://www.globalforestwatch.org',
   };
 
   render() {
@@ -23,31 +27,29 @@ class NavLink extends PureComponent {
       pathname,
       className,
       children,
-      active
+      active,
     } = this.props;
 
-    return NavLinkComponent
-      ? (
-        <NavLinkComponent
-          className={className}
-          href={href}
-          as={asPath}
-          activeClassName="active"
-          activeShallow
-        >
-          {children}
-        </NavLinkComponent>
-)
-      : (
-        <a
-          href={`${appUrl}${asPath || href}`}
-          className={cx(className, {
-          active: active || !!pathname && pathname.includes(asPath || href)
+    return NavLinkComponent ? (
+      <NavLinkComponent
+        className={className}
+        href={href}
+        as={asPath}
+        activeClassName="active"
+        activeShallow
+      >
+        {children}
+      </NavLinkComponent>
+    ) : (
+      <a
+        href={`${appUrl}${asPath || href}`}
+        className={cx(className, {
+          active: active || (!!pathname && pathname.includes(asPath || href)),
         })}
-        >
-          {children}
-        </a>
-);
+      >
+        {children}
+      </a>
+    );
   }
 }
 

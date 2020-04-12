@@ -1,0 +1,17 @@
+@import '~styles/settings.scss';
+
+.c-contact-us-modal {
+  .modal-content {
+    padding-bottom: 20px;
+
+    .c-form-submit {
+      margin-top: 30px;
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+    .modal-content {
+      min-width: 650px;
+    }
+  }
+}

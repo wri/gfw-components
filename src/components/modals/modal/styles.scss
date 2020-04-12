@@ -1,0 +1,96 @@
+@import '~styles/settings.scss';
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Overlay {
+  padding: 10px;
+
+  @media screen and (min-width: $screen-m) {
+    padding: 40px 10px;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS */
+  .ReactModal__Overlay {
+    align-items: flex-start !important;
+  }
+
+  .ReactModal__Content {
+    margin: 0 !important;
+  }
+}
+
+html,
+body {
+  overflow-x: visible !important;
+}
+
+.c-modal {
+  background: #fff;
+  outline: none;
+  min-width: 200px;
+  min-height: 150px;
+
+  @media screen and (min-width: $screen-m) {
+    width: auto;
+    max-width: 900px;
+  }
+
+  .modal-title {
+    padding: 20px 25px 0;
+
+    @media screen and (min-width: $screen-m) {
+      padding: 40px 100px 0;
+      color: #333;
+      margin: 0 auto;
+      text-align: left;
+    }
+  }
+
+  .modal-content {
+    padding: 20px 25px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+
+    @media screen and (min-width: $screen-m) {
+      padding: 30px 100px 40px;
+    }
+
+    .element-fullwidth {
+      width: calc(100% + 2 * #{25px});
+      margin-left: -25px;
+
+      @media screen and (min-width: $screen-m) {
+        width: calc(100% + 2 * #{100px});
+        margin-left: -100px;
+      }
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    outline: none;
+    z-index: 10;
+
+    @media screen and (min-width: $screen-m) {
+      top: 25px;
+      right: 25px;
+    }
+  }
+
+  .footer-banner {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    height: 80px;
+    background-color: #E5E5DF;
+  }
+}

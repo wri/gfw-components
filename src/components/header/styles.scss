@@ -1,6 +1,6 @@
 @import '~styles/index.scss';
 
-$header-height: rem(56px);
+$header-height: 56px;
 
 .Header__no-scroll {
   overflow: hidden;
@@ -36,11 +36,11 @@ $header-height: rem(56px);
 
     @media screen and (min-width: $screen-m-bg) {
       justify-content: flex-start;
-      padding-left: rem(80px);
+      padding-left: 80px;
     }
 
     @media screen and (min-width: 850px) {
-      padding-left: rem(90px);
+      padding-left: 90px;
     }
 
     &.mobile {
@@ -83,8 +83,9 @@ $header-height: rem(56px);
       color: $slate;
       font-size: 14px;
       text-transform: uppercase;
-      padding: 0 rem(10px);
-      margin: 0 rem(5px);
+      text-decoration: none;
+      padding: 0 10px;
+      margin: 0 5px;
       position: relative;
 
       svg {
@@ -106,7 +107,7 @@ $header-height: rem(56px);
 
       &::after {
         content: '';
-        height: rem(5px);
+        height: 5px;
         position: absolute;
         bottom: 0;
         right: 0;
@@ -116,7 +117,7 @@ $header-height: rem(56px);
 
       &.active {
         &::after {
-          background-color: $green-gfw;
+          background-color: $green;
         }
       }
     }

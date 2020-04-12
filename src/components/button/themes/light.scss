@@ -1,0 +1,15 @@
+@import '~styles/settings.scss';
+
+.button-light {
+  background-color: $white;
+  color: $slate-dark;
+  border: solid 1px $green;
+
+  &:hover {
+    background-color: $grey-light;
+  }
+
+  svg {
+    fill: $slate-dark;
+  }
+}

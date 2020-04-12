@@ -28,20 +28,20 @@ class Header extends PureComponent {
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
-    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
+    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     openContactUsModal: PropTypes.func,
     appUrl: PropTypes.string,
     navMain: PropTypes.array,
     relative: PropTypes.bool,
     languages: PropTypes.array,
-    pathname: PropTypes.string
+    pathname: PropTypes.string,
   };
 
   static defaultProps = {
     className: '',
     loggedIn: false,
     appUrl: APP_URL,
-    ...defaultConfig
+    ...defaultConfig,
   };
 
   state = {
@@ -49,7 +49,7 @@ class Header extends PureComponent {
     showSubmenu: false,
     clickOutside: false,
     lang: 'en',
-    languages: this.props.languages
+    languages: this.props.languages,
   };
 
   componentDidMount() {
@@ -69,9 +69,8 @@ class Header extends PureComponent {
   }
 
   checkLoggedIn = () => {
-    const query = typeof window !== 'undefined' &&
-      qs.parse(window.location.search) ||
-      {};
+    const query =
+      (typeof window !== 'undefined' && qs.parse(window.location.search)) || {};
     const urlToken = query && query.token;
     const token = urlToken || localStorage.getItem('userToken');
 
@@ -88,7 +87,7 @@ class Header extends PureComponent {
     if (token) {
       this.setState({ loggedIn: false, loggingIn: true });
       checkLoggedIn(token)
-        .then(response => {
+        .then((response) => {
           if (response.status < 400 && response.data) {
             this.setState({ loggedIn: true, loggingIn: false });
           } else {
@@ -103,13 +102,15 @@ class Header extends PureComponent {
 
   getLanguages = () => {
     if (
-      typeof window !== 'undefined' && window.Transifex && window.Transifex.live
+      typeof window !== 'undefined' &&
+      window.Transifex &&
+      window.Transifex.live
     ) {
       const languages = window.Transifex.live.getAllLanguages();
       this.setState({
         lang: window.Transifex.live.detectLanguage(),
-        languages: languages &&
-          languages.map(l => ({ label: l.name, value: l.code }))
+        languages:
+          languages && languages.map((l) => ({ label: l.name, value: l.code })),
       });
     }
   };
@@ -120,7 +121,7 @@ class Header extends PureComponent {
     }
   };
 
-  handleLangSelect = lang => {
+  handleLangSelect = (lang) => {
     if (typeof window !== 'undefined' && window.Transifex) {
       window.Transifex.live.translateTo(lang);
     }
@@ -130,7 +131,7 @@ class Header extends PureComponent {
   render() {
     const { className, appUrl, navMain, relative } = this.props;
     const { showSubmenu, clickOutside, languages, lang } = this.state;
-    const activeLang = languages && languages.find(l => l.value === lang);
+    const activeLang = languages && languages.find((l) => l.value === lang);
 
     return (
       <MediaContextProvider>
@@ -157,7 +158,7 @@ class Header extends PureComponent {
                     {...this.state}
                     activeLang={activeLang}
                     handleLangSelect={this.handleLangSelect}
-                    handleShowSubmenu={show =>
+                    handleShowSubmenu={(show) =>
                       this.setState({ showSubmenu: show })}
                   />
                 </Media>
@@ -169,7 +170,7 @@ class Header extends PureComponent {
                       }
                     }}
                   >
-                    <li className="nav-item nav-more">
+                    <div className="nav-item nav-more">
                       <button
                         className="nav-link"
                         onClick={() => {
@@ -179,28 +180,24 @@ class Header extends PureComponent {
                         }}
                       >
                         {showSubmenu ? 'close' : 'menu'}
-                        {
-                          showSubmenu
-                            ? <CloseIcon className="icon-submenu icon-close" />
-                            : <MenuIcon className="icon-submenu icon-menu" />
-                        }
+                        {showSubmenu ? (
+                          <CloseIcon className="icon-submenu icon-close" />
+                        ) : (
+                          <MenuIcon className="icon-submenu icon-menu" />
+                        )}
                       </button>
-                    </li>
+                    </div>
                   </OutsideClickHandler>
                 </Media>
               </div>
             </div>
           </div>
-          {
-            showSubmenu && (
+          {showSubmenu && (
             <OutsideClickHandler
               onOutsideClick={() => {
-                    this.setState({ showSubmenu: false, clickOutside: true });
-                    setTimeout(
-                      () => this.setState({ clickOutside: false }),
-                      50
-                    );
-                  }}
+                this.setState({ showSubmenu: false, clickOutside: true });
+                setTimeout(() => this.setState({ clickOutside: false }), 50);
+              }}
             >
               <SubmenuPanel
                 {...this.props}
@@ -210,8 +207,7 @@ class Header extends PureComponent {
                 hideMenu={() => this.setState({ showSubmenu: false })}
               />
             </OutsideClickHandler>
-              )
-          }
+          )}
         </div>
       </MediaContextProvider>
     );

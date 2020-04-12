@@ -1,46 +1,31 @@
 /* FONTS */
-$font-family-1: 'Fira Sans', Arial, sans-serif;
-$font-size-xs: rem(12px);
-$font-size-s: rem(13px);
+$font-family: 'Fira Sans', Arial, sans-serif;
 
 /* SCREENS */
-$screen-s: 20rem;
-$screen-m: 48rem;
-$screen-m-bg: 53.75rem;
-$screen-l: 64rem;
-$screen-xl: 70rem;
+$screen-s: 320px;
+$screen-m: 768px;
+$screen-m-bg: 860px;
+$screen-l: 1024px;
+$screen-xl: 1120px;
 
 /* GRID SETTINGS */
-$max-width: 70rem;
-$desktop-gutter: 1.25rem;
-$mobile-gutter: 1rem;
+$max-width: 1120px;
+$desktop-gutter: 20px;
+$mobile-gutter: 16px;
 $header-height: 58px;
 
 /* COLORS */
 $white: #fff;
 $black: #000;
-$green-gfw: #97be32;
-$yellow: #fffee2;
-$grey-light: #f7f7f7;
-$grey-dark: #d6d6d9;
-$warm-grey: #999;
-$medium-grey: #676867;
-$map-grey: #808080;
-$hot-grey: #9e9e9e;
-$light-grey: #c8c9c1;
-$ashes-grey: #7f7f7f;
-$grey: #aaa;
+$green: #97be32;
+$green-dark: #658022;
 $slate: #555;
-$slate-dark: #444;
-$slate-light: #333;
+$slate-dark: #333;
 $googleplus: #da4735;
 $twitter: #598dca;
 $facebook: #3a589b;
 $border: #e5e5df;
-$tip: #fffee2;
-$white-tree: #f2f2f2;
-$white-calcium: #dedede;
-$greyish-brown: #4a4a4a;
+$yellow: #fffee2;
 $loss: #f69;
 $gain: #6d6de5;
 $extent: #a5ed80;
@@ -48,26 +33,22 @@ $ocean: #a4dbfd;
 $error: #ed1846;
 $fires: #f14600;
 
-/* FONT COLORS */
-$font-color-1: $white;
-$font-color-2: $slate;
-$font-color-3: $slate-dark;
-$font-color-4: $green-gfw;
-$font-color-5: $warm-grey;
-$font-color-6: $slate-light;
+$grey: #aaa;
+$grey-light: #f7f7f7;
+$grey-warm: #999;
+
+// unsure
+$grey-dark: #d6d6d9;
+$medium-grey: #676867;
+$map-grey: #808080;
+$hot-grey: #9e9e9e;
+$light-grey: #c8c9c1;
+$ashes-grey: #7f7f7f;
+
+$white-tree: #f2f2f2;
+$white-calcium: #dedede;
+$greyish-brown: #4a4a4a;
 
 /* SHADOWS */
 $pop-box-shadow: 1px 1px 10px 0 rgba($slate, 0.25);
 $tooltip-box-shadow: 0 4px 20px 4px rgba(0, 20, 60, 0.1), 0 4px 80px -8px rgba(0, 20, 60, 0.2);
-
-$horizontal-modal-padding-desktop: rem(100px);
-$vertical-modal-padding-desktop: rem(40px);
-
-$horizontal-modal-padding-mobile: rem(25px);
-$vertical-modal-padding-mobile: rem(20px);
-
-//rem converter
-/* stylelint-disable */
-@function rem($px, $base: 16px) {
-  @return ($px / $base) * 1rem;
-}

@@ -1,0 +1,17 @@
+@import '~styles/settings.scss';
+$input-button-width: 100px;
+
+.c-share-modal {
+  @media screen and (min-width: $screen-m) {
+    width: 600px;
+    min-width: 320px;
+  }
+
+  .modal-content {
+    padding-bottom: 30px;
+
+    @media screen and (min-width: $screen-m) {
+      padding-bottom: 60px;
+    }
+  }
+}

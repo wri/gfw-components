@@ -5,9 +5,10 @@ import debounce from 'lodash/debounce';
 import cx from 'classnames';
 
 import SearchIcon from 'assets/icons/search.svg';
+import CloseIcon from 'assets/icons/close.svg';
 
 import './styles.scss';
-import './themes/search-small.scss';
+import './themes/small.scss';
 
 class Search extends Component {
   static propTypes = {
@@ -17,19 +18,19 @@ class Search extends Component {
     onSubmit: PropTypes.func,
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    theme: PropTypes.string
+    theme: PropTypes.string,
   };
 
   static defaultProps = { input: '' };
 
   state = { search: this.props.input };
 
-  handleChange = value => {
+  handleChange = (value) => {
     this.setState({ search: value });
     this.debouncedChange();
   };
 
-  handleKeyUp = e => {
+  handleKeyUp = (e) => {
     e.preventDefault();
     const { onSubmit } = this.props;
     if (onSubmit && e.keyCode === 13) {
@@ -37,15 +38,12 @@ class Search extends Component {
     }
   };
 
-  debouncedChange = debounce(
-    () => {
-      const { onChange } = this.props;
-      if (onChange) {
-        this.props.onChange(this.state.search);
-      }
-    },
-    150
-  );
+  debouncedChange = debounce(() => {
+    const { onChange } = this.props;
+    if (onChange) {
+      this.props.onChange(this.state.search);
+    }
+  }, 150);
 
   render() {
     const { search } = this.state;
@@ -56,25 +54,23 @@ class Search extends Component {
           type="text"
           className="input text"
           placeholder={placeholder}
-          onChange={e => this.handleChange(e.target.value)}
+          onChange={(e) => this.handleChange(e.target.value)}
           value={search}
           onKeyUp={this.handleKeyUp}
           disabled={disabled}
         />
-        <button onClick={onSubmit}>
+        <Button className="submit-btn" theme="button-clear" onClick={onSubmit}>
           <SearchIcon className="icon-search" />
-        </button>
-        {
-          search && (
+        </Button>
+        {search && (
           <Button
             className="clear-btn"
-            theme="theme-button-clear theme-button-small square"
+            theme="button-clear round"
             onClick={() => this.handleChange('')}
           >
-            <SearchIcon className="icon-close" />
+            <CloseIcon className="icon-close" />
           </Button>
-            )
-        }
+        )}
       </div>
     );
   }

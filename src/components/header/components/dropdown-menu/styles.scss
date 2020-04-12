@@ -64,17 +64,17 @@
         }
 
         &.active {
-          color: $green-gfw;
+          color: $green;
         }
       }
 
       &.active {
         button,
         a {
-          color: $green-gfw;
+          color: $green;
 
           &:hover {
-            color: darken($green-gfw, 10%);
+            color: darken($green, 10%);
           }
         }
       }
