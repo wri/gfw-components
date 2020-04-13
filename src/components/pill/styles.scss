@@ -12,6 +12,7 @@ $pill-height: 20px;
   justify-content: space-between;
   align-items: center;
   outline: none;
+  width: fit-content;
 
   &.-active {
     background-color: $greyish-brown;
@@ -28,7 +29,7 @@ $pill-height: 20px;
   button {
     padding-right: 8px;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 8px;
   }
 
   svg {

@@ -130,6 +130,10 @@
         margin: 0;
         margin-top: 10px;
         margin-left: 8px;
+
+        @media screen and (min-width: $screen-xl) {
+          width: calc(100% - 16px);
+        }
       }
 
       .carousel-slide {
@@ -168,6 +172,10 @@
         align-items: center;
         justify-content: center;
 
+        @media screen and (min-width: $screen-xl) {
+          padding: 0 5px;
+        }
+
         img {
           color: black;
           text-decoration: none;
@@ -175,17 +183,17 @@
         }
       }
 
-      // .slick-arrow {
-      //   top: calc(50% - 20px);
-      // }
+      .slick-next {
+        @media screen and (min-width: $screen-xl) {
+          right: -20px;
+        }
+      }
 
-      // .slick-next {
-      //   right: -15px;
-      // }
-
-      // .slick-prev {
-      //   left: -15px;
-      // }
+      .slick-prev {
+        @media screen and (min-width: $screen-xl) {
+          left: -20px;
+        }
+      }
     }
   }
 

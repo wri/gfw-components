@@ -6,7 +6,7 @@ import CloseIcon from 'assets/icons/close.svg';
 
 import './styles.scss';
 
-const Button = (props) => {
+const Pill = (props) => {
   const { active, className, label, onRemove, onClick } = props;
 
   return (
@@ -31,7 +31,7 @@ const Button = (props) => {
   );
 };
 
-Button.propTypes = {
+Pill.propTypes = {
   active: PropTypes.bool,
   className: PropTypes.string,
   label: PropTypes.string,
@@ -39,4 +39,4 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Button;
+export default Pill;
