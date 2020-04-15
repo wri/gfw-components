@@ -35,12 +35,14 @@ class Header extends PureComponent {
     relative: PropTypes.bool,
     languages: PropTypes.array,
     pathname: PropTypes.string,
+    showMenu: PropTypes.bool,
   };
 
   static defaultProps = {
     className: '',
     loggedIn: false,
     appUrl: APP_URL,
+    showMenu: true,
     ...defaultConfig,
   };
 
@@ -129,7 +131,7 @@ class Header extends PureComponent {
   };
 
   render() {
-    const { className, appUrl, navMain, relative } = this.props;
+    const { className, appUrl, navMain, relative, showMenu } = this.props;
     const { showSubmenu, clickOutside, languages, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
 
@@ -147,12 +149,17 @@ class Header extends PureComponent {
                 />
               </NavLink>
               <div className="nav">
-                <Media greaterThanOrEqual="md-bg" className="nav-desktop">
-                  <NavMenu
-                    {...this.props}
-                    {...this.state}
-                    menuItems={navMain}
-                  />
+                <Media
+                  greaterThanOrEqual="md-bg"
+                  className={cx('nav-desktop', { 'show-menu': showMenu })}
+                >
+                  {showMenu && (
+                    <NavMenu
+                      {...this.props}
+                      {...this.state}
+                      menuItems={navMain}
+                    />
+                  )}
                   <NavAlt
                     {...this.props}
                     {...this.state}

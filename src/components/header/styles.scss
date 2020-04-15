@@ -50,10 +50,14 @@ $header-height: 56px;
 
   .nav-desktop {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
     height: $header-height;
     width: 100%;
+
+    &.show-menu {
+      justify-content: space-between;
+    }
   }
 
   .nav-mobile {

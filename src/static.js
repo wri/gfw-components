@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom';
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import qs from 'query-string';
 import isEmpty from 'lodash/isEmpty';
 import { createBrowserHistory } from 'history';
@@ -15,21 +14,32 @@ const setModalOpen = (open) => {
   const query = qs.parse(window.location.search);
 
   if (open) {
-    history.push(`${window.location.pathname}?${qs.stringify({ ...query, show_contact: true })}`);
+    history.push(
+      `${window.location.pathname}?${qs.stringify({
+        ...query,
+        show_contact: true,
+      })}`
+    );
   } else {
-    delete query.show_contact
-    history.push(`${window.location.pathname}${isEmpty(query) ? '' : `?${qs.stringify(query)}`}`);
+    delete query.show_contact;
+    history.push(
+      `${window.location.pathname}${
+        isEmpty(query) ? '' : `?${qs.stringify(query)}`
+      }`
+    );
   }
-}
+};
 
-const ContactUsModalComp = ({ history }) => {
-  const [open, setOpen] = useState(window.location.search.includes('show_contact'));
+const ContactUsModalComp = () => {
+  const [open, setOpen] = useState(
+    window.location.search.includes('show_contact')
+  );
 
   useEffect(() => {
     return history.listen((location) => {
       setOpen(location.search.includes('show_contact=true'));
-    })
-  }, [history])
+    });
+  }, [history]);
 
   return (
     <ContactUsModal
@@ -38,12 +48,8 @@ const ContactUsModalComp = ({ history }) => {
         setModalOpen(false);
       }}
     />
-  )
-}
-
-ContactUsModalComp.propTypes = {
-  history: PropTypes.object
-}
+  );
+};
 
 const showHeader = () => {
   if (typeof document !== 'undefined') {
@@ -54,11 +60,13 @@ const showHeader = () => {
 
     ReactDOM.render(
       <Header
+        showMenu={false}
         openContactUsModal={() => {
           setModalOpen(true);
         }}
-      />
-    , el)
+      />,
+      el
+    );
   }
 };
 
@@ -73,8 +81,9 @@ const showFooter = () => {
         openContactUsModal={() => {
           setModalOpen(true);
         }}
-      />
-    , el);
+      />,
+      el
+    );
   }
 };
 
@@ -84,9 +93,7 @@ const showContactUsModal = () => {
     if (!el) {
       throw new Error("element #contactGfw doesn't exist");
     }
-    ReactDOM.render(
-      <ContactUsModalComp history={history} />
-    , el);
+    ReactDOM.render(<ContactUsModalComp />, el);
   }
 };
 
@@ -94,13 +101,12 @@ const renderAssets = () => {
   showHeader();
   showFooter();
   showContactUsModal();
-}
+};
 
 if (
   typeof document !== 'undefined' &&
   !!document.readyState &&
-    (document.readyState === 'complete' ||
-      document.readyState === 'interactive')
+  (document.readyState === 'complete' || document.readyState === 'interactive')
 ) {
   renderAssets();
 } else if (typeof document !== 'undefined') {
