@@ -37,6 +37,7 @@ class Header extends PureComponent {
     pathname: PropTypes.string,
     showMenu: PropTypes.bool,
     afterLangSelect: PropTypes.func,
+    customLogo: PropTypes.string,
   };
 
   static defaultProps = {
@@ -135,7 +136,14 @@ class Header extends PureComponent {
   };
 
   render() {
-    const { className, appUrl, navMain, relative, showMenu } = this.props;
+    const {
+      className,
+      appUrl,
+      navMain,
+      relative,
+      showMenu,
+      customLogo,
+    } = this.props;
     const { showSubmenu, clickOutside, languages, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
 
@@ -146,7 +154,7 @@ class Header extends PureComponent {
             <div className="column small-12 ">
               <NavLink className="logo" href="/" appUrl={appUrl}>
                 <img
-                  src={gfwLogo}
+                  src={customLogo || gfwLogo}
                   alt="Global Forest Watch"
                   width="76"
                   height="76"
