@@ -17,7 +17,7 @@ class Share extends PureComponent {
     title: PropTypes.string,
     shareUrl: PropTypes.string,
     embedUrl: PropTypes.string,
-    embed: PropTypes.string,
+    embed: PropTypes.bool,
     embedSettings: PropTypes.object,
   };
 

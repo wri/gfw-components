@@ -10,7 +10,7 @@ A wrapper component for react-slick lib with standardized styles. This includes 
     }}
   >
     {[1, 2, 3, 4, 5, 6].map(i => (
-      <div>
+      <div key={i}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', backgroundColor: '#f7f7f7', color: '#555' }}>
           Slide {i}
         </div>

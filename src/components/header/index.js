@@ -36,6 +36,7 @@ class Header extends PureComponent {
     languages: PropTypes.array,
     pathname: PropTypes.string,
     showMenu: PropTypes.bool,
+    afterLangSelect: PropTypes.func,
   };
 
   static defaultProps = {
@@ -115,6 +116,7 @@ class Header extends PureComponent {
           languages && languages.map((l) => ({ label: l.name, value: l.code })),
       });
     }
+    console.log(window);
   };
 
   findPathname = () => {
@@ -124,10 +126,12 @@ class Header extends PureComponent {
   };
 
   handleLangSelect = (lang) => {
+    const { afterLangSelect } = this.props;
     if (typeof window !== 'undefined' && window.Transifex) {
       window.Transifex.live.translateTo(lang);
     }
     this.setState({ lang });
+    afterLangSelect(lang);
   };
 
   render() {
