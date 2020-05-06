@@ -19,7 +19,6 @@ class NavAlt extends PureComponent {
     activeLang: PropTypes.object,
     pathname: PropTypes.string,
     appUrl: PropTypes.string,
-    clickOutside: PropTypes.bool,
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
@@ -35,7 +34,6 @@ class NavAlt extends PureComponent {
       appUrl,
       handleShowSubmenu,
       showSubmenu,
-      clickOutside,
       handleLangSelect,
       languages,
       activeLang,
@@ -71,21 +69,24 @@ class NavAlt extends PureComponent {
           </NavLink>
         </div>
         <div className="nav-item nav-more">
-          <button
-            className="nav-link"
-            onClick={() => {
-              if (!showSubmenu && !clickOutside) {
-                handleShowSubmenu(true);
-              }
-            }}
-          >
-            {showSubmenu ? 'close' : 'more'}
-            {showSubmenu ? (
+          {showSubmenu && (
+            <button
+              className="nav-link"
+              onClick={() => handleShowSubmenu(false)}
+            >
+              close
               <CloseIcon className="icon-submenu icon-close" />
-            ) : (
+            </button>
+          )}
+          {!showSubmenu && (
+            <button
+              className="nav-link"
+              onClick={() => handleShowSubmenu(true)}
+            >
+              more
               <MoreIcon className="icon-submenu icon-more" />
-            )}
-          </button>
+            </button>
+          )}
         </div>
       </div>
     );
