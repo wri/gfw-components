@@ -117,7 +117,6 @@ class Header extends PureComponent {
           languages && languages.map((l) => ({ label: l.name, value: l.code })),
       });
     }
-    console.log(window);
   };
 
   findPathname = () => {
