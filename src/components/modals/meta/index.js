@@ -4,6 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import lowerCase from 'lodash/lowerCase';
 import ReactHtmlParser from 'react-html-parser';
 import moment from 'moment';
+import cx from 'classnames';
 
 import { getMeta } from 'services/meta';
 
@@ -115,9 +116,9 @@ class MetaModal extends PureComponent {
             <p className="subtitle">{subtitle}</p>
             <div className="meta-table element-fullwidth">
               {tableData &&
-                Object.keys(tableData).map((key) =>
+                Object.keys(tableData).map((key, i) =>
                   tableData[key] ? (
-                    <div key={key} className="table-row">
+                    <div key={key} className={cx('table-row', { dark: i % 2 })}>
                       <h5 className="title-column">{lowerCase(key)}</h5>
                       <div className="description-column">
                         {this.parseContent(tableData[key])}

@@ -71,7 +71,7 @@ $mobile-margin: 10px;
       flex-direction: row;
     }
 
-    &:nth-child(even) {
+    &.dark {
       background-color: $grey-light;
     }
 

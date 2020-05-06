@@ -95,6 +95,7 @@ $header-height: 56px;
       svg {
         fill: $slate;
         margin-top: -2px;
+        transition: all 150ms ease-out;
       }
 
       &:hover {

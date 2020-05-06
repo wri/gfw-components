@@ -19,11 +19,10 @@ class NavAlt extends PureComponent {
     activeLang: PropTypes.object,
     pathname: PropTypes.string,
     appUrl: PropTypes.string,
-    clickOutside: PropTypes.bool,
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
-    NavLinkComponent: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ])
+    NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
   render() {
@@ -35,35 +34,29 @@ class NavAlt extends PureComponent {
       appUrl,
       handleShowSubmenu,
       showSubmenu,
-      clickOutside,
       handleLangSelect,
       languages,
-      activeLang
+      activeLang,
     } = this.props;
 
     return (
       <div className="c-nav-alt">
-        {
-          languages && (
-          <div className="nav-item lang-selector">
-            <DropdownMenu
-              className="nested notranslate"
-              label={activeLang && activeLang.label}
-              options={languages.map(l => ({
-                    label: l.label,
-                    value: l.value,
-                    onClick: handleLangSelect
-                  }))}
-              NavLinkComponent={NavLinkComponent}
-            />
-          </div>
-            )
-        }
+        <div className="nav-item lang-selector">
+          <DropdownMenu
+            className="nested notranslate"
+            label={activeLang && activeLang.label}
+            options={languages.map((l) => ({
+              ...l,
+              onClick: handleLangSelect,
+            }))}
+            NavLinkComponent={NavLinkComponent}
+          />
+        </div>
         <div className="nav-item">
           <NavLink
             href="/my-gfw"
             className={cx('nav-link', {
-              'animate-user-icon': !loggedIn && loggingIn
+              'animate-user-icon': !loggedIn && loggingIn,
             })}
             pathname={pathname}
             appUrl={appUrl}
@@ -76,21 +69,24 @@ class NavAlt extends PureComponent {
           </NavLink>
         </div>
         <div className="nav-item nav-more">
-          <button
-            className="nav-link"
-            onClick={() => {
-              if (!showSubmenu && !clickOutside) {
-                handleShowSubmenu(true);
-              }
-            }}
-          >
-            {showSubmenu ? 'close' : 'more'}
-            {
-              showSubmenu
-                ? <CloseIcon className="icon-submenu icon-close" />
-                : <MoreIcon className="icon-submenu icon-more" />
-            }
-          </button>
+          {showSubmenu && (
+            <button
+              className="nav-link"
+              onClick={() => handleShowSubmenu(false)}
+            >
+              close
+              <CloseIcon className="icon-submenu icon-close" />
+            </button>
+          )}
+          {!showSubmenu && (
+            <button
+              className="nav-link"
+              onClick={() => handleShowSubmenu(true)}
+            >
+              more
+              <MoreIcon className="icon-submenu icon-more" />
+            </button>
+          )}
         </div>
       </div>
     );

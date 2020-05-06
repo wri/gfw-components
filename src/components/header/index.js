@@ -131,7 +131,10 @@ class Header extends PureComponent {
       window.Transifex.live.translateTo(lang);
     }
     this.setState({ lang });
-    afterLangSelect(lang);
+
+    if (afterLangSelect) {
+      afterLangSelect(lang);
+    }
   };
 
   render() {

@@ -13,7 +13,14 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 100px;
+      width: 100px;
+      text-align: right;
+      margin-right: 5px;
+    }
+
+    .dropdown-menu {
+      right: 0;
+      left: unset;
     }
   }
 
