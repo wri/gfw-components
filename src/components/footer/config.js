@@ -8,7 +8,7 @@ export default {
   links: [
     {
       label: 'GFW',
-      link: 'https://www.globalforestwatch.org/my-gfw',
+      link: 'https://www.globalforestwatch.org',
     },
     {
       label: 'Blog',
@@ -16,7 +16,7 @@ export default {
     },
     {
       label: 'How to portal',
-      link: 'https://www.globalforestwatch.org/how-to',
+      link: 'https://www.globalforestwatch.org/howto',
     },
   ],
   socialLinks: [
