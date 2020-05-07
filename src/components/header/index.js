@@ -192,21 +192,32 @@ class Header extends PureComponent {
                     }}
                   >
                     <div className="nav-item nav-more">
-                      <button
-                        className="nav-link"
-                        onClick={() => {
-                          if (!showSubmenu && !clickOutside) {
-                            this.setState({ showSubmenu: true });
-                          }
-                        }}
-                      >
-                        {showSubmenu ? 'close' : 'menu'}
-                        {showSubmenu ? (
+                      {showSubmenu && (
+                        <button
+                          className="nav-link"
+                          onClick={() => {
+                            if (!clickOutside) {
+                              this.setState({ showSubmenu: false });
+                            }
+                          }}
+                        >
+                          close
                           <CloseIcon className="icon-submenu icon-close" />
-                        ) : (
+                        </button>
+                      )}
+                      {!showSubmenu && (
+                        <button
+                          className="nav-link"
+                          onClick={() => {
+                            if (!clickOutside) {
+                              this.setState({ showSubmenu: true });
+                            }
+                          }}
+                        >
+                          more
                           <MenuIcon className="icon-submenu icon-menu" />
-                        )}
-                      </button>
+                        </button>
+                      )}
                     </div>
                   </OutsideClickHandler>
                 </Media>
