@@ -1,6 +1,6 @@
 {
   "name": "gfw-components",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "dist/bundle.js",
   "scripts": {
     "start": "styleguidist server",
