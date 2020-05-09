@@ -19,6 +19,7 @@
     "autoprefixer": "^9.7.6",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "emotion-rgba": "^0.0.8",
     "emotion-theming": "^10.0.27",
     "final-form": "^4.19.1",
     "history": "^4.10.1",

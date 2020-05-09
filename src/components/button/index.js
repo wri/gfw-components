@@ -11,7 +11,6 @@ class Button extends PureComponent {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     theme: PropTypes.string,
-    disabled: PropTypes.bool,
     onClick: PropTypes.func,
     tooltip: PropTypes.object,
     ariaLabel: PropTypes.string,

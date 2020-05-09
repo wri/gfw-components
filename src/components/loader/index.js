@@ -1,23 +1,23 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.scss';
-import './themes/light.scss';
+import { LoaderWrapper } from './components';
 
 class Loader extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    theme: PropTypes.string,
-    message: PropTypes.string
+    light: PropTypes.bool,
+    message: PropTypes.string,
   };
 
   render() {
-    const { className, theme, message } = this.props;
+    const { className, light, message } = this.props;
+
     return (
-      <div className={`c-loader ${className} ${theme}`}>
+      <LoaderWrapper className={className} light={light}>
         <div className="spinner" />
         {message && <p className="message">{message}</p>}
-      </div>
+      </LoaderWrapper>
     );
   }
 }
