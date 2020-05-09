@@ -1,3 +1,6 @@
+// Styles
+export { default as GlobalStyles } from './components/global-styles';
+
 // Icons
 export { default as ArrowIcon } from './assets/icons/arrow-down.svg';
 export { default as CloseIcon } from './assets/icons/close.svg';
