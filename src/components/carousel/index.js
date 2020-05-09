@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import SlickSlider from 'react-slick';
-
-import Button from 'components/button';
+import { Global, css } from '@emotion/core';
 
 import ArrowIcon from 'assets/icons/arrow-down.svg';
+import Button from 'components/button';
 
-import './styles.scss';
+import { CarouselWrapper } from './components';
+import slickStyles from './slick.scss';
 
 const defaultSettings = {
   dots: false,
@@ -14,17 +15,17 @@ const defaultSettings = {
   infinite: false,
   slidesToShow: 2,
   slidesToScroll: 1,
-  customPaging: i => <button aria-label={`slide ${i}`} />,
+  customPaging: (i) => <button aria-label={`slide ${i}`} />,
   nextArrow: (
-    <Button theme="round" ariaLabel="carousel next">
+    <Button round ariaLabel="carousel next">
       <ArrowIcon />
     </Button>
   ),
   prevArrow: (
-    <Button theme="round" ariaLabel="carousel previous">
+    <Button round ariaLabel="carousel previous">
       <ArrowIcon />
     </Button>
-  )
+  ),
 };
 
 class Carousel extends PureComponent {
@@ -40,7 +41,12 @@ class Carousel extends PureComponent {
     const sliderSettings = { ...defaultSettings, ...settings };
 
     return (
-      <div className={`c-carousel ${className || ''}`}>
+      <CarouselWrapper className={className}>
+        <Global
+          styles={css`
+            ${slickStyles}
+          `}
+        />
         <SlickSlider
           key={isClient ? 'client' : 'server'}
           {...sliderSettings}
@@ -48,7 +54,7 @@ class Carousel extends PureComponent {
         >
           {children}
         </SlickSlider>
-      </div>
+      </CarouselWrapper>
     );
   }
 }
@@ -56,7 +62,7 @@ class Carousel extends PureComponent {
 Carousel.propTypes = {
   children: PropTypes.node.isRequired,
   settings: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Carousel;

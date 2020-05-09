@@ -1,4 +1,20 @@
+const breakPoints = {
+  small: 320,
+  medium: 768,
+  large: 1024,
+  xlarge: 1080,
+};
+
+export const mdqs = Object.entries(breakPoints).reduce(
+  (obj, [size, value]) => ({
+    ...obj,
+    [size]: `@media (min-width: ${value}px)`,
+  }),
+  {}
+);
+
 export default {
+  breakpoints: mdqs,
   colors: {
     white: '#fff',
     black: '#000',
@@ -20,5 +36,12 @@ export default {
     grey: '#aaa',
     lightGrey: '#f7f7f7',
     warmGrey: '#999',
+    darkGrey: 'd6d6d9',
+  },
+  grid: {
+    maxWidth: '1120px',
+    desktopGutter: '20px',
+    mobileGutter: '16px',
+    headerHeight: '58px',
   },
 };

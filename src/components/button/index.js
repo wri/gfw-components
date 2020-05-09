@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import ThemeProvider from 'utils/theme-provider';
 
 import { Tooltip } from 'react-tippy';
 import Tip from 'components/tip';
@@ -22,16 +21,14 @@ class Button extends PureComponent {
     const { children, className, onClick, ariaLabel, ...props } = this.props;
 
     return (
-      <ThemeProvider>
-        <ButtonParent
-          className={className}
-          onClick={onClick}
-          aria-label={ariaLabel}
-          {...props}
-        >
-          <ButtonWrapper>{children}</ButtonWrapper>
-        </ButtonParent>
-      </ThemeProvider>
+      <ButtonParent
+        className={className}
+        onClick={onClick}
+        aria-label={ariaLabel}
+        {...props}
+      >
+        <ButtonWrapper>{children}</ButtonWrapper>
+      </ButtonParent>
     );
   };
 

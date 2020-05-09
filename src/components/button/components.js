@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import theme from 'styles/theme';
+
 export const ButtonParent = styled.button`
   height: 40px;
   border-radius: 20px;
@@ -7,19 +9,19 @@ export const ButtonParent = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.green};
+  background-color: ${theme.colors.green};
   font-size: 14px;
   text-transform: uppercase;
   text-align: center;
   line-height: 14px;
   font-weight: 500;
-  color: ${(props) => props.theme.colors.white};
+  color: ${theme.colors.white};
   cursor: pointer;
   transition: background-color 150ms ease-out;
   width: fit-content;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.darkGreen};
+    background-color: ${theme.colors.darkGreen};
     text-decoration: none;
   }
 
@@ -28,7 +30,7 @@ export const ButtonParent = styled.button`
   }
 
   svg {
-    fill: ${(props) => props.theme.colors.white};
+    fill: ${theme.colors.white};
     width: 15px;
     height: 15px;
   }
@@ -76,7 +78,7 @@ export const ButtonParent = styled.button`
     height: 20px;
   `}
 
-  ${({ light, theme }) =>
+  ${({ light }) =>
     light &&
     `
     background-color: ${theme.colors.white};
@@ -92,7 +94,7 @@ export const ButtonParent = styled.button`
     }
   `}
 
-  ${({ dark, theme }) =>
+  ${({ dark }) =>
     dark &&
     `
     background-color: ${theme.colors.slate};
@@ -102,7 +104,7 @@ export const ButtonParent = styled.button`
     }
   `}
 
-  ${({ clear, theme }) =>
+  ${({ clear }) =>
     clear &&
     `
     background-color: transparent;

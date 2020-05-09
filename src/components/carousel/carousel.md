@@ -2,7 +2,6 @@ A wrapper component for react-slick lib with standardized styles. This includes 
 
 ```js
   <Carousel
-    className="partners-slide"
     settings={{
       slidesToShow: 2,
       slidesToScroll: 1,

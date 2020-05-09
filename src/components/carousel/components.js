@@ -1,12 +1,12 @@
-@import "./slick.scss";
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.c-carousel {
+export const CarouselWrapper = styled.div`
   margin: 30px 0;
   width: calc(100% - 20px);
   margin-left: 10px;
 
-  @media screen and (min-width: $screen-xl) {
+  @media screen and (min-width: ${theme.breakpoints.xlarge}) {
     width: calc(100% + 40px);
     margin-left: -20px;
   }
@@ -26,7 +26,7 @@
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: ${theme.breakpoints.xlarge}) {
       padding: 0 20px;
     }
 
@@ -58,7 +58,7 @@
     transform: rotate(-90deg);
     right: -20px;
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: ${theme.breakpoints.xlarge}) {
       right: 0;
     }
   }
@@ -67,7 +67,7 @@
     transform: rotate(90deg);
     left: -20px;
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: ${theme.breakpoints.xlarge}) {
       left: 0;
     }
   }
@@ -87,16 +87,16 @@
         width: 10px;
         height: 10px;
         cursor: pointer;
-        background-color: $grey-dark;
+        background-color: ${theme.colors.darkGrey};
         border-radius: 50%;
       }
 
       &.slick-active button {
-        background-color: $green;
+        background-color: ${theme.colors.green};
         width: 15px;
         height: 15px;
         max-height: 15px;
       }
     }
   }
-}
+`;
