@@ -1,6 +1,7 @@
-@import '~styles/settings';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.c-no-content {
+export const NoContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,10 +10,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0 $mobile-gutter;
+  padding: 0 ${theme.grid.mobileGutter};
 
-  @media screen and (min-width: $screen-m) {
-    padding: 0 $desktop-gutter;
+  ${theme.breakpoints.medium} {
+    padding: 0 ${theme.grid.desktopGutter};
   }
 
   .message {
@@ -29,7 +30,7 @@
   }
 
   button {
-    color: $green;
+    color: ${theme.colors.green};
     cursor: pointer;
   }
-}
+`;

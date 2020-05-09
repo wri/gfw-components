@@ -6,7 +6,7 @@ export const CarouselWrapper = styled.div`
   width: calc(100% - 20px);
   margin-left: 10px;
 
-  @media screen and (min-width: ${theme.breakpoints.xlarge}) {
+  ${theme.breakpoints.xlarge} {
     width: calc(100% + 40px);
     margin-left: -20px;
   }
@@ -26,7 +26,7 @@ export const CarouselWrapper = styled.div`
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 
-    @media screen and (min-width: ${theme.breakpoints.xlarge}) {
+    ${theme.breakpoints.xlarge} {
       padding: 0 20px;
     }
 
@@ -58,7 +58,7 @@ export const CarouselWrapper = styled.div`
     transform: rotate(-90deg);
     right: -20px;
 
-    @media screen and (min-width: ${theme.breakpoints.xlarge}) {
+    ${theme.breakpoints.xlarge} {
       right: 0;
     }
   }
@@ -67,7 +67,7 @@ export const CarouselWrapper = styled.div`
     transform: rotate(90deg);
     left: -20px;
 
-    @media screen and (min-width: ${theme.breakpoints.xlarge}) {
+    ${theme.breakpoints.xlarge} {
       left: 0;
     }
   }
