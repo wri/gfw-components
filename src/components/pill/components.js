@@ -23,7 +23,7 @@ export const PillWrapper = styled.div`
   svg {
     width: 8px;
     height: 8px;
-    fill: ${theme.colors.greyishBrown};
+    fill: ${theme.colors.white};
   }
 
   ${({ active }) =>
@@ -32,8 +32,8 @@ export const PillWrapper = styled.div`
     background-color: ${theme.colors.greyishBrown};
   `}
 
-  ${({ onRemove }) =>
-    onRemove &&
+  ${({ removable }) =>
+    removable &&
     `
     padding-right: 0;
   `}

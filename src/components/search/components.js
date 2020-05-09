@@ -1,6 +1,8 @@
-@import 'styles/settings';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
+import { rgba } from 'emotion-rgba';
 
-.c-search {
+export const SearchWrapper = styled.div`
   position: relative;
   display: flex;
 
@@ -10,7 +12,7 @@
     border-radius: 100px;
     border: 0;
     padding: 0 75px 0 20px;
-    background-color: rgba($slate, 0.08);
+    background-color: ${rgba(theme.colors.slate, 0.08)};
   }
 
   .submit-btn {
@@ -21,7 +23,7 @@
     .icon-search {
       width: 20px;
       height: 20px;
-      fill: $slate;
+      fill: ${theme.colors.slate};
     }
   }
 
@@ -35,4 +37,12 @@
       height: 10px;
     }
   }
-}
+
+  ${({ small }) =>
+    small &&
+    `
+    .input {
+      height: 30px;
+    }
+  `}
+`;

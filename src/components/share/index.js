@@ -47,13 +47,18 @@ class Share extends PureComponent {
   }
 
   handleShortenUrl = () => {
-    getShortenUrl(this.state.shareUrl).then((response) => {
-      if (response.data.status_code === 200) {
-        this.setState({ shareUrl: response?.data?.data?.url, loading: false });
-      } else {
-        this.setState({ loading: false });
-      }
-    });
+    getShortenUrl(this.state.shareUrl)
+      .then((response) => {
+        if (response.data.status_code === 200) {
+          this.setState({
+            shareUrl: response?.data?.data?.url,
+            loading: false,
+          });
+        } else {
+          this.setState({ loading: false });
+        }
+      })
+      .catch(() => this.setState({ loading: false }));
   };
 
   handleCopyToClipboard = (input) => {

@@ -6,12 +6,14 @@ import CloseIcon from 'assets/icons/close.svg';
 import { PillWrapper } from './components';
 
 const Pill = (props) => {
-  const { className, label, onRemove, onClick } = props;
+  const { className, label, onRemove, onClick, active } = props;
 
   return (
     <PillWrapper
       className={className}
       onClick={onClick}
+      removable={onRemove}
+      active={active}
       role="button"
       tabIndex={onClick ? 0 : ''}
     >
@@ -30,6 +32,7 @@ Pill.propTypes = {
   label: PropTypes.string,
   onRemove: PropTypes.func,
   onClick: PropTypes.func,
+  active: PropTypes.bool,
 };
 
 export default Pill;
