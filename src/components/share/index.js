@@ -10,7 +10,7 @@ import Loader from 'components/loader';
 
 import getShortenUrl from 'services/bitly';
 
-import './styles.scss';
+import { ShareWrapper } from './components';
 
 class Share extends PureComponent {
   static propTypes = {
@@ -90,7 +90,7 @@ class Share extends PureComponent {
         : shareUrl;
 
     return (
-      <div className="c-share">
+      <ShareWrapper>
         <div className="actions">
           {embedUrl && (
             <Switch
@@ -128,7 +128,7 @@ class Share extends PureComponent {
               />
             </div>
             <Button
-              theme="button-medium"
+              medium
               className="copy-button"
               onClick={() => this.handleCopyToClipboard(this.textInput)}
               disabled={loading}
@@ -143,7 +143,7 @@ class Share extends PureComponent {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button theme="button-light round big" className="social-btn">
+            <Button light round big className="social-btn">
               <TwitterIcon className="social-icon" />
             </Button>
           </a>
@@ -152,12 +152,12 @@ class Share extends PureComponent {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button theme="button-light round big" className="social-btn">
+            <Button light round big className="social-btn">
               <FacebookIcon className="social-icon" />
             </Button>
           </a>
         </div>
-      </div>
+      </ShareWrapper>
     );
   }
 }
