@@ -37,6 +37,7 @@ export default {
     lightGrey: '#f7f7f7',
     warmGrey: '#999',
     darkGrey: 'd6d6d9',
+    greyishBrown: '#4a4a4a',
   },
   grid: {
     maxWidth: '1120px',

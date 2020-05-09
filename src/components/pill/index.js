@@ -1,22 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 
 import CloseIcon from 'assets/icons/close.svg';
 
-import './styles.scss';
+import { PillWrapper } from './components';
 
 const Pill = (props) => {
-  const { active, className, label, onRemove, onClick } = props;
+  const { className, label, onRemove, onClick } = props;
 
   return (
-    <div
-      className={cx('c-pill', {
-        '-removable': onRemove,
-        '-active': active,
-        '-clickable': onClick,
-        [className]: className,
-      })}
+    <PillWrapper
+      className={className}
       onClick={onClick}
       role="button"
       tabIndex={onClick ? 0 : ''}
@@ -27,12 +21,11 @@ const Pill = (props) => {
           <CloseIcon />
         </button>
       )}
-    </div>
+    </PillWrapper>
   );
 };
 
 Pill.propTypes = {
-  active: PropTypes.bool,
   className: PropTypes.string,
   label: PropTypes.string,
   onRemove: PropTypes.func,
