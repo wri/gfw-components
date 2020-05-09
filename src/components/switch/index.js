@@ -1,26 +1,32 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Toggle from 'react-toggle';
+import { Global, css } from '@emotion/core';
 
-import './react-toggle.scss';
-import './styles.scss';
-import './themes/light.scss';
+import reactToggleStyles from './react-toggle.scss';
+
+import { SwitchWrapper } from './styles';
 
 class Switch extends PureComponent {
   static propTypes = {
-    theme: PropTypes.string,
     label: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     options: PropTypes.array,
     onChange: PropTypes.func,
     className: PropTypes.string,
+    light: PropTypes.bool,
   };
 
   render() {
-    const { theme, label, value, options, onChange, className } = this.props;
+    const { label, value, options, onChange, className, light } = this.props;
 
     return (
-      <div className={`c-switch ${theme || ''} ${className || ''}`}>
+      <SwitchWrapper className={className} light={light}>
+        <Global
+          styles={css`
+            ${reactToggleStyles}
+          `}
+        />
         {label && <div className="label">{label}</div>}
         <Toggle
           icons={{
@@ -35,7 +41,7 @@ class Switch extends PureComponent {
             onChange(result);
           }}
         />
-      </div>
+      </SwitchWrapper>
     );
   }
 }

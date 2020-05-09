@@ -1,6 +1,16 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.theme-switch-light {
+export const SwitchWrapper = styled.div`
+  .label {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+  }
+
   .react-toggle {
     width: 100%;
   }
@@ -9,7 +19,7 @@
     width: 100%;
     height: 34px;
     background-color: transparent !important;
-    border: solid 1px $border;
+    border: solid 1px ${theme.colors.border};
 
     > div {
       width: 50%;
@@ -18,7 +28,7 @@
       align-items: center;
       opacity: 1;
       font-size: 13px;
-      color: $slate;
+      color: ${theme.colors.slate};
     }
 
     .react-toggle-track-check {
@@ -37,7 +47,7 @@
     height: 100%;
     background-color: transparent;
     border-radius: 30px;
-    border: solid 1px $green;
+    border: solid 1px ${theme.colors.green};
     box-shadow: none !important;
   }
 
@@ -46,4 +56,4 @@
       left: 50%;
     }
   }
-}
+`;
