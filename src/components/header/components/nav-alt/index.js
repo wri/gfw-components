@@ -22,6 +22,7 @@ class NavAlt extends PureComponent {
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
+    showMenu: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
@@ -37,10 +38,11 @@ class NavAlt extends PureComponent {
       handleLangSelect,
       languages,
       activeLang,
+      showMenu,
     } = this.props;
 
     return (
-      <NavAltWrapper>
+      <NavAltWrapper showMenu={showMenu}>
         <div className="nav-item lang-selector">
           <DropdownMenu
             className="nested notranslate"
