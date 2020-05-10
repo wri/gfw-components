@@ -1,13 +1,12 @@
-@import '~styles/settings.scss';
-$mobile-padding: 40px;
-$desktop-padding: 50px;
-$mobile-margin: 10px;
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
+import { css } from '@emotion/core';
 
-.c-meta-modal {
+export const modalWrapperStyles = css`
   width: 100%;
   max-width: 800px;
 
-  @media screen and (min-width: $screen-m) {
+  ${theme.breakpoints.medium} {
     width: auto;
     min-width: 500px;
     min-height: 320px;
@@ -18,12 +17,14 @@ $mobile-margin: 10px;
     padding-bottom: 30px;
     min-height: 320px;
   }
+`;
 
+export const MetaModalWrapper = styled.div`
   .subtitle {
     color: $grey;
     margin-bottom: 20px;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       margin-bottom: 40px;
     }
   }
@@ -31,7 +32,7 @@ $mobile-margin: 10px;
   p {
     margin-bottom: 10px;
     font-size: 14px;
-    color: $slate;
+    color: ${theme.colors.slate};
 
     a {
       font-size: 14px;
@@ -51,10 +52,10 @@ $mobile-margin: 10px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    border-top: solid 1px $border;
+    border-top: solid 1px ${theme.colors.border};
     margin-bottom: 30px;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       margin-bottom: 30px;
     }
   }
@@ -64,15 +65,15 @@ $mobile-margin: 10px;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: solid 1px $border;
+    border-bottom: solid 1px ${theme.colors.border};
     width: 100%;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       flex-direction: row;
     }
 
     &.dark {
-      background-color: $grey-light;
+      background-color: ${theme.colors.lightGrey};
     }
 
     .title-column {
@@ -80,7 +81,7 @@ $mobile-margin: 10px;
       padding: 20px 5px 10px 25px;
       width: 150px;
 
-      @media screen and (min-width: $screen-m) {
+      ${theme.breakpoints.medium} {
         padding: 15px 100px;
         padding-right: 5px;
       }
@@ -92,7 +93,7 @@ $mobile-margin: 10px;
       padding: 0 25px 10px 25px;
       word-break: break-word;
 
-      @media screen and (min-width: $screen-m) {
+      ${theme.breakpoints.medium} {
         padding: 13px 100px 3px 50px;
       }
     }
@@ -132,7 +133,7 @@ $mobile-margin: 10px;
 
   ul,
   ol {
-    color: $slate;
+    color: ${theme.colors.slate};
     font-size: 14px;
   }
 
@@ -141,14 +142,14 @@ $mobile-margin: 10px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-top: solid 1px $border;
-    background-color: #E5E5DF;
+    border-top: solid 1px ${theme.colors.border};
+    background-color: #e5e5df;
     margin: 0 -30px -30px;
     margin-left: -25px;
     width: calc(100% + 50px);
     padding: 20px 25px 10px;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       margin-left: -100px;
       width: calc(100% + 200px);
       padding: 20px 100px;
@@ -159,7 +160,7 @@ $mobile-margin: 10px;
     button {
       margin-bottom: 10px;
 
-      @media screen and (min-width: $screen-m) {
+      ${theme.breakpoints.medium} {
         margin-bottom: 0;
         padding-right: 0;
       }
@@ -169,4 +170,4 @@ $mobile-margin: 10px;
       }
     }
   }
-}
+`;
