@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CloseIcon from 'assets/icons/close.svg';
 
-import { PillWrapper } from './components';
+import { PillWrapper } from './styles';
 
 const Pill = (props) => {
   const { className, label, onRemove, onClick, active } = props;

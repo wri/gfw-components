@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from 'react-tippy';
 import Tip from 'components/tip';
 
-import { ButtonParent, ButtonWrapper } from './components';
+import { ButtonParent, ButtonWrapper } from './styles';
 
 class Button extends PureComponent {
   static propTypes = {

@@ -6,7 +6,7 @@ import debounce from 'lodash/debounce';
 import SearchIcon from 'assets/icons/search.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
-import { SearchWrapper } from './components';
+import { SearchWrapper } from './styles';
 
 class Search extends Component {
   static propTypes = {

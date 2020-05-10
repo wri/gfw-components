@@ -6,7 +6,7 @@ import { Global, css } from '@emotion/core';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 import Button from 'components/button';
 
-import { CarouselWrapper } from './components';
+import { CarouselWrapper } from './styles';
 import slickStyles from './slick.scss';
 
 const defaultSettings = {

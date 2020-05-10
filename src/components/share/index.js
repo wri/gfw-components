@@ -10,7 +10,7 @@ import Loader from 'components/loader';
 
 import getShortenUrl from 'services/bitly';
 
-import { ShareWrapper } from './components';
+import { ShareWrapper } from './styles';
 
 class Share extends PureComponent {
   static propTypes = {

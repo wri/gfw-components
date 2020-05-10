@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import tree from 'assets/icons/tree.png';
 
-import { NoContentWrapper } from './components';
+import { NoContentWrapper } from './styles';
 
 const NoContent = ({ className, message, icon, children }) => (
   <NoContentWrapper className={className}>
