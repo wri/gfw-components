@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import ContactForm from 'components/forms/contact-us';
 import Modal from 'components/modals/modal';
 
-import './styles.scss';
+import { modalWrapperStyles } from './styles';
 
 class ContactUsModal extends PureComponent {
   static propTypes = {
     open: PropTypes.bool.isRequired,
-    onRequestClose: PropTypes.func.isRequired
+    onRequestClose: PropTypes.func.isRequired,
   };
 
   render() {
@@ -21,7 +21,7 @@ class ContactUsModal extends PureComponent {
         contentLabel="Contact Us"
         onRequestClose={onRequestClose}
         title="Contact Us"
-        className="c-contact-us-modal"
+        customStyles={modalWrapperStyles}
         renderFooter
       >
         <ContactForm onClose={onRequestClose} />

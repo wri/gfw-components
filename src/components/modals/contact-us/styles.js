@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import { css } from '@emotion/core';
 
-.c-contact-us-modal {
+export const modalWrapperStyles = css`
   .modal-content {
     padding-bottom: 20px;
 
@@ -9,9 +10,9 @@
     }
   }
 
-  @media screen and (min-width: $screen-m) {
+  ${theme.breakpoints.medium} {
     .modal-content {
       min-width: 650px;
     }
   }
-}
+`;
