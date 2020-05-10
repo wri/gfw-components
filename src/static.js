@@ -7,6 +7,7 @@ import { createBrowserHistory } from 'history';
 import Header from './components/header';
 import Footer from './components/footer';
 import ContactUsModal from './components/modals/contact-us';
+import GlobalStyles from './components/global-styles';
 
 const history = createBrowserHistory();
 
@@ -42,12 +43,15 @@ const ContactUsModalComp = () => {
   }, [history]);
 
   return (
-    <ContactUsModal
-      open={open}
-      onRequestClose={() => {
-        setModalOpen(false);
-      }}
-    />
+    <>
+      <GlobalStyles />
+      <ContactUsModal
+        open={open}
+        onRequestClose={() => {
+          setModalOpen(false);
+        }}
+      />
+    </>
   );
 };
 
@@ -59,12 +63,15 @@ const showHeader = () => {
     }
 
     ReactDOM.render(
-      <Header
-        showMenu={false}
-        openContactUsModal={() => {
-          setModalOpen(true);
-        }}
-      />,
+      <>
+        <GlobalStyles />
+        <Header
+          showMenu={false}
+          openContactUsModal={() => {
+            setModalOpen(true);
+          }}
+        />
+      </>,
       el
     );
   }
@@ -77,11 +84,14 @@ const showFooter = () => {
       throw new Error("element #footerGfw doesn't exist");
     }
     ReactDOM.render(
-      <Footer
-        openContactUsModal={() => {
-          setModalOpen(true);
-        }}
-      />,
+      <>
+        <GlobalStyles />
+        <Footer
+          openContactUsModal={() => {
+            setModalOpen(true);
+          }}
+        />
+      </>,
       el
     );
   }

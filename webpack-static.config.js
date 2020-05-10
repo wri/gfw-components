@@ -1,8 +1,6 @@
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const S3Plugin = require('webpack-s3-plugin');
@@ -31,28 +29,6 @@ const config = {
           },
         ],
       },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 2 } },
-            'postcss-loader',
-            'sass-loader',
-            {
-              loader: 'sass-loader',
-              options: {
-                sassOptions: {
-                  includePaths: ['./node_modules', './src/styles']
-                    .map((d) => path.join(__dirname, d))
-                    .map((g) => glob.sync(g))
-                    .reduce((a, c) => a.concat(c), []),
-                },
-              },
-            },
-          ],
-        }),
-      },
     ],
   },
   resolve: {
@@ -65,6 +41,7 @@ const config = {
       assets: path.resolve(__dirname, 'src/assets'),
       utils: path.resolve(__dirname, 'src/utils'),
       services: path.resolve(__dirname, 'src/services'),
+      constants: path.resolve(__dirname, 'src/constants'),
     },
   },
   optimization: {
@@ -90,11 +67,6 @@ const config = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({
-      disable: false,
-      allChunks: true,
-      filename: 'gfw-assets.latest.css',
-    }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new CompressionPlugin({

@@ -26,6 +26,7 @@ export const DropdownWrapper = styled.div`
     background-color: ${theme.colors.white};
     width: 200px;
     border: solid 1px ${theme.colors.border};
+    z-index: 1;
 
     > li {
       > button,
