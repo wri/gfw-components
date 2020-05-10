@@ -1,11 +1,11 @@
 import { SCREEN_S, SCREEN_M, SCREEN_ML, SCREEN_L, SCREEN_XL } from 'constants';
 
 const breakPoints = {
-  s: SCREEN_S,
-  m: SCREEN_M,
-  ml: SCREEN_ML,
-  l: SCREEN_L,
-  xl: SCREEN_XL,
+  small: SCREEN_S,
+  medium: SCREEN_M,
+  mlarge: SCREEN_ML,
+  large: SCREEN_L,
+  xlarge: SCREEN_XL,
 };
 
 const mediaQueries = Object.entries(breakPoints).reduce(

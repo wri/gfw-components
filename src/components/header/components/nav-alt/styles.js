@@ -7,7 +7,6 @@ export const NavAltWrapper = styled.div`
   align-items: center;
   height: 100%;
   border-left: solid 1px ${theme.colors.border};
-  padding-left: 20px;
 
   .lang-selector {
     span {

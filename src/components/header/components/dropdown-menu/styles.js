@@ -32,7 +32,7 @@ export const DropdownWrapper = styled.div`
       > a {
         padding: 15px 0;
 
-        ${theme.mediaQueries.ml} {
+        ${theme.mediaQueries.mlarge} {
           padding: 15px 20px;
         }
 
@@ -55,7 +55,7 @@ export const DropdownWrapper = styled.div`
           text-transform: inherit;
           padding: 15px 0;
 
-          ${theme.mediaQueries.ml} {
+          ${theme.mediaQueries.mlarge} {
             padding: 15px 20px;
           }
         }

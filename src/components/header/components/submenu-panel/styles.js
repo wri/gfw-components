@@ -11,7 +11,7 @@ export const SubmenuWrapper = styled.div`
   position: relative;
   z-index: 1;
 
-  ${theme.mediaQueries.ml} {
+  ${theme.mediaQueries.mlarge} {
     height: auto;
   }
 
@@ -52,7 +52,7 @@ export const SubmenuWrapper = styled.div`
   .menu-search {
     margin-bottom: 20px;
 
-    ${theme.mediaQueries.ml} {
+    ${theme.mediaQueries.mlarge} {
       margin-bottom: 40px;
     }
   }
@@ -157,7 +157,7 @@ export const SubmenuWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    ${theme.mediaQueries.ml} {
+    ${theme.mediaQueries.mlarge} {
       flex-direction: row;
 
       > a,
