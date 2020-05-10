@@ -29,7 +29,15 @@ const config = {
       },
     ],
   },
-  externals: ['react', 'react-dom', 'classnames', 'lodash', 'prop-types'],
+  externals: [
+    'react',
+    'react-dom',
+    'classnames',
+    'lodash',
+    'prop-types',
+    '@emotion/core',
+    '@emotion/styled',
+  ],
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     symlinks: false,

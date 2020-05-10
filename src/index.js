@@ -61,3 +61,6 @@ export {
   Desktop,
   Mobile,
 } from 'utils/responsive';
+
+// Grid
+export { Row, Column } from 'components/grid';
