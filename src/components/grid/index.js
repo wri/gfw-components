@@ -2,6 +2,7 @@
 import React from 'react';
 import { Flex, Box } from 'reflexbox';
 import styled from '@emotion/styled';
+import { ThemeProvider } from 'emotion-theming';
 
 import theme from 'styles/theme';
 
@@ -20,9 +21,11 @@ const ColumnDiv = styled(Box)`
 `;
 
 export const Row = (props) => (
-  <RowDiv flexWrap="wrap" {...props}>
-    {props.children}
-  </RowDiv>
+  <ThemeProvider theme={theme}>
+    <RowDiv flexWrap="wrap" {...props}>
+      {props.children}
+    </RowDiv>
+  </ThemeProvider>
 );
 export const Column = (props) => (
   <ColumnDiv width={[1]} {...props}>

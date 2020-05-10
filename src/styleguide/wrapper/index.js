@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'emotion-theming';
 
 import GlobalStyles from 'components/global-styles';
-import theme from 'styles/theme';
 
 export default class Wrapper extends Component {
   static propTypes = {
@@ -14,7 +12,7 @@ export default class Wrapper extends Component {
     return (
       <>
         <GlobalStyles />
-        <ThemeProvider theme={theme}>{this.props.children}</ThemeProvider>
+        {this.props.children}
       </>
     );
   }
