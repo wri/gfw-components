@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-.c-dropdown-menu {
+export const DropdownWrapper = styled.div`
   position: relative;
 
   > div {
@@ -22,16 +23,16 @@
     position: absolute;
     top: 55px;
     left: -70%;
-    background-color: $white;
+    background-color: ${theme.colors.white};
     width: 200px;
-    border: solid 1px $border;
+    border: solid 1px ${theme.colors.border};
 
     > li {
       > button,
       > a {
         padding: 15px 0;
 
-        @media screen and (min-width: $screen-m-bg) {
+        ${theme.breakpoints.mediumbg} {
           padding: 15px 20px;
         }
 
@@ -46,7 +47,7 @@
         text-transform: uppercase;
         font-size: 14px;
         width: 100%;
-        color: $slate;
+        color: ${theme.colors.slate};
         text-align: left;
 
         > button {
@@ -54,7 +55,7 @@
           text-transform: inherit;
           padding: 15px 0;
 
-          @media screen and (min-width: $screen-m-bg) {
+          ${theme.breakpoints.mediumbg} {
             padding: 15px 20px;
           }
         }
@@ -64,20 +65,20 @@
         }
 
         &.active {
-          color: $green;
+          color: ${theme.colors.green};
         }
       }
 
       &.active {
         button,
         a {
-          color: $green;
+          color: ${theme.colors.green};
 
           &:hover {
-            color: darken($green, 10%);
+            color: darken(${theme.colors.green}, 10%);
           }
         }
       }
     }
   }
-}
+`;

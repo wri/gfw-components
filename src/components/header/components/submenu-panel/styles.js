@@ -1,7 +1,8 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-.c-submenu-panel {
-  background-color: $white;
+export const SubmenuWrapper = styled.div`
+  background-color: ${theme.colors.white};
   padding: 40px 16px 20px;
   box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
   max-height: calc(100vh - 56px);
@@ -9,7 +10,7 @@
   position: relative;
   z-index: 1;
 
-  @media screen and (min-width: $screen-m-bg) {
+  ${theme.breakpoints.mediumbg} {
     height: auto;
   }
 
@@ -30,14 +31,14 @@
       padding: 15px 0 !important;
 
       &.active {
-        color: $green;
+        color: ${theme.colors.green};
 
         &:after {
           background-color: transparent !important;
         }
 
         &:hover {
-          color: darken($green, 10%)
+          color: darken(${theme.colors.green}, 10%);
         }
       }
     }
@@ -50,7 +51,7 @@
   .menu-search {
     margin-bottom: 20px;
 
-    @media screen and (min-width: $screen-m-bg) {
+    ${theme.breakpoints.mediumbg} {
       margin-bottom: 40px;
     }
   }
@@ -73,7 +74,7 @@
   .menu-section {
     padding-bottom: 30px;
     margin-bottom: 30px;
-    border-bottom: solid 1px $border;
+    border-bottom: solid 1px ${theme.colors.border};
 
     .apps-slider {
       overflow-x: auto;
@@ -100,7 +101,7 @@
       }
 
       .all-apps {
-        border: solid 1px $border;
+        border: solid 1px ${theme.colors.border};
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -110,7 +111,7 @@
         text-transform: uppercase;
         text-align: center;
         font-weight: 400;
-        color: $slate;
+        color: ${theme.colors.slate};
         width: 90px;
         height: 90px;
 
@@ -125,7 +126,7 @@
     .more-links {
       display: block;
 
-      @media screen and (min-width: $screen-m-bg) {
+      ${theme.breakpoints.mediumbg} {
         display: flex;
       }
 
@@ -138,7 +139,7 @@
           display: flex;
           align-items: center;
           font-size: 12px;
-          color: $slate;
+          color: ${theme.colors.slate};
           text-transform: uppercase;
 
           svg {
@@ -148,7 +149,7 @@
           }
 
           &:hover {
-            color: darken($slate, 30%);
+            color: darken(${theme.colors.slate}, 30%);
             cursor: pointer;
           }
         }
@@ -160,7 +161,7 @@
     display: flex;
     flex-direction: column;
 
-    @media screen and (min-width: $screen-m-bg) {
+    ${theme.breakpoints.mediumbg} {
       flex-direction: row;
 
       > a,
@@ -170,4 +171,4 @@
       }
     }
   }
-}
+`;

@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-.c-nav-alt {
+export const NavAltWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -32,7 +33,7 @@
       margin-left: 5px;
 
       &.logged-in {
-        fill: $green;
+        fill: ${theme.colors.green};
       }
     }
   }
@@ -54,9 +55,14 @@
       width: 70px;
     }
   }
-}
 
-@keyframes user-icon {
-  from, to { opacity: 1 }
-  50% { opacity: 0.5 }
-}
+  @keyframes user-icon {
+    from,
+    to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+`;
