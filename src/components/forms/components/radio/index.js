@@ -38,27 +38,25 @@ class Radio extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            <RadioWrapper>
-              {options &&
-                options.map((option) => {
-                  const id = uniqueId(`radio-${option.value}-`);
-                  return (
-                    <div key={option.value} className="radio-option">
-                      <Field
-                        id={id}
-                        name={input.name}
-                        component="input"
-                        type="radio"
-                        value={option.value}
-                      />
-                      <label className="radio-label" htmlFor={id}>
-                        <span />
-                        {option.label}
-                      </label>
-                    </div>
-                  );
-                })}
-            </RadioWrapper>
+            {options &&
+              options.map((option) => {
+                const id = uniqueId(`radio-${option.value}-`);
+                return (
+                  <RadioWrapper key={option.value}>
+                    <Field
+                      id={id}
+                      name={input.name}
+                      component="input"
+                      type="radio"
+                      value={option.value}
+                    />
+                    <label className="radio-label" htmlFor={id}>
+                      <span />
+                      {option.label}
+                    </label>
+                  </RadioWrapper>
+                );
+              })}
           </FieldWrapper>
         )}
       </Field>

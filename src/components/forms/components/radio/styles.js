@@ -2,44 +2,42 @@ import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
 export const RadioWrapper = styled.div`
-  .radio-option {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     cursor: pointer;
+    margin-bottom: 5px;
 
-    label {
+    span {
       display: flex;
-      flex-direction: row;
+      justify-content: center;
       align-items: center;
-      cursor: pointer;
-      margin-bottom: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      border: solid 1px ${theme.colors.slate};
+      margin-right: 10px;
 
-      span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 16px;
-        height: 16px;
+      &::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background-color: ${theme.colors.green};
         border-radius: 100%;
-        border: solid 1px ${theme.colors.slate};
-        margin-right: 10px;
-
-        &::after {
-          content: '';
-          width: 8px;
-          height: 8px;
-          background-color: ${theme.colors.green};
-          border-radius: 100%;
-          display: none;
-        }
+        display: none;
       }
     }
+  }
 
-    input[type='radio'] {
-      display: none;
-    }
+  input[type='radio'] {
+    display: none;
+  }
 
-    input[type='radio']:checked + label span::after {
-      display: block;
-    }
+  input[type='radio']:checked + label span::after {
+    display: block;
   }
 `;

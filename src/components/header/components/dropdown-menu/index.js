@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 
+import NavLink from 'components/header/components/nav-link';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import { DropdownWrapper } from './styles';
@@ -69,46 +70,23 @@ class DropdownMenu extends PureComponent {
                     ) : (
                       <Fragment>
                         {l.href && (
-                          <Fragment>
-                            {NavLinkComponent ? (
-                              <NavLinkComponent
-                                href={l.href}
-                                as={l.as}
-                                activeClassName="active"
-                                className="nested"
-                              >
-                                <button
-                                  onClick={() =>
-                                    this.setState({
-                                      open: false,
-                                    })}
-                                >
-                                  {l.label}
-                                </button>
-                              </NavLinkComponent>
-                            ) : (
-                              <a
-                                href={`${appUrl}${l.as || l.href}`}
-                                className={cx(
-                                  {
-                                    active:
-                                      pathname &&
-                                      pathname.includes(l.as || l.href),
-                                  },
-                                  'nested'
-                                )}
-                              >
-                                <button
-                                  onClick={() =>
-                                    this.setState({
-                                      open: false,
-                                    })}
-                                >
-                                  {l.label}
-                                </button>
-                              </a>
-                            )}
-                          </Fragment>
+                          <NavLink
+                            href={l.href}
+                            as={l.as}
+                            className="nested"
+                            pathname={pathname}
+                            appUrl={appUrl}
+                            NavLinkComponent={NavLinkComponent}
+                          >
+                            <button
+                              onClick={() =>
+                                this.setState({
+                                  open: false,
+                                })}
+                            >
+                              {l.label}
+                            </button>
+                          </NavLink>
                         )}
                         {l.extLink && (
                           <a

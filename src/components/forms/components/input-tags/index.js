@@ -57,7 +57,7 @@ class Input extends PureComponent {
                   />
                 )}
               />
-              <TagInstructions className="form-tags-instructions">
+              <TagInstructions>
                 Hit enter to create and separate tags
               </TagInstructions>
             </TagsWrapper>
