@@ -29,6 +29,7 @@ class Header extends PureComponent {
     setQueryToUrl: PropTypes.func,
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
+    showMenu: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
@@ -68,6 +69,7 @@ class Header extends PureComponent {
       NavLinkComponent,
       appUrl,
       pathname,
+      showMenu,
     } = this.props;
 
     return (
@@ -79,36 +81,38 @@ class Header extends PureComponent {
             onChange={this.handleSearchChange}
             onSubmit={this.handleSubmit}
           />
-          <Media lessThan="mdl">
-            <ul className="menu-section">
-              {navMain &&
-                navMain.map((item) => (
-                  <li key={item.label} className="nav-item">
-                    <NavLink
-                      {...item}
-                      pathname={pathname}
-                      appUrl={appUrl}
-                      NavLinkComponent={NavLinkComponent}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                ))}
-              <li className="nav-item">
-                <NavLink
-                  href="/my-gfw"
-                  pathname={pathname}
-                  appUrl={appUrl}
-                  NavLinkComponent={NavLinkComponent}
-                >
-                  My GFW
-                  <MyGfwIcon
-                    className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
-                  />
-                </NavLink>
-              </li>
-            </ul>
-          </Media>
+          {showMenu && (
+            <Media lessThan="mdl">
+              <ul className="menu-section">
+                {navMain &&
+                  navMain.map((item) => (
+                    <li key={item.label} className="nav-item">
+                      <NavLink
+                        {...item}
+                        pathname={pathname}
+                        appUrl={appUrl}
+                        NavLinkComponent={NavLinkComponent}
+                      >
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                <li className="nav-item">
+                  <NavLink
+                    href="/my-gfw"
+                    pathname={pathname}
+                    appUrl={appUrl}
+                    NavLinkComponent={NavLinkComponent}
+                  >
+                    My GFW
+                    <MyGfwIcon
+                      className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
+                    />
+                  </NavLink>
+                </li>
+              </ul>
+            </Media>
+          )}
           <Media lessThan="mdl">
             <div className="menu-section">
               <h4>Select a language</h4>
