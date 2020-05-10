@@ -12,7 +12,7 @@ export const SubmitWrapper = styled.div`
   .submit-btn {
     position: relative;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       align-self: flex-end;
     }
 

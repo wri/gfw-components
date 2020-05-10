@@ -6,7 +6,7 @@ export const NavAltWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-  border-left: solid 1px $border;
+  border-left: solid 1px ${theme.colors.border};
   padding-left: 20px;
 
   .lang-selector {

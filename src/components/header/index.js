@@ -15,6 +15,8 @@ import MenuIcon from 'assets/icons/menu.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import NavLink from 'components/header/components/nav-link';
+import { Row, Column } from 'components/grid';
+
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 import SubmenuPanel from './components/submenu-panel';
@@ -145,8 +147,8 @@ class Header extends PureComponent {
       <MediaContextProvider>
         <Global styles={bodyStyles} />
         <HeaderWrapper className={className}>
-          <div className="row">
-            <div className="column small-12 ">
+          <Row>
+            <Column>
               <NavLink className="logo" href="/" appUrl={appUrl}>
                 <img
                   src={customLogo || gfwLogo}
@@ -215,8 +217,8 @@ class Header extends PureComponent {
                   </OutsideClickHandler>
                 </Media>
               </div>
-            </div>
-          </div>
+            </Column>
+          </Row>
           {showSubmenu && (
             <OutsideClickHandler
               onOutsideClick={() => {

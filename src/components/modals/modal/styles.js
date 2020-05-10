@@ -70,7 +70,7 @@ export const ModalWrapper = styled.div`
   .modal-title {
     padding: 20px 25px 0;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       padding: 40px 100px 0;
       color: #333;
       margin: 0 auto;
@@ -84,7 +84,7 @@ export const ModalWrapper = styled.div`
     z-index: 1;
     position: relative;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       padding: 30px 100px 40px;
     }
 
@@ -92,7 +92,7 @@ export const ModalWrapper = styled.div`
       width: calc(100% + 2 * 25px);
       margin-left: -25px;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         width: calc(100% + 2 * 100px);
         margin-left: -100px;
       }
@@ -107,7 +107,7 @@ export const ModalWrapper = styled.div`
     outline: none;
     z-index: 10;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       top: 25px;
       right: 25px;
     }

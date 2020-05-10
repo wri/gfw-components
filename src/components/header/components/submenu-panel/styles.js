@@ -11,7 +11,7 @@ export const SubmenuWrapper = styled.div`
   position: relative;
   z-index: 1;
 
-  ${theme.breakpoints.ml} {
+  ${theme.mediaQueries.ml} {
     height: auto;
   }
 
@@ -52,7 +52,7 @@ export const SubmenuWrapper = styled.div`
   .menu-search {
     margin-bottom: 20px;
 
-    ${theme.breakpoints.ml} {
+    ${theme.mediaQueries.ml} {
       margin-bottom: 40px;
     }
   }
@@ -125,12 +125,6 @@ export const SubmenuWrapper = styled.div`
     }
 
     .more-links {
-      display: block;
-
-      ${theme.breakpoints.ml} {
-        display: flex;
-      }
-
       > li {
         margin-bottom: 20px;
         padding-left: 0;
@@ -142,6 +136,7 @@ export const SubmenuWrapper = styled.div`
           font-size: 12px;
           color: ${theme.colors.slate};
           text-transform: uppercase;
+          padding: 0;
 
           svg {
             margin-right: 15px;
@@ -162,7 +157,7 @@ export const SubmenuWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    ${theme.breakpoints.ml} {
+    ${theme.mediaQueries.ml} {
       flex-direction: row;
 
       > a,

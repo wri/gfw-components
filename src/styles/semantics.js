@@ -14,7 +14,7 @@ export default css`
     font-size: 48px;
     line-height: 1;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       font-size: 60px;
     }
   }
@@ -24,7 +24,7 @@ export default css`
     font-weight: 300;
     line-height: 1;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       font-size: 48px;
     }
   }
@@ -34,7 +34,7 @@ export default css`
     line-height: 30px;
     font-weight: 300;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       font-size: 36px;
       line-height: 40px;
     }
@@ -46,7 +46,7 @@ export default css`
     font-weight: 500;
     text-transform: uppercase;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       font-size: 18px;
       line-height: 24px;
     }
@@ -94,7 +94,7 @@ export default css`
       color: inherit;
     }
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       font-size: 30px;
       line-height: 45px;
     }

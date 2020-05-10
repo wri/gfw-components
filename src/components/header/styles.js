@@ -32,12 +32,12 @@ export const HeaderWrapper = styled.div`
 
     padding-left: 0;
 
-    ${theme.breakpoints.ml} {
+    ${theme.mediaQueries.ml} {
       justify-content: flex-start;
       padding-left: 80px;
     }
 
-    ${theme.breakpoints.ml} {
+    ${theme.mediaQueries.ml} {
       padding-left: 90px;
     }
 
@@ -61,7 +61,7 @@ export const HeaderWrapper = styled.div`
   .nav-mobile {
     display: flex;
 
-    ${theme.breakpoints.ml} {
+    ${theme.mediaQueries.ml} {
       display: none;
     }
   }

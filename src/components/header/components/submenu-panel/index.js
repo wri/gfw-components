@@ -6,6 +6,7 @@ import { Media } from 'utils/responsive';
 
 import NavLink from 'components/header/components/nav-link';
 import Search from 'components/search';
+import { Row, Column } from 'components/grid';
 
 import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';
@@ -165,9 +166,9 @@ class Header extends PureComponent {
           </div>
           <div className="menu-section">
             <h4>More in GFW</h4>
-            <ul className="row more-links">
+            <Row as="ul" className="more-links">
               {moreLinks.map((m) => (
-                <li key={m.label} className="column small-12 medium-4 large-3">
+                <Column key={m.label} as="li" width={[1, 1, 1 / 4, 1 / 3]}>
                   {m.href && (
                     <NavLink
                       {...m}
@@ -191,9 +192,9 @@ class Header extends PureComponent {
                       {m.label}
                     </a>
                   )}
-                </li>
+                </Column>
               ))}
-            </ul>
+            </Row>
           </div>
           <div className="legal-section">
             <NavLink

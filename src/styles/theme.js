@@ -8,7 +8,7 @@ const breakPoints = {
   xl: SCREEN_XL,
 };
 
-export const mdqs = Object.entries(breakPoints).reduce(
+const mediaQueries = Object.entries(breakPoints).reduce(
   (obj, [size, value]) => ({
     ...obj,
     [size]: `@media (min-width: ${value}px)`,
@@ -18,7 +18,8 @@ export const mdqs = Object.entries(breakPoints).reduce(
 
 export default {
   fontFamily: "'Fira Sans', Arial, sans-serif",
-  breakpoints: mdqs,
+  breakpoints: Object.values(breakPoints).map((br) => `${br}px`),
+  mediaQueries,
   colors: {
     white: '#fff',
     black: '#000',

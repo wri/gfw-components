@@ -3,7 +3,7 @@ import theme from 'styles/theme';
 import { rgba } from 'emotion-rgba';
 
 export const ShareWrapper = styled.div`
-  ${theme.breakpoints.medium} {
+  ${theme.mediaQueries.medium} {
     width: 600px;
     min-width: 320px;
   }

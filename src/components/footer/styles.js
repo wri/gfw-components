@@ -34,7 +34,7 @@ export const FooterWrapper = styled.div`
       display: flex;
       margin-top: 15px;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         justify-content: flex-end;
         margin-top: 0;
       }
@@ -42,7 +42,7 @@ export const FooterWrapper = styled.div`
       li {
         margin-right: 8px;
 
-        ${theme.breakpoints.medium} {
+        ${theme.mediaQueries.medium} {
           margin-right: 0;
           margin-left: 15px;
         }
@@ -71,7 +71,7 @@ export const FooterWrapper = styled.div`
       margin-bottom: 30px;
       padding-bottom: 30px;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         justify-content: space-between;
         flex-direction: row;
         margin-top: 30px;
@@ -84,7 +84,7 @@ export const FooterWrapper = styled.div`
         height: 30px;
         text-align: left;
 
-        ${theme.breakpoints.medium} {
+        ${theme.mediaQueries.medium} {
           text-align: center;
           margin-bottom: 0;
         }
@@ -107,7 +107,7 @@ export const FooterWrapper = styled.div`
       align-items: center;
       flex-direction: column;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         align-items: flex-start;
       }
 
@@ -122,7 +122,7 @@ export const FooterWrapper = styled.div`
       p {
         text-align: center;
 
-        ${theme.breakpoints.medium} {
+        ${theme.mediaQueries.medium} {
           text-align: left;
         }
       }
@@ -133,7 +133,7 @@ export const FooterWrapper = styled.div`
         margin-top: 10px;
         margin-left: 8px;
 
-        ${theme.breakpoints.xlarge} {
+        ${theme.mediaQueries.xlarge} {
           width: calc(100% - 16px);
         }
       }
@@ -174,7 +174,7 @@ export const FooterWrapper = styled.div`
         align-items: center;
         justify-content: center;
 
-        ${theme.breakpoints.xlarge} {
+        ${theme.mediaQueries.xlarge} {
           padding: 0 5px;
         }
 
@@ -186,13 +186,13 @@ export const FooterWrapper = styled.div`
       }
 
       .slick-next {
-        ${theme.breakpoints.xlarge} {
+        ${theme.mediaQueries.xlarge} {
           right: -20px;
         }
       }
 
       .slick-prev {
-        ${theme.breakpoints.xlarge} {
+        ${theme.mediaQueries.xlarge} {
           left: -20px;
         }
       }
@@ -207,7 +207,7 @@ export const FooterWrapper = styled.div`
     line-height: 18px;
     text-align: center;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       text-align: right;
     }
 

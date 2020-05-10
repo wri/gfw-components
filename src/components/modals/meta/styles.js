@@ -6,7 +6,7 @@ export const modalWrapperStyles = css`
   width: 100%;
   max-width: 800px;
 
-  ${theme.breakpoints.medium} {
+  ${theme.mediaQueries.medium} {
     width: auto;
     min-width: 500px;
     min-height: 320px;
@@ -24,7 +24,7 @@ export const MetaModalWrapper = styled.div`
     color: $grey;
     margin-bottom: 20px;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       margin-bottom: 40px;
     }
   }
@@ -55,7 +55,7 @@ export const MetaModalWrapper = styled.div`
     border-top: solid 1px ${theme.colors.border};
     margin-bottom: 30px;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       margin-bottom: 30px;
     }
   }
@@ -68,7 +68,7 @@ export const MetaModalWrapper = styled.div`
     border-bottom: solid 1px ${theme.colors.border};
     width: 100%;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       flex-direction: row;
     }
 
@@ -81,7 +81,7 @@ export const MetaModalWrapper = styled.div`
       padding: 20px 5px 10px 25px;
       width: 150px;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         padding: 15px 100px;
         padding-right: 5px;
       }
@@ -93,7 +93,7 @@ export const MetaModalWrapper = styled.div`
       padding: 0 25px 10px 25px;
       word-break: break-word;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         padding: 13px 100px 3px 50px;
       }
     }
@@ -149,7 +149,7 @@ export const MetaModalWrapper = styled.div`
     width: calc(100% + 50px);
     padding: 20px 25px 10px;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       margin-left: -100px;
       width: calc(100% + 200px);
       padding: 20px 100px;
@@ -160,7 +160,7 @@ export const MetaModalWrapper = styled.div`
     button {
       margin-bottom: 10px;
 
-      ${theme.breakpoints.medium} {
+      ${theme.mediaQueries.medium} {
         margin-bottom: 0;
         padding-right: 0;
       }

@@ -10,7 +10,7 @@ export const modalWrapperStyles = css`
     }
   }
 
-  ${theme.breakpoints.medium} {
+  ${theme.mediaQueries.medium} {
     .modal-content {
       min-width: 650px;
     }

@@ -14,7 +14,7 @@ export const ErrorWrapper = styled.div`
     color: ${theme.colors.error};
     margin-bottom: 20px;
 
-    ${theme.breakpoints.medium} {
+    ${theme.mediaQueries.medium} {
       align-self: flex-start;
       margin-right: 20px;
       margin-bottom: 30px;

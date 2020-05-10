@@ -6,7 +6,7 @@ export const CarouselWrapper = styled.div`
   width: calc(100% - 20px);
   margin-left: 10px;
 
-  ${theme.breakpoints.xlarge} {
+  ${theme.mediaQueries.xlarge} {
     width: calc(100% + 40px);
     margin-left: -20px;
   }
@@ -62,7 +62,7 @@ export const CarouselWrapper = styled.div`
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       display: table;
     }
 
@@ -84,7 +84,7 @@ export const CarouselWrapper = styled.div`
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 
-    ${theme.breakpoints.xlarge} {
+    ${theme.mediaQueries.xlarge} {
       padding: 0 20px;
     }
 
@@ -92,7 +92,7 @@ export const CarouselWrapper = styled.div`
       width: 100%;
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       float: right;
     }
 
@@ -150,7 +150,7 @@ export const CarouselWrapper = styled.div`
     transform: rotate(-90deg);
     right: -20px;
 
-    ${theme.breakpoints.xlarge} {
+    ${theme.mediaQueries.xlarge} {
       right: 0;
     }
   }
@@ -159,7 +159,7 @@ export const CarouselWrapper = styled.div`
     transform: rotate(90deg);
     left: -20px;
 
-    ${theme.breakpoints.xlarge} {
+    ${theme.mediaQueries.xlarge} {
       left: 0;
     }
   }
