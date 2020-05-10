@@ -19,7 +19,7 @@ export const CheckboxWrapper = styled.div`
     width: 25px;
     height: 25px;
     min-width: 25px;
-    border: 1px solid $border;
+    border: 1px solid ${theme.colors.border};
     appearance: none;
     color: ${theme.colors.green};
     cursor: pointer;

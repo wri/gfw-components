@@ -3,15 +3,18 @@ import React from 'react';
 import { Flex, Box } from 'reflexbox';
 import styled from '@emotion/styled';
 
+import theme from 'styles/theme';
+
 const RowDiv = styled(Flex)`
   max-width: 1120px;
+  margin: auto;
 `;
 
 const ColumnDiv = styled(Box)`
   padding: 0 16px;
   margin: 0;
 
-  ${(props) => props.theme.mediaQueries.m} {
+  ${theme.mediaQueries.medium} {
     padding: 0 20px;
   }
 `;

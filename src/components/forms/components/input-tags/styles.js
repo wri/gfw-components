@@ -4,7 +4,7 @@ import theme from 'styles/theme';
 export const TagsWrapper = styled.div`
   border-radius: 4px;
   background-color: transparent;
-  border: solid 1px $border;
+  border: solid 1px ${theme.colors.border};
   outline: none;
   color: ${theme.colors.slate};
   min-height: 40px;

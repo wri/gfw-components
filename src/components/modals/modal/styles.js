@@ -27,7 +27,7 @@ export const baseStyles = css`
     background-color: rgba(17, 55, 80, 0.4);
     overflow: auto;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.mediaQueries.medium} {
       padding: 40px 10px;
     }
   }
@@ -38,6 +38,8 @@ export const baseStyles = css`
     outline: none;
     min-width: 200px;
     min-height: 150px;
+    width: auto;
+    height: auto;
     position: relative;
     top: auto;
     left: auto;
@@ -48,7 +50,7 @@ export const baseStyles = css`
     border: none;
     border-radius: 0;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.mediaQueries.medium} {
       width: auto;
       max-width: 900px;
     }

@@ -121,7 +121,7 @@ export default css`
     appearance: none;
     box-sizing: border-box;
     border-radius: 4px;
-    border: solid 1px $border;
+    border: solid 1px ${theme.colors.border};
     height: 40px;
     padding: 0 12px;
     width: 100%;

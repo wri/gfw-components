@@ -1,4 +1,6 @@
-.c-intro {
+import styled from '@emotion/styled';
+
+export const LogoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -8,4 +10,4 @@
     max-width: 100%;
     margin-bottom: 15px;
   }
-}
+`;
