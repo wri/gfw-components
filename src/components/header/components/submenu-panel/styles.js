@@ -1,5 +1,6 @@
 import theme from 'styles/theme';
 import styled from '@emotion/styled';
+import { darken } from 'polished';
 
 export const SubmenuWrapper = styled.div`
   background-color: ${theme.colors.white};
@@ -10,7 +11,7 @@ export const SubmenuWrapper = styled.div`
   position: relative;
   z-index: 1;
 
-  ${theme.breakpoints.mediumbg} {
+  ${theme.breakpoints.ml} {
     height: auto;
   }
 
@@ -38,7 +39,7 @@ export const SubmenuWrapper = styled.div`
         }
 
         &:hover {
-          color: darken(${theme.colors.green}, 10%);
+          color: ${theme.colors.darkGreen};
         }
       }
     }
@@ -51,7 +52,7 @@ export const SubmenuWrapper = styled.div`
   .menu-search {
     margin-bottom: 20px;
 
-    ${theme.breakpoints.mediumbg} {
+    ${theme.breakpoints.ml} {
       margin-bottom: 40px;
     }
   }
@@ -126,7 +127,7 @@ export const SubmenuWrapper = styled.div`
     .more-links {
       display: block;
 
-      ${theme.breakpoints.mediumbg} {
+      ${theme.breakpoints.ml} {
         display: flex;
       }
 
@@ -149,7 +150,7 @@ export const SubmenuWrapper = styled.div`
           }
 
           &:hover {
-            color: darken(${theme.colors.slate}, 30%);
+            color: ${darken(0.2, theme.colors.slate)};
             cursor: pointer;
           }
         }
@@ -161,7 +162,7 @@ export const SubmenuWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    ${theme.breakpoints.mediumbg} {
+    ${theme.breakpoints.ml} {
       flex-direction: row;
 
       > a,

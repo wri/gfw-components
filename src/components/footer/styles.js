@@ -1,6 +1,7 @@
 import theme from 'styles/theme';
 import styled from '@emotion/styled';
 import { rgba } from 'emotion-rgba';
+import { darken } from 'polished';
 
 export const FooterWrapper = styled.div`
   background: #eceee8;
@@ -22,7 +23,7 @@ export const FooterWrapper = styled.div`
           text-transform: uppercase;
 
           &:hover {
-            color: ${theme.colors.slateDark};
+            color: ${darken(0.2, theme.colors.slate)};
             text-decoration: underline;
           }
         }
@@ -89,7 +90,7 @@ export const FooterWrapper = styled.div`
         }
 
         &:hover {
-          color: darken(#aaa, 20%);
+          color: ${darken(0.2, '#aaa')};
         }
       }
     }

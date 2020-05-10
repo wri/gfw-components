@@ -64,6 +64,9 @@ module.exports = {
 
     return `import { ${upperFirst(componentName)} } from 'gfw-components';`;
   },
-  styleguideComponents: { Logo: path.join(__dirname, 'src/styleguide/logo') },
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'src/styleguide/wrapper'),
+    Logo: path.join(__dirname, 'src/styleguide/logo')
+  },
   webpackConfig
 };

@@ -2,14 +2,13 @@ import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Global, css } from '@emotion/core';
+import { Global } from '@emotion/core';
 
 import Loader from 'components/loader';
 import Button from 'components/button';
 import CloseIcon from 'assets/icons/close.svg';
 
-import { ModalWrapper } from './styles';
-import baseStyles from './styles.scss';
+import { ModalWrapper, baseStyles } from './styles';
 
 class Modal extends PureComponent {
   static propTypes = {
@@ -46,9 +45,7 @@ class Modal extends PureComponent {
     return (
       <>
         <Global
-          styles={css`
-            ${baseStyles}
-          `}
+          styles={baseStyles}
         />
         <ReactModal
           isOpen={open}

@@ -1,5 +1,5 @@
 import { create } from 'axios';
-import { GFW_API } from 'utils/constants';
+import { GFW_API } from 'constants';
 
 export const apiAuthRequest = create({
   timeout: 30 * 1000,

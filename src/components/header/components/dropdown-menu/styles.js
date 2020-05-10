@@ -32,7 +32,7 @@ export const DropdownWrapper = styled.div`
       > a {
         padding: 15px 0;
 
-        ${theme.breakpoints.mediumbg} {
+        ${theme.breakpoints.ml} {
           padding: 15px 20px;
         }
 
@@ -55,7 +55,7 @@ export const DropdownWrapper = styled.div`
           text-transform: inherit;
           padding: 15px 0;
 
-          ${theme.breakpoints.mediumbg} {
+          ${theme.breakpoints.ml} {
             padding: 15px 20px;
           }
         }
@@ -75,7 +75,7 @@ export const DropdownWrapper = styled.div`
           color: ${theme.colors.green};
 
           &:hover {
-            color: darken(${theme.colors.green}, 10%);
+            color: ${theme.colors.darkGreen};
           }
         }
       }

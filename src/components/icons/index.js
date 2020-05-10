@@ -14,12 +14,12 @@ import HowToIcon from 'assets/icons/howto.svg';
 import OpenDataIcon from 'assets/icons/open-data.svg';
 import SGFIcon from 'assets/icons/sgf.svg';
 
-import './styles.scss';
+import { IconsWrapper } from './styles';
 
 class Icons extends Component {
   render() {
     return (
-      <div className="c-icons">
+      <IconsWrapper>
         <div className="row">
           <ArrowIcon />
           <CloseIcon />
@@ -36,7 +36,7 @@ class Icons extends Component {
           <OpenDataIcon />
           <SGFIcon />
         </div>
-      </div>
+      </IconsWrapper>
     );
   }
 }

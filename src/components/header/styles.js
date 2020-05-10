@@ -1,5 +1,13 @@
 import theme from 'styles/theme';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { darken } from 'polished';
+
+export const bodyStyles = css`
+  .Header__no-scroll {
+    overflow: hidden;
+  }
+`;
 
 export const HeaderWrapper = styled.div`
   height: 56px;
@@ -24,12 +32,12 @@ export const HeaderWrapper = styled.div`
 
     padding-left: 0;
 
-    ${theme.breakpoints.mediumbg} {
+    ${theme.breakpoints.ml} {
       justify-content: flex-start;
       padding-left: 80px;
     }
 
-    ${theme.breakpoints.mediumbg} {
+    ${theme.breakpoints.ml} {
       padding-left: 90px;
     }
 
@@ -53,7 +61,7 @@ export const HeaderWrapper = styled.div`
   .nav-mobile {
     display: flex;
 
-    ${theme.breakpoints.mediumbg} {
+    ${theme.breakpoints.ml} {
       display: none;
     }
   }
@@ -89,10 +97,10 @@ export const HeaderWrapper = styled.div`
       }
 
       &:hover {
-        color: darken(${theme.colors.slate}, 30%);
+        color: ${darken(0.2, theme.colors.slate)};
 
         svg {
-          fill: darken(${theme.colors.slate}, 30%);
+          fill: ${darken(0.2, theme.colors.slate)};
         }
       }
 

@@ -3,25 +3,25 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
+import { Global } from '@emotion/core';
 
 import { checkLoggedIn } from 'services/user';
 
 import { Media, MediaContextProvider } from 'utils/responsive';
-import { APP_URL } from 'utils/constants';
+import { APP_URL } from 'constants';
 
 import gfwLogo from 'assets/logos/gfw.png';
 import MenuIcon from 'assets/icons/menu.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import NavLink from 'components/header/components/nav-link';
-import GlobalStyles from 'components/global-styles';
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 import SubmenuPanel from './components/submenu-panel';
 
 import defaultConfig from './config';
 
-import { HeaderWrapper } from './styles';
+import { HeaderWrapper, bodyStyles } from './styles';
 
 class Header extends PureComponent {
   static propTypes = {
@@ -143,8 +143,8 @@ class Header extends PureComponent {
 
     return (
       <MediaContextProvider>
+        <Global styles={bodyStyles} />
         <HeaderWrapper className={className}>
-          <GlobalStyles />
           <div className="row">
             <div className="column small-12 ">
               <NavLink className="logo" href="/" appUrl={appUrl}>
@@ -157,7 +157,7 @@ class Header extends PureComponent {
               </NavLink>
               <div className="nav">
                 <Media
-                  greaterThanOrEqual="md-bg"
+                  greaterThanOrEqual="mdl"
                   className={cx('nav-desktop', { 'show-menu': showMenu })}
                 >
                   {showMenu && (
@@ -176,7 +176,7 @@ class Header extends PureComponent {
                       this.setState({ showSubmenu: show })}
                   />
                 </Media>
-                <Media lessThan="md-bg" className="nav-mobile">
+                <Media lessThan="mdl" className="nav-mobile">
                   <OutsideClickHandler
                     onOutsideClick={() => {
                       if (!showSubmenu && !clickOutside) {

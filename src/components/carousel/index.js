@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import SlickSlider from 'react-slick';
-import { Global, css } from '@emotion/core';
 
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 import Button from 'components/button';
 
 import { CarouselWrapper } from './styles';
-import slickStyles from './slick.scss';
 
 const defaultSettings = {
   dots: false,
@@ -42,11 +40,6 @@ class Carousel extends PureComponent {
 
     return (
       <CarouselWrapper className={className}>
-        <Global
-          styles={css`
-            ${slickStyles}
-          `}
-        />
         <SlickSlider
           key={isClient ? 'client' : 'server'}
           {...sliderSettings}

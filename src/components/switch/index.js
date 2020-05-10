@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Toggle from 'react-toggle';
-import { Global, css } from '@emotion/core';
-
-import reactToggleStyles from './react-toggle.scss';
 
 import { SwitchWrapper } from './styles';
 
@@ -22,11 +19,6 @@ class Switch extends PureComponent {
 
     return (
       <SwitchWrapper className={className} light={light}>
-        <Global
-          styles={css`
-            ${reactToggleStyles}
-          `}
-        />
         {label && <div className="label">{label}</div>}
         <Toggle
           icons={{

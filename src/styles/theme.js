@@ -1,9 +1,11 @@
+import { SCREEN_S, SCREEN_M, SCREEN_ML, SCREEN_L, SCREEN_XL } from 'constants';
+
 const breakPoints = {
-  small: 320,
-  medium: 768,
-  mediumbg: 860,
-  large: 1024,
-  xlarge: 1080,
+  s: SCREEN_S,
+  m: SCREEN_M,
+  ml: SCREEN_ML,
+  l: SCREEN_L,
+  xl: SCREEN_XL,
 };
 
 export const mdqs = Object.entries(breakPoints).reduce(
@@ -15,6 +17,7 @@ export const mdqs = Object.entries(breakPoints).reduce(
 );
 
 export default {
+  fontFamily: "'Fira Sans', Arial, sans-serif",
   breakpoints: mdqs,
   colors: {
     white: '#fff',

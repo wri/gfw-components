@@ -1,5 +1,5 @@
 import { CancelToken, create } from 'axios';
-import { GFW_API, CARTO_API } from 'utils/constants';
+import { GFW_API, CARTO_API } from 'constants';
 
 export const apiRequest = create({ timeout: 30 * 1000, baseURL: GFW_API });
 

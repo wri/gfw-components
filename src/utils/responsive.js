@@ -1,16 +1,12 @@
 import { createMedia } from '@artsy/fresnel';
 
-export const SCREEN_S = 320;
-export const SCREEN_M = 768;
-export const SCREEN_M_BG = 860;
-export const SCREEN_L = 1024;
-export const SCREEN_XL = 1080;
+import { SCREEN_S, SCREEN_M, SCREEN_ML, SCREEN_L, SCREEN_XL } from 'constants';
 
 const ExampleAppMedia = createMedia({
   breakpoints: {
     sm: SCREEN_S,
     md: SCREEN_M,
-    'md-bg': SCREEN_M_BG,
+    mdl: SCREEN_ML,
     lg: SCREEN_L,
     xl: SCREEN_XL,
   },

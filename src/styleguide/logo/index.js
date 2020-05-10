@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Logo from 'assets/logos/gfw.png';
 
+import GlobalStyles from 'components/global-styles';
+
 import './styles.scss';
 
 export default class Wrapper extends Component {
@@ -10,10 +12,13 @@ export default class Wrapper extends Component {
 
   render() {
     return (
-      <div className="c-intro">
-        <img className="logo" src={Logo} alt="global forest watch logo" />
-        {this.props.children}
-      </div>
+      <>
+        <GlobalStyles />
+        <div className="c-intro">
+          <img className="logo" src={Logo} alt="global forest watch logo" />
+          {this.props.children}
+        </div>
+      </>
     );
   }
 }

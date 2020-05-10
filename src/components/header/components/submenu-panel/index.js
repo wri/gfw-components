@@ -14,7 +14,6 @@ import { SubmenuWrapper } from './styles';
 
 class Header extends PureComponent {
   static propTypes = {
-    className: PropTypes.string,
     apps: PropTypes.array,
     moreLinks: PropTypes.array,
     showSubmenu: PropTypes.bool,
@@ -57,7 +56,6 @@ class Header extends PureComponent {
 
   render() {
     const {
-      className,
       apps,
       moreLinks,
       navMain,
@@ -72,7 +70,7 @@ class Header extends PureComponent {
     } = this.props;
 
     return (
-      <SubmenuWrapper className={className}>
+      <SubmenuWrapper>
         <div className="submenu-wrapper">
           <Search
             className="menu-search"
@@ -80,7 +78,7 @@ class Header extends PureComponent {
             onChange={this.handleSearchChange}
             onSubmit={this.handleSubmit}
           />
-          <Media lessThan="md-bg">
+          <Media lessThan="mdl">
             <ul className="menu-section">
               {navMain &&
                 navMain.map((item) => (
@@ -110,7 +108,7 @@ class Header extends PureComponent {
               </li>
             </ul>
           </Media>
-          <Media lessThan="md-bg">
+          <Media lessThan="mdl">
             <div className="menu-section">
               <h4>Select a language</h4>
               <ul>

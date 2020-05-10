@@ -1,10 +1,10 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
 
-.c-icons {
+export const IconsWrapper = styled.div`
   svg {
     width: 20px;
     height: 20px;
     fill: $slate;
     margin: 10px;
   }
-}
+`;

@@ -3,7 +3,7 @@ import {
   DATA_PORTAL_URL,
   BLOG_URL,
   DEVELOPERS_URL,
-} from 'utils/constants';
+} from 'constants';
 
 import gfwFires from 'assets/logos/gfw-fires.png?webp';
 import gfwPro from 'assets/logos/gfw-pro.png?webp';

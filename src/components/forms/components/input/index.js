@@ -6,6 +6,8 @@ import { composeValidators } from 'components/forms/validations';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
+import { InputEl, TextareaEl } from './styles';
+
 class Input extends PureComponent {
   static propTypes = {
     type: PropTypes.string,
@@ -50,15 +52,13 @@ class Input extends PureComponent {
             value={input.value}
           >
             {type === 'textarea' ? (
-              <textarea
-                className="c-form-input textarea"
+              <TextareaEl
                 {...input}
                 type={type}
                 placeholder={placeholder}
               />
             ) : (
-              <input
-                className="c-form-input"
+              <InputEl
                 {...input}
                 type={type}
                 placeholder={placeholder}
