@@ -12,7 +12,7 @@ import ArrowIcon from 'assets/icons/arrow-down.svg';
 import config from './config';
 import partners from './partners.json';
 
-import './styles.scss';
+import { FooterWrapper } from './styles';
 
 const images = require.context('assets/logos/partners', true);
 
@@ -29,12 +29,12 @@ class Footer extends PureComponent {
         slidesToScroll: slidesToShow,
         infinite: true,
         nextArrow: (
-          <Button theme="button-clear round" ariaLabel="next partners logos">
+          <Button clear round ariaLabel="next partners logos">
             <ArrowIcon />
           </Button>
         ),
         prevArrow: (
-          <Button theme="button-clear round" ariaLabel="prev partners logos">
+          <Button clear round ariaLabel="prev partners logos">
             <ArrowIcon />
           </Button>
         ),
@@ -71,7 +71,7 @@ class Footer extends PureComponent {
 
     return (
       <MediaContextProvider>
-        <div className="c-footer">
+        <FooterWrapper>
           <div className="row footer-links">
             <div className="column small-12 medium-6">
               <ul className="footer-links-texts">
@@ -98,7 +98,7 @@ class Footer extends PureComponent {
                       rel="noopener noreferrer"
                       aria-label={link.label}
                     >
-                      <Button theme="button-light round big">
+                      <Button light big round>
                         <link.icon />
                       </Button>
                     </a>
@@ -181,7 +181,7 @@ class Footer extends PureComponent {
               </div>
             </div>
           </div>
-        </div>
+        </FooterWrapper>
       </MediaContextProvider>
     );
   }

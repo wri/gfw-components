@@ -1,6 +1,8 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
+import { rgba } from 'emotion-rgba';
 
-.c-footer {
+export const FooterWrapper = styled.div`
   background: #eceee8;
 
   .footer-links {
@@ -16,11 +18,11 @@
 
         a {
           font-size: 14px;
-          color: $slate;
+          color: ${theme.colors.slate};
           text-transform: uppercase;
 
           &:hover {
-            color: $slate-dark;
+            color: ${theme.colors.slateDark};
             text-decoration: underline;
           }
         }
@@ -31,7 +33,7 @@
       display: flex;
       margin-top: 15px;
 
-      @media screen and (min-width: $screen-m) {
+      ${theme.breakpoints.medium} {
         justify-content: flex-end;
         margin-top: 0;
       }
@@ -39,17 +41,17 @@
       li {
         margin-right: 8px;
 
-        @media screen and (min-width: $screen-m) {
+        ${theme.breakpoints.medium} {
           margin-right: 0;
           margin-left: 15px;
         }
 
         button {
-          border-color: rgba($grey, 0.2);
+          border-color: ${rgba(theme.colors.grey, 0.2)};
           background-color: transparent;
 
           &:hover {
-            background-color: $white;
+            background-color: ${theme.colors.white};
           }
 
           svg {
@@ -64,11 +66,11 @@
       display: flex;
       flex-direction: column;
       margin-top: 20px;
-      border-bottom: solid 1px $grey;
+      border-bottom: solid 1px ${theme.colors.grey};
       margin-bottom: 30px;
       padding-bottom: 30px;
 
-      @media screen and (min-width: $screen-m) {
+      ${theme.breakpoints.medium} {
         justify-content: space-between;
         flex-direction: row;
         margin-top: 30px;
@@ -76,12 +78,12 @@
 
       .contact-btn {
         font-size: 12px;
-        color: $grey;
+        color: ${theme.colors.grey};
         margin-bottom: 10px;
         height: 30px;
         text-align: left;
 
-        @media screen and (min-width: $screen-m) {
+        ${theme.breakpoints.medium} {
           text-align: center;
           margin-bottom: 0;
         }
@@ -96,7 +98,7 @@
   .footer-partners {
     p {
       font-size: 14px;
-      color: $slate;
+      color: ${theme.colors.slate};
     }
 
     .footer-wri {
@@ -104,8 +106,7 @@
       align-items: center;
       flex-direction: column;
 
-
-      @media screen and (min-width: $screen-m) {
+      ${theme.breakpoints.medium} {
         align-items: flex-start;
       }
 
@@ -120,7 +121,7 @@
       p {
         text-align: center;
 
-        @media screen and (min-width: $screen-m) {
+        ${theme.breakpoints.medium} {
           text-align: left;
         }
       }
@@ -131,7 +132,7 @@
         margin-top: 10px;
         margin-left: 8px;
 
-        @media screen and (min-width: $screen-xl) {
+        ${theme.breakpoints.xlarge} {
           width: calc(100% - 16px);
         }
       }
@@ -172,7 +173,7 @@
         align-items: center;
         justify-content: center;
 
-        @media screen and (min-width: $screen-xl) {
+        ${theme.breakpoints.xlarge} {
           padding: 0 5px;
         }
 
@@ -184,13 +185,13 @@
       }
 
       .slick-next {
-        @media screen and (min-width: $screen-xl) {
+        ${theme.breakpoints.xlarge} {
           right: -20px;
         }
       }
 
       .slick-prev {
-        @media screen and (min-width: $screen-xl) {
+        ${theme.breakpoints.xlarge} {
           left: -20px;
         }
       }
@@ -205,7 +206,7 @@
     line-height: 18px;
     text-align: center;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       text-align: right;
     }
 
@@ -219,4 +220,4 @@
       text-decoration: underline;
     }
   }
-}
+`;

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { LoaderWrapper } from './components';
+import { LoaderWrapper } from './styles';
 
 class Loader extends PureComponent {
   static propTypes = {
