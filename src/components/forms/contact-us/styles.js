@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-.c-contact-form {
+export const ContactFormWrapper = styled.div`
   .subtitle {
     margin-bottom: 30px;
   }
@@ -44,7 +45,7 @@
       flex-direction: row;
 
       .close-button {
-        background-color: $error;
+        background-color: ${theme.colors.error};
         margin-bottom: 0.625rem;
         margin-left: 0.625rem;
 
@@ -54,4 +55,4 @@
       }
     }
   }
-}
+`;
