@@ -11,7 +11,7 @@ export const modalWrapperStyles = css`
   .modal-content {
     padding-bottom: 20px;
 
-    .c-form-submit {
+    .submit-btn {
       margin-top: 30px;
     }
   }
