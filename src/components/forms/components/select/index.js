@@ -9,7 +9,7 @@ import { composeValidators } from 'components/forms/validations';
 import FieldWrapper from 'components/forms/components/field-wrapper';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
-import './styles.scss';
+import { SelectWrapper } from './styles';
 
 class Select extends PureComponent {
   static propTypes = {
@@ -21,7 +21,7 @@ class Select extends PureComponent {
     name: PropTypes.string,
     options: PropTypes.array,
     required: PropTypes.bool,
-    multiple: PropTypes.bool
+    multiple: PropTypes.bool,
   };
 
   render() {
@@ -33,12 +33,12 @@ class Select extends PureComponent {
       options,
       hidden,
       required,
-      multiple
+      multiple,
     } = this.props;
 
     const allOptions = options || [];
     const optionWithPlaceholder = placeholder
-      ? [ { label: placeholder, value: '' }, ...allOptions ]
+      ? [{ label: placeholder, value: '' }, ...allOptions]
       : allOptions;
 
     return (
@@ -57,22 +57,26 @@ class Select extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            <div className="c-form-select">
+            <SelectWrapper>
               <select
-                className={cx('select-input', { multiple }, {
-                  placeholder: !input.value
-                })}
+                className={cx(
+                  'select-input',
+                  { multiple },
+                  {
+                    placeholder: !input.value,
+                  }
+                )}
                 {...input}
                 multiple={multiple}
               >
-                {optionWithPlaceholder.map(option => (
+                {optionWithPlaceholder.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
                 ))}
               </select>
               <ArrowIcon className="arrow-icon" />
-            </div>
+            </SelectWrapper>
           </FieldWrapper>
         )}
       </Field>

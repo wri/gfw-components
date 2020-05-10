@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.c-form-submit {
+export const SubmitWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +12,7 @@
   .submit-btn {
     position: relative;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       align-self: flex-end;
     }
 
@@ -23,4 +24,4 @@
       }
     }
   }
-}
+`;

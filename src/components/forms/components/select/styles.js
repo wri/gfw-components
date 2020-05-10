@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.c-form-select {
+export const SelectWrapper = styled.div`
   position: relative;
   width: 100%;
 
@@ -10,7 +11,7 @@
     background-color: transparent;
     border: solid 1px $border;
     outline: none;
-    color: $slate;
+    color: ${theme.colors.slate};
     width: 100%;
     height: 40px;
     padding: 0 32px 0 12px;
@@ -44,4 +45,4 @@
     right: 15px;
     z-index: 1;
   }
-}
+`;

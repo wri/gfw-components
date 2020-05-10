@@ -1,6 +1,6 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
 
-.c-form-field {
+export const FieldContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -46,29 +46,35 @@
     width: 100%;
   }
 
-  &.hidden {
-    display: none;
-  }
-
   input,
   select,
   textarea {
     transition: all 0.1s ease-in-out;
   }
 
-  &.error {
+  ${({ error }) =>
+    error &&
+    `
     input,
     select,
     textarea {
       border-color: #ed1846;
     }
-  }
+  `}
 
-  &.active {
+  ${({ active }) =>
+    active &&
+    `
     input,
     select,
     textarea {
       border-color: #777;
     }
-  }
-}
+  `}
+
+  ${({ hidden }) =>
+    hidden &&
+    `
+    display: none;
+  `}
+`;

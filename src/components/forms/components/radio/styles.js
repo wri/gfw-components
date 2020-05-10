@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.c-form-radio {
+export const RadioWrapper = styled.div`
   .radio-option {
     margin-bottom: 15px;
     cursor: pointer;
@@ -19,26 +20,26 @@
         width: 16px;
         height: 16px;
         border-radius: 100%;
-        border: solid 1px $slate;
+        border: solid 1px ${theme.colors.slate};
         margin-right: 10px;
 
         &::after {
           content: '';
           width: 8px;
           height: 8px;
-          background-color: $green;
+          background-color: ${theme.colors.green};
           border-radius: 100%;
           display: none;
         }
       }
     }
 
-    input[type=radio] {
+    input[type='radio'] {
       display: none;
     }
 
-    input[type=radio]:checked + label span::after {
+    input[type='radio']:checked + label span::after {
       display: block;
     }
   }
-}
+`;

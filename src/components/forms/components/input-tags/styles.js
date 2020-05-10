@@ -1,11 +1,12 @@
-@import '~styles/settings.scss';
+import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
-.c-form-tags {
+export const TagsWrapper = styled.div`
   border-radius: 4px;
   background-color: transparent;
   border: solid 1px $border;
   outline: none;
-  color: $slate;
+  color: ${theme.colors.slate};
   min-height: 40px;
   width: 100%;
   display: flex;
@@ -38,11 +39,11 @@
     margin-right: 5px;
     margin-bottom: 5px;
   }
-}
+`;
 
-.form-tags-instructions {
+export const TagInstructions = styled.span`
   font-size: 12px;
   margin-top: 3px;
   display: block;
   color: #a8a8a8;
-}
+`;

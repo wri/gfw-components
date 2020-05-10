@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-.c-form-checkbox {
+export const CheckboxWrapper = styled.div`
   .checkbox-option {
     position: relative;
     display: flex;
@@ -13,14 +14,14 @@
     }
   }
 
-  input[type=checkbox] {
+  input[type='checkbox'] {
     position: relative;
     width: 25px;
     height: 25px;
     min-width: 25px;
     border: 1px solid $border;
     appearance: none;
-    color: $green;
+    color: ${theme.colors.green};
     cursor: pointer;
     border-radius: 4px;
 
@@ -33,8 +34,8 @@
     }
   }
 
-  input[type=checkbox]::before {
-    content: "✔";
+  input[type='checkbox']::before {
+    content: '✔';
     position: absolute;
     left: 5px;
     top: 2px;
@@ -42,14 +43,13 @@
     font-size: 16px;
   }
 
-  input[type=checkbox]:checked::before {
-    /* Use `visibility` instead of `display` to avoid recalculating layout */
+  input[type='checkbox']:checked::before {
     visibility: visible;
   }
 
-  input[type=checkbox]:disabled {
+  input[type='checkbox']:disabled {
     border-color: black;
     background: #ddd;
     color: gray;
   }
-}
+`;

@@ -1,6 +1,7 @@
-@import '~styles/settings.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-.c-form-error {
+export const ErrorWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,17 +11,17 @@
 
   span {
     font-size: 14px;
-    color: $error;
+    color: ${theme.colors.error};
     margin-bottom: 20px;
 
-    @media screen and (min-width: $screen-m) {
+    ${theme.breakpoints.medium} {
       align-self: flex-start;
       margin-right: 20px;
       margin-bottom: 30px;
     }
 
     &.success {
-      color: $green;
+      color: ${theme.colors.green};
     }
   }
-}
+`;
