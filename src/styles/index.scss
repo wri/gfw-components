@@ -2,3 +2,7 @@
 @import './reset';
 @import './grid';
 @import './semantics';
+
+.Header__no-scroll {
+  overflow: hidden;
+}

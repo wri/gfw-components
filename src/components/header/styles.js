@@ -1,18 +1,12 @@
-@import '~styles/index.scss';
+import theme from 'styles/theme';
+import styled from '@emotion/styled';
 
-$header-height: 56px;
-
-.c-header {
-  height: $header-height;
-  background: $white;
+export const HeaderWrapper = styled.div`
+  height: 56px;
+  background: ${theme.colors.white};
   position: relative;
   width: 100%;
-  border-bottom: solid 1px $border;
-
-  &.relative {
-    height: auto;
-    min-height: $header-height;
-  }
+  border-bottom: solid 1px ${theme.colors.border};
 
   .logo {
     position: absolute;
@@ -26,16 +20,16 @@ $header-height: 56px;
     display: flex;
     position: relative;
     justify-content: flex-end;
-    height: $header-height;
+    height: 56px;
 
     padding-left: 0;
 
-    @media screen and (min-width: $screen-m-bg) {
+    ${theme.breakpoints.mediumbg} {
       justify-content: flex-start;
       padding-left: 80px;
     }
 
-    @media screen and (min-width: 850px) {
+    ${theme.breakpoints.mediumbg} {
       padding-left: 90px;
     }
 
@@ -48,7 +42,7 @@ $header-height: 56px;
     display: flex;
     justify-content: flex-end;
     position: relative;
-    height: $header-height;
+    height: 56px;
     width: 100%;
 
     &.show-menu {
@@ -59,7 +53,7 @@ $header-height: 56px;
   .nav-mobile {
     display: flex;
 
-    @media screen and (min-width: 860px) {
+    ${theme.breakpoints.mediumbg} {
       display: none;
     }
   }
@@ -80,7 +74,7 @@ $header-height: 56px;
       height: 100%;
       display: flex;
       align-items: center;
-      color: $slate;
+      color: ${theme.colors.slate};
       font-size: 14px;
       text-transform: uppercase;
       text-decoration: none;
@@ -89,16 +83,16 @@ $header-height: 56px;
       position: relative;
 
       svg {
-        fill: $slate;
+        fill: ${theme.colors.slate};
         margin-top: -2px;
         transition: all 150ms ease-out;
       }
 
       &:hover {
-        color: darken($slate, 30%);
+        color: darken(${theme.colors.slate}, 30%);
 
         svg {
-          fill: darken($slate, 30%);
+          fill: darken(${theme.colors.slate}, 30%);
         }
       }
 
@@ -118,7 +112,7 @@ $header-height: 56px;
 
       &.active {
         &::after {
-          background-color: $green;
+          background-color: ${theme.colors.green};
         }
       }
     }
@@ -148,4 +142,4 @@ $header-height: 56px;
     height: 15px;
     min-width: 15px;
   }
-}
+`;

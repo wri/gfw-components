@@ -14,13 +14,14 @@ import MenuIcon from 'assets/icons/menu.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import NavLink from 'components/header/components/nav-link';
+import GlobalStyles from 'components/global-styles';
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 import SubmenuPanel from './components/submenu-panel';
 
 import defaultConfig from './config';
 
-import './styles.scss';
+import { HeaderWrapper } from './styles';
 
 class Header extends PureComponent {
   static propTypes = {
@@ -32,7 +33,6 @@ class Header extends PureComponent {
     openContactUsModal: PropTypes.func,
     appUrl: PropTypes.string,
     navMain: PropTypes.array,
-    relative: PropTypes.bool,
     languages: PropTypes.array,
     pathname: PropTypes.string,
     showMenu: PropTypes.bool,
@@ -63,11 +63,10 @@ class Header extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { relative } = this.props;
     const { showSubmenu } = this.state;
-    if (!relative && prevState.showSubmenu && !showSubmenu) {
+    if (prevState.showSubmenu && !showSubmenu) {
       document.body.classList.remove('Header__no-scroll');
-    } else if (!relative && !prevState.showSubmenu && showSubmenu) {
+    } else if (!prevState.showSubmenu && showSubmenu) {
       document.body.classList.add('Header__no-scroll');
     }
   }
@@ -138,20 +137,14 @@ class Header extends PureComponent {
   };
 
   render() {
-    const {
-      className,
-      appUrl,
-      navMain,
-      relative,
-      showMenu,
-      customLogo,
-    } = this.props;
+    const { className, appUrl, navMain, showMenu, customLogo } = this.props;
     const { showSubmenu, clickOutside, languages, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
 
     return (
       <MediaContextProvider>
-        <div className={cx('c-header', { relative }, className)}>
+        <HeaderWrapper className={className}>
+          <GlobalStyles />
           <div className="row">
             <div className="column small-12 ">
               <NavLink className="logo" href="/" appUrl={appUrl}>
@@ -240,7 +233,7 @@ class Header extends PureComponent {
               />
             </OutsideClickHandler>
           )}
-        </div>
+        </HeaderWrapper>
       </MediaContextProvider>
     );
   }
