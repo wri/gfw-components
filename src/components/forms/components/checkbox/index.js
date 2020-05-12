@@ -8,7 +8,7 @@ import { composeValidators } from 'components/forms/validations';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
-import './styles.scss';
+import { CheckboxWrapper } from './styles';
 
 class Checkbox extends PureComponent {
   static propTypes = {
@@ -18,7 +18,7 @@ class Checkbox extends PureComponent {
     label: PropTypes.string,
     name: PropTypes.string,
     options: PropTypes.array,
-    required: PropTypes.bool
+    required: PropTypes.bool,
   };
 
   render() {
@@ -39,28 +39,27 @@ class Checkbox extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            <div className="c-form-checkbox">
-              {
-                options && options.map(option => {
-                    const id = uniqueId(`checkbox-${option.value}-`);
-                    return (
-                      <div key={option.value} className="checkbox-option">
-                        <Field
-                          name={name}
-                          id={id}
-                          component="input"
-                          type="checkbox"
-                          value={option.value}
-                        />
-                        <label className="checkbox-label" htmlFor={id}>
-                          <span />
-                          {option.label}
-                        </label>
-                      </div>
-                    );
-                  })
-              }
-            </div>
+            <CheckboxWrapper>
+              {options &&
+                options.map((option) => {
+                  const id = uniqueId(`checkbox-${option.value}-`);
+                  return (
+                    <div key={option.value} className="checkbox-option">
+                      <Field
+                        name={name}
+                        id={id}
+                        component="input"
+                        type="checkbox"
+                        value={option.value}
+                      />
+                      <label className="checkbox-label" htmlFor={id}>
+                        <span />
+                        {option.label}
+                      </label>
+                    </div>
+                  );
+                })}
+            </CheckboxWrapper>
           </FieldWrapper>
         )}
       </Field>

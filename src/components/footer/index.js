@@ -5,6 +5,7 @@ import { Media, MediaContextProvider } from 'utils/responsive';
 
 import Carousel from 'components/carousel';
 import Button from 'components/button';
+import { Row, Column } from 'components/grid';
 
 import WriIcon from 'assets/logos/wri.svg';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
@@ -12,7 +13,7 @@ import ArrowIcon from 'assets/icons/arrow-down.svg';
 import config from './config';
 import partners from './partners.json';
 
-import './styles.scss';
+import { FooterWrapper } from './styles';
 
 const images = require.context('assets/logos/partners', true);
 
@@ -29,12 +30,12 @@ class Footer extends PureComponent {
         slidesToScroll: slidesToShow,
         infinite: true,
         nextArrow: (
-          <Button theme="button-clear round" ariaLabel="next partners logos">
+          <Button clear round ariaLabel="next partners logos">
             <ArrowIcon />
           </Button>
         ),
         prevArrow: (
-          <Button theme="button-clear round" ariaLabel="prev partners logos">
+          <Button clear round ariaLabel="prev partners logos">
             <ArrowIcon />
           </Button>
         ),
@@ -71,9 +72,9 @@ class Footer extends PureComponent {
 
     return (
       <MediaContextProvider>
-        <div className="c-footer">
-          <div className="row footer-links">
-            <div className="column small-12 medium-6">
+        <FooterWrapper>
+          <Row className="footer-links">
+            <Column width={[1, 1, 1 / 2]}>
               <ul className="footer-links-texts">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -87,8 +88,8 @@ class Footer extends PureComponent {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="column small-12 medium-6">
+            </Column>
+            <Column width={[1, 1, 1 / 2]}>
               <ul className="footer-links-social">
                 {socialLinks.map((link) => (
                   <li key={link.label}>
@@ -98,15 +99,15 @@ class Footer extends PureComponent {
                       rel="noopener noreferrer"
                       aria-label={link.label}
                     >
-                      <Button theme="button-light round big">
+                      <Button light big round>
                         <link.icon />
                       </Button>
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="column small-12">
+            </Column>
+            <Column>
               <div className="footer-contact-us">
                 <button className="contact-btn" onClick={openContactUsModal}>
                   CONTACT US
@@ -121,10 +122,10 @@ class Footer extends PureComponent {
                   </Button>
                 </a>
               </div>
-            </div>
-          </div>
-          <div className="row footer-partners">
-            <div className="column small-12 medium-3">
+            </Column>
+          </Row>
+          <Row className="footer-partners">
+            <Column width={[1, 1, 1 / 4]}>
               <div className="footer-wri">
                 <p>A partnership convened by</p>
                 <a
@@ -136,8 +137,8 @@ class Footer extends PureComponent {
                   <WriIcon className="wri-logo" />
                 </a>
               </div>
-            </div>
-            <div className="column small-12 medium-9">
+            </Column>
+            <Column width={[1, 1, 3 / 4]}>
               <div className="footer-partners-slide">
                 <div className="footer-logos">
                   <p>Partners</p>
@@ -147,10 +148,10 @@ class Footer extends PureComponent {
                   <Media lessThan="md">{this.renderCarousel(1)}</Media>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="column small-12">
+            </Column>
+          </Row>
+          <Row>
+            <Column>
               <div className="footer-terms">
                 <a
                   className="terms"
@@ -179,9 +180,9 @@ class Footer extends PureComponent {
                   Global Forest Watch System Status
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </Column>
+          </Row>
+        </FooterWrapper>
       </MediaContextProvider>
     );
   }

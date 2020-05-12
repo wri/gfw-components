@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/button';
 import debounce from 'lodash/debounce';
-import cx from 'classnames';
 
 import SearchIcon from 'assets/icons/search.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
-import './styles.scss';
-import './themes/small.scss';
+import { SearchWrapper } from './styles';
 
 class Search extends Component {
   static propTypes = {
@@ -17,8 +15,8 @@ class Search extends Component {
     onChange: PropTypes.func,
     onSubmit: PropTypes.func,
     disabled: PropTypes.bool,
+    small: PropTypes.bool,
     className: PropTypes.string,
-    theme: PropTypes.string,
   };
 
   static defaultProps = { input: '' };
@@ -47,9 +45,9 @@ class Search extends Component {
 
   render() {
     const { search } = this.state;
-    const { placeholder, onSubmit, disabled, className, theme } = this.props;
+    const { placeholder, onSubmit, disabled, className, small } = this.props;
     return (
-      <div className={cx('c-search', theme, className)}>
+      <SearchWrapper className={className} small={small}>
         <input
           type="text"
           className="input text"
@@ -59,19 +57,20 @@ class Search extends Component {
           onKeyUp={this.handleKeyUp}
           disabled={disabled}
         />
-        <Button className="submit-btn" theme="button-clear" onClick={onSubmit}>
+        <Button className="submit-btn" clear onClick={onSubmit}>
           <SearchIcon className="icon-search" />
         </Button>
         {search && (
           <Button
             className="clear-btn"
-            theme="button-clear round"
+            clear
+            round
             onClick={() => this.handleChange('')}
           >
             <CloseIcon className="icon-close" />
           </Button>
         )}
-      </div>
+      </SearchWrapper>
     );
   }
 }

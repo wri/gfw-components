@@ -4,7 +4,7 @@ import ContactUsModal from 'components/modals/contact-us';
 const [open, setIsOpen] = React.useState(false);
 
 <div>
-  <Header relative openContactUsModal={() => setIsOpen(true)} />
+  <Header openContactUsModal={() => setIsOpen(true)} />
   <ContactUsModal open={open}  onRequestClose={() => setIsOpen(false)} />
 </div>
 ```

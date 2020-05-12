@@ -16,8 +16,7 @@ import DownloadIcon from 'assets/icons/download.svg';
 import LinkIcon from 'assets/icons/link.svg';
 
 import getMetaData from './selectors';
-
-import './styles.scss';
+import { MetaModalWrapper, modalWrapperStyles } from './styles';
 
 class MetaModal extends PureComponent {
   static propTypes = {
@@ -101,86 +100,93 @@ class MetaModal extends PureComponent {
       <Modal
         open={open}
         onRequestClose={onRequestClose}
-        className="c-meta-modal"
         title={title}
         loading={loading}
+        customStyles={modalWrapperStyles}
       >
-        {error && !loading && (
-          <NoContent message="There was a problem finding this info. Please try again later." />
-        )}
-        {!loading && isEmpty(metaData) && !error && (
-          <NoContent message="Sorry, we cannot find what you are looking for." />
-        )}
-        {!loading && !error && !isEmpty(metaData) && (
-          <div>
-            <p className="subtitle">{subtitle}</p>
-            <div className="meta-table element-fullwidth">
-              {tableData &&
-                Object.keys(tableData).map((key, i) =>
-                  tableData[key] ? (
-                    <div key={key} className={cx('table-row', { dark: i % 2 })}>
-                      <h5 className="title-column">{lowerCase(key)}</h5>
-                      <div className="description-column">
-                        {this.parseContent(tableData[key])}
+        <MetaModalWrapper>
+          {error && !loading && (
+            <NoContent message="There was a problem finding this info. Please try again later." />
+          )}
+          {!loading && isEmpty(metaData) && !error && (
+            <NoContent message="Sorry, we cannot find what you are looking for." />
+          )}
+          {!loading && !error && !isEmpty(metaData) && (
+            <div>
+              <p className="subtitle">{subtitle}</p>
+              <div className="meta-table element-fullwidth">
+                {tableData &&
+                  Object.keys(tableData).map((key, i) =>
+                    tableData[key] ? (
+                      <div
+                        key={key}
+                        className={cx('table-row', { dark: i % 2 })}
+                      >
+                        <h5 className="title-column">{lowerCase(key)}</h5>
+                        <div className="description-column">
+                          {this.parseContent(tableData[key])}
+                        </div>
                       </div>
-                    </div>
-                  ) : null
-                )}
+                    ) : null
+                  )}
+              </div>
+              {overview && (
+                <div className="overview">
+                  <h4>Overview</h4>
+                  <div className="body">{this.parseContent(overview)}</div>
+                </div>
+              )}
+              {parsedCitation && (
+                <div className="citation">
+                  <h5>Citation</h5>
+                  <div className="body">
+                    {this.parseContent(parsedCitation)}
+                  </div>
+                </div>
+              )}
+              {(learn_more || download_data || map_service || amazon_link) && (
+                <div className="actions">
+                  {download_data && (
+                    <a
+                      href={download_data}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button clear>
+                        <DownloadIcon />
+                        DOWNLOAD DATA
+                      </Button>
+                    </a>
+                  )}
+                  {learn_more && (
+                    <a
+                      href={learn_more}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button clear>
+                        <LinkIcon />
+                        LEARN MORE
+                      </Button>
+                    </a>
+                  )}
+                  {(map_service || amazon_link) && (
+                    <a
+                      href={map_service || amazon_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button clear>
+                        <LinkIcon />
+                        OPEN IN ARCGIS
+                      </Button>
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
-            {overview && (
-              <div className="overview">
-                <h4>Overview</h4>
-                <div className="body">{this.parseContent(overview)}</div>
-              </div>
-            )}
-            {parsedCitation && (
-              <div className="citation">
-                <h5>Citation</h5>
-                <div className="body">{this.parseContent(parsedCitation)}</div>
-              </div>
-            )}
-            {(learn_more || download_data || map_service || amazon_link) && (
-              <div className="actions">
-                {download_data && (
-                  <a
-                    href={download_data}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button theme="button-clear">
-                      <DownloadIcon />
-                      DOWNLOAD DATA
-                    </Button>
-                  </a>
-                )}
-                {learn_more && (
-                  <a
-                    href={learn_more}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button theme="button-clear">
-                      <LinkIcon />
-                      LEARN MORE
-                    </Button>
-                  </a>
-                )}
-                {(map_service || amazon_link) && (
-                  <a
-                    href={map_service || amazon_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button theme="button-clear">
-                      <LinkIcon />
-                      OPEN IN ARCGIS
-                    </Button>
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
-        )}
+          )}
+        </MetaModalWrapper>
       </Modal>
     );
   }

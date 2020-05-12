@@ -3,24 +3,27 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
+import { Global } from '@emotion/core';
 
 import { checkLoggedIn } from 'services/user';
 
 import { Media, MediaContextProvider } from 'utils/responsive';
-import { APP_URL } from 'utils/constants';
+import { APP_URL } from 'constants';
 
 import gfwLogo from 'assets/logos/gfw.png';
 import MenuIcon from 'assets/icons/menu.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import NavLink from 'components/header/components/nav-link';
+import { Row, Column } from 'components/grid';
+
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 import SubmenuPanel from './components/submenu-panel';
 
 import defaultConfig from './config';
 
-import './styles.scss';
+import { HeaderWrapper, bodyStyles } from './styles';
 
 class Header extends PureComponent {
   static propTypes = {
@@ -32,7 +35,6 @@ class Header extends PureComponent {
     openContactUsModal: PropTypes.func,
     appUrl: PropTypes.string,
     navMain: PropTypes.array,
-    relative: PropTypes.bool,
     languages: PropTypes.array,
     pathname: PropTypes.string,
     showMenu: PropTypes.bool,
@@ -63,11 +65,10 @@ class Header extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { relative } = this.props;
     const { showSubmenu } = this.state;
-    if (!relative && prevState.showSubmenu && !showSubmenu) {
+    if (prevState.showSubmenu && !showSubmenu) {
       document.body.classList.remove('Header__no-scroll');
-    } else if (!relative && !prevState.showSubmenu && showSubmenu) {
+    } else if (!prevState.showSubmenu && showSubmenu) {
       document.body.classList.add('Header__no-scroll');
     }
   }
@@ -138,22 +139,16 @@ class Header extends PureComponent {
   };
 
   render() {
-    const {
-      className,
-      appUrl,
-      navMain,
-      relative,
-      showMenu,
-      customLogo,
-    } = this.props;
+    const { className, appUrl, navMain, showMenu, customLogo } = this.props;
     const { showSubmenu, clickOutside, languages, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
 
     return (
       <MediaContextProvider>
-        <div className={cx('c-header', { relative }, className)}>
-          <div className="row">
-            <div className="column small-12 ">
+        <Global styles={bodyStyles} />
+        <HeaderWrapper className={className}>
+          <Row>
+            <Column>
               <NavLink className="logo" href="/" appUrl={appUrl}>
                 <img
                   src={customLogo || gfwLogo}
@@ -164,7 +159,7 @@ class Header extends PureComponent {
               </NavLink>
               <div className="nav">
                 <Media
-                  greaterThanOrEqual="md-bg"
+                  greaterThanOrEqual="mdl"
                   className={cx('nav-desktop', { 'show-menu': showMenu })}
                 >
                   {showMenu && (
@@ -183,7 +178,7 @@ class Header extends PureComponent {
                       this.setState({ showSubmenu: show })}
                   />
                 </Media>
-                <Media lessThan="md-bg" className="nav-mobile">
+                <Media lessThan="mdl" className="nav-mobile">
                   <OutsideClickHandler
                     onOutsideClick={() => {
                       if (!showSubmenu && !clickOutside) {
@@ -222,8 +217,8 @@ class Header extends PureComponent {
                   </OutsideClickHandler>
                 </Media>
               </div>
-            </div>
-          </div>
+            </Column>
+          </Row>
           {showSubmenu && (
             <OutsideClickHandler
               onOutsideClick={() => {
@@ -240,7 +235,7 @@ class Header extends PureComponent {
               />
             </OutsideClickHandler>
           )}
-        </div>
+        </HeaderWrapper>
       </MediaContextProvider>
     );
   }

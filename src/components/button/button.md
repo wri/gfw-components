@@ -2,34 +2,34 @@
 ```js
 <Button>Default</Button>
 <br />
-<Button theme="big">Big button</Button>
+<Button big>Big button</Button>
 <br />
-<Button theme="small">Small button</Button>
+<Button small>Small button</Button>
 <br />
-<Button theme="round">$</Button>
+<Button round>$</Button>
 <br />
-<Button theme="square">Square</Button>
+<Button square>Square</Button>
 ```
 
 #### Colors
 ```js
 <Button>Default</Button>
 <br />
-<Button theme="button-light">Light</Button>
+<Button light>Light</Button>
 <br />
-<Button theme="button-dark">Dark</Button>
+<Button dark>Dark</Button>
 ```
 
 #### Disabled
 ```js
-<Button theme="disabled">Default</Button>
+<Button disabled>Default</Button>
 <br />
-<Button theme="button-light disabled">Light</Button>
+<Button light disabled>Light</Button>
 <br />
-<Button theme="button-dark disabled">Dark</Button>
+<Button dark disabled>Dark</Button>
 ```
 
 #### Tooltip
 ```js
-<Button theme="theme-button-light" tooltip={{ text: 'Thanks for hovering' }}>With tooltip</Button>
+<Button light tooltip={{ text: 'Thanks for hovering' }}>With tooltip</Button>
 ```

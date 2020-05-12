@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import tree from 'assets/icons/tree.png';
-import './styles.scss';
+
+import { NoContentWrapper } from './styles';
 
 const NoContent = ({ className, message, icon, children }) => (
-  <div className={`c-no-content ${className}`}>
+  <NoContentWrapper className={className}>
     <p className="message">
       {children || message}
       {icon && <img className="message-icon" src={tree} alt="tree" />}
     </p>
-  </div>
+  </NoContentWrapper>
 );
 
 NoContent.propTypes = {

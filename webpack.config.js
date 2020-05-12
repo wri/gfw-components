@@ -1,8 +1,6 @@
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
@@ -17,7 +15,24 @@ const config = {
   node: { fs: 'empty', net: 'empty' },
   module: {
     rules: [
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  browsers: ['last 2 versions', 'ie >= 11'],
+                },
+              },
+            ],
+            '@babel/preset-react',
+          ],
+          plugins: ['emotion', 'transform-class-properties'],
+        },
+      },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
       {
         test: /\.svg$/,
@@ -28,31 +43,17 @@ const config = {
           },
         ],
       },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 2 } },
-            'postcss-loader',
-            'sass-loader',
-            {
-              loader: 'sass-loader',
-              options: {
-                sassOptions: {
-                  includePaths: ['./node_modules', './src/styles']
-                    .map((d) => path.join(__dirname, d))
-                    .map((g) => glob.sync(g))
-                    .reduce((a, c) => a.concat(c), []),
-                },
-              },
-            },
-          ],
-        }),
-      },
     ],
   },
-  externals: ['react', 'react-dom', 'classnames', 'lodash', 'prop-types'],
+  externals: [
+    'react',
+    'react-dom',
+    'classnames',
+    'lodash',
+    'prop-types',
+    '@emotion/core',
+    '@emotion/styled',
+  ],
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     symlinks: false,
@@ -63,6 +64,7 @@ const config = {
       assets: path.resolve(__dirname, 'src/assets'),
       utils: path.resolve(__dirname, 'src/utils'),
       services: path.resolve(__dirname, 'src/services'),
+      constants: path.resolve(__dirname, 'src/constants'),
     },
   },
   optimization: {
@@ -88,11 +90,6 @@ const config = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({
-      disable: false,
-      allChunks: true,
-      filename: '[name].css',
-    }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new CompressionPlugin({

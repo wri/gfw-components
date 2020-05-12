@@ -10,7 +10,7 @@ import Loader from 'components/loader';
 
 import getShortenUrl from 'services/bitly';
 
-import './styles.scss';
+import { ShareWrapper } from './styles';
 
 class Share extends PureComponent {
   static propTypes = {
@@ -47,13 +47,18 @@ class Share extends PureComponent {
   }
 
   handleShortenUrl = () => {
-    getShortenUrl(this.state.shareUrl).then((response) => {
-      if (response.data.status_code === 200) {
-        this.setState({ shareUrl: response?.data?.data?.url, loading: false });
-      } else {
-        this.setState({ loading: false });
-      }
-    });
+    getShortenUrl(this.state.shareUrl)
+      .then((response) => {
+        if (response.data.status_code === 200) {
+          this.setState({
+            shareUrl: response?.data?.data?.url,
+            loading: false,
+          });
+        } else {
+          this.setState({ loading: false });
+        }
+      })
+      .catch(() => this.setState({ loading: false }));
   };
 
   handleCopyToClipboard = (input) => {
@@ -85,12 +90,12 @@ class Share extends PureComponent {
         : shareUrl;
 
     return (
-      <div className="c-share">
+      <ShareWrapper>
         <div className="actions">
           {embedUrl && (
             <Switch
               className="share-switch-tab"
-              theme="theme-switch-light"
+              light
               value={selected}
               options={[
                 { label: 'LINK', value: 'link' },
@@ -123,7 +128,7 @@ class Share extends PureComponent {
               />
             </div>
             <Button
-              theme="button-medium"
+              medium
               className="copy-button"
               onClick={() => this.handleCopyToClipboard(this.textInput)}
               disabled={loading}
@@ -138,7 +143,7 @@ class Share extends PureComponent {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button theme="button-light round big" className="social-btn">
+            <Button light round big className="social-btn">
               <TwitterIcon className="social-icon" />
             </Button>
           </a>
@@ -147,12 +152,12 @@ class Share extends PureComponent {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button theme="button-light round big" className="social-btn">
+            <Button light round big className="social-btn">
               <FacebookIcon className="social-icon" />
             </Button>
           </a>
         </div>
-      </div>
+      </ShareWrapper>
     );
   }
 }

@@ -9,7 +9,7 @@ import { composeValidators } from 'components/forms/validations';
 import Pill from 'components/pill';
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
-import './styles.scss';
+import { TagsWrapper, TagInstructions } from './styles';
 
 class Input extends PureComponent {
   static propTypes = {
@@ -39,27 +39,28 @@ class Input extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            <ReactTagsInput
-              className="c-form-tags"
-              {...input}
-              value={input.value || []}
-              inputProps={{ placeholder: placeholder || 'Add a new tag' }}
-              renderTag={({ tag, key, onRemove }) => (
-                <Pill
-                  key={key}
-                  className="input-pill"
-                  active
-                  label={tag}
-                  onRemove={(e) => {
-                    e.preventDefault();
-                    onRemove(key);
-                  }}
-                />
-              )}
-            />
-            <span className="form-tags-instructions">
-              Hit enter to create and separate tags
-            </span>
+            <TagsWrapper>
+              <ReactTagsInput
+                {...input}
+                value={input.value || []}
+                inputProps={{ placeholder: placeholder || 'Add a new tag' }}
+                renderTag={({ tag, key, onRemove }) => (
+                  <Pill
+                    key={key}
+                    className="input-pill"
+                    active
+                    label={tag}
+                    onRemove={(e) => {
+                      e.preventDefault();
+                      onRemove(key);
+                    }}
+                  />
+                )}
+              />
+              <TagInstructions>
+                Hit enter to create and separate tags
+              </TagInstructions>
+            </TagsWrapper>
           </FieldWrapper>
         )}
       </Field>

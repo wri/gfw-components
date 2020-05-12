@@ -8,7 +8,7 @@ import { composeValidators } from 'components/forms/validations';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
-import './styles.scss';
+import { RadioWrapper } from './styles';
 
 class Radio extends PureComponent {
   static propTypes = {
@@ -18,7 +18,7 @@ class Radio extends PureComponent {
     label: PropTypes.string,
     name: PropTypes.string,
     options: PropTypes.array,
-    required: PropTypes.bool
+    required: PropTypes.bool,
   };
 
   render() {
@@ -38,28 +38,25 @@ class Radio extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            <div className="c-form-radio">
-              {
-                options && options.map(option => {
-                    const id = uniqueId(`radio-${option.value}-`);
-                    return (
-                      <div key={option.value} className="radio-option">
-                        <Field
-                          id={id}
-                          name={input.name}
-                          component="input"
-                          type="radio"
-                          value={option.value}
-                        />
-                        <label className="radio-label" htmlFor={id}>
-                          <span />
-                          {option.label}
-                        </label>
-                      </div>
-                    );
-                  })
-              }
-            </div>
+            {options &&
+              options.map((option) => {
+                const id = uniqueId(`radio-${option.value}-`);
+                return (
+                  <RadioWrapper key={option.value}>
+                    <Field
+                      id={id}
+                      name={input.name}
+                      component="input"
+                      type="radio"
+                      value={option.value}
+                    />
+                    <label className="radio-label" htmlFor={id}>
+                      <span />
+                      {option.label}
+                    </label>
+                  </RadioWrapper>
+                );
+              })}
           </FieldWrapper>
         )}
       </Field>

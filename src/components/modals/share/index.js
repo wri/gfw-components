@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Modal from 'components/modals/modal';
 import Share from 'components/share';
 
-import './styles.scss';
+import { modalWrapperStyles } from './styles';
 
 class ShareModal extends PureComponent {
   static propTypes = {
@@ -26,7 +26,7 @@ class ShareModal extends PureComponent {
         contentLabel={`Share: ${title}`}
         onRequestClose={onRequestClose}
         title={title}
-        className="c-share-modal"
+        customStyles={modalWrapperStyles}
       >
         <Share {...this.props} />
       </Modal>

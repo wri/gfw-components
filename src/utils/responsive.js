@@ -1,18 +1,15 @@
 import { createMedia } from '@artsy/fresnel';
 
-export const SCREEN_S = 320;
-export const SCREEN_M = 768;
-export const SCREEN_L = 1024;
-export const SCREEN_XL = 1080;
+import { SCREEN_S, SCREEN_M, SCREEN_ML, SCREEN_L, SCREEN_XL } from 'constants';
 
 const ExampleAppMedia = createMedia({
   breakpoints: {
     sm: SCREEN_S,
     md: SCREEN_M,
-    'md-bg': 860,
+    mdl: SCREEN_ML,
     lg: SCREEN_L,
-    xl: SCREEN_XL
-  }
+    xl: SCREEN_XL,
+  },
 });
 
 // Make styles for injection into the header of the page
@@ -20,7 +17,7 @@ export const mediaStyles = ExampleAppMedia.createMediaStyle();
 export const { Media, MediaContextProvider } = ExampleAppMedia;
 
 /* eslint react/prop-types: 0 */
-export const Mobile = props => <Media lessThan="md">{props.children}</Media>;
-export const Desktop = props => (
+export const Mobile = (props) => <Media lessThan="md">{props.children}</Media>;
+export const Desktop = (props) => (
   <Media greaterThanOrEqual="md">{props.children}</Media>
 );
