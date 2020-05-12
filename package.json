@@ -5,7 +5,7 @@
   "scripts": {
     "start": "styleguidist server",
     "build": "styleguidist build",
-    "build:prod": "webpack",
+    "compile": "webpack",
     "build:static": "webpack --config webpack-static.config.js",
     "dev": "webpack --config webpack-dev.config.js --watch",
     "deploy": "yarn build:static && yarn run build && gh-pages -d styleguide"
