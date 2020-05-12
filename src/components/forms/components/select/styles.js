@@ -35,6 +35,10 @@ export const SelectWrapper = styled.div`
     &.placeholder {
       color: #a8a8a8;
     }
+
+    &::-ms-expand {
+      display: none;
+    }
   }
 
   .arrow-icon {
