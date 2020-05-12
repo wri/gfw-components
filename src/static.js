@@ -1,3 +1,5 @@
+import '@babel/polyfill';
+
 import ReactDOM from 'react-dom';
 import React, { useState, useEffect } from 'react';
 import qs from 'query-string';
@@ -108,6 +110,7 @@ const showContactUsModal = () => {
 };
 
 const renderAssets = () => {
+  console.log('rendering assets...');
   showHeader();
   showFooter();
   showContactUsModal();

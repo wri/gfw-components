@@ -18,7 +18,24 @@ module.exports = {
   node: { fs: 'empty', net: 'empty' },
   module: {
     rules: [
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  browsers: ['last 2 versions', 'ie >= 11'],
+                },
+              },
+            ],
+            '@babel/preset-react',
+          ],
+          plugins: ['emotion', 'transform-class-properties'],
+        },
+      },
       { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
       {
         test: /\.svg$/,
