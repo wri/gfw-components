@@ -111,7 +111,7 @@ class Header extends PureComponent {
 
   handleLangSelect = (lang) => {
     const { afterLangSelect } = this.props;
-    if (!isServer && window.Transifex) {
+    if (!isServer && window?.Transifex?.live) {
       window.Transifex.live.translateTo(lang);
     }
     this.setState({ lang });
