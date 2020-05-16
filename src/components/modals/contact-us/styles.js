@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 export const modalWrapperStyles = css`
   width: 100%;
 
-  ${theme.mediaQueries.medium} {
+  ${theme.mediaQueries.small} {
     width: 650px;
   }
 

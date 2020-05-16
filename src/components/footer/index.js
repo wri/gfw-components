@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Media, MediaContextProvider } from 'utils/responsive';
+import { Media, MediaContextProvider } from 'components/responsive';
 
 import Carousel from 'components/carousel';
 import Button from 'components/button';
@@ -142,10 +142,10 @@ class Footer extends PureComponent {
               <div className="footer-partners-slide">
                 <div className="footer-logos">
                   <p>Partners</p>
-                  <Media greaterThanOrEqual="md">
+                  <Media greaterThanOrEqual="medium">
                     {this.renderCarousel(4)}
                   </Media>
-                  <Media lessThan="md">{this.renderCarousel(1)}</Media>
+                  <Media lessThan="medium">{this.renderCarousel(1)}</Media>
                 </div>
               </div>
             </Column>

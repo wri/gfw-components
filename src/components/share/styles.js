@@ -3,7 +3,7 @@ import theme from 'styles/theme';
 import { rgba } from 'emotion-rgba';
 
 export const ShareWrapper = styled.div`
-  ${theme.mediaQueries.medium} {
+  ${theme.mediaQueries.small} {
     width: 600px;
     min-width: 320px;
   }

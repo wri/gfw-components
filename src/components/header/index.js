@@ -7,7 +7,7 @@ import { Global } from '@emotion/core';
 
 import { checkLoggedIn } from 'services/user';
 
-import { Media, MediaContextProvider } from 'utils/responsive';
+import { Media, MediaContextProvider } from 'components/responsive';
 import { APP_URL } from 'constants';
 
 import gfwLogo from 'assets/logos/gfw.png';
@@ -159,7 +159,7 @@ class Header extends PureComponent {
               </NavLink>
               <div className="nav">
                 <Media
-                  greaterThanOrEqual="mdl"
+                  greaterThanOrEqual="medium"
                   className={cx('nav-desktop', { 'show-menu': showMenu })}
                 >
                   {showMenu && (
@@ -178,7 +178,7 @@ class Header extends PureComponent {
                       this.setState({ showSubmenu: show })}
                   />
                 </Media>
-                <Media lessThan="mdl" className="nav-mobile">
+                <Media lessThan="medium" className="nav-mobile">
                   <OutsideClickHandler
                     onOutsideClick={() => {
                       if (!showSubmenu && !clickOutside) {

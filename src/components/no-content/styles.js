@@ -12,7 +12,7 @@ export const NoContentWrapper = styled.div`
   left: 0;
   padding: 0 ${theme.grid.mobileGutter};
 
-  ${theme.mediaQueries.medium} {
+  ${theme.mediaQueries.small} {
     padding: 0 ${theme.grid.desktopGutter};
   }
 

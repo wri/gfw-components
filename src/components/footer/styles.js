@@ -34,7 +34,7 @@ export const FooterWrapper = styled.div`
       display: flex;
       margin-top: 15px;
 
-      ${theme.mediaQueries.medium} {
+      ${theme.mediaQueries.small} {
         justify-content: flex-end;
         margin-top: 0;
       }
@@ -42,7 +42,7 @@ export const FooterWrapper = styled.div`
       li {
         margin-right: 8px;
 
-        ${theme.mediaQueries.medium} {
+        ${theme.mediaQueries.small} {
           margin-right: 0;
           margin-left: 15px;
         }
@@ -71,7 +71,7 @@ export const FooterWrapper = styled.div`
       margin-bottom: 30px;
       padding-bottom: 30px;
 
-      ${theme.mediaQueries.medium} {
+      ${theme.mediaQueries.small} {
         justify-content: space-between;
         flex-direction: row;
         margin-top: 30px;
@@ -84,7 +84,7 @@ export const FooterWrapper = styled.div`
         height: 30px;
         text-align: left;
 
-        ${theme.mediaQueries.medium} {
+        ${theme.mediaQueries.small} {
           text-align: center;
           margin-bottom: 0;
         }
@@ -107,7 +107,7 @@ export const FooterWrapper = styled.div`
       align-items: center;
       flex-direction: column;
 
-      ${theme.mediaQueries.medium} {
+      ${theme.mediaQueries.small} {
         align-items: flex-start;
       }
 
@@ -122,7 +122,7 @@ export const FooterWrapper = styled.div`
       p {
         text-align: center;
 
-        ${theme.mediaQueries.medium} {
+        ${theme.mediaQueries.small} {
           text-align: left;
         }
       }
@@ -207,7 +207,7 @@ export const FooterWrapper = styled.div`
     line-height: 18px;
     text-align: center;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       text-align: right;
     }
 

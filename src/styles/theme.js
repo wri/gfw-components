@@ -1,14 +1,6 @@
-import { SCREEN_S, SCREEN_M, SCREEN_ML, SCREEN_L, SCREEN_XL } from 'constants';
+import { breakpoints } from 'constants';
 
-const breakPoints = {
-  small: SCREEN_S,
-  medium: SCREEN_M,
-  mlarge: SCREEN_ML,
-  large: SCREEN_L,
-  xlarge: SCREEN_XL,
-};
-
-const mediaQueries = Object.entries(breakPoints).reduce(
+const mediaQueries = Object.entries(breakpoints).reduce(
   (obj, [size, value]) => ({
     ...obj,
     [size]: `@media (min-width: ${value}px)`,
@@ -18,7 +10,6 @@ const mediaQueries = Object.entries(breakPoints).reduce(
 
 export default {
   fontFamily: "'Fira Sans', Arial, sans-serif",
-  breakpoints: Object.values(breakPoints).map((br) => `${br}px`),
   mediaQueries,
   colors: {
     white: '#fff',
@@ -37,9 +28,7 @@ export default {
     greyishBrown: '#4a4a4a',
   },
   grid: {
-    maxWidth: '1120px',
-    desktopGutter: '20px',
     mobileGutter: '16px',
-    headerHeight: '58px',
+    desktopGutter: '20px',
   },
 };

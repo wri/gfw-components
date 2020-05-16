@@ -2,8 +2,6 @@
 import React from 'react';
 import { Flex, Box } from 'reflexbox';
 import styled from '@emotion/styled';
-import { ThemeProvider } from 'emotion-theming';
-
 import theme from 'styles/theme';
 
 const RowDiv = styled(Flex)`
@@ -15,7 +13,7 @@ const RowDiv = styled(Flex)`
     `
     margin: 0 -16px;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       margin: 0 -20px;
     }
   `}
@@ -25,17 +23,15 @@ const ColumnDiv = styled(Box)`
   padding: 0 16px;
   margin: 0;
 
-  ${theme.mediaQueries.medium} {
+  ${theme.mediaQueries.small} {
     padding: 0 20px;
   }
 `;
 
 export const Row = (props) => (
-  <ThemeProvider theme={theme}>
-    <RowDiv flexWrap="wrap" {...props}>
-      {props.children}
-    </RowDiv>
-  </ThemeProvider>
+  <RowDiv flexWrap="wrap" theme={theme} {...props}>
+    {props.children}
+  </RowDiv>
 );
 export const Column = (props) => (
   <ColumnDiv width={[1]} {...props}>

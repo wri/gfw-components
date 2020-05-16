@@ -3,7 +3,7 @@ import { Global, css } from '@emotion/core';
 
 import resetStyles from 'styles/reset';
 import semanticStyles from 'styles/semantics';
-import { mediaStyles } from 'utils/responsive';
+import { mediaStyles } from 'components/responsive';
 
 export default () => (
   <>

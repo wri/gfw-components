@@ -27,7 +27,7 @@ export const baseStyles = css`
     background-color: rgba(17, 55, 80, 0.4);
     overflow: auto;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       padding: 40px 10px;
     }
   }
@@ -50,7 +50,7 @@ export const baseStyles = css`
     border: none;
     border-radius: 0;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       width: auto;
       max-width: 900px;
     }
@@ -72,7 +72,7 @@ export const ModalWrapper = styled.div`
   .modal-title {
     padding: 20px 25px 0;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       padding: 40px 100px 0;
       color: #333;
       margin: 0 auto;
@@ -86,7 +86,7 @@ export const ModalWrapper = styled.div`
     z-index: 1;
     position: relative;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       padding: 30px 100px 40px;
     }
 
@@ -94,7 +94,7 @@ export const ModalWrapper = styled.div`
       width: calc(100% + 2 * 25px);
       margin-left: -25px;
 
-      ${theme.mediaQueries.medium} {
+      ${theme.mediaQueries.small} {
         width: calc(100% + 2 * 100px);
         margin-left: -100px;
       }
@@ -109,7 +109,7 @@ export const ModalWrapper = styled.div`
     outline: none;
     z-index: 10;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       top: 25px;
       right: 25px;
     }

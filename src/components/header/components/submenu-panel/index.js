@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import { Media } from 'utils/responsive';
+import { Media } from 'components/responsive';
 
 import NavLink from 'components/header/components/nav-link';
 import Search from 'components/search';
@@ -82,7 +82,7 @@ class Header extends PureComponent {
             onSubmit={this.handleSubmit}
           />
           {showMenu && (
-            <Media lessThan="mdl">
+            <Media lessThan="medium">
               <ul className="menu-section">
                 {navMain &&
                   navMain.map((item) => (
@@ -113,7 +113,7 @@ class Header extends PureComponent {
               </ul>
             </Media>
           )}
-          <Media lessThan="mdl">
+          <Media lessThan="medium">
             <div className="menu-section">
               <h4>Select a language</h4>
               <ul>

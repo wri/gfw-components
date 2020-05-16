@@ -62,7 +62,7 @@ export {
   MediaContextProvider,
   Desktop,
   Mobile,
-} from 'utils/responsive';
+} from 'components/responsive';
 
 // Grid
 export { Row, Column } from 'components/grid';
