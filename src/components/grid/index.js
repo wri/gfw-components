@@ -33,6 +33,7 @@ export const Row = (props) => (
     {props.children}
   </RowDiv>
 );
+
 export const Column = (props) => (
   <ColumnDiv width={[1]} {...props}>
     {props.children}

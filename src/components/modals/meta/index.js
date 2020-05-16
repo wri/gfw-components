@@ -21,7 +21,9 @@ import { MetaModalWrapper, modalWrapperStyles } from './styles';
 class MetaModal extends PureComponent {
   static propTypes = {
     onRequestClose: PropTypes.func,
+    /** slug for fetching data from gfw-metadata service */
     metakey: PropTypes.string,
+    /** name of location for citiation */
     locationName: PropTypes.string,
     open: PropTypes.bool,
   };

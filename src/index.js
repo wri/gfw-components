@@ -50,6 +50,7 @@ export { default as FormInputTags } from './components/forms/components/input-ta
 export { default as FormRadio } from './components/forms/components/radio';
 export { default as FormSelect } from './components/forms/components/select';
 export { default as FormSubmit } from './components/forms/components/submit';
+export { default as validations } from './components/forms/validations';
 export { Form } from 'react-final-form';
 export { FORM_ERROR } from 'final-form';
 

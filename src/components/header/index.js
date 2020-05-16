@@ -28,24 +28,31 @@ const isServer = typeof window === 'undefined';
 
 class Header extends PureComponent {
   static propTypes = {
+    /** override deafult styles in app */
     className: PropTypes.string,
-    loggedIn: PropTypes.bool,
-    loggingIn: PropTypes.bool,
+    /** called after search */
     setQueryToUrl: PropTypes.func,
+    /** pass custom js router component */
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    /** handle opening contact us modal */
     openContactUsModal: PropTypes.func,
+    /** override app base url */
     appUrl: PropTypes.string,
+    /** override navigation config */
     navMain: PropTypes.array,
+    /** pass custom languages */
     languages: PropTypes.array,
+    /** override active pathname to set link to active */
     pathname: PropTypes.string,
+    /** hide the navigation menu */
     showMenu: PropTypes.bool,
+    /** custom action after language selection */
     afterLangSelect: PropTypes.func,
+    /** path to custom logo */
     customLogo: PropTypes.string,
   };
 
   static defaultProps = {
-    className: '',
-    loggedIn: false,
     appUrl: APP_URL,
     showMenu: true,
     ...defaultConfig,
@@ -56,6 +63,8 @@ class Header extends PureComponent {
     showSubmenu: false,
     clickOutside: false,
     lang: 'en',
+    loggedIn: false,
+    loggingIn: false,
   };
 
   componentDidMount() {

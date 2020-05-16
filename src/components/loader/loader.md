@@ -1,5 +1,5 @@
 ```js
-<div style={{ position: 'relative', width: '50px', height: '50px' }}>
-  <Loader />
+<div style={{ position: 'relative', width: '200px', height: '100px' }}>
+  <Loader message="fetching your data..." />
 </div>
 ```

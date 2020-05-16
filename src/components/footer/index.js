@@ -19,6 +19,7 @@ const images = require.context('assets/logos/partners', true);
 
 class Footer extends PureComponent {
   static propTypes = {
+    /** handle openning the contact us modal */
     openContactUsModal: PropTypes.func,
   };
 

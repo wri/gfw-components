@@ -18,6 +18,8 @@ export const LoaderWrapper = styled.div`
   .spinner {
     height: 38px;
     width: 38px;
+    min-height: 38px;
+    min-width: 38px;
     animation: rotate 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
     border: 5px solid transparent;
     border-top-color: ${rgba(theme.colors.slate, 0.7)};

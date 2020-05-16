@@ -6,7 +6,9 @@ import { LoaderWrapper } from './styles';
 class Loader extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    /** invert colors */
     light: PropTypes.bool,
+    /** a message placed below the loader */
     message: PropTypes.string,
   };
 

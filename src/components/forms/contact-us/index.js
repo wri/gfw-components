@@ -20,7 +20,9 @@ import { ContactFormWrapper } from './styles';
 
 class ContactUsForm extends PureComponent {
   static propTypes = {
+    /** function to clear form after successful submission */
     resetForm: PropTypes.func,
+    /** form values prefilled from external data */
     initialValues: PropTypes.object,
   };
 
