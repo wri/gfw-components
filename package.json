@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "main": "dist/bundle.js",
   "scripts": {
-    "start": "styleguidist server",
+    "start": "NODE_ENV=production styleguidist server",
     "build": "styleguidist build",
     "dev": "webpack --watch --progress",
     "compile": "NODE_ENV=production webpack --progress",

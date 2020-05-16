@@ -94,7 +94,7 @@ class MetaModal extends PureComponent {
       citation &&
       citation
         .replace('[selected area name]', locationName)
-        .replace('[date]', format(new Date(), 'DD/MM/YYYY'));
+        .replace('[date]', format(new Date(), 'dd/mm/yyyy'));
 
     return (
       <Modal
