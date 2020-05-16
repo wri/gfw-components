@@ -59,7 +59,7 @@ class Header extends PureComponent {
   };
 
   componentDidMount() {
-    this.checkLoggedIn();
+    // this.checkLoggedIn();
     this.findPathname();
   }
 

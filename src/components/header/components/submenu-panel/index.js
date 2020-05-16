@@ -172,7 +172,7 @@ class Header extends PureComponent {
             <h4>More in GFW</h4>
             <Row as="ul" className="more-links">
               {moreLinks.map((m) => (
-                <Column key={m.label} as="li" width={[1, 1, 1 / 4, 1 / 3]}>
+                <Column key={m.label} as="li" width={[1, 1 / 4, 1 / 3]}>
                   {m.href && (
                     <NavLink
                       {...m}

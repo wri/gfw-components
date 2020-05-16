@@ -12,6 +12,8 @@ import getShortenUrl from 'services/bitly';
 
 import { ShareWrapper } from './styles';
 
+const isServer = typeof window === 'undefined';
+
 class Share extends PureComponent {
   static propTypes = {
     title: PropTypes.string,
@@ -32,14 +34,10 @@ class Share extends PureComponent {
     loading: false,
     copied: false,
     selected: 'link',
-    shareUrl:
-      this.props.shareUrl ||
-      (typeof window !== 'undefined' ? window.location.href : ''),
+    shareUrl: this.props.shareUrl || (!isServer ? window.location.href : ''),
     embedUrl:
       this.props.embedUrl ||
-      (this.props.embed && typeof window !== 'undefined'
-        ? window.location.href
-        : ''),
+      (this.props.embed && !isServer ? window.location.href : ''),
   };
 
   componentDidMount() {

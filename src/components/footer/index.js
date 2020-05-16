@@ -74,7 +74,7 @@ class Footer extends PureComponent {
       <MediaContextProvider>
         <FooterWrapper>
           <Row className="footer-links">
-            <Column width={[1, 1, 1 / 2]}>
+            <Column width={[1, 1 / 2]}>
               <ul className="footer-links-texts">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -89,7 +89,7 @@ class Footer extends PureComponent {
                 ))}
               </ul>
             </Column>
-            <Column width={[1, 1, 1 / 2]}>
+            <Column width={[1, 1 / 2]}>
               <ul className="footer-links-social">
                 {socialLinks.map((link) => (
                   <li key={link.label}>
@@ -125,7 +125,7 @@ class Footer extends PureComponent {
             </Column>
           </Row>
           <Row className="footer-partners">
-            <Column width={[1, 1, 1 / 4]}>
+            <Column width={[1, 1 / 4]}>
               <div className="footer-wri">
                 <p>A partnership convened by</p>
                 <a
@@ -138,7 +138,7 @@ class Footer extends PureComponent {
                 </a>
               </div>
             </Column>
-            <Column width={[1, 1, 3 / 4]}>
+            <Column width={[1, 3 / 4]}>
               <div className="footer-partners-slide">
                 <div className="footer-logos">
                   <p>Partners</p>
