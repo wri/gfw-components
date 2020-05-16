@@ -34,7 +34,7 @@ module.exports = {
     Logo: { logo: { color: '#97BD3D' } },
   },
   template: {
-    favicon: '/public/favicon.ico',
+    favicon: '/favicon.ico',
     head: {
       scripts: [
         {
@@ -57,6 +57,7 @@ module.exports = {
       ],
     },
   },
+  assetsDir: 'public',
   components: 'src/components/**/index.js',
   skipComponentsWithoutExample: true,
   getComponentPathLine: (componentPath) => {

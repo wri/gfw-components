@@ -32,7 +32,6 @@ class Button extends PureComponent {
   };
 
   render() {
-    console.log('hello');
     const { tooltip } = this.props;
 
     return tooltip ? (
