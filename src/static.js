@@ -1,5 +1,4 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+import '@babel/polyfill';
 
 import ReactDOM from 'react-dom';
 import React, { useState, useEffect } from 'react';

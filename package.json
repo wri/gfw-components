@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "main": "dist/bundle.js",
   "scripts": {
-    "start": "NODE_ENV=production styleguidist server",
+    "start": "styleguidist server",
     "build": "styleguidist build",
     "dev": "webpack --watch --progress",
     "compile": "NODE_ENV=production webpack --progress",
@@ -16,7 +16,6 @@
     "@emotion/styled": "^10.0.27",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
-    "core-js": "^3.6.5",
     "date-fns": "^2.13.0",
     "emotion-rgba": "^0.0.8",
     "emotion-theming": "^10.0.27",
@@ -37,7 +36,6 @@
     "react-tippy": "^1.3.4",
     "react-toggle": "^4.1.1",
     "reflexbox": "^4.0.6",
-    "regenerator-runtime": "^0.13.5",
     "release": "^6.1.0",
     "reselect": "^4.0.0"
   },

@@ -69,5 +69,6 @@ module.exports = {
     Wrapper: path.join(__dirname, 'src/styleguide/wrapper'),
     Logo: path.join(__dirname, 'src/styleguide/logo'),
   },
+  require: ['@babel/polyfill'],
   webpackConfig,
 };

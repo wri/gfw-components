@@ -1,5 +1,4 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+import '@babel/polyfill';
 
 // Styles
 export { default as GlobalStyles } from './components/global-styles';
