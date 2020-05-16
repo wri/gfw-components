@@ -58,8 +58,9 @@ export const FieldContainer = styled.div`
     `
     input,
     select,
+    .select-input,
     textarea {
-      border-color: #ed1846;
+      border-color: ${theme.colors.error};
     }
   `}
 
@@ -68,6 +69,7 @@ export const FieldContainer = styled.div`
     `
     input,
     select,
+    .select-input,
     textarea {
       border-color: #777;
     }
