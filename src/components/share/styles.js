@@ -3,11 +3,6 @@ import theme from 'styles/theme';
 import { rgba } from 'emotion-rgba';
 
 export const ShareWrapper = styled.div`
-  ${theme.mediaQueries.small} {
-    width: 600px;
-    min-width: 320px;
-  }
-
   .share-switch-tab {
     max-width: 225px;
     margin-bottom: 30px;
