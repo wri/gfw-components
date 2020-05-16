@@ -21,6 +21,7 @@ class Share extends PureComponent {
     embedUrl: PropTypes.string,
     embed: PropTypes.bool,
     embedSettings: PropTypes.object,
+    token: PropTypes.string,
   };
 
   static defaultProps = {
@@ -28,6 +29,7 @@ class Share extends PureComponent {
     shareUrl: '',
     embedUrl: '',
     embedSettings: { width: 670, height: 490 },
+    token: process.env.BITLY_TOKEN,
   };
 
   state = {
@@ -45,18 +47,20 @@ class Share extends PureComponent {
   }
 
   handleShortenUrl = () => {
-    getShortenUrl(this.state.shareUrl)
-      .then((response) => {
-        if (response.data.status_code === 200) {
-          this.setState({
-            shareUrl: response?.data?.data?.url,
-            loading: false,
-          });
-        } else {
-          this.setState({ loading: false });
-        }
-      })
-      .catch(() => this.setState({ loading: false }));
+    if (this.props.token) {
+      getShortenUrl(this.state.shareUrl, this.props.token)
+        .then((response) => {
+          if (response.data.status_code === 200) {
+            this.setState({
+              shareUrl: response?.data?.data?.url,
+              loading: false,
+            });
+          } else {
+            this.setState({ loading: false });
+          }
+        })
+        .catch(() => this.setState({ loading: false }));
+    }
   };
 
   handleCopyToClipboard = (input) => {
