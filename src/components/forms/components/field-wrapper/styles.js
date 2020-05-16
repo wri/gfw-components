@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import theme from 'styles/theme';
 
 export const FieldContainer = styled.div`
   margin-bottom: 25px;
@@ -32,7 +33,7 @@ export const FieldContainer = styled.div`
 
     span {
       text-transform: none;
-      color: $error;
+      color: ${theme.colors.error};
       font-size: 12px;
       font-weight: 400;
     }

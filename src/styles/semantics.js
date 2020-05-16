@@ -116,7 +116,7 @@ export default css`
     border: none;
     background-color: transparent;
     font-size: 14px;
-    color: $slate;
+    color: ${theme.colors.slate};
     font-family: inherit;
     appearance: none;
     box-sizing: border-box;

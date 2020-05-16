@@ -21,7 +21,7 @@ export const modalWrapperStyles = css`
 
 export const MetaModalWrapper = styled.div`
   .subtitle {
-    color: $grey;
+    color: ${theme.colors.grey};
     margin-bottom: 20px;
 
     ${theme.mediaQueries.small} {
