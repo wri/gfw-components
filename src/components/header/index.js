@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
-import { Global } from '@emotion/core';
 
 import { checkLoggedIn } from 'services/user';
 
@@ -23,7 +22,9 @@ import SubmenuPanel from './components/submenu-panel';
 
 import defaultConfig from './config';
 
-import { HeaderWrapper, bodyStyles } from './styles';
+import { HeaderWrapper } from './styles';
+
+const isServer = typeof window === 'undefined';
 
 class Header extends PureComponent {
   static propTypes = {
@@ -55,12 +56,10 @@ class Header extends PureComponent {
     showSubmenu: false,
     clickOutside: false,
     lang: 'en',
-    languages: this.props.languages,
   };
 
   componentDidMount() {
     this.checkLoggedIn();
-    this.getLanguages();
     this.findPathname();
   }
 
@@ -74,8 +73,7 @@ class Header extends PureComponent {
   }
 
   checkLoggedIn = () => {
-    const query =
-      (typeof window !== 'undefined' && qs.parse(window.location.search)) || {};
+    const query = (!isServer && qs.parse(window.location.search)) || {};
     const urlToken = query && query.token;
     const token = urlToken || localStorage.getItem('userToken');
 
@@ -105,30 +103,15 @@ class Header extends PureComponent {
     }
   };
 
-  getLanguages = () => {
-    if (
-      typeof window !== 'undefined' &&
-      window.Transifex &&
-      window.Transifex.live
-    ) {
-      const languages = window.Transifex.live.getAllLanguages();
-      this.setState({
-        lang: window.Transifex.live.detectLanguage(),
-        languages:
-          languages && languages.map((l) => ({ label: l.name, value: l.code })),
-      });
-    }
-  };
-
   findPathname = () => {
-    if (!this.props.pathname && typeof window !== 'undefined') {
+    if (!this.props.pathname && !isServer) {
       this.setState({ pathname: window.location.pathname });
     }
   };
 
   handleLangSelect = (lang) => {
     const { afterLangSelect } = this.props;
-    if (typeof window !== 'undefined' && window.Transifex) {
+    if (!isServer && window.Transifex) {
       window.Transifex.live.translateTo(lang);
     }
     this.setState({ lang });
@@ -145,7 +128,6 @@ class Header extends PureComponent {
 
     return (
       <MediaContextProvider>
-        <Global styles={bodyStyles} />
         <HeaderWrapper className={className}>
           <Row>
             <Column>
