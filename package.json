@@ -86,7 +86,7 @@
       "eslint --ext .js --ext .jsx --fix"
     ]
   },
-  "description": "Showcase of GFW components with the use of react Styleguidist library.",
+  "description": "React component library for the Global Forest Watch project.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vizzuality/gfw-components.git"
@@ -96,10 +96,10 @@
     "gfw-components",
     "vizzuality"
   ],
-  "author": "Marta Gajowczyk",
+  "author": "Vizzuality",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Vizzuality/gfw-components/issues"
   },
-  "homepage": "https://github.com/Vizzuality/gfw-components#readme"
+  "homepage": "https://vizzuality.github.io/gfw-components/"
 }
