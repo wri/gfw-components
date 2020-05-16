@@ -8,12 +8,30 @@ import { ButtonParent, ButtonWrapper } from './styles';
 
 class Button extends PureComponent {
   static propTypes = {
+    /** button children */
     children: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    theme: PropTypes.string,
-    onClick: PropTypes.func,
-    tooltip: PropTypes.object,
+    /** accessibility label for if no string is passed as a child */
     ariaLabel: PropTypes.string,
+    /** classname for overriding styles in your app */
+    className: PropTypes.string,
+    /** onClick function */
+    onClick: PropTypes.func,
+    /** react tippy tooltip options: https://github.com/tvkhoa/react-tippy */
+    tooltip: PropTypes.object,
+    /** disabled button and adds opacity */
+    disabled: PropTypes.bool,
+    /** sets height of button. options: ['small', 'medium', 'default', 'large'] */
+    size: PropTypes.string,
+    /** remove border radius */
+    square: PropTypes.bool,
+    /** makes button circle regardless of content */
+    round: PropTypes.bool,
+    /** light colors */
+    light: PropTypes.bool,
+    /** dark colors */
+    dark: PropTypes.bool,
+    /** no colors */
+    clear: PropTypes.bool,
   };
 
   renderButton = () => {

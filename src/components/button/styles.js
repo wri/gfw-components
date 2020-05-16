@@ -42,6 +42,28 @@ export const ButtonParent = styled.button`
     opacity: 50%;
   `}
 
+  ${({ size }) =>
+    (size === 'small' &&
+      `
+      height: 20px;
+    `) ||
+    (size === 'medium' &&
+      `
+      height: 30px;
+    `) ||
+    (size === 'large' &&
+      `
+      height: 48px;
+      font-size: 24px;
+      border-radius: 24px;
+    `)}
+
+  ${({ square }) =>
+    square &&
+    `
+    border-radius: 0;
+  `}
+
   ${({ round }) =>
     round &&
     `
@@ -50,32 +72,12 @@ export const ButtonParent = styled.button`
     padding: 0;
   `}
 
-  ${({ square }) =>
-    square &&
-    `
-    border-radius: 0;
-  `}
-
-  ${({ big }) =>
-    big &&
-    `
-    height: 48px;
-    font-size: 24px;
-    border-radius: 24px;
-  `}
-
-  ${({ big, round }) =>
-    big &&
+  ${({ size, round }) =>
+    size === 'large' &&
     round &&
     `
     border-radius: 25px;
     width: 48px;
-  `}
-
-  ${({ small }) =>
-    small &&
-    `
-    height: 20px;
   `}
 
   ${({ light }) =>

@@ -11,7 +11,7 @@ module.exports = {
     color: {
       base: '#555',
       link: '#97BD3D',
-      linkHover: '#97BD3D',
+      linkHover: '#658022',
       border: '#e5e5df',
       error: '#ed1846',
       baseBackground: '#fff',

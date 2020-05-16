@@ -1,35 +1,29 @@
-#### States
 ```js
+<Button size="large">Big</Button>
+<br />
 <Button>Default</Button>
 <br />
-<Button big>Big button</Button>
+<Button size="medium">Medium</Button>
 <br />
-<Button small>Small button</Button>
+<Button size="small">Small</Button>
 <br />
-<Button round>$</Button>
-<br />
-<Button square>Square</Button>
-```
-
-#### Colors
-```js
 <Button>Default</Button>
 <br />
 <Button light>Light</Button>
 <br />
 <Button dark>Dark</Button>
-```
-
-#### Disabled
-```js
+<br />
+<Button clear>Clear</Button>
+<br />
+<Button square>Square</Button>
+<br />
+<Button round>$</Button>
+<br />
 <Button disabled>Default</Button>
 <br />
 <Button light disabled>Light</Button>
 <br />
 <Button dark disabled>Dark</Button>
-```
-
-#### Tooltip
-```js
+<br />
 <Button light tooltip={{ text: 'Thanks for hovering' }}>With tooltip</Button>
 ```
