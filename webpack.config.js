@@ -11,6 +11,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 require('dotenv').config({ silent: true });
 
 const isEnvProduction = process.env.NODE_ENV === 'production';
+const isStaticBuild = process.env.BUILD_MODE === 'static';
 
 const config = {
   entry: './src/index.js',
@@ -18,11 +19,8 @@ const config = {
   devtool: !isEnvProduction ? 'eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename:
-      process.env.BUILD_MODE === 'static'
-        ? 'gfw-assets.latest.js'
-        : 'bundle.js',
-    libraryTarget: process.env.BUILD_MODE === 'static' ? 'var' : 'commonjs2',
+    filename: isStaticBuild ? 'gfw-assets.latest.js' : 'bundle.js',
+    libraryTarget: isStaticBuild ? 'var' : 'commonjs2',
   },
   node: { fs: 'empty', net: 'empty' },
   module: {
@@ -99,17 +97,18 @@ const config = {
       }),
     ],
   },
-  ...(isEnvProduction && {
-    externals: [
-      'react',
-      'react-dom',
-      'classnames',
-      'lodash',
-      'prop-types',
-      '@emotion/core',
-      '@emotion/styled',
-    ],
-  }),
+  ...(isEnvProduction &&
+    !isStaticBuild && {
+      externals: [
+        'react',
+        'react-dom',
+        'classnames',
+        'lodash',
+        'prop-types',
+        '@emotion/core',
+        '@emotion/styled',
+      ],
+    }),
   plugins: compact([
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
@@ -123,7 +122,7 @@ const config = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ImageminPlugin(),
     process.env.ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),
-    process.env.BUILD_MODE === 'static' &&
+    isStaticBuild &&
       new S3Plugin({
         directory: 'dist',
         exclude: /.*\.html$/,

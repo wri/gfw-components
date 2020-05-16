@@ -7,8 +7,8 @@
     "build": "styleguidist build",
     "dev": "webpack --watch --progress",
     "compile": "NODE_ENV=production webpack --progress",
-    "static": "BUILD_MODE=static NODE_ENV=production webpack --progress",
-    "deploy": "yarn static && yarn build && gh-pages -d styleguide"
+    "compile:static": "BUILD_MODE=static NODE_ENV=production webpack --progress",
+    "deploy": "yarn compile:static && yarn build && gh-pages -d styleguide"
   },
   "dependencies": {
     "@artsy/fresnel": "^1.1.0",
