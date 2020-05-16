@@ -79,7 +79,7 @@ export const MetaModalWrapper = styled.div`
     .title-column {
       font-size: 12px;
       padding: 20px 5px 10px 25px;
-      width: 150px;
+      width: 200px;
 
       ${theme.mediaQueries.small} {
         padding: 15px 100px;

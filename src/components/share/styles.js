@@ -19,6 +19,8 @@ export const ShareWrapper = styled.div`
 
   .input-wrapper {
     width: calc(100% + (100px / 2));
+    max-width: 350px;
+    position: relative;
 
     .input-container,
     .input-button {
@@ -42,7 +44,7 @@ export const ShareWrapper = styled.div`
     }
 
     .copy-button {
-      position: relative;
+      position: absolute;
       z-index: 1;
       right: calc(100px / 2);
       width: 100px;

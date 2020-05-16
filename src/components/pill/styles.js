@@ -8,9 +8,7 @@ export const PillWrapper = styled.div`
   background-color: #d4d4d4;
   font-size: 12px;
   padding: 0 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: inline-block;
   outline: none;
   width: fit-content;
 
@@ -23,6 +21,7 @@ export const PillWrapper = styled.div`
   svg {
     width: 8px;
     height: 8px;
+    margin-top: 3px;
     fill: ${theme.colors.white};
   }
 
@@ -43,4 +42,13 @@ export const PillWrapper = styled.div`
     `
     cursor: pointer;
   `}
+`;
+
+export const PillContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: inherit;
 `;

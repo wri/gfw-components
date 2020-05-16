@@ -10,7 +10,7 @@ export default class Wrapper extends Component {
 
   render() {
     return (
-      <div style={{ overflow: 'hidden' }}>
+      <div style={{ overflowX: 'hidden' }}>
         <GlobalStyles />
         {this.props.children}
       </div>

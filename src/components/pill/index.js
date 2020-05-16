@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CloseIcon from 'assets/icons/close.svg';
 
-import { PillWrapper } from './styles';
+import { PillWrapper, PillContainer } from './styles';
 
 const Pill = (props) => {
   const { className, label, onRemove, onClick, active } = props;
@@ -17,12 +17,14 @@ const Pill = (props) => {
       role="button"
       tabIndex={onClick ? 0 : ''}
     >
-      {label}
-      {onRemove && (
-        <button onClick={onRemove}>
-          <CloseIcon />
-        </button>
-      )}
+      <PillContainer>
+        {label}
+        {onRemove && (
+          <button onClick={onRemove}>
+            <CloseIcon />
+          </button>
+        )}
+      </PillContainer>
     </PillWrapper>
   );
 };
