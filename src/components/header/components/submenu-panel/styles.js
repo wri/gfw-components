@@ -137,16 +137,18 @@ export const SubmenuWrapper = styled.div`
           color: ${theme.colors.slate};
           text-transform: uppercase;
           padding: 0;
+          cursor: pointer;
 
           svg {
             margin-right: 15px;
             width: 20px;
             height: 20px;
+            fill: ${theme.colors.green};
           }
 
           &:hover {
             color: ${darken(0.2, theme.colors.slate)};
-            cursor: pointer;
+            text-decoration: underline;
           }
         }
       }
@@ -164,6 +166,10 @@ export const SubmenuWrapper = styled.div`
       button {
         margin-right: 30px;
         cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

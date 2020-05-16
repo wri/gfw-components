@@ -15,6 +15,7 @@ export const HeaderWrapper = styled.div`
   position: relative;
   width: 100%;
   border-bottom: solid 1px ${theme.colors.border};
+  z-index: 1000;
 
   .logo {
     position: absolute;
