@@ -19,10 +19,8 @@ export const SwitchWrapper = styled.div`
     -ms-user-select: none;
     user-select: none;
 
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-
-    width: 100%;
   }
 
   .react-toggle-screenreader-only {
@@ -39,36 +37,19 @@ export const SwitchWrapper = styled.div`
   .react-toggle--disabled {
     cursor: not-allowed;
     opacity: 0.5;
+    -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
   }
 
   .react-toggle-track {
+    width: 50px;
+    height: 24px;
     padding: 0;
     border-radius: 30px;
-    background-color: #4D4D4D;
+    background-color: #4d4d4d;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
     transition: all 0.2s ease;
-    width: 100%;
-    height: 34px;
-    background-color: transparent !important;
-    border: solid 1px ${theme.colors.border};
-
-    > div {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 1;
-      font-size: 13px;
-      color: ${theme.colors.slate};
-    }
-
-    .react-toggle-track-check {
-      left: 0;
-    }
-
-    .react-toggle-track-x {
-      right: 0;
-    }
   }
 
   .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
@@ -76,11 +57,12 @@ export const SwitchWrapper = styled.div`
   }
 
   .react-toggle--checked .react-toggle-track {
-    background-color: #19AB27;
+    background-color: ${theme.colors.green};
   }
 
-  .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #128D15;
+  .react-toggle--checked:hover:not(.react-toggle--disabled)
+    .react-toggle-track {
+    background-color: #128d15;
   }
 
   .react-toggle-track-check {
@@ -120,15 +102,84 @@ export const SwitchWrapper = styled.div`
     transition: opacity 0.25s ease;
   }
 
-  .react-toggle--checked .react-toggle-track-x {
-    opacity: 0;
-  }
-
   .react-toggle-thumb {
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #4d4d4d;
+    border-radius: 50%;
+    background-color: #fafafa;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
+
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
     transition: all 0.25s ease;
+  }
+
+  .react-toggle--checked .react-toggle-thumb {
+    left: 27px;
+    border-color: ${theme.colors.green};
+  }
+
+  .react-toggle--focus .react-toggle-thumb {
+    -webkit-box-shadow: 0px 0px 3px 2px #0099e0;
+    -moz-box-shadow: 0px 0px 3px 2px #0099e0;
+    box-shadow: 0px 0px 2px 3px #0099e0;
+  }
+
+  .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+    -webkit-box-shadow: 0px 0px 5px 5px #0099e0;
+    -moz-box-shadow: 0px 0px 5px 5px #0099e0;
+    box-shadow: 0px 0px 5px 5px #0099e0;
+  }
+
+  .label {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  /* custom styles */
+
+  .react-toggle {
+    width: 100%;
+  }
+
+  .react-toggle-track {
+    width: 100%;
+    height: 34px;
+    background-color: transparent !important;
+    border: solid 1px ${theme.colors.border};
+
+    > div {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      font-size: 13px;
+      color: ${theme.colors.slate};
+    }
+
+    .react-toggle-track-check {
+      left: 0;
+    }
+
+    .react-toggle-track-x {
+      right: 0;
+    }
+  }
+
+  .react-toggle-thumb {
     top: 0;
     left: 0;
     width: 50%;
@@ -139,33 +190,9 @@ export const SwitchWrapper = styled.div`
     box-shadow: none !important;
   }
 
-  .react-toggle--checked .react-toggle-thumb {
-    left: 27px;
-    border-color: #19AB27;
-
+  .react-toggle--checked {
     .react-toggle-thumb {
       left: 50%;
     }
-  }
-
-  .react-toggle--focus .react-toggle-thumb {
-    -webkit-box-shadow: 0px 0px 3px 2px #0099E0;
-    -moz-box-shadow: 0px 0px 3px 2px #0099E0;
-    box-shadow: 0px 0px 2px 3px #0099E0;
-  }
-
-  .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-    -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
-    -moz-box-shadow: 0px 0px 5px 5px #0099E0;
-    box-shadow: 0px 0px 5px 5px #0099E0;
-  }
-
-  .label {
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-weight: 400;
-    font-size: 13px;
   }
 `;

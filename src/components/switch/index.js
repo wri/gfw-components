@@ -11,14 +11,13 @@ class Switch extends PureComponent {
     options: PropTypes.array,
     onChange: PropTypes.func,
     className: PropTypes.string,
-    light: PropTypes.bool,
   };
 
   render() {
-    const { label, value, options, onChange, className, light } = this.props;
+    const { label, value, options, onChange, className } = this.props;
 
     return (
-      <SwitchWrapper className={className} light={light}>
+      <SwitchWrapper className={className}>
         {label && <div className="label">{label}</div>}
         <Toggle
           icons={{

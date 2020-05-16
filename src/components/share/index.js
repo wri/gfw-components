@@ -97,7 +97,6 @@ class Share extends PureComponent {
           {embedUrl && (
             <Switch
               className="share-switch-tab"
-              light
               value={selected}
               options={[
                 { label: 'LINK', value: 'link' },
