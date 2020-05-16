@@ -27,6 +27,15 @@ const defaultSettings = {
 };
 
 class Carousel extends PureComponent {
+  static propTypes = {
+    /** children */
+    children: PropTypes.node.isRequired,
+    /** an object of react-slick props: https://react-slick.neostack.com/docs/api */
+    settings: PropTypes.object,
+    /** override styles in you app */
+    className: PropTypes.string,
+  };
+
   state = { isClient: false };
 
   componentDidMount() {
@@ -51,11 +60,5 @@ class Carousel extends PureComponent {
     );
   }
 }
-
-Carousel.propTypes = {
-  children: PropTypes.node.isRequired,
-  settings: PropTypes.object,
-  className: PropTypes.string,
-};
 
 export default Carousel;
