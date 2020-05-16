@@ -97,18 +97,17 @@ const config = {
       }),
     ],
   },
-  ...(isEnvProduction &&
-    !isStaticBuild && {
-      externals: [
-        'react',
-        'react-dom',
-        'classnames',
-        'lodash',
-        'prop-types',
-        '@emotion/core',
-        '@emotion/styled',
-      ],
-    }),
+  ...(!isStaticBuild && {
+    externals: [
+      'react',
+      'react-dom',
+      'classnames',
+      'lodash',
+      'prop-types',
+      '@emotion/core',
+      '@emotion/styled',
+    ],
+  }),
   plugins: compact([
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
