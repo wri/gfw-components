@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import lowerCase from 'lodash/lowerCase';
 import ReactHtmlParser from 'react-html-parser';
-import moment from 'moment';
 import cx from 'classnames';
+import { format } from 'date-fns';
 
 import { getMeta } from 'services/meta';
 
@@ -94,7 +94,7 @@ class MetaModal extends PureComponent {
       citation &&
       citation
         .replace('[selected area name]', locationName)
-        .replace('[date]', moment().format('DD/MM/YYYY'));
+        .replace('[date]', format(new Date(), 'DD/MM/YYYY'));
 
     return (
       <Modal
