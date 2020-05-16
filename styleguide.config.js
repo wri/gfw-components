@@ -44,7 +44,7 @@ module.exports = {
         },
         {
           type: 'text/javascript',
-          src: 'public/transifex.js',
+          src: '/transifex.js',
           rel: 'preconnect',
         },
       ],
