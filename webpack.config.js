@@ -6,6 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const S3Plugin = require('webpack-s3-plugin');
 const compact = require('lodash/compact');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 require('dotenv').config({ silent: true });
 
@@ -120,6 +121,7 @@ const config = {
       minRatio: 0.8,
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new ImageminPlugin(),
     process.env.ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),
     process.env.BUILD_MODE === 'static' &&
       new S3Plugin({
