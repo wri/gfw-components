@@ -2,7 +2,7 @@ const path = require('path');
 const camelCase = require('lodash/camelCase');
 const upperFirst = require('lodash/upperFirst');
 
-const webpackConfig = require('./styleguide.webpack.js');
+const webpackConfig = require('./webpack.config.js');
 const { version } = require('./package.json');
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
       border: '#e5e5df',
       error: '#ed1846',
       baseBackground: '#fff',
-      focus: 'transparent'
+      focus: 'transparent',
     },
     fontFamily: { base: '"Fira Sans", Arial, sans-serif' },
     fontSize: {
@@ -26,12 +26,12 @@ module.exports = {
       h2: 48,
       h3: 36,
       h4: 18,
-      h5: 12
-    }
+      h5: 12,
+    },
   },
   styles: {
     StyleGuide: { sidebar: { backgroundColor: '#ffffff', color: '#555' } },
-    Logo: { logo: { color: '#97BD3D' } }
+    Logo: { logo: { color: '#97BD3D' } },
   },
   template: {
     favicon: '/public/favicon.ico',
@@ -40,25 +40,26 @@ module.exports = {
         {
           type: 'text/javascript',
           src: '//cdn.transifex.com/live.js',
-          rel: 'preconnect'
+          rel: 'preconnect',
         },
         {
           type: 'text/javascript',
           src: 'public/transifex.js',
-          rel: 'preconnect'
-        }
+          rel: 'preconnect',
+        },
       ],
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap'
-        }
-      ]
-    }
+          href:
+            'https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap',
+        },
+      ],
+    },
   },
   components: 'src/components/**/index.js',
   skipComponentsWithoutExample: true,
-  getComponentPathLine: componentPath => {
+  getComponentPathLine: (componentPath) => {
     const dirname = path.dirname(componentPath, '.js');
     const componentName = camelCase(dirname.split('/').slice(-1)[0]);
 
@@ -66,7 +67,7 @@ module.exports = {
   },
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/styleguide/wrapper'),
-    Logo: path.join(__dirname, 'src/styleguide/logo')
+    Logo: path.join(__dirname, 'src/styleguide/logo'),
   },
-  webpackConfig
+  webpackConfig,
 };

@@ -110,7 +110,6 @@ const showContactUsModal = () => {
 };
 
 const renderAssets = () => {
-  console.log('rendering assets...');
   showHeader();
   showFooter();
   showContactUsModal();

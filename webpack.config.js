@@ -1,20 +1,41 @@
 const path = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserPlugin = require('terser-webpack-plugin');
+const S3Plugin = require('webpack-s3-plugin');
+const compact = require('lodash/compact');
+
+require('dotenv').config({ silent: true });
+
+const isEnvProduction = process.env.NODE_ENV === 'production';
 
 const config = {
   entry: './src/index.js',
-  mode: 'production',
+  mode: process.env.NODE_ENV || 'development',
+  devtool: !isEnvProduction ? 'eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    libraryTarget: 'commonjs2',
+    filename:
+      process.env.BUILD_MODE === 'static'
+        ? 'gfw-assets.latest.js'
+        : 'bundle.js',
+    libraryTarget: process.env.BUILD_MODE === 'static' ? 'var' : 'commonjs2',
   },
   node: { fs: 'empty', net: 'empty' },
   module: {
     rules: [
+      { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: { svgoConfig: { plugins: { removeViewBox: false } } },
+          },
+        ],
+      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
@@ -31,32 +52,15 @@ const config = {
             '@babel/preset-react',
           ],
           plugins: ['emotion', 'transform-class-properties'],
+          cacheDirectory: true,
+          cacheCompression: false,
+          compact: isEnvProduction,
         },
-      },
-      { test: /\.(jpg|jpeg|png|gif)$/, use: 'url-loader' },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: { svgoConfig: { plugins: { removeViewBox: false } } },
-          },
-        ],
       },
     ],
   },
-  externals: [
-    'react',
-    'react-dom',
-    'classnames',
-    'lodash',
-    'prop-types',
-    '@emotion/core',
-    '@emotion/styled',
-  ],
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    symlinks: false,
     plugins: [new DirectoryNamedWebpackPlugin(true)],
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
@@ -68,28 +72,44 @@ const config = {
     },
   },
   optimization: {
+    minimize: isEnvProduction,
     minimizer: [
-      // https://github.com/mishoo/UglifyJS2/tree/harmony
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          output: { comments: false },
-          minify: {},
+      new TerserPlugin({
+        terserOptions: {
+          parse: {
+            ecma: 8,
+          },
           compress: {
+            ecma: 5,
             warnings: false,
-            conditionals: true,
-            unused: true,
-            comparisons: true,
-            sequences: true,
-            dead_code: true,
-            evaluate: true,
-            if_return: true,
-            join_vars: true,
+            comparisons: false,
+            inline: 2,
+          },
+          mangle: {
+            safari10: true,
+          },
+          output: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true,
           },
         },
+        sourceMap: !isEnvProduction,
       }),
     ],
   },
-  plugins: [
+  ...(isEnvProduction && {
+    externals: [
+      'react',
+      'react-dom',
+      'classnames',
+      'lodash',
+      'prop-types',
+      '@emotion/core',
+      '@emotion/styled',
+    ],
+  }),
+  plugins: compact([
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new CompressionPlugin({
@@ -99,7 +119,20 @@ const config = {
       threshold: 10240,
       minRatio: 0.8,
     }),
-  ],
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    process.env.ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),
+    process.env.BUILD_MODE === 'static' &&
+      new S3Plugin({
+        directory: 'dist',
+        exclude: /.*\.html$/,
+        s3Options: {
+          accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+          secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+          region: 'us-east-1',
+        },
+        s3UploadOptions: { Bucket: 'gfw-assets/static' },
+      }),
+  ]),
 };
 
 module.exports = config;
