@@ -59,7 +59,7 @@ class Header extends PureComponent {
   };
 
   componentDidMount() {
-    // this.checkLoggedIn();
+    this.checkLoggedIn();
     this.findPathname();
   }
 
@@ -122,8 +122,15 @@ class Header extends PureComponent {
   };
 
   render() {
-    const { className, appUrl, navMain, showMenu, customLogo } = this.props;
-    const { showSubmenu, clickOutside, languages, lang } = this.state;
+    const {
+      className,
+      appUrl,
+      navMain,
+      showMenu,
+      customLogo,
+      languages,
+    } = this.props;
+    const { showSubmenu, clickOutside, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
 
     return (

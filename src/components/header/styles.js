@@ -89,6 +89,7 @@ export const HeaderWrapper = styled.div`
       padding: 0 10px;
       margin: 0 5px;
       position: relative;
+      white-space: nowrap;
 
       svg {
         fill: ${theme.colors.slate};
