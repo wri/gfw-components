@@ -49,30 +49,26 @@ module.exports = {
     {
       name: 'Grid',
       content: 'src/docs/grid.md',
-      components: ['src/components/grid/*/index.js'],
+      components: 'src/components/grid/*/index.js',
     },
     {
       name: 'Responsive',
       content: 'src/docs/responsive.md',
-      components: ['src/components/responsive/*/index.js'],
+      components: 'src/components/responsive/*/index.js',
     },
     {
       name: 'Modals',
       content: 'src/docs/modals.md',
-      components: [
-        'src/components/modals/modal/index.js',
-        'src/components/modals/contact-us/index.js',
-      ],
+      components: 'src/components/modals/*/index.js',
     },
     {
       name: 'Forms',
       content: 'src/docs/forms.md',
-      components: ['src/components/forms/**/index.js'],
+      components: 'src/components/forms/**/index.js',
     },
     {
       name: 'Icons',
       content: 'src/docs/icons.md',
-      components: ['src/assets/icons/arrow-down.svg'],
     },
   ],
   template: {
