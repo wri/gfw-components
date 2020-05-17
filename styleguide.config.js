@@ -38,8 +38,8 @@ module.exports = {
   },
   sections: [
     {
-      name: 'Installation',
-      content: 'src/docs/install.md',
+      name: 'Introduction',
+      content: 'src/docs/introduction.md',
     },
     {
       name: 'Components',
