@@ -1,6 +1,8 @@
 <br />
 All icons you see present in the above examples can be imported as react components directly from the library. They are packaged with [svgr](https://github.com/gregberge/svgr) and any props present in the documentation can be passed directly.
 
+<br />
+
 ```jsx padded
 import {
   ArrowIcon,

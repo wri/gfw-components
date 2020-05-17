@@ -43,6 +43,7 @@ module.exports = {
     },
     {
       name: 'Components',
+      content: 'src/docs/components.md',
       components: 'src/components/*/index.js',
     },
     {
@@ -51,8 +52,13 @@ module.exports = {
       components: ['src/components/grid/*/index.js'],
     },
     {
+      name: 'Responsive layouts',
+      content: 'src/docs/responsive.md',
+      components: ['src/components/responsive/index.js'],
+    },
+    {
       name: 'Modals',
-      content: 'src/docs/forms.md',
+      content: 'src/docs/modals.md',
       components: [
         'src/components/modals/modal/index.js',
         'src/components/modals/contact-us/index.js',

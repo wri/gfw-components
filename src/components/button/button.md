@@ -1,3 +1,5 @@
+Generic `<button />` with style fixes for IE>=11 and a variety of render props, and ability to wrap with a tooltip.
+
 ```js
 <Button size="large">Big</Button>
 <br />

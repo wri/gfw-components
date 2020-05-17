@@ -1,5 +1,5 @@
 ```js
-import Row from 'components/grid/row';
+import { Row } from 'gfw-components';
 
 const Content = ({ num }) => (
   <p style={{ padding: '20px', backgroundColor: '#f9f9f9', margin: '15px 0' }}>{`Column ${num}`}</p>

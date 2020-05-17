@@ -1,4 +1,4 @@
-A wrapper component for `react-slick` with standardized styles. This includes handling the responsive setting params react slick offers when imported by an SSR application.
+A wrapper component for [react-slick](https://react-slick.neostack.com/docs/get-started) with standardized styles. This includes handling the responsive setting params react slick offers when imported by an SSR application.
 
 ```js
   <div style={{ padding: '0 20px', overflowX: 'hidden' }}>
