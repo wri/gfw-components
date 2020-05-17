@@ -6,7 +6,16 @@ A wrapper component for `react-slick` with standardized styles. This includes ha
       settings={{
         slidesToShow: 2,
         slidesToScroll: 1,
-        lazyLoad: true
+        lazyLoad: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
       }}
     >
       {[1, 2, 3, 4, 5, 6].map(i => (
