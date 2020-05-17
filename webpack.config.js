@@ -68,6 +68,7 @@ const config = {
       utils: path.resolve(__dirname, 'src/utils'),
       services: path.resolve(__dirname, 'src/services'),
       constants: path.resolve(__dirname, 'src/constants'),
+      'gfw-components': path.resolve(__dirname, 'src/index'),
     },
   },
   optimization: {

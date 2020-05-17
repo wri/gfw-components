@@ -43,29 +43,32 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: 'src/components/**/index.js',
+      components: 'src/components/*/index.js',
+    },
+    {
+      name: 'Grid',
+      content: 'src/docs/grid.md',
+      components: ['src/components/grid/*/index.js'],
+    },
+    {
+      name: 'Modals',
+      content: 'src/docs/forms.md',
+      components: ['src/components/modals/*/index.js'],
     },
     {
       name: 'Forms',
       content: 'src/docs/forms.md',
       components: ['src/components/forms/**/index.js'],
     },
+    {
+      name: 'Icons',
+      content: 'src/docs/icons.md',
+      components: ['src/assets/icons/arrow-down.svg'],
+    },
   ],
   template: {
     favicon: '/favicon.ico',
     head: {
-      scripts: [
-        {
-          type: 'text/javascript',
-          src: '//cdn.transifex.com/live.js',
-          rel: 'preconnect',
-        },
-        {
-          type: 'text/javascript',
-          src: '/transifex.js',
-          rel: 'preconnect',
-        },
-      ],
       links: [
         {
           rel: 'stylesheet',

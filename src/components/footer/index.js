@@ -5,7 +5,8 @@ import { Media, MediaContextProvider } from 'components/responsive';
 
 import Carousel from 'components/carousel';
 import Button from 'components/button';
-import { Row, Column } from 'components/grid';
+import Row from 'components/grid/row';
+import Column from 'components/grid/column';
 
 import WriIcon from 'assets/logos/wri.svg';
 import ArrowIcon from 'assets/icons/arrow-down.svg';

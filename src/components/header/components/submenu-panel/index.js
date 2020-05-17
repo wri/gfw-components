@@ -6,7 +6,8 @@ import { Media } from 'components/responsive';
 
 import NavLink from 'components/header/components/nav-link';
 import Search from 'components/search';
-import { Row, Column } from 'components/grid';
+import Row from 'components/grid/row';
+import Column from 'components/grid/column';
 
 import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';

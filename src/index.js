@@ -69,4 +69,5 @@ export {
 } from 'components/responsive';
 
 // Grid
-export { Row, Column } from 'components/grid';
+export { default as Row } from 'components/grid/row';
+export { default as Column } from 'components/grid/column';

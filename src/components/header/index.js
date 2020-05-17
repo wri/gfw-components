@@ -14,7 +14,8 @@ import MenuIcon from 'assets/icons/menu.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import NavLink from 'components/header/components/nav-link';
-import { Row, Column } from 'components/grid';
+import Row from 'components/grid/row';
+import Column from 'components/grid/column';
 
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Flex, Box } from 'reflexbox';
+import { Flex } from 'reflexbox';
 import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
@@ -19,23 +19,10 @@ const RowDiv = styled(Flex)`
   `}
 `;
 
-const ColumnDiv = styled(Box)`
-  padding: 0 16px;
-  margin: 0;
-
-  ${theme.mediaQueries.small} {
-    padding: 0 20px;
-  }
-`;
-
-export const Row = (props) => (
+const Row = (props) => (
   <RowDiv flexWrap="wrap" {...props}>
     {props.children}
   </RowDiv>
 );
 
-export const Column = (props) => (
-  <ColumnDiv width={[1]} theme={theme} {...props}>
-    {props.children}
-  </ColumnDiv>
-);
+export default Row;
