@@ -5,11 +5,11 @@ import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
 const ColumnDiv = styled(Box)`
-  padding: 0 16px;
+  padding: 0 8px;
   margin: 0;
 
   ${theme.mediaQueries.small} {
-    padding: 0 20px;
+    padding: 0 10px;
   }
 `;
 

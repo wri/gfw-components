@@ -7,14 +7,21 @@ import theme from 'styles/theme';
 const RowDiv = styled(Flex)`
   max-width: 1120px;
   margin: auto;
+  padding: 0 16px;
+  margin: 0 -8px;
+
+  ${theme.mediaQueries.small} {
+    padding: 0 20px;
+    margin: 0 -10px;
+  }
 
   ${({ nested }) =>
     nested &&
     `
-    margin: 0 -16px;
+    margin: 0 -24px;
 
     ${theme.mediaQueries.small} {
-      margin: 0 -20px;
+      margin: 0 -30px;
     }
   `}
 `;

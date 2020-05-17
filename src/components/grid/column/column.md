@@ -2,7 +2,7 @@
 import { Row } from 'gfw-components';
 
 const Content = ({ num }) => (
-  <p style={{ padding: '20px', backgroundColor: '#f9f9f9', margin: '15px 0' }}>{`Column ${num}`}</p>
+  <p style={{ padding: '20px', backgroundColor: '#f9f9f9', margin: '10px 0' }}>{`Column ${num}`}</p>
 );
 
 <div style={{ backgroundColor: '#f0f0f0', padding: '10px 0' }}>
