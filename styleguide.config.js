@@ -40,6 +40,16 @@ module.exports = {
     {
       name: 'Introduction',
       content: 'src/docs/introduction.md',
+      sections: [
+        {
+          name: 'Install',
+          content: 'src/docs/install.md',
+        },
+        {
+          name: 'Translations',
+          content: 'src/docs/translations.md',
+        },
+      ],
     },
     {
       name: 'Components',
@@ -62,9 +72,14 @@ module.exports = {
       components: 'src/components/modals/*/index.js',
     },
     {
+      name: 'Form components',
+      content: 'src/docs/form-components.md',
+      components: 'src/components/forms/components/*/index.js',
+    },
+    {
       name: 'Forms',
       content: 'src/docs/forms.md',
-      components: 'src/components/forms/**/index.js',
+      components: 'src/components/forms/*/index.js',
     },
     {
       name: 'Icons',
