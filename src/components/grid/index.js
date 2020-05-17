@@ -29,13 +29,13 @@ const ColumnDiv = styled(Box)`
 `;
 
 export const Row = (props) => (
-  <RowDiv flexWrap="wrap" theme={theme} {...props}>
+  <RowDiv flexWrap="wrap" {...props}>
     {props.children}
   </RowDiv>
 );
 
 export const Column = (props) => (
-  <ColumnDiv width={[1]} {...props}>
+  <ColumnDiv width={[1]} theme={theme} {...props}>
     {props.children}
   </ColumnDiv>
 );
