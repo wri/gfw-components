@@ -159,6 +159,13 @@ export const SubmenuWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
+    > a,
+    button {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     ${theme.mediaQueries.medium} {
       flex-direction: row;
 
