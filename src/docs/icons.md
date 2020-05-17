@@ -29,7 +29,8 @@ import {
 const iconStyle = {
   width: '30px',
   height: '30px',
-  margin: '0 20px 20px 0'
+  margin: '0 20px 20px 0',
+  fill: '#333'
 };
 
 <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', marginTop: '20px' }}>

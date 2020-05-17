@@ -12,16 +12,25 @@ import { ModalWrapper, baseStyles } from './styles';
 
 class Modal extends PureComponent {
   static propTypes = {
+    /** control prop for opening the modal */
     open: PropTypes.bool.isRequired,
+    /** func to close the modal */
     onRequestClose: PropTypes.func.isRequired,
+    /** callback after opening */
     onAfterOpen: PropTypes.func,
+    /** accessible content label */
     contentLabel: PropTypes.string,
+    /** if your content reuqires fetching you can show the loader during the fetch */
     loading: PropTypes.bool,
+    /** overide styles for close button */
     closeClass: PropTypes.string,
     children: PropTypes.node,
+    /** ttitle displayed at top of modal */
     title: PropTypes.string,
     className: PropTypes.string,
+    /** show the dark grey footer border. Used for forms in modals */
     renderFooter: PropTypes.bool,
+    /** override the react-modal default styles */
     customStyles: PropTypes.object,
   };
 
@@ -44,9 +53,7 @@ class Modal extends PureComponent {
 
     return (
       <>
-        <Global
-          styles={baseStyles}
-        />
+        <Global styles={baseStyles} />
         <ReactModal
           isOpen={open}
           className={cx('c-modal', className)}

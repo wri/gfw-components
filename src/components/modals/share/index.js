@@ -10,6 +10,7 @@ class ShareModal extends PureComponent {
   static propTypes = {
     open: PropTypes.bool.isRequired,
     onRequestClose: PropTypes.func,
+    /** custom title for the modal */
     title: PropTypes.string,
   };
 
