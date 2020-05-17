@@ -1,3 +1,5 @@
+Simple switch component that can be used as a toggle or tabs.
+
 ```js
 const [side, setSide] = React.useState('left');
 
