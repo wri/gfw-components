@@ -22,3 +22,4 @@ The `<Column />` component accepts a single prop `width` that can be passed an a
 Below in the `<Column />` component you will find an example of how to make a responsive grid with both components
 
 <br />
+<br />

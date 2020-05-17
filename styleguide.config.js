@@ -52,9 +52,9 @@ module.exports = {
       components: ['src/components/grid/*/index.js'],
     },
     {
-      name: 'Responsive layouts',
+      name: 'Responsive',
       content: 'src/docs/responsive.md',
-      components: ['src/components/responsive/index.js'],
+      components: ['src/components/responsive/*/index.js'],
     },
     {
       name: 'Modals',
