@@ -42,14 +42,14 @@ export { default as Tip } from './components/tip';
 
 // Forms
 export { default as ContactUsForm } from './components/forms/contact-us';
-export { default as FormCheckbox } from './components/forms/components/checkbox';
-export { default as FormError } from './components/forms/components/error';
-export { default as FormFieldWrapper } from './components/forms/components/field-wrapper';
-export { default as FormInput } from './components/forms/components/input';
-export { default as FormInputTags } from './components/forms/components/input-tags';
-export { default as FormRadio } from './components/forms/components/radio';
-export { default as FormSelect } from './components/forms/components/select';
-export { default as FormSubmit } from './components/forms/components/submit';
+export { default as Checkbox } from './components/forms/components/checkbox';
+export { default as Error } from './components/forms/components/error';
+export { default as FieldWrapper } from './components/forms/components/field-wrapper';
+export { default as Input } from './components/forms/components/input';
+export { default as InputTags } from './components/forms/components/input-tags';
+export { default as Radio } from './components/forms/components/radio';
+export { default as Select } from './components/forms/components/select';
+export { default as Submit } from './components/forms/components/submit';
 export { default as validations } from './components/forms/validations';
 export { Form } from 'react-final-form';
 export { FORM_ERROR } from 'final-form';

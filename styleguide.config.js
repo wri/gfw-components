@@ -23,16 +23,34 @@ module.exports = {
       text: 16,
       small: 14,
       h1: 60,
-      h2: 48,
-      h3: 36,
+      h2: 30,
+      h3: 24,
       h4: 18,
       h5: 12,
+    },
+    mq: {
+      small: '@media (max-width: 768px)',
     },
   },
   styles: {
     StyleGuide: { sidebar: { backgroundColor: '#ffffff', color: '#555' } },
     Logo: { logo: { color: '#97BD3D' } },
   },
+  sections: [
+    {
+      name: 'Installation',
+      content: 'src/docs/install.md',
+    },
+    {
+      name: 'Components',
+      components: 'src/components/**/index.js',
+    },
+    {
+      name: 'Forms',
+      content: 'src/docs/forms.md',
+      components: ['src/components/forms/**/index.js'],
+    },
+  ],
   template: {
     favicon: '/favicon.ico',
     head: {

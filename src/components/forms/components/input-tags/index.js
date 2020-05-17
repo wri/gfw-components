@@ -11,7 +11,7 @@ import FieldWrapper from 'components/forms/components/field-wrapper';
 
 import { TagsWrapper, TagInstructions } from './styles';
 
-class Input extends PureComponent {
+class InputTags extends PureComponent {
   static propTypes = {
     type: PropTypes.string,
     placeholder: PropTypes.string,
@@ -68,4 +68,4 @@ class Input extends PureComponent {
   }
 }
 
-export default Input;
+export default InputTags;

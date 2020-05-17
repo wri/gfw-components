@@ -11,6 +11,8 @@ export const CheckboxWrapper = styled.div`
     label {
       cursor: pointer;
       padding-left: 10px;
+      font-size: 14px;
+      ${theme.colors.slate};
     }
   }
 

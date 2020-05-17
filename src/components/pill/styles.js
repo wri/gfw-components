@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
 export const PillWrapper = styled.div`
-  height: 20px;
   border-radius: 15px;
   color: ${theme.colors.white};
   background-color: #d4d4d4;
@@ -51,4 +50,5 @@ export const PillContainer = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: inherit;
+  word-break: break-all;
 `;

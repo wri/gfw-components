@@ -28,7 +28,8 @@ class Submit extends PureComponent {
           hidden
         />
         <Button className="submit-btn" type="submit" disabled={submitting}>
-          {submitting ? <Loader className="submit-loader" /> : children}
+          {submitting && <Loader className="submit-loader" />}
+          {children}
         </Button>
       </SubmitWrapper>
     );
