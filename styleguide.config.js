@@ -53,7 +53,10 @@ module.exports = {
     {
       name: 'Modals',
       content: 'src/docs/forms.md',
-      components: ['src/components/modals/*/index.js'],
+      components: [
+        'src/components/modals/modal/index.js',
+        'src/components/modals/contact-us/index.js',
+      ],
     },
     {
       name: 'Forms',
