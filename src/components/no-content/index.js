@@ -15,8 +15,10 @@ const NoContent = ({ className, message, icon, children }) => (
 );
 
 NoContent.propTypes = {
+  /** show the tree icon */
   icon: PropTypes.bool,
   className: PropTypes.string,
+  /** custo message to shpw */
   message: PropTypes.string,
   children: PropTypes.node,
 };

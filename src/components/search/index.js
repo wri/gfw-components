@@ -10,11 +10,17 @@ import { SearchWrapper } from './styles';
 
 class Search extends Component {
   static propTypes = {
+    /** value of the input */
     input: PropTypes.string,
+    /** placeholder text for input */
     placeholder: PropTypes.string,
+    /** callback after input value change (debounced) */
     onChange: PropTypes.func,
+    /** callback triggered by pressing return or clicking the search icon */
     onSubmit: PropTypes.func,
+    /** input changes blocked */
     disabled: PropTypes.bool,
+    /** changes height and font */
     small: PropTypes.bool,
     className: PropTypes.string,
   };

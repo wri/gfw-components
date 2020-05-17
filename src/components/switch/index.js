@@ -6,9 +6,13 @@ import { SwitchWrapper } from './styles';
 
 class Switch extends PureComponent {
   static propTypes = {
+    /** label text above switch */
     label: PropTypes.string,
+    /** value of active selected */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** array of length === 2 containing object of { label, value } */
     options: PropTypes.array,
+    /** callback after clicking unselected element */
     onChange: PropTypes.func,
     className: PropTypes.string,
   };

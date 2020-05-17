@@ -16,11 +16,20 @@ const isServer = typeof window === 'undefined';
 
 class Share extends PureComponent {
   static propTypes = {
+    /** title string */
     title: PropTypes.string,
+    /** url in input when link is selected */
     shareUrl: PropTypes.string,
+    /** url in input when embed is selected */
     embedUrl: PropTypes.string,
+    /** enables embed tab menu */
     embed: PropTypes.bool,
-    embedSettings: PropTypes.object,
+    /** overide the iframe width and height */
+    embedSettings: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
+    /** API token for bitly account */
     token: PropTypes.string,
   };
 

@@ -31,9 +31,13 @@ const Pill = (props) => {
 
 Pill.propTypes = {
   className: PropTypes.string,
+  /** text label */
   label: PropTypes.string,
+  /** callback when 'x' is clicked */
   onRemove: PropTypes.func,
+  /** callback when pill is clicked */
   onClick: PropTypes.func,
+  /** changes to darker color. Used in some UI cases. */
   active: PropTypes.bool,
 };
 
