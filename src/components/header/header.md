@@ -1,4 +1,4 @@
-The GFW header component. Logo, navigation menu, and languages are all customizable. This component contains a link to open the `<ContactUsModal />` as a dependancy.
+The GFW header component. Logo, navigation menu, and languages are all customizable. This component contains a link to open the `<ContactUsModal />` as a dependancy. To use the default language selector make sure you add the [Transifex Live](https://docs.transifex.com/live/installing-the-javascript-snippet) snippet. If you want to handle translations through another method you can use the `afterLangSelect` prop, alongside passing in your own custom `languages` options.
 
 ```js
 import { ContactUsModal } from 'gfw-components';
