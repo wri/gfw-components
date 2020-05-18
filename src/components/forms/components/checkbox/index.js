@@ -51,11 +51,19 @@ class Checkbox extends PureComponent {
                         component="input"
                         type="checkbox"
                         value={option.value}
-                      />
-                      <label className="checkbox-label" htmlFor={id}>
-                        <span />
-                        {option.label}
-                      </label>
+                      >
+                        {({ input }) => (
+                          <>
+                            <div className="checkbox-wrapper">
+                              <input {...input} id={id} />
+                              {input.checked && <span />}
+                            </div>
+                            <label className="checkbox-label" htmlFor={id}>
+                              {option.label}
+                            </label>
+                          </>
+                        )}
+                      </Field>
                     </div>
                   );
                 })}

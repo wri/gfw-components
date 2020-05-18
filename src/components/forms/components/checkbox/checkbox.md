@@ -2,7 +2,7 @@
 import { Form } from 'gfw-components';
 
 <Form onSubmit={() => {}}>
-  {({ handleSubmit }) => (
+  {({ handleSubmit, ...props }) => (
     <form onSubmit={handleSubmit}>
       <Checkbox
         name="checkbox"
@@ -10,11 +10,11 @@ import { Form } from 'gfw-components';
         options={[
           {
             label: 'option 1',
-            value: 1
+            value: '1'
           },
           {
             label: 'option 2',
-            value: 2
+            value: '2'
           }
         ]}
       />
