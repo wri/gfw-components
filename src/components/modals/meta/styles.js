@@ -32,7 +32,7 @@ export const MetaModalWrapper = styled.div`
   p {
     margin-bottom: 10px;
     font-size: 14px;
-    color: ${theme.colors.slate};
+    color: ${theme.colors.darkGrey};
 
     a {
       font-size: 14px;
@@ -52,7 +52,7 @@ export const MetaModalWrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    border-top: solid 1px ${theme.colors.border};
+    border-top: solid 1px ${theme.colors.lightGrey};
     margin-bottom: 30px;
 
     ${theme.mediaQueries.small} {
@@ -65,7 +65,7 @@ export const MetaModalWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: solid 1px ${theme.colors.border};
+    border-bottom: solid 1px ${theme.colors.lightGrey};
     width: 100%;
 
     ${theme.mediaQueries.small} {
@@ -73,7 +73,7 @@ export const MetaModalWrapper = styled.div`
     }
 
     &.dark {
-      background-color: ${theme.colors.lightGrey};
+      background-color: #f6f6f4;
     }
 
     .title-column {
@@ -133,7 +133,7 @@ export const MetaModalWrapper = styled.div`
 
   ul,
   ol {
-    color: ${theme.colors.slate};
+    color: ${theme.colors.darkGrey};
     font-size: 14px;
   }
 
@@ -142,7 +142,7 @@ export const MetaModalWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-top: solid 1px ${theme.colors.border};
+    border-top: solid 1px ${theme.colors.lightGrey};
     background-color: #e5e5df;
     margin: 0 -30px -30px;
     margin-left: -25px;

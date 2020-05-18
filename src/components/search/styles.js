@@ -12,7 +12,7 @@ export const SearchWrapper = styled.div`
     border-radius: 100px;
     border: 0;
     padding: 0 75px 0 20px;
-    background-color: ${rgba(theme.colors.slate, 0.08)};
+    background-color: ${rgba(theme.colors.darkGrey, 0.08)};
   }
 
   .submit-btn {
@@ -23,7 +23,7 @@ export const SearchWrapper = styled.div`
     .icon-search {
       width: 20px;
       height: 20px;
-      fill: ${theme.colors.slate};
+      fill: ${theme.colors.darkGrey};
     }
   }
 

@@ -25,7 +25,7 @@ export const DropdownWrapper = styled.div`
     left: -70%;
     background-color: ${theme.colors.white};
     width: 200px;
-    border: solid 1px ${theme.colors.border};
+    border: solid 1px ${theme.colors.lightGrey};
     z-index: 1;
 
     > li {
@@ -48,7 +48,7 @@ export const DropdownWrapper = styled.div`
         text-transform: uppercase;
         font-size: 14px;
         width: 100%;
-        color: ${theme.colors.slate};
+        color: ${theme.colors.darkGrey};
         text-align: left;
 
         > button {

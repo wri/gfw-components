@@ -27,7 +27,7 @@ export const PillWrapper = styled.div`
   ${({ active }) =>
     active &&
     `
-    background-color: ${theme.colors.greyishBrown};
+    background-color: #4a4a4a;
   `}
 
   ${({ removable }) =>

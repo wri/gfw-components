@@ -22,7 +22,7 @@ export const LoaderWrapper = styled.div`
     min-width: 38px;
     animation: rotate 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
     border: 5px solid transparent;
-    border-top-color: ${rgba(theme.colors.slate, 0.7)};
+    border-top-color: ${rgba(theme.colors.darkGrey, 0.7)};
     border-radius: 50%;
   }
 
@@ -36,7 +36,7 @@ export const LoaderWrapper = styled.div`
   ${({ light }) =>
     light &&
     `
-    background-color:  ${rgba(theme.colors.slateDark, 0.5)};
+    background-color:  ${rgba(theme.colors.darkestGrey, 0.5)};
 
     .spinner {
       border-top-color: ${theme.colors.white};

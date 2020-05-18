@@ -84,25 +84,25 @@ export const ButtonParent = styled.button`
     light &&
     `
     background-color: ${theme.colors.white};
-    color: ${theme.colors.slateDark};
+    color: ${theme.colors.darkestGrey};
     border: solid 1px ${theme.colors.green};
 
     &:hover {
-      background-color: ${theme.colors.lightGrey};
+      background-color: #F6F6F4;
     }
 
     svg {
-      fill: ${theme.colors.slateDark};
+      fill: ${theme.colors.darkestGrey};
     }
   `}
 
   ${({ dark }) =>
     dark &&
     `
-    background-color: ${theme.colors.slate};
+    background-color: ${theme.colors.darkGrey};
 
     &:hover {
-      background-color: ${theme.colors.slateDark};
+      background-color: ${theme.colors.darkestGrey};
     }
   `}
 
@@ -110,18 +110,18 @@ export const ButtonParent = styled.button`
     clear &&
     `
     background-color: transparent;
-    color: ${theme.colors.slate};
+    color: ${theme.colors.darkGrey};
 
     svg {
-      fill: ${theme.colors.slate};
+      fill: ${theme.colors.darkGrey};
     }
 
     &:hover {
       background-color: transparent;
-      color: ${theme.colors.slateDark};
+      color: ${theme.colors.darkestGrey};
 
       svg {
-        fill: ${theme.colors.slateDark};
+        fill: ${theme.colors.darkestGrey};
       }
     }
   `}

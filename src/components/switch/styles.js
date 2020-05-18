@@ -158,7 +158,7 @@ export const SwitchWrapper = styled.div`
     width: 100%;
     height: 34px;
     background-color: transparent !important;
-    border: solid 1px ${theme.colors.border};
+    border: solid 1px ${theme.colors.lightGrey};
 
     > div {
       width: 50%;
@@ -167,7 +167,7 @@ export const SwitchWrapper = styled.div`
       align-items: center;
       opacity: 1;
       font-size: 13px;
-      color: ${theme.colors.slate};
+      color: ${theme.colors.darkGrey};
     }
 
     .react-toggle-track-check {

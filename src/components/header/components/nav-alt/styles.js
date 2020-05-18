@@ -10,7 +10,7 @@ export const NavAltWrapper = styled.div`
   ${({ showMenu }) =>
     showMenu &&
     `
-    border-left: solid 1px ${theme.colors.border};
+    border-left: solid 1px ${theme.colors.lightGrey};
   `}
 
   .lang-selector {

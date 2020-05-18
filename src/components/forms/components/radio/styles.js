@@ -12,7 +12,7 @@ export const RadioWrapper = styled.div`
     cursor: pointer;
     margin-bottom: 5px;
     font-size: 14px;
-    ${theme.colors.slate};
+    ${theme.colors.darkGrey};
 
     span {
       display: flex;
@@ -21,7 +21,7 @@ export const RadioWrapper = styled.div`
       width: 16px;
       height: 16px;
       border-radius: 100%;
-      border: solid 1px ${theme.colors.slate};
+      border: solid 1px ${theme.colors.darkGrey};
       margin-right: 10px;
 
       &::after {

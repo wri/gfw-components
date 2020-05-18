@@ -9,9 +9,9 @@ export const SelectWrapper = styled.div`
     appearance: none;
     border-radius: 4px;
     background-color: transparent;
-    border: solid 1px ${theme.colors.border};
+    border: solid 1px ${theme.colors.lightGrey};
     outline: none;
-    color: ${theme.colors.slate};
+    color: ${theme.colors.darkGrey};
     width: 100%;
     height: 40px;
     padding: 0 32px 0 12px;

@@ -5,9 +5,9 @@ export const TagsWrapper = styled.div`
   > div {
     border-radius: 4px;
     background-color: transparent;
-    border: solid 1px ${theme.colors.border};
+    border: solid 1px ${theme.colors.lightGrey};
     outline: none;
-    color: ${theme.colors.slate};
+    color: ${theme.colors.darkGrey};
     min-height: 40px;
     width: 100%;
     display: flex;

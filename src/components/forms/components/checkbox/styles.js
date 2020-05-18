@@ -12,7 +12,7 @@ export const CheckboxWrapper = styled.div`
       cursor: pointer;
       padding-left: 10px;
       font-size: 14px;
-      ${theme.colors.slate};
+      ${theme.colors.darkGrey};
     }
   }
 
@@ -21,7 +21,7 @@ export const CheckboxWrapper = styled.div`
     width: 25px;
     height: 25px;
     min-width: 25px;
-    border: 1px solid ${theme.colors.border};
+    border: 1px solid ${theme.colors.lightGrey};
     appearance: none;
     color: ${theme.colors.green};
     cursor: pointer;

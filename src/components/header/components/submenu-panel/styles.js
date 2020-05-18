@@ -75,7 +75,7 @@ export const SubmenuWrapper = styled.div`
   .menu-section {
     padding-bottom: 30px;
     margin-bottom: 30px;
-    border-bottom: solid 1px ${theme.colors.border};
+    border-bottom: solid 1px ${theme.colors.lightGrey};
 
     .apps-slider {
       overflow-x: auto;
@@ -102,7 +102,7 @@ export const SubmenuWrapper = styled.div`
       }
 
       .all-apps {
-        border: solid 1px ${theme.colors.border};
+        border: solid 1px ${theme.colors.lightGrey};
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -112,7 +112,7 @@ export const SubmenuWrapper = styled.div`
         text-transform: uppercase;
         text-align: center;
         font-weight: 400;
-        color: ${theme.colors.slate};
+        color: ${theme.colors.darkGrey};
         width: 90px;
         height: 90px;
 
@@ -134,7 +134,7 @@ export const SubmenuWrapper = styled.div`
           display: flex;
           align-items: center;
           font-size: 12px;
-          color: ${theme.colors.slate};
+          color: ${theme.colors.darkGrey};
           text-transform: uppercase;
           padding: 0;
           cursor: pointer;
@@ -147,7 +147,7 @@ export const SubmenuWrapper = styled.div`
           }
 
           &:hover {
-            color: ${darken(0.2, theme.colors.slate)};
+            color: ${darken(0.2, theme.colors.darkGrey)};
             text-decoration: underline;
           }
         }

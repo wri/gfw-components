@@ -179,7 +179,7 @@ export const CarouselWrapper = styled.div`
         width: 10px;
         height: 10px;
         cursor: pointer;
-        background-color: ${theme.colors.darkGrey};
+        background-color: #d6d6d9;
         border-radius: 50%;
       }
 

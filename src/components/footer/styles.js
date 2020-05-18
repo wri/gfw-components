@@ -19,11 +19,11 @@ export const FooterWrapper = styled.div`
 
         a {
           font-size: 14px;
-          color: ${theme.colors.slate};
+          color: ${theme.colors.darkGrey};
           text-transform: uppercase;
 
           &:hover {
-            color: ${darken(0.2, theme.colors.slate)};
+            color: ${darken(0.2, theme.colors.darkGrey)};
             text-decoration: underline;
           }
         }
@@ -99,7 +99,7 @@ export const FooterWrapper = styled.div`
   .footer-partners {
     p {
       font-size: 14px;
-      color: ${theme.colors.slate};
+      color: ${theme.colors.darkGrey};
     }
 
     .footer-wri {

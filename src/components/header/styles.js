@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.div`
   background: ${theme.colors.white};
   position: relative;
   width: 100%;
-  border-bottom: solid 1px ${theme.colors.border};
+  border-bottom: solid 1px ${theme.colors.lightGrey};
   z-index: 1000;
 
   .logo {
@@ -83,7 +83,7 @@ export const HeaderWrapper = styled.div`
       height: 100%;
       display: flex;
       align-items: center;
-      color: ${theme.colors.slate};
+      color: ${theme.colors.darkGrey};
       font-size: 14px;
       text-transform: uppercase;
       text-decoration: none;
@@ -93,16 +93,16 @@ export const HeaderWrapper = styled.div`
       white-space: nowrap;
 
       svg {
-        fill: ${theme.colors.slate};
+        fill: ${theme.colors.darkGrey};
         margin-top: -2px;
         transition: all 150ms ease-out;
       }
 
       &:hover {
-        color: ${darken(0.2, theme.colors.slate)};
+        color: ${darken(0.2, theme.colors.darkGrey)};
 
         svg {
-          fill: ${darken(0.2, theme.colors.slate)};
+          fill: ${darken(0.2, theme.colors.darkGrey)};
         }
       }
 
