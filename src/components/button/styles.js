@@ -5,7 +5,7 @@ import theme from 'styles/theme';
 export const ButtonParent = styled.button`
   height: 40px;
   border-radius: 20px;
-  padding: 0 25px;
+  padding: 0 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,16 +46,19 @@ export const ButtonParent = styled.button`
     (size === 'small' &&
       `
       height: 20px;
+      padding: 0 16px;
     `) ||
     (size === 'medium' &&
       `
       height: 30px;
+      padding: 0 25px;
     `) ||
     (size === 'large' &&
       `
       height: 48px;
       font-size: 24px;
       border-radius: 24px;
+      padding: 0 30px;
     `)}
 
   ${({ square }) =>
