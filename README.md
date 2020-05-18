@@ -59,15 +59,12 @@ export const MyPage = () => (
   </div>
 );
 ```
-<br />
 
 ### Requirements
 
 If you are using `gfw-components` as a npm module there are some external requirments:
 - `react >= 16.8`
 - `react-dom >= 16.8`
-
-<br />
 
 ### 2. As a static script
 The static build serves as a minimum requirement for the library providing only the global styles, header, footer, and contact us modal such that is can be injected into your site without the need for a react application. The bundle is passed through the same webpack `production` environment build to optimize for performance and minimization.
@@ -89,7 +86,6 @@ And then place inside the html docment tags with the following ids:
 <!-- place at the bottom of your html document -->
 <div id="contactGfw"></div>
 ```
-<br />
 
 ## Development
 
@@ -122,8 +118,6 @@ yarn deploy
 ```
 
 NOTE: for AWS you will need to have the creds present in your `.env` file.
-
-<br />
 
 ## Transifex support
 
