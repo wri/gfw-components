@@ -14,7 +14,7 @@ const isEnvProduction = process.env.NODE_ENV === 'production';
 const isStaticBuild = process.env.BUILD_MODE === 'static';
 
 const config = {
-  entry: './src/index.js',
+  entry: isStaticBuild ? './src/static.js' : './src/index.js',
   mode: process.env.NODE_ENV || 'development',
   devtool: !isEnvProduction ? 'eval-source-map' : false,
   output: {

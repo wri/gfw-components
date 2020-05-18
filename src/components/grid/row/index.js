@@ -7,22 +7,21 @@ import theme from 'styles/theme';
 const RowDiv = styled(Flex)`
   max-width: 1120px;
   margin: auto;
-  padding: 0 16px;
-  margin: 0 -8px;
-
-  ${theme.mediaQueries.small} {
-    padding: 0 20px;
-    margin: 0 -10px;
-  }
 
   ${({ nested }) =>
     nested &&
     `
-    margin: 0 -24px;
+    margin: 0 -${theme.grid.mobileGutter}
 
     ${theme.mediaQueries.small} {
-      margin: 0 -30px;
+      margin: 0 -${theme.grid.desktopGutter}
     }
+  `}
+
+  ${({ expanded }) =>
+    expanded &&
+    `
+      max-width: none;
   `}
 `;
 
@@ -35,6 +34,7 @@ const Row = (props) => (
 Row.propTypes = {
   /** set to true when nesting a <Row /> inside a <Column /> component */
   nested: PropTypes.bool,
+  expanded: PropTypes.bool,
   children: PropTypes.node,
 };
 

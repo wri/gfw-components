@@ -5,11 +5,11 @@ import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
 const ColumnDiv = styled(Box)`
-  padding: 0 8px;
+  padding: 0 ${theme.grid.mobileButter};
   margin: 0;
 
   ${theme.mediaQueries.small} {
-    padding: 0 10px;
+    padding: 0 ${theme.grid.desktopGutter};
   }
 `;
 
