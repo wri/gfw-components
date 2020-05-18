@@ -1,14 +1,15 @@
-/* eslint-disable jsx-a11y/label-has-for */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'react-final-form';
 import cx from 'classnames';
+import isEmpty from 'lodash/isEmpty';
 
 import { composeValidators } from 'components/forms/validations';
+import Input from 'components/forms/components/input';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
-import ArrowIcon from 'assets/icons/arrow-down.svg';
 
+import ArrowIcon from 'assets/icons/arrow-down.svg';
 import { SelectWrapper } from './styles';
 
 class Select extends PureComponent {
@@ -22,6 +23,7 @@ class Select extends PureComponent {
     options: PropTypes.array,
     required: PropTypes.bool,
     multiple: PropTypes.bool,
+    selectInput: PropTypes.bool,
   };
 
   render() {
@@ -34,9 +36,17 @@ class Select extends PureComponent {
       hidden,
       required,
       multiple,
+      selectInput,
     } = this.props;
 
-    const allOptions = options || [];
+    const parsedOptions =
+      !isEmpty(options) && !options[0].label && !options[0].value
+        ? options.map((o) => ({
+            label: o,
+            value: o.replace(/( )+|(\/)+/g, '_'),
+          }))
+        : options;
+    const allOptions = parsedOptions || [];
     const optionWithPlaceholder = placeholder
       ? [{ label: placeholder, value: '' }, ...allOptions]
       : allOptions;
@@ -57,26 +67,40 @@ class Select extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            <SelectWrapper>
-              <select
-                className={cx(
-                  'select-input',
-                  { multiple },
-                  {
-                    placeholder: !input.value,
-                  }
+            <div>
+              <SelectWrapper>
+                {multiple && (
+                  <p className="label sublabel">Select all that apply.</p>
                 )}
-                {...input}
-                multiple={multiple}
-              >
-                {optionWithPlaceholder.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              <ArrowIcon className="arrow-icon" />
-            </SelectWrapper>
+                <select
+                  className={cx(
+                    'selector',
+                    { multiple },
+                    {
+                      placeholder: !input.value,
+                    }
+                  )}
+                  {...input}
+                  multiple={multiple}
+                >
+                  {optionWithPlaceholder.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+                {selectInput && (
+                  <div className="select-input">
+                    <Input
+                      name={`${input.name}_otherInput`}
+                      label="Other:"
+                      required={required}
+                    />
+                  </div>
+                )}
+                <ArrowIcon className="arrow-icon" />
+              </SelectWrapper>
+            </div>
           </FieldWrapper>
         )}
       </Field>

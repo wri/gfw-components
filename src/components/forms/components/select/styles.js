@@ -5,7 +5,7 @@ export const SelectWrapper = styled.div`
   position: relative;
   width: 100%;
 
-  .select-input {
+  .selector {
     appearance: none;
     border-radius: 4px;
     background-color: transparent;
@@ -48,5 +48,12 @@ export const SelectWrapper = styled.div`
     top: calc(50% - 4px);
     right: 15px;
     z-index: 1;
+  }
+
+  .select-input {
+    margin-top: 5px;
+    margin-left: 25px;
+    width: calc(100% - 25px);
+    max-width: 325px;
   }
 `;

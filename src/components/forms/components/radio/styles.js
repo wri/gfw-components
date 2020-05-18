@@ -11,6 +11,8 @@ export const RadioWrapper = styled.div`
     align-items: center;
     cursor: pointer;
     margin-bottom: 5px;
+    font-size: 14px;
+    ${theme.colors.slate};
 
     span {
       display: flex;

@@ -3,10 +3,12 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'react-final-form';
 import uniqueId from 'lodash/uniqueId';
+import isEmpty from 'lodash/isEmpty';
 
 import { composeValidators } from 'components/forms/validations';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
+import Input from 'components/forms/components/input';
 
 import { RadioWrapper } from './styles';
 
@@ -15,6 +17,7 @@ class Radio extends PureComponent {
     type: PropTypes.string,
     hidden: PropTypes.bool,
     validate: PropTypes.array,
+    selectedOption: PropTypes.string,
     label: PropTypes.string,
     name: PropTypes.string,
     options: PropTypes.array,
@@ -22,7 +25,22 @@ class Radio extends PureComponent {
   };
 
   render() {
-    const { name, label, validate, options, hidden, required } = this.props;
+    const {
+      name,
+      label,
+      validate,
+      selectedOption,
+      options,
+      hidden,
+      required,
+    } = this.props;
+    const parsedOptions =
+      !isEmpty(options) && !options[0].label && !options[0].value
+        ? options.map((o) => ({
+            label: o,
+            value: o.replace(/( )+|(\/)+/g, '_'),
+          }))
+        : options;
 
     return (
       <Field
@@ -38,25 +56,34 @@ class Radio extends PureComponent {
             hidden={hidden}
             required={required}
           >
-            {options &&
-              options.map((option) => {
-                const id = uniqueId(`radio-${option.value}-`);
-                return (
-                  <RadioWrapper key={option.value}>
-                    <Field
-                      id={id}
-                      name={input.name}
-                      component="input"
-                      type="radio"
-                      value={option.value}
-                    />
-                    <label className="radio-label" htmlFor={id}>
-                      <span />
-                      {option.label}
-                    </label>
-                  </RadioWrapper>
-                );
-              })}
+            <div>
+              {parsedOptions &&
+                parsedOptions.map((option) => {
+                  const id = uniqueId(`radio-${option.value}-`);
+                  return (
+                    <RadioWrapper key={option.value}>
+                      <Field
+                        id={id}
+                        name={input.name}
+                        component="input"
+                        type="radio"
+                        value={option.value}
+                      />
+                      <label className="radio-label" htmlFor={id}>
+                        <span />
+                        {option.label}
+                      </label>
+                      {selectedOption === option.value && option.radioInput && (
+                        <Input
+                          name={`${input.name}_otherInput`}
+                          className="radio-input"
+                          required={required}
+                        />
+                      )}
+                    </RadioWrapper>
+                  );
+                })}
+            </div>
           </FieldWrapper>
         )}
       </Field>
