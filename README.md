@@ -2,7 +2,6 @@
 
 A [React](https://reactjs.org/) component library for the [Global Forest Watch](https://github.com/Vizzuality/gfw) project built with [Emotion](https://emotion.sh/docs/introduction) CSS in JS styled components. All features have support for Server Side Rendering (SSR), the latest two versions of evergreen browsers and IE>=11. All designs for these components are based on the [Global Forest Watch UI kit](https://invis.io/82QPKXD964H).
 <br />
-<br />
 
 ## Installation
 
@@ -69,7 +68,6 @@ If you are using `gfw-components` as a npm module there are some external requir
 - `react-dom >= 16.8`
 
 <br />
-<br />
 
 ### 2. As a static script
 The static build serves as a minimum requirement for the library providing only the global styles, header, footer, and contact us modal such that is can be injected into your site without the need for a react application. The bundle is passed through the same webpack `production` environment build to optimize for performance and minimization.
@@ -91,7 +89,6 @@ And then place inside the html docment tags with the following ids:
 <!-- place at the bottom of your html document -->
 <div id="contactGfw"></div>
 ```
-<br />
 <br />
 
 ## Development
@@ -127,10 +124,8 @@ yarn deploy
 NOTE: for AWS you will need to have the creds present in your `.env` file.
 
 <br />
-<br />
 
 ## Transifex support
 
 The `<Header />` component comes with support for Transifex as well as your choice of translation method. To use the default language selector make sure you add the [Transifex Live](https://docs.transifex.com/live/installing-the-javascript-snippet) snippet. If you are using the static script you must add the Transifex script to translate your site.
-<br />
 <br />
