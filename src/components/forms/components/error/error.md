@@ -1,5 +1,5 @@
 ```js
-import { Form } from 'react-final-form';
+import { Form } from 'gfw-components';
 import Input from 'components/forms/components/input';
 import Submit from 'components/forms/components/submit';
 

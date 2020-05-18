@@ -1,5 +1,5 @@
 ```js
-import { Form } from 'gfw-components';
+import { Form, Submit } from 'gfw-components';
 
 <Form onSubmit={() => new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -9,7 +9,7 @@ import { Form } from 'gfw-components';
   {({ handleSubmit, submitting }) => (
     <form onSubmit={handleSubmit}>
       <Submit submitting={submitting}>
-        click me to submit
+        submit
       </Submit>
     </form>
   )}

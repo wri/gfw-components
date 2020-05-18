@@ -50,8 +50,9 @@ export { default as InputTags } from './components/forms/components/input-tags';
 export { default as Radio } from './components/forms/components/radio';
 export { default as Select } from './components/forms/components/select';
 export { default as Submit } from './components/forms/components/submit';
+export { default as Form } from './components/forms/components/form';
+export { default as Field } from './components/forms/components/field';
 export { default as validations } from './components/forms/validations';
-export { Form } from 'react-final-form';
 export { FORM_ERROR } from 'final-form';
 
 // Modals

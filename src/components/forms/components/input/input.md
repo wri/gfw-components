@@ -1,5 +1,5 @@
 ```js
-import { Form } from 'react-final-form';
+import { Form } from 'gfw-components';
 
 <Form onSubmit={() => {}}>
   {({ handleSubmit }) => (
