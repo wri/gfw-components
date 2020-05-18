@@ -134,17 +134,3 @@ NOTE: for AWS you will need to have the creds present in your `.env` file.
 The `<Header />` component comes with support for Transifex as well as your choice of translation method. To use the default language selector make sure you add the [Transifex Live](https://docs.transifex.com/live/installing-the-javascript-snippet) snippet. If you are using the static script you must add the Transifex script to translate your site.
 <br />
 <br />
-
-## Publishing to NPM
-
-Merging PRs to master or pushing commits directly into master triggers Travis CI that checks if the commit is tagged and if it is, it automatically publishes a new version to NPM.
-To have a full control over the releases, we're tagging the commits locally.
-To tag a commit and trigger npm publish upon pushing to master, follow these steps:
-
-1. Make sure everything works on master and that you want to indeed publish new version to npm
-2. Run in the project folder command line: `npm version patch|minor|major -m "Bumping to %s"`
-  - this will bump version in the package.json
-  - commit and tag
-3. `git push` to push the commit with bumped version to master
-4. `git push --tags` to push the tags
-5. Travis CI will be triggered and upon seeing the tagged commit, it will publish a new version to NPM :rocket:
