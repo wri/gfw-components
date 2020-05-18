@@ -10,7 +10,7 @@ export const RadioWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin: 5px 0;
     font-size: 14px;
     ${theme.colors.darkGrey};
 
