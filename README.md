@@ -1,20 +1,139 @@
-# GFW injectable components
+# GFW components
 
-Showcase of GFW components with the use of react Styleguidist library.
+A [React](https://reactjs.org/) component library for the [Global Forest Watch](https://github.com/Vizzuality/gfw) project built with [Emotion](https://emotion.sh/docs/introduction) CSS in JS styled components. All features have support for Server Side Rendering (SSR), the latest two versions of evergreen browsers and IE>=11. All designs for these components are based on the [Global Forest Watch UI kit](https://invis.io/82QPKXD964H).
+<br />
+<br />
 
-## Installation / setting up locally
+## Installation
+
+The library can be installed in two ways:
+<br />
+
+### 1. As a module
+
+Install the package
+
+```bash
+npm install gfw-components
+```
+
+or with yarn
+
+```bash
+yarn add gfw-components
+```
+
+import and add the global styles component to the root of your app
+
+```jsx static
+import React from "react"
+
+import { GlobalStyles } from 'gfw-components';
+
+export const App = () => (
+  <>
+    <GlobalStyles />
+    <Main />
+  </>
+);
+```
+
+add the font to your html document
+```html
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+```
+
+then import components and add them to your layout
+
+```jsx static
+import React from "react"
+
+import { Header, Footer } from 'gfw-components';
+
+export const MyPage = () => (
+  <div className="l-page">
+    <Header />
+    <div className="content">
+      <h1>My page</h1>
+    </div>
+    <Footer />
+  </div>
+);
+```
+<br />
+
+### Requirements
+
+If you are using `gfw-components` as a npm module there are some external requirments:
+- `react >= 16.8`
+- `react-dom >= 16.8`
+
+<br />
+<br />
+
+### 2. As a static script
+The static build serves as a minimum requirement for the library providing only the global styles, header, footer, and contact us modal such that is can be injected into your site without the need for a react application. The bundle is passed through the same webpack `production` environment build to optimize for performance and minimization.
+
+Add the following script tag and font to the head of your app.
+
+```html
+<script type="text/javascript" src="https://gfw-assets.s3.amazonaws.com/static/gfw-assets.latest.js" preconnect></script>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+```
+
+And then place inside the html docment tags with the following ids:
+
+```html
+<!-- place where you want the header -->
+<div id="headerGfw"></div>
+<!-- place where you want the footer -->
+<div id="footerGfw"></div>
+<!-- place at the bottom of your html document -->
+<div id="contactGfw"></div>
+```
+<br />
+<br />
+
+## Development
+
+Once you have cloned the repo, install the dependancies and start the styleguide.
 
 ```bash
 yarn && yarn start
 ```
 
-This will set up the app running on port 6060.
+If you are using `yarn link` to develop with the component directly inside your app you can use the development of the bundle. This comes with source maps to help with debugging.
+
+```bash
+yarn dev
+```
+
+## Deployment
+
+To deploy a new version of the library follow these steps:
+
+1. Semver from master locally and follow the bash intructions for documenting the release.
+
+```bash
+yarn release [major|minor|patch]
+```
+
+2. Deploy the new released version to Github pages (styleguide) and to AWS bucket (static scripts).
+
+```bash
+yarn deploy
+```
+
+NOTE: for AWS you will need to have the creds present in your `.env` file.
+
+<br />
+<br />
 
 ## Transifex support
 
-Global Forest Watch uses Transifex Live as a tool for translating its applications. If you including the GFW header from a registered domain inside the WRI transifex account you may access this feature. To do so you just need to include the transifex script and API key in the header of your site: https://docs.transifex.com/live/installing-the-javascript-snippet.
-
-The header will then automatically detect the snippet and render the language selector.
+The `<Header />` component comes with support for Transifex as well as your choice of translation method. To use the default language selector make sure you add the [Transifex Live](https://docs.transifex.com/live/installing-the-javascript-snippet) snippet. If you are using the static script you must add the Transifex script to translate your site.
+<br />
+<br />
 
 ## Publishing to NPM
 
@@ -29,44 +148,3 @@ To tag a commit and trigger npm publish upon pushing to master, follow these ste
 3. `git push` to push the commit with bumped version to master
 4. `git push --tags` to push the tags
 5. Travis CI will be triggered and upon seeing the tagged commit, it will publish a new version to NPM :rocket:
-
-## SSR Rendering
-
-If you are importing and building your app with SSR all our components are compatible. You just need to add some global styles to you app to handle the resposnive breakpoints on the server side.
-
-```js
-// server.js
-
-import React from "react"
-import ReactDOMServer from "react-dom/server"
-import express from "express"
-
-import { App } from "./App"
-import { mediaStyle } from "./Media"
-
-const app = express()
-
-app.get("/", (_req, res) => {
-  const html = ReactDOMServer.renderToString(<App />)
-
-  res.send(`
-    <html>
-      <head>
-        <title>@artsy/fresnel - SSR Example</title>
-
-        <!–– Inject the generated styles into the page head -->
-        <style type="text/css">${mediaStyle}</style>
-      </head>
-      <body>
-        <div id="react">${html}</div>
-
-        <script src='/assets/app.js'></script>
-      </body>
-    </html>
-  `)
-})
-
-app.listen(3000, () => {
-  console.warn("\nApp started at http://localhost:3000 \n")
-})
-```
