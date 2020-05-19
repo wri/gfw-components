@@ -47,6 +47,7 @@ class NavAlt extends PureComponent {
           <DropdownMenu
             className="nested notranslate"
             label={activeLang && activeLang.label}
+            selected={activeLang}
             options={
               languages &&
               languages.map((l) => ({
@@ -54,7 +55,6 @@ class NavAlt extends PureComponent {
                 onClick: handleLangSelect,
               }))
             }
-            NavLinkComponent={NavLinkComponent}
           />
         </div>
         <div className="nav-item">
