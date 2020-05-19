@@ -69,3 +69,13 @@ export { default as Desktop } from 'components/responsive/desktop';
 // Grid
 export { default as Row } from 'components/grid/row';
 export { default as Column } from 'components/grid/column';
+
+// html
+export { default as A } from 'components/html/a';
+export { default as H1 } from 'components/html/h1';
+export { default as H2 } from 'components/html/h2';
+export { default as H3 } from 'components/html/h3';
+export { default as H4 } from 'components/html/h4';
+export { default as H5 } from 'components/html/h5';
+export { default as P } from 'components/html/p';
+export { default as BasicInput } from 'components/html/input';
