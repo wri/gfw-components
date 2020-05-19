@@ -6,6 +6,7 @@ import ReactTagsInput from 'react-tagsinput';
 
 import { composeValidators } from 'components/forms/validations';
 
+import Input from 'components/html/input';
 import Pill from 'components/pill';
 import FieldWrapper from 'components/forms/components/field-wrapper';
 
@@ -42,6 +43,7 @@ class InputTags extends PureComponent {
             <TagsWrapper>
               <ReactTagsInput
                 {...input}
+                renderInput={(props) => <Input {...props} />}
                 value={input.value || []}
                 inputProps={{ placeholder: placeholder || 'Add a new tag' }}
                 renderTag={({ tag, key, onRemove }) => (
