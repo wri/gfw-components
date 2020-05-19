@@ -21,7 +21,7 @@ And then place inside the html docment tags with the following ids:
 
 You can pass props to the `<Header />` using the `window`
 
-```js
+```js static
 window.gfwHeader = {
   languages,
   afterLangSelect,
