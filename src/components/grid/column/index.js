@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
 const ColumnDiv = styled(Box)`
-  padding: 0 ${theme.grid.mobileButter};
+  padding: 0 ${theme.grid.mobileGutter};
   margin: 0;
 
   ${theme.mediaQueries.small} {
