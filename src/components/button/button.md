@@ -27,5 +27,5 @@ Generic `<button />` with style fixes for IE>=11 and a variety of render props, 
 <br />
 <Button dark disabled>Dark</Button>
 <br />
-<Button light tooltip={{ text: 'Thanks for hovering' }}>With tooltip</Button>
+<Button light tooltip={{ content: 'Thanks for hovering' }}>With tooltip</Button>
 ```

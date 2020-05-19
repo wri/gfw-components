@@ -38,7 +38,7 @@ export { default as Share } from './components/share';
 export { default as Pill } from './components/pill';
 export { default as NoContent } from './components/no-content';
 export { default as Switch } from './components/switch';
-export { default as Tip } from './components/tip';
+export { default as Tooltip } from './components/tooltip';
 
 // Forms
 export { default as ContactUsForm } from './components/forms/contact-us';

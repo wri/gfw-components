@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Tooltip } from 'react-tippy';
-import Tip from 'components/tip';
+import Tooltip from 'components/tooltip';
 
 import { ButtonParent, ButtonWrapper } from './styles';
 
@@ -53,14 +52,7 @@ class Button extends PureComponent {
     const { tooltip } = this.props;
 
     return tooltip ? (
-      <Tooltip
-        theme="tip"
-        position="top"
-        arrow
-        html={<Tip text={tooltip.text} />}
-      >
-        {this.renderButton()}
-      </Tooltip>
+      <Tooltip {...tooltip}>{this.renderButton()}</Tooltip>
     ) : (
       this.renderButton()
     );
