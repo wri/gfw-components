@@ -119,7 +119,6 @@ yarn deploy
 
 NOTE: for AWS you will need to have the creds present in your `.env` file.
 
-## Transifex support
+## i18n
 
-The `<Header />` component comes with support for Transifex as well as your choice of translation method. To use the default language selector make sure you add the [Transifex Live](https://docs.transifex.com/live/installing-the-javascript-snippet) snippet. If you are using the static script you must add the Transifex script to translate your site.
-<br />
+The `<Header />` comes with a default language dropdown component with built in support for Transifex or your choice of translation method. To use the default language selector make sure you add the [Transifex Live](https://docs.transifex.com/live/installing-the-javascript-snippet) snippets to the head of your site. If you are using the static script you must add the Transifex script to translate your site.
