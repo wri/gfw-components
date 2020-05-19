@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import theme from 'styles/theme';
 
-const InputWrapper = styled.input`
-  border: none;
+const baseStyles = css`
+  order: none;
   background-color: transparent;
   font-size: 14px;
   color: ${theme.colors.darkGrey};
@@ -23,19 +25,31 @@ const InputWrapper = styled.input`
   &:focus {
     outline: none;
   }
-
-  ${({ type }) =>
-    type === 'textarea' &&
-    `
-    height: 110px;
-    padding: 12px;
-    line-height: 1.5;
-    resize: none;
-  `}
 `;
 
-const Input = React.forwardRef((props, ref) => (
-  <InputWrapper {...props} ref={ref} />
-));
+const InputWrapper = styled.input`
+  ${baseStyles}
+`;
+
+const TextAreaWrapper = styled.textarea`
+  ${baseStyles}
+
+  height: 110px;
+  padding: 12px;
+  line-height: 1.5;
+  resize: none;
+`;
+
+const Input = React.forwardRef((props, ref) =>
+  props.type === 'textarea' ? (
+    <TextAreaWrapper {...props} ref={ref} />
+  ) : (
+    <InputWrapper {...props} ref={ref} />
+  )
+);
+
+Input.propTypes = {
+  type: PropTypes.string,
+};
 
 export default Input;

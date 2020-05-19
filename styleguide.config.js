@@ -82,6 +82,11 @@ module.exports = {
       components: 'src/components/forms/*/index.js',
     },
     {
+      name: 'HTML Components',
+      content: 'src/docs/html.md',
+      components: 'src/components/html/*/index.js',
+    },
+    {
       name: 'Icons',
       content: 'src/docs/icons.md',
     },
