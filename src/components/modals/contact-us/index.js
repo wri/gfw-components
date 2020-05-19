@@ -22,7 +22,7 @@ class ContactUsModal extends PureComponent {
         onRequestClose={onRequestClose}
         title="Contact Us"
         customStyles={modalWrapperStyles}
-        renderFooter
+        // renderFooter
       >
         <ContactForm onClose={onRequestClose} />
       </Modal>

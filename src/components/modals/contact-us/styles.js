@@ -8,11 +8,11 @@ export const modalWrapperStyles = css`
     width: 650px;
   }
 
-  .modal-content {
+  /* .modal-content {
     padding-bottom: 20px;
 
     .submit-btn {
       margin-top: 30px;
     }
-  }
+  } */
 `;
