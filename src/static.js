@@ -13,6 +13,8 @@ import GlobalStyles from './components/global-styles';
 
 const history = createBrowserHistory();
 
+const isServer = typeof window === 'undefined';
+
 const setModalOpen = (open) => {
   const query = qs.parse(window.location.search);
 
@@ -64,10 +66,13 @@ const showHeader = () => {
       throw new Error("element #headerGfw doesn't exist");
     }
 
+    const headerProps = !isServer && window.gfwHeader;
+
     ReactDOM.render(
       <>
         <GlobalStyles />
         <Header
+          {...headerProps}
           showMenu={false}
           openContactUsModal={() => {
             setModalOpen(true);

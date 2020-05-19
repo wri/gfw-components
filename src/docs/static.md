@@ -18,3 +18,13 @@ And then place inside the html docment tags with the following ids:
 <!-- place at the bottom of your html document -->
 <div id="contactGfw"></div>
 ```
+
+You can pass props to the `<Header />` using the `window`
+
+```js
+window.gfwHeader = {
+  languages,
+  afterLangSelect,
+  customLogo
+}
+```

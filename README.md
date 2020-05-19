@@ -87,6 +87,16 @@ And then place inside the html docment tags with the following ids:
 <div id="contactGfw"></div>
 ```
 
+You can pass props to the `<Header />` using the `window`
+
+```js
+window.gfwHeader = {
+  languages,
+  afterLangSelect,
+  customLogo
+}
+```
+
 ## Development
 
 Once you have cloned the repo, install the dependancies and start the styleguide.
