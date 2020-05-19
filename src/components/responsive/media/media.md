@@ -1,7 +1,7 @@
 Component for accessing the `Media` API from fresnel to decide when to render content.
 
-```js
-import { MediaContextProvider } from 'gfw-components';
+```jsx static
+import { MediaContextProvider, Media } from 'gfw-components';
 
 <MediaContextProvider>
   <Media at="small">

@@ -38,16 +38,20 @@ module.exports = {
   },
   sections: [
     {
-      name: 'Introduction',
+      name: 'Setup',
       content: 'src/docs/introduction.md',
       sections: [
         {
-          name: 'Install',
-          content: 'src/docs/install.md',
+          name: 'Module',
+          content: 'src/docs/module.md',
         },
         {
-          name: 'Translations',
-          content: 'src/docs/translations.md',
+          name: 'Static',
+          content: 'src/docs/static.md',
+        },
+        {
+          name: 'i18n',
+          content: 'src/docs/i18n.md',
         },
       ],
     },

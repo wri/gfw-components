@@ -1,7 +1,7 @@
 A convenience component for showing content on desktop.
 
-```js
-import { MediaContextProvider } from 'gfw-components';
+```jsx static
+import { MediaContextProvider, Desktop } from 'gfw-components';
 
 <MediaContextProvider>
   <Desktop>

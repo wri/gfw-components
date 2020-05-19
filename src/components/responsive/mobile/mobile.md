@@ -1,7 +1,7 @@
 A convenience component for showing content on mobile.
 
-```js
-import { MediaContextProvider } from 'gfw-components';
+```jsx static
+import { MediaContextProvider, Mobile } from 'gfw-components';
 
 <MediaContextProvider>
   <Mobile>
