@@ -7,6 +7,7 @@ import Carousel from 'components/carousel';
 import Button from 'components/button';
 import Row from 'components/grid/row';
 import Column from 'components/grid/column';
+import P from 'components/html/p';
 
 import WriIcon from 'assets/logos/wri.svg';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
@@ -129,7 +130,7 @@ class Footer extends PureComponent {
           <Row className="footer-partners">
             <Column width={[1, 1 / 4]}>
               <div className="footer-wri">
-                <p>A partnership convened by</p>
+                <P>A partnership convened by</P>
                 <a
                   href="https://www.wri.org/"
                   target="_blank"
@@ -143,7 +144,7 @@ class Footer extends PureComponent {
             <Column width={[1, 3 / 4]}>
               <div className="footer-partners-slide">
                 <div className="footer-logos">
-                  <p>Partners</p>
+                  <P>Partners</P>
                   <Media greaterThanOrEqual="medium">
                     {this.renderCarousel(4)}
                   </Media>

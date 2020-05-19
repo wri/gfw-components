@@ -30,12 +30,22 @@ export const MetaModalWrapper = styled.div`
   }
 
   p {
+    line-height: 24px;
     margin-bottom: 10px;
     font-size: 14px;
     color: ${theme.colors.darkGrey};
 
     a {
+      color: ${theme.colors.green};
       font-size: 14px;
+      line-height: 24px;
+
+      &:hover,
+      &:active,
+      &:visited {
+        text-decoration: underline;
+        color: ${theme.colors.darkGreen};
+      }
     }
   }
 

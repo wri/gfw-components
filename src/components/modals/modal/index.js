@@ -6,6 +6,7 @@ import { Global } from '@emotion/core';
 
 import Loader from 'components/loader';
 import Button from 'components/button';
+import H3 from 'components/html/h3';
 import CloseIcon from 'assets/icons/close.svg';
 
 import { ModalWrapper, baseStyles } from './styles';
@@ -73,7 +74,7 @@ class Modal extends PureComponent {
               <CloseIcon />
             </Button>
             {loading && <Loader />}
-            {!loading && title && <h3 className="modal-title">{title}</h3>}
+            {!loading && title && <H3 className="modal-title">{title}</H3>}
             {!loading && <div className="modal-content">{children}</div>}
             {renderFooter && <div className="footer-banner" />}
           </ModalWrapper>

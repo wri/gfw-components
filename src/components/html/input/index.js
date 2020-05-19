@@ -1,8 +1,8 @@
+import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import theme from 'styles/theme';
 
-const baseCss = css`
+const InputWrapper = styled.input`
   border: none;
   background-color: transparent;
   font-size: 14px;
@@ -10,8 +10,8 @@ const baseCss = css`
   font-family: inherit;
   appearance: none;
   box-sizing: border-box;
-  border-radius: 4px;
   border: solid 1px ${theme.colors.lightGrey};
+  border-radius: 4px;
   height: 40px;
   padding: 0 12px;
   width: 100%;
@@ -23,16 +23,19 @@ const baseCss = css`
   &:focus {
     outline: none;
   }
+
+  ${({ type }) =>
+    type === 'textarea' &&
+    `
+    height: 110px;
+    padding: 12px;
+    line-height: 1.5;
+    resize: none;
+  `}
 `;
 
-export const InputEl = styled.input`
-  ${baseCss}
-`;
+const Input = React.forwardRef((props, ref) => (
+  <InputWrapper {...props} ref={ref} />
+));
 
-export const TextareaEl = styled.textarea`
-  ${baseCss}
-  height: 110px;
-  padding: 12px;
-  line-height: 1.5;
-  resize: none;
-`;
+export default Input;

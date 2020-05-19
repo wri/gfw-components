@@ -2,13 +2,13 @@ import React from 'react';
 import { Global, css } from '@emotion/core';
 
 import resetStyles from 'styles/reset';
-import semanticStyles from 'styles/semantics';
+import globalStyles from 'styles/global';
 import { mediaStyles } from 'components/responsive';
 
 export default () => (
   <>
     <Global styles={resetStyles} />
-    <Global styles={semanticStyles} />
+    <Global styles={globalStyles} />
     <Global styles={css(mediaStyles)} />
   </>
 );

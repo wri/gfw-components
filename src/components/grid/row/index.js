@@ -11,10 +11,10 @@ const RowDiv = styled(Flex)`
   ${({ nested }) =>
     nested &&
     `
-    margin: 0 -${theme.grid.mobileGutter}
+    margin: 0 -${theme.grid.mobileGutter};
 
     ${theme.mediaQueries.small} {
-      margin: 0 -${theme.grid.desktopGutter}
+      margin: 0 -${theme.grid.desktopGutter};
     }
   `}
 
@@ -34,6 +34,7 @@ const Row = (props) => (
 Row.propTypes = {
   /** set to true when nesting a <Row /> inside a <Column /> component */
   nested: PropTypes.bool,
+  /** expands the row to the full width of its container */
   expanded: PropTypes.bool,
   children: PropTypes.node,
 };

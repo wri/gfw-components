@@ -8,6 +8,7 @@ import NavLink from 'components/header/components/nav-link';
 import Search from 'components/search';
 import Row from 'components/grid/row';
 import Column from 'components/grid/column';
+import H4 from 'components/html/h4';
 
 import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';
@@ -116,7 +117,7 @@ class Header extends PureComponent {
           )}
           <Media lessThan="medium">
             <div className="menu-section">
-              <h4>Select a language</h4>
+              <H4>Select a language</H4>
               <ul>
                 {languages &&
                   languages.map((item) => (
@@ -139,7 +140,7 @@ class Header extends PureComponent {
             </div>
           </Media>
           <div className="menu-section">
-            <h4>Other applications</h4>
+            <H4>Other applications</H4>
             <div className="apps-slider">
               {apps &&
                 apps.map((d) => (
@@ -170,7 +171,7 @@ class Header extends PureComponent {
             </div>
           </div>
           <div className="menu-section">
-            <h4>More in GFW</h4>
+            <H4>More in GFW</H4>
             <Row as="ul" className="more-links">
               {moreLinks.map((m) => (
                 <Column key={m.label} as="li" width={[1, 1 / 4, 1 / 3]}>

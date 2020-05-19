@@ -11,6 +11,8 @@ import { getMeta } from 'services/meta';
 import NoContent from 'components/no-content';
 import Button from 'components/button';
 import Modal from 'components/modals/modal';
+import H4 from 'components/html/h4';
+import H5 from 'components/html/h5';
 
 import DownloadIcon from 'assets/icons/download.svg';
 import LinkIcon from 'assets/icons/link.svg';
@@ -58,7 +60,7 @@ class MetaModal extends PureComponent {
   };
 
   parseContent = (html) => (
-    <div>
+    <>
       {ReactHtmlParser(html, {
         transform: (node) =>
           node?.name === 'a' ? (
@@ -74,7 +76,7 @@ class MetaModal extends PureComponent {
             ''
           ),
       })}
-    </div>
+    </>
   );
 
   render() {
@@ -124,7 +126,7 @@ class MetaModal extends PureComponent {
                         key={key}
                         className={cx('table-row', { dark: i % 2 })}
                       >
-                        <h5 className="title-column">{lowerCase(key)}</h5>
+                        <H5 className="title-column">{lowerCase(key)}</H5>
                         <div className="description-column">
                           {this.parseContent(tableData[key])}
                         </div>
@@ -134,13 +136,13 @@ class MetaModal extends PureComponent {
               </div>
               {overview && (
                 <div className="overview">
-                  <h4>Overview</h4>
+                  <H4>Overview</H4>
                   <div className="body">{this.parseContent(overview)}</div>
                 </div>
               )}
               {parsedCitation && (
                 <div className="citation">
-                  <h5>Citation</h5>
+                  <H5>Citation</H5>
                   <div className="body">
                     {this.parseContent(parsedCitation)}
                   </div>

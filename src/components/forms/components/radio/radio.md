@@ -17,7 +17,7 @@ import { Form } from 'gfw-components';
             value: "2"
           }
         ]}
-        selectedOption={1}
+        selectedOption="1"
         required
       />
     </form>

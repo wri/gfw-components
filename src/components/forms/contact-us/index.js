@@ -6,11 +6,14 @@ import { FORM_ERROR } from 'final-form';
 import submitContactForm from 'services/contact';
 
 import Button from 'components/button';
+import A from 'components/html/a';
+import P from 'components/html/p';
 
 import Error from 'components/forms/components/error';
 import Input from 'components/forms/components/input';
 import Select from 'components/forms/components/select';
 import Submit from 'components/forms/components/submit';
+import H3 from 'components/html/h3';
 
 import { email } from 'components/forms/validations';
 
@@ -65,11 +68,11 @@ class ContactUsForm extends PureComponent {
             <ContactFormWrapper>
               {submitSucceeded ? (
                 <div className="feedback-message">
-                  <h3>
+                  <H3>
                     Thank you for contacting Global Forest Watch! Check your
                     inbox for a confirmation email.
-                  </h3>
-                  <p>Interested in getting news and updates from us?</p>
+                  </H3>
+                  <P>Interested in getting news and updates from us?</P>
                   <div className="button-group">
                     <a
                       href="https://www.globalforestwatch.org/subscribe"
@@ -93,7 +96,7 @@ class ContactUsForm extends PureComponent {
                   <p className="subtitle">
                     For media inquiries, email
                     {' '}
-                    <a href="mailto:katie.lyons@wri.org">katie.lyons@wri.org</a>
+                    <A href="mailto:katie.lyons@wri.org">katie.lyons@wri.org</A>
                     .
                   </p>
                   <form onSubmit={handleSubmit}>

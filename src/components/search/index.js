@@ -6,6 +6,8 @@ import debounce from 'lodash/debounce';
 import SearchIcon from 'assets/icons/search.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
+import Input from 'components/html/input';
+
 import { SearchWrapper } from './styles';
 
 class Search extends Component {
@@ -54,7 +56,7 @@ class Search extends Component {
     const { placeholder, onSubmit, disabled, className, small } = this.props;
     return (
       <SearchWrapper className={className} small={small}>
-        <input
+        <Input
           type="text"
           className="input text"
           placeholder={placeholder}
@@ -63,7 +65,7 @@ class Search extends Component {
           onKeyUp={this.handleKeyUp}
           disabled={disabled}
         />
-        <Button className="submit-btn" clear onClick={onSubmit}>
+        <Button className="submit-btn" clear round onClick={onSubmit}>
           <SearchIcon className="icon-search" />
         </Button>
         {search && (

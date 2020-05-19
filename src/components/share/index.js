@@ -10,6 +10,8 @@ import Loader from 'components/loader';
 
 import getShortenUrl from 'services/bitly';
 
+import Input from 'components/html/input';
+
 import { ShareWrapper } from './styles';
 
 const isServer = typeof window === 'undefined';
@@ -51,6 +53,8 @@ class Share extends PureComponent {
       (this.props.embed && !isServer ? window.location.href : ''),
   };
 
+  inputRef = React.createRef();
+
   componentDidMount() {
     this.handleShortenUrl();
   }
@@ -72,8 +76,8 @@ class Share extends PureComponent {
     }
   };
 
-  handleCopyToClipboard = (input) => {
-    input.select();
+  handleCopyToClipboard = () => {
+    this.inputRef.current.select();
 
     try {
       document.execCommand('copy');
@@ -127,10 +131,8 @@ class Share extends PureComponent {
               {loading && selected !== 'embed' && (
                 <Loader className="input-loader" />
               )}
-              <input
-                ref={(input) => {
-                  this.textInput = input;
-                }}
+              <Input
+                ref={this.inputRef}
                 type="text"
                 value={!loading ? inputValue : ''}
                 readOnly
@@ -140,7 +142,7 @@ class Share extends PureComponent {
             <Button
               medium
               className="copy-button"
-              onClick={() => this.handleCopyToClipboard(this.textInput)}
+              onClick={() => this.handleCopyToClipboard()}
               disabled={loading}
             >
               {copied ? 'COPIED!' : 'COPY'}

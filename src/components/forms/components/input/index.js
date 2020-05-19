@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { Field } from 'react-final-form';
 
 import { composeValidators } from 'components/forms/validations';
+import InputComponent from 'components/html/input';
 
 import FieldWrapper from 'components/forms/components/field-wrapper';
-
-import { InputEl, TextareaEl } from './styles';
 
 class Input extends PureComponent {
   static propTypes = {
@@ -51,19 +50,7 @@ class Input extends PureComponent {
             collapse={collapse}
             value={input.value}
           >
-            {type === 'textarea' ? (
-              <TextareaEl
-                {...input}
-                type={type}
-                placeholder={placeholder}
-              />
-            ) : (
-              <InputEl
-                {...input}
-                type={type}
-                placeholder={placeholder}
-              />
-            )}
+            <InputComponent {...input} type={type} placeholder={placeholder} />
           </FieldWrapper>
         )}
       </Field>
