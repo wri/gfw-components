@@ -78,13 +78,14 @@ class Share extends PureComponent {
 
   handleCopyToClipboard = () => {
     this.inputRef.current.select();
-
-    try {
-      document.execCommand('copy');
-      this.setState({ copied: true });
-      setTimeout(() => this.setState({ copied: false }), 2500);
-    } catch (err) {
-      alert('This browser does not support clipboard access'); // eslint-disable-line
+    if (typeof document !== 'undefined') {
+      try {
+        document.execCommand('copy');
+        this.setState({ copied: true });
+        setTimeout(() => this.setState({ copied: false }), 2500);
+      } catch (err) {
+        alert('This browser does not support clipboard access'); // eslint-disable-line
+      }
     }
   };
 
