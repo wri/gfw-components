@@ -21,6 +21,8 @@ import { topics, tools } from './config';
 
 import { ContactFormWrapper } from './styles';
 
+const isServer = typeof window === 'undefined';
+
 class ContactUsForm extends PureComponent {
   static propTypes = {
     /** function to clear form after successful submission */
@@ -30,9 +32,10 @@ class ContactUsForm extends PureComponent {
   };
 
   sendContactForm = (values) => {
-    const language = window.Transifex
-      ? window.Transifex.live.getSelectedLanguageCode()
-      : 'en';
+    const language =
+      !isServer && window.Transifex
+        ? window.Transifex.live.getSelectedLanguageCode()
+        : 'en';
 
     return submitContactForm({ ...values, language })
       .then(() => {})

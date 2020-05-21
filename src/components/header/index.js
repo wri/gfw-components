@@ -90,7 +90,7 @@ class Header extends PureComponent {
     const urlToken = query && query.token;
     const token = urlToken || localStorage.getItem('userToken');
 
-    if (urlToken) {
+    if (urlToken && !isServer) {
       delete query.token;
       const cleanQuery = query && qs.stringify(query);
       window.history.pushState(

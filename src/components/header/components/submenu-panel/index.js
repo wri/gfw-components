@@ -15,6 +15,8 @@ import MyGfwIcon from 'assets/icons/mygfw.svg';
 
 import { SubmenuWrapper } from './styles';
 
+const isServer = typeof window === 'undefined';
+
 class Header extends PureComponent {
   static propTypes = {
     apps: PropTypes.array,
@@ -38,13 +40,15 @@ class Header extends PureComponent {
   state = { search: '' };
 
   handleSubmit = () => {
-    const { setQueryToUrl, hideMenu } = this.props;
-    if (setQueryToUrl) {
-      setQueryToUrl(this.state.search);
-    } else {
-      window.location.href = `https://www.globalforestwatch.org/search?query=${this.state.search}`;
+    if (!isServer) {
+      const { setQueryToUrl, hideMenu } = this.props;
+      if (setQueryToUrl) {
+        setQueryToUrl(this.state.search);
+      } else {
+        window.location.href = `https://www.globalforestwatch.org/search?query=${this.state.search}`;
+      }
+      hideMenu();
     }
-    hideMenu();
   };
 
   handleSearchChange = (search) => {
