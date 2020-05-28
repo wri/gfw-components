@@ -106,7 +106,7 @@ const config = {
     ],
   },
   ...(!isStaticBuild && {
-    externals: ['react', 'react-dom'],
+    externals: ['react', 'react-dom', '@emotion/core', '@emotion/styled'],
   }),
   plugins: compact([
     new CompressionPlugin({
