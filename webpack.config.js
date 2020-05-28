@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
-const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const S3Plugin = require('webpack-s3-plugin');
@@ -42,6 +41,7 @@ const config = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         options: {
           presets: [
             [
@@ -64,7 +64,6 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    plugins: [new DirectoryNamedWebpackPlugin(true)],
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
       styles: path.resolve(__dirname, 'src/styles/'),
@@ -74,6 +73,10 @@ const config = {
       constants: path.resolve(__dirname, 'src/constants'),
       'gfw-components': path.resolve(__dirname, 'src/index'),
     },
+  },
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   optimization: {
     minimize: isEnvProduction,
@@ -103,19 +106,9 @@ const config = {
     ],
   },
   ...(!isStaticBuild && {
-    externals: [
-      'react',
-      'react-dom',
-      'classnames',
-      'lodash',
-      'prop-types',
-      '@emotion/core',
-      '@emotion/styled',
-    ],
+    externals: ['react', 'react-dom'],
   }),
   plugins: compact([
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.HashedModuleIdsPlugin(),
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',
