@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const S3Plugin = require('webpack-s3-plugin');
 const compact = require('lodash/compact');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const nodeExternals = require('webpack-node-externals');
 
 require('dotenv').config({ silent: true });
 
@@ -17,8 +17,8 @@ const config = {
   mode: process.env.NODE_ENV || 'development',
   devtool: !isEnvProduction ? 'eval-source-map' : false,
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: isStaticBuild ? 'gfw-assets.latest.js' : 'bundle.js',
+    path: path.resolve(__dirname, 'lib'),
+    filename: isStaticBuild ? 'gfw-assets.latest.js' : 'index.js',
     libraryTarget: isStaticBuild ? 'var' : 'commonjs2',
   },
   node: { fs: 'empty', net: 'empty' },
@@ -71,7 +71,11 @@ const config = {
       utils: path.resolve(__dirname, 'src/utils'),
       services: path.resolve(__dirname, 'src/services'),
       constants: path.resolve(__dirname, 'src/constants'),
-      'gfw-components': path.resolve(__dirname, 'src/index'),
+      'gfw-components': path.resolve(__dirname, 'src'),
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
+      lodash: path.resolve('./node_modules/lodash-es'),
+      'lodash-es': path.resolve('./node_modules/lodash-es'),
     },
   },
   performance: {
@@ -106,16 +110,9 @@ const config = {
     ],
   },
   ...(!isStaticBuild && {
-    externals: ['react', 'react-dom', '@emotion/core', '@emotion/styled'],
+    externals: [nodeExternals()],
   }),
   plugins: compact([
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new ImageminPlugin(),
     process.env.ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),

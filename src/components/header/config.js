@@ -5,16 +5,16 @@ import {
   DEVELOPERS_URL,
 } from 'constants';
 
-import gfwFires from 'assets/logos/gfw-fires.png?webp';
-import gfwPro from 'assets/logos/gfw-pro.png?webp';
-import forestWatcher from 'assets/logos/gfw-watcher.png?webp';
+import gfwFires from 'assets/logos/gfw-fires.png';
+import gfwPro from 'assets/logos/gfw-pro.png';
+import forestWatcher from 'assets/logos/gfw-watcher.png';
 
-import developer from 'assets/icons/developer.svg?sprite';
-import howto from 'assets/icons/howto.svg?sprite';
-import sgf from 'assets/icons/sgf.svg?sprite';
-import openData from 'assets/icons/open-data.svg?sprite';
-import blog from 'assets/icons/blog.svg?sprite';
-import forum from 'assets/icons/forum.svg?sprite';
+import developer from 'assets/icons/developer.svg';
+import howto from 'assets/icons/howto.svg';
+import sgf from 'assets/icons/sgf.svg';
+import openData from 'assets/icons/open-data.svg';
+import blog from 'assets/icons/blog.svg';
+import forum from 'assets/icons/forum.svg';
 
 export default {
   navMain: [
