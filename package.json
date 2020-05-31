@@ -19,7 +19,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "dependancies": {
+  "dependencies": {
     "@artsy/fresnel": "^1.1.0",
     "@tippyjs/react": "^4.0.2",
     "axios": "^0.19.2",
