@@ -119,7 +119,7 @@ const config = {
     process.env.ANALYZE_BUNDLE && new BundleAnalyzerPlugin(),
     isStaticBuild &&
       new S3Plugin({
-        directory: 'dist',
+        directory: 'lib',
         exclude: /.*\.html$/,
         s3Options: {
           accessKeyId: process.env.AWS_ACCESS_KEY_ID,
