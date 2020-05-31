@@ -1,6 +1,6 @@
 {
   "name": "gfw-components",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "main": "lib/index.js",
   "scripts": {
     "start": "styleguidist server",
