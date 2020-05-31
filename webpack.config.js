@@ -6,6 +6,7 @@ const S3Plugin = require('webpack-s3-plugin');
 const compact = require('lodash/compact');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const nodeExternals = require('webpack-node-externals');
+const pkg = require('./package.json');
 
 require('dotenv').config({ silent: true });
 
@@ -18,7 +19,7 @@ const config = {
   devtool: !isEnvProduction ? 'eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: isStaticBuild ? 'gfw-assets.latest.js' : 'index.js',
+    filename: isStaticBuild ? `gfw-assets.v${pkg.version}.js` : 'index.js',
     libraryTarget: isStaticBuild ? 'var' : 'commonjs2',
   },
   node: { fs: 'empty', net: 'empty' },
