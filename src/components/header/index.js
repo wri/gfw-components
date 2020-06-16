@@ -64,7 +64,9 @@ class Header extends PureComponent {
     pathname: this.props.pathname || '',
     showSubmenu: false,
     clickOutside: false,
-    lang: 'en',
+    lang: isServer
+      ? 'en'
+      : JSON.parse(localStorage.getItem('txlive:selectedlang')) || 'en',
     loggedIn: false,
     loggingIn: false,
   };
