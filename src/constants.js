@@ -31,3 +31,4 @@ export const DEVELOPERS_URL = 'https://developers.globalforestwatch.org';
 export const HOWTO_URL = 'https://www.globalforestwatch.org/howto';
 export const DATA_PORTAL_URL = 'https://data.globalforestwatch.org';
 export const BLOG_URL = 'https://blog.globalforestwatch.org';
+export const HELP_CENTER_URL = 'https://www.globalforestwatch.org/help-center';

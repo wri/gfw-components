@@ -56,11 +56,9 @@ class NavMenu extends PureComponent {
                 {item.extLink && (
                   <a
                     href={item.extLink}
-                    target="_blank"
                     className={cx('nav-link', {
                       active: !!pathname && pathname.includes(item.extLink),
                     })}
-                    rel="noopener noreferrer"
                   >
                     {item.label}
                   </a>
