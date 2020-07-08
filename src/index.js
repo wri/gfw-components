@@ -77,3 +77,6 @@ export { default as H4 } from 'components/html/h4';
 export { default as H5 } from 'components/html/h5';
 export { default as P } from 'components/html/p';
 export { default as BasicInput } from 'components/html/input';
+
+// theme
+export { default as theme } from 'styles/theme';

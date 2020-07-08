@@ -3,7 +3,6 @@ import {
   DATA_PORTAL_URL,
   BLOG_URL,
   DEVELOPERS_URL,
-  HELP_CENTER_URL,
 } from 'constants';
 
 import gfwFires from 'assets/logos/gfw-fires.png';
@@ -41,7 +40,6 @@ export default {
     },
     { label: 'Blog', extLink: BLOG_URL },
     { label: 'About', href: '/about' },
-    { label: 'Help center', extLink: HELP_CENTER_URL },
   ],
   apps: [
     {
