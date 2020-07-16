@@ -5,7 +5,6 @@ import {
   DEVELOPERS_URL,
 } from 'constants';
 
-import gfwFires from 'assets/logos/gfw-fires.png';
 import gfwPro from 'assets/logos/gfw-pro.png';
 import forestWatcher from 'assets/logos/gfw-watcher.png';
 
@@ -42,11 +41,6 @@ export default {
     { label: 'About', href: '/about' },
   ],
   apps: [
-    {
-      label: 'GFW Fires',
-      extLink: 'http://fires.globalforestwatch.org',
-      image: gfwFires,
-    },
     {
       label: 'GFW Pro',
       extLink: 'https://pro.globalforestwatch.org',
