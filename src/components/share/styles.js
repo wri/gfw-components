@@ -52,6 +52,8 @@ export const ShareWrapper = styled.div`
       > div {
         width: 20px;
         height: 20px;
+        min-width: 20px;
+        min-height: 20px;
         border-width: 2px;
         margin-left: 10px;
       }

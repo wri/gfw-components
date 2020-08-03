@@ -61,11 +61,12 @@ class Share extends PureComponent {
 
   handleShortenUrl = () => {
     if (this.props.token) {
+      this.setState({ loading: true });
       getShortenUrl(this.state.shareUrl, this.props.token)
         .then((response) => {
-          if (response.data.status_code === 200) {
+          if (response.status >= 200 && response.status < 400) {
             this.setState({
-              shareUrl: response?.data?.data?.url,
+              shareUrl: response?.data?.link,
               loading: false,
             });
           } else {
