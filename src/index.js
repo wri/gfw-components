@@ -37,6 +37,7 @@ export { default as Pill } from './components/pill';
 export { default as NoContent } from './components/no-content';
 export { default as Switch } from './components/switch';
 export { default as Tooltip } from './components/tooltip';
+export { default as CookiesBanner } from './components/cookies-banner';
 
 // Forms
 export { default as ContactUsForm } from './components/forms/contact-us';
