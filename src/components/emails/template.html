@@ -6,6 +6,7 @@
   <title>Global Forest Watch email template</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+  <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
   <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
   <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
@@ -66,9 +67,8 @@
       color: #9BBF19;
     }
 
-    a:hover {
-      text-decoration: underline;
-      color: #658022;
+    b {
+      font-weight: 600;
     }
 
     /* What it does: A work-around for email clients automatically linking certain text strings. */
@@ -154,65 +154,8 @@
 
   <!-- Progressive Enhancements : BEGIN -->
   <style>
-    /* What it does: Hover styles for buttons and tags */
-    .s-btn__primary {}
-
-    .s-tag:hover,
-    .post-tag:hover {
-      border-color: #cee0ed !important;
-      background: #cee0ed !important;
-    }
-
-    /* What it does: Styles markdown links that we can't write inline CSS for. */
-    .has-markdown a,
-    .has-markdown a:visited {
-      color: #97BD3D !important;
-      text-decoration: none !important;
-    }
-
-    /* What it does: Styles markdown code blocks that we can't write inline CSS for. */
-    code {
-      padding: 1px 5px;
-      background-color: #EFF0F1;
-      color: #242729;
-      font-size: 13px;
-      line-height: inherit;
-      font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
-    }
-
-    pre {
-      margin: 0 0 15px;
-      line-height: 17px;
-      background-color: #EFF0F1;
-      padding: 4px 8px;
-      border-radius: 3px;
-      overflow-x: auto;
-    }
-
-    pre code {
-      margin: 0 0 15px;
-      padding: 0;
-      line-height: 17px;
-      background-color: none;
-    }
-
-    /* What it does: Styles markdown blockquotes that we can't write inline CSS for. */
-    blockquote {
-      margin: 0 0 15px;
-      padding: 4px 10px;
-      background-color: #FFF8DC;
-      border-left: 2px solid #ffeb8e;
-    }
-
-    blockquote p {
-      padding: 4px 0;
-      margin: 0;
-      overflow-wrap: break-word;
-    }
-
     /* What it does: Rounds corners in email clients that support it */
     @media screen and (max-width: 680px) {
-
       /* What it does: Forces table cells into full-width rows. */
       .stack-column,
       .stack-column-center {
@@ -324,9 +267,9 @@
 <body width="100%" style="margin: 0; padding: 0 !important; background: #F2F2F2; mso-line-height-rule: exactly;">
   <center style="width: 100%; background: #F2F2F2;">
     <!--[if mso | IE]>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F2F2F2;">
-    <tr>
-    <td>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F2F2F2;">
+        <tr>
+          <td>
     <![endif]-->
 
     <!-- Visually Hidden Preview Text : BEGIN -->
@@ -361,11 +304,11 @@
               </tr>
             </table>
           </td>
-          <td width="76" height="76">
+          <td width="76" height="76" style="height: 76px;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 76px;">
               <tr>
                 <td height="76" width="76">
-                  <a href="https://www.globalforestwatch.org/">
+                  <a href="https://www.globalforestwatch.org/" style="display: block; height: 76px;">
                     <img src="https://www.globalforestwatch.org/gfw.png" alt="Global Forest Watch logo." border="0"
                       height="76" width="76" />
                   </a>
@@ -373,7 +316,7 @@
               </tr>
             </table>
           </td>
-          <td width="100%" height="76" valign="top" style="vertical-align: top;">
+          <td width="100%" height="76" valign="top" style="vertical-align: top; height: 76px;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%">
               <tr>
                 <td width="20" height="60"
@@ -390,85 +333,61 @@
       </table>
       <!-- Header : END -->
 
-      <!-----------------------------
-
-                    EMAIL BODY : BEGIN
-
-                ------------------------------>
+      <!-- Body : BEGIN -->
       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 680px; width:100%">
         <!-- Primary Email Body : BEGIN -->
         <tr>
           <td style="padding: 30px; background-color: #ffffff;" class="sm-p btr">
             <div dir="rtl" style="display: table; width: 100%; margin: 0 auto; text-align: center; font-size: 0;">
               <!--[if mso]>
-                            <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="620">
-                            <tr>
-                            <td align="left" valign="top" width="128">
-                            <![endif]-->
-              <div style="display: inline-block; margin: 0 -1px; width: 128px; vertical-align: top;"
-                class="stack-column">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                  <tr>
-                    <td dir="ltr" style="padding: 10px 0;">
-                      <!-- <img src="illo-128-1.png" width="128" height="128" alt="alt_text" border="0" style="display: block; font-family: arial, sans-serif; font-size: 15px; line-height: 15px; color: #3C3F44; margin: 0;" class="g-img"> -->
-                    </td>
-                  </tr>
-                </table>
-              </div>
-              <!--[if mso]>
-                            </td>
-                            <td align="left" valign="top" width="492">
-                            <![endif]-->
+              </td>
+              <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="620">
+              <tr>
+              <td align="left" valign="top">
+              <![endif]-->
               <div
-                style="display: inline-block; margin: 0 -1px; max-width: 492px; min-width:220px; vertical-align: top;"
+                style="display: inline-block; margin: 0 -1px; min-width:220px; vertical-align: top;"
                 class="stack-column">
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tr>
                     <td dir="ltr"
-                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left; padding-right: 30px;">
+                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
                         <b style="color: #97BD3D">A big title</b> that tells the user the subject of the email</h1>
                     </td>
                   </tr>
-                  <!-- Team Name : BEGIN -->
+                  <!-- Subtitle and meta : BEGIN -->
                   <tr>
-                    <td dir="ltr" style="padding-bottom: 10px;">
+                    <td dir="ltr" style="padding-bottom: 30px;">
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
-                          <td valign="top" width="19">
-                            <table border="0" cellpadding="0" cellspacing="0" role="presentation" align="left">
-                              <tr>
-                                <td valign="middle" height="19" width="19"
-                                  style="font-family: arial, sans-serif; font-size: 13px; line-height: 13px; color: #ffffff; background-color: #EB5757; font-weight: bold; text-align: center; border-radius: 3px;">
-                                  S
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
                           <td valign="middle"
-                            style="padding-left: 5px; font-family: arial, sans-serif; font-size: 13px; line-height: 13px; color: #242729; text-align: left;">
-                            SO for Teams Name
+                            style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333; text-align: left;">
+                            Subtitle or meta
                           </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
-                  <!-- Team Name : END -->
+                  <!-- Subtitle and meta : END -->
+
+                  <!-- Section : BEGIN -->
                   <tr>
                     <td dir="ltr"
-                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #3C3F44; text-align: left; padding-right: 30px;">
-                      <h1
-                        style="font-weight: bold; font-size: 27px; line-height: 27px; color: #0C0D0E; margin: 0 0 15px 0;">
-                        Something happened</h1>
-                      <p style="margin: 0;" class="has-markdown">A starting point for more <strong>complex transactional
-                          emails</strong> that could contain multiple messages. It can contain <a href="#"
-                          style="color: #97BD3D; text-decoration: none;">links</a> or <strong>rich</strong>
-                        <em>text</em>. <a href="https://stackoverflow.design/email/base/typography#links-in-markdown"
-                          style="color: #97BD3D; text-decoration: none;" target="_parent">Read this</a> if text is
-                        written in markdown. Optionally this section can include a 128x128 sized illustration.</p>
+                      style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left;">
+                      <h2
+                        style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555; margin: 0 0 15px 0; text-transform: uppercase;">
+                        Section heading</h2>
+                      <p style="margin: 0 0 20px 0;" class="has-markdown">Some content that may contain <b>bold text</b> and even <a href="#"
+                          style="color: #97BD3D; text-decoration: none;">links</a>.</p>
+                      <h2
+                        style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 15px 0; text-transform: uppercase;">
+                        Sub heading</h2>
                     </td>
                   </tr>
+
+                  <!-- Section : BEGIN -->
                 </table>
               </div>
               <!--[if mso]>
@@ -480,12 +399,17 @@
           </td>
         </tr>
         <tr>
+          <td aria-hidden="true" height="5" style="font-size: 0px; line-height: 0px;">
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
           <td style="padding: 0 30px 30px; background-color: #ffffff;" class="sm-px sm-pb bbr">
             <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
               <!-- Rich Text : BEGIN -->
               <tr>
                 <td
-                  style="padding: 30px 0 15px; font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #3C3F44; text-align: left; border-top: 1px solid #E0E0E0;"
+                  style="padding: 30px 0 15px; font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #3C3F44; text-align: left;"
                   class="sm-pt">
                   <p style="margin: 0 0 15px 0;">Good for emails like:</p>
                   <ul style="padding: 0; margin: 0; list-style-type: disc;">
@@ -532,23 +456,28 @@
               <tr>
                 <td>
                   <!-- Button : BEGIN -->
-                  <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                  <table width="49%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
-                      <td width="50%" class="s-btn s-btn__primary"
-                        style="border-radius: 25px; background: #97BD3D; width: 50%;">
+                      <td width="100%" class="s-btn s-btn__primary"
+                        style="border-radius: 25px; background: #97BD3D;">
                         <a class="s-btn s-btn__primary" href="#"
-                          style="margin-right: 10px; width: 100%; text-transform: uppercase !important; font-weight: bold; font-size: 14px;background: #97BD3D; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">PRIMARY
+                          style="width: 100%; text-transform: uppercase !important; font-weight: bold; font-size: 14px;background: #97BD3D; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">PRIMARY
                           BUTTON</a>
                       </td>
-                      <td width="50%" class="s-btn s-btn__primary"
-                        style="border-radius: 25px; background: #fff; width: 50%;">
+                    </tr>
+                  </table>
+                  <table width="49%" align="right" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td width="100%" class="s-btn s-btn__primary"
+                        style="border-radius: 25px; background: #fff;">
                         <a class="s-btn s-btn__primary" href="#"
-                          style="margin-left: 10px; width: 100%; text-transform: uppercase !important; font-weight: bold; font-size: 14px;background: #fff; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #555555; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">SECONDARY
+                          style="width: 100%; text-transform: uppercase !important; font-weight: bold; font-size: 14px;background: #fff; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #555555; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">SECONDARY
                           BUTTON</a>
                       </td>
                     </tr>
                   </table>
                   <!-- Button : END -->
+
                 </td>
               </tr>
             </table>
