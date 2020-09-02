@@ -19,6 +19,7 @@ const demoVars = {
   alert_link: 'http://test.com',
   dashboard_link: 'http://test.com',
   unsubscribe_url: 'http://test.com',
+  'downloadUrls.csv': 'https://test.com',
 };
 
 const Email = () => {
