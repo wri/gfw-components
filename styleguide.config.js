@@ -66,6 +66,11 @@ module.exports = {
       components: 'src/components/grid/*/index.js',
     },
     {
+      name: 'Emails',
+      content: 'src/docs/grid.md',
+      components: 'src/components/emails/*/index.js',
+    },
+    {
       name: 'Responsive',
       content: 'src/docs/responsive.md',
       components: 'src/components/responsive/*/index.js',

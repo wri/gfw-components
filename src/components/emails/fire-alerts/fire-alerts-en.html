@@ -3,7 +3,7 @@
   xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <title>Global Forest Watch email template</title>
+  <title>Fire Alerts detected in {{ name }}</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
@@ -276,11 +276,7 @@
     <!-- Visually Hidden Preview Text : BEGIN -->
     <div
       style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      (Optional) This text will appear in the inbox preview, but not the email body. It can be used to supplement the
-      email subject line or even summarize the email's contents. Extended text preheaders (~490 characters) seems like a
-      better UX for anyone using a screenreader or voice-command apps like Siri to dictate the contents of an email. If
-      this text is not included, email clients will automatically populate it using the text (including image alt text)
-      at the start of the email's body.
+      Fire Alerts detected in {{ name }}
     </div>
     <!-- Visually Hidden Preview Text : END -->
 
@@ -346,25 +342,30 @@
               <tr>
               <td align="left" valign="top">
               <![endif]-->
-              <div style="display: inline-block; margin: 0 -1px; min-width:220px; vertical-align: top;"
-                class="stack-column">
+              <div class="stack-column">
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tr>
-                    <td
+                    <td dir="ltr"
                       style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
-                        <b style="color: #97BD3D">A big title</b> that tells the user the subject of the email</h1>
+                        <b style="color: #ED4602">Fire Alerts</b> detected in {{ name }}</h1>
                     </td>
                   </tr>
                   <!-- Subtitle and meta : BEGIN -->
                   <tr>
-                    <td style="padding-bottom: 30px;" align="left">
+                    <td dir="ltr" style="padding-bottom: 30px;">
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
-                          <td valign="middle"
+                          {{ if tags }}
+                          <td
+                            style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333; text-align: left; padding-right: 10px;">
+                            {{ tags }}
+                          </td>
+                          {{ end }}
+                          <td
                             style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333; text-align: left;">
-                            Subtitle or meta
+                            <a href="{{ manage_subscription }}">Manage subscription</a>
                           </td>
                         </tr>
                       </table>
@@ -385,80 +386,74 @@
         </tr>
         <!-- Primary Email Body : END -->
 
-        <!-- Clear Spacer : BEGIN -->
-        <tr>
-          <td aria-hidden="true" height="5" style="font-size: 0px; line-height: 0px;">
-            &nbsp;
-          </td>
-        </tr>
-        <!-- Clear Spacer : END -->
-
-        <!-- Components : BEGIN -->
+        <!-- Secondary Email Body : BEGIN -->
         <tr>
           <td style="padding: 30px; background-color: #ffffff;" class="sm-p btr">
-
-            <!-- Component : Primary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <!-- Content section : BEGIN -->
               <tr>
-                <td style="font-family: arial, sans-serif;">
-                  <h2 style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555; margin: 0 0 40px 0;">
-                    PRIMARY HEADING
-                  </h2>
+                <td dir="ltr"
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left;">
+                  <h2
+                    style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555; margin: 0 0 15px 0; text-transform: uppercase;">
+                    Section heading</h2>
                 </td>
               </tr>
             </table>
-
-            <!-- Component : Secondary heading -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+              style="margin-bottom: 60px;">
               <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
+                <td dir="ltr" width="30" height="30"></td>
+                <td dir="ltr" width="120" height="120" valign="middle" align="center"
+                  style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 120px; height: 120px; border-radius: 60px;">
+                  2.3k
+                </td>
+                <td dir="ltr" width="60" height="60"></td>
+                <td dir="ltr"
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left;">
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">
+                    There were <b style="color: #ED4602;">{{viirs_count}} VIIRS fire alerts</b> reported in the week of the {{week_of}} (From {{week_start}} to {{week_end}}). This is <b style="color: #ED4602;">{{viirs_frequency}}</b> compared to the same week in previous years.</p>
+                </td>
+              </tr>
+              <!-- Content section : BEGIN -->
+            </table>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <!-- Content section : BEGIN -->
+              <tr>
+                <td dir="ltr"
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left;">
                   <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 30px 0; text-transform: uppercase;">
-                    SECONDARY HEADING</h3>
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 15px 0; text-transform: uppercase;">
+                    Sub heading</h3>
                 </td>
               </tr>
             </table>
-
-            <!-- Component : Paragraph -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 40px;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">Some content that may contain <b>bold text</b>
-                    and even <a href="#" style="color: #97BD3D; text-decoration: none;">links</a>.</p>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Component : Primary data -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 50px;">
-              <tr>
-                <td width="30" height="30"></td>
-                <td width="120" height="120" valign="top" align="center">
-                  <span style="display: inline-block; line-height: 120px; font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 120px; height: 120px; border-radius: 60px;">2.3k</span>
-                </td>
-                <td width="60" height="60"></td>
-                <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">Description of the data with <b style="color: #333;">highlighted text</b> and even <a href="#" style="color: #97BD3D; text-decoration: none;">links</a>.</p>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Component : Multi data -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 60px; table-layout: fixed;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+              style="margin-bottom: 60px; table-layout: fixed;">
               <tr>
                 <td>
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
-                      <td width="60" height="60" valign="top" align="center" style="padding-bottom: 15px;">
-                        <span style="display: inline-block; line-height: 60px; font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 40px;">2.3k</span>
+                      <td dir="ltr" style="margin-bottom: 20px;">
+                        <div align="center">
+                          <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:100px;v-text-anchor:middle;width:100px;" arcsize="600%" stroke="f" fillcolor="#ff8080">
+                          <w:anchorlock/>
+                          <center>
+                          <![endif]-->
+                          <a href="http://"
+                            style="margin-bottom: 20px; background-color: #333; border-radius: 40px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 18px; font-weight: bold; line-height: 80px; text-align: center; text-decoration:none; width: 80px; -webkit-text-size-adjust: none;">300</a>
+                          <!--[if mso]>
+                          </center>
+                          </v:roundrect>
+                          <![endif]-->
+                        </div>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
+                      <td dir="ltr" align="center"
                         style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center;">
-                        DESCRIPTION
+                        PROTECTED AREAS
                       </td>
                     </tr>
                   </table>
@@ -466,83 +461,33 @@
                 <td>
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
-                      <td width="60" height="60" valign="top" align="center" style="padding-bottom: 15px;">
-                        <span style="display: inline-block; line-height: 60px; font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 40px;">2.3k</span>
+                      <td dir="ltr" style="margin-bottom: 20px;">
+                        <div align="center">
+                          <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:100px;v-text-anchor:middle;width:100px;" arcsize="600%" stroke="f" fillcolor="#ff8080">
+                          <w:anchorlock/>
+                          <center>
+                          <![endif]-->
+                          <a href="http://"
+                            style="margin-bottom: 20px; background-color: #333; border-radius: 40px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 18px; font-weight: bold; line-height: 80px; text-align: center; text-decoration:none; width: 80px; -webkit-text-size-adjust: none;">1.3k</a>
+                          <!--[if mso]>
+                          </center>
+                          </v:roundrect>
+                          <![endif]-->
+                        </div>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
+                      <td dir="ltr" align="center"
                         style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center;">
-                        DESCRIPTION
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-                <td>
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td width="60" height="60" valign="top" align="center" style="padding-bottom: 15px;">
-                        <span style="display: inline-block; line-height: 60px; font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 40px;">2.3k</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center;">
-                        DESCRIPTION
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-                <td>
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td width="60" height="60" valign="top" align="center" style="padding-bottom: 15px;">
-                        <span style="display: inline-block; line-height: 60px; font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 40px;">2.3k</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center;">
-                        DESCRIPTION
+                        SOILS
                       </td>
                     </tr>
                   </table>
                 </td>
               </tr>
+              <!-- Content section : BEGIN -->
             </table>
-
-            <!-- Component : Buttons -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-              <tr>
-                <td width="40%" style="border-radius: 25px; background: #97BD3D;">
-                  <a href="#"
-                    style="width: 100%; font-weight: bold; font-size: 14px; background: #97BD3D; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">PRIMARY
-                    BUTTON</a>
-                </td>
-              </tr>
-              <tr>
-                <td height="20"></td>
-              </tr>
-              <tr>
-                <td width="40%" style="border-radius: 25px; background: #fff;">
-                  <a href="#"
-                    style="width: 100%; font-weight: bold; font-size: 14px;background: #fff; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #555555; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">SECONDARY
-                    BUTTON</a>
-                </td>
-              </tr>
-              <tr>
-                <td height="20"></td>
-              </tr>
-              <tr>
-                <td width="200" style="border-radius: 25px; background: #fff;" align="center">
-                  <a href="#"
-                    style="width: 100%; font-weight: bold; font-size: 14px;background: #fff; border: 1px solid #97BD3D; font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #555555; text-align: center; text-decoration: none; padding: 13px 17px; display: block; border-radius: 25px; white-space: nowrap;">CENTERED
-                    BUTTON</a>
-                </td>
-              </tr>
-            </table>
-
-
           </td>
         </tr>
         <!-- Secondary Email Body : END -->
