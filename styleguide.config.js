@@ -67,7 +67,7 @@ module.exports = {
     },
     {
       name: 'Emails',
-      content: 'src/docs/grid.md',
+      content: 'src/docs/emails.md',
       components: 'src/components/emails/*/index.js',
     },
     {

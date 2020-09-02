@@ -3,7 +3,7 @@
   xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <title>Global Forest Watch email template</title>
+  <title>Fire Alerts detected in {{ name }}</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
@@ -288,11 +288,7 @@
     <!-- Visually Hidden Preview Text : BEGIN -->
     <div
       style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      (Optional) This text will appear in the inbox preview, but not the email body. It can be used to supplement the
-      email subject line or even summarize the email's contents. Extended text preheaders (~490 characters) seems like a
-      better UX for anyone using a screenreader or voice-command apps like Siri to dictate the contents of an email. If
-      this text is not included, email clients will automatically populate it using the text (including image alt text)
-      at the start of the email's body.
+      Fire Alerts detected in {{ name }}
     </div>
     <!-- Visually Hidden Preview Text : END -->
 
@@ -358,7 +354,7 @@
               <tr>
               <td align="left" valign="top">
               <![endif]-->
-              <div style="display: inline-block; margin: 0; min-width:220px; vertical-align: top;"
+              <div style="margin: 0; min-width:220px; vertical-align: top;"
                 class="stack-column">
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tr>
@@ -366,17 +362,23 @@
                       style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
-                        <b style="color: #97BD3D">A big title</b> that tells the user the subject of the email</h1>
+                        <b style="color: #ED4602">Fire Alerts</b> detected in {{ name }}</h1>
                     </td>
                   </tr>
                   <!-- Subtitle and meta : BEGIN -->
                   <tr>
-                    <td style="padding-bottom: 30px;" align="left">
+                    <td align="left">
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
-                          <td valign="middle"
+                          {{ if tags }}
+                          <td valign="top" align="left"
+                            style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333; text-align: left; padding-right: 15px;">
+                            {{ tags }}
+                          </td>
+                          {{ end }}
+                          <td valign="top" align="left"
                             style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333; text-align: left;">
-                            Subtitle or meta
+                            <a style="color: #97BD3D;" href="{{ subscriptions_url }}">Manage subscription</a>
                           </td>
                         </tr>
                       </table>
@@ -397,14 +399,6 @@
         </tr>
         <!-- Primary Email Body : END -->
 
-        <!-- Clear Spacer : BEGIN -->
-        <tr>
-          <td aria-hidden="true" height="5" style="font-size: 0px; line-height: 0px;">
-            &nbsp;
-          </td>
-        </tr>
-        <!-- Clear Spacer : END -->
-
         <!-- Components : BEGIN -->
         <tr>
           <td style="padding: 30px; background-color: #ffffff;" class="sm-p btr">
@@ -414,31 +408,8 @@
               <tr>
                 <td style="font-family: arial, sans-serif;">
                   <h2 style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555; margin: 0 0 40px 0;">
-                    PRIMARY HEADING
+                    FIRE ALERTS
                   </h2>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Component : Secondary heading -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 30px 0; text-transform: uppercase;">
-                    SECONDARY HEADING</h3>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Component : Paragraph -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 40px;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">Some content that may contain <b>bold text</b>
-                    and even <a href="#" style="color: #97BD3D; text-decoration: none;">links</a>.</p>
                 </td>
               </tr>
             </table>
@@ -453,8 +424,8 @@
                   <div style="display:inline-block; width: 30%; vertical-align: top;" class="stack-column">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" style="margin: auto; margin-bottom: 20px; width: 120px;height: 120px;">
                       <tr>
-                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 120px; height: 120px; border-radius: 60px;">
-                          2.3k
+                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 120px; height: 120px; border-radius: 60px;">
+                          {{ formatted_alert_count }}
                         </td>
                       </tr>
                     </table>
@@ -467,7 +438,10 @@
                   <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
-                        <p style="margin: 0 0 20px 0;" class="has-markdown">Description of the data with <b style="color: #333;">highlighted text</b> and even <a href="#" style="color: #97BD3D; text-decoration: none;">links</a>.</p>
+                        <p style="margin: 0 0 20px 0;" class="has-markdown">
+                          There were <b style="color: #ED4602;">{{ viirs_count }} VIIRS fire alerts</b> reported in the week of the {{ week_of }} (From {{ week_start }} to {{ week_end }}).
+	                          This is <b style="color: #ED4602;">{{ viirs_frequency }}</b> compared to the same week in previous years.
+                        </p>
                       </td>
                     </tr>
                   </table>
@@ -478,6 +452,18 @@
               </table>
               <![endif]-->
             </div>
+
+            <!-- Component : Secondary heading -->
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif;">
+                  <h3
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 30px 0; text-transform: uppercase;">
+                    FIRE ALERTS IN PRIORITY AREAS</h3>
+                </td>
+              </tr>
+            </table>
 
             <!-- Component : Multi data -->
             <div dir="ltr" style="display: table; width: 100%; margin: 0 auto; text-align: left; font-size: 0;">
@@ -492,8 +478,8 @@
                         <td width="60" height="60" valign="top" align="center">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
-                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 30px;">
-                                2.3k
+                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                                {{ formatted_priority_areas.intact_forest }}
                               </td>
                             </tr>
                           </table>
@@ -502,7 +488,7 @@
                       <tr>
                         <td align="center"
                           style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
-                          DESCRIPTION
+                          INTACT FOREST
                         </td>
                       </tr>
                     </table>
@@ -517,8 +503,8 @@
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 30px;">
-                              2.3k
+                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                              {{ formatted_priority_areas.primary_forest }}
                             </td>
                           </tr>
                         </table>
@@ -527,7 +513,7 @@
                     <tr>
                       <td align="center"
                         style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
-                        DESCRIPTION
+                        PRIMARY FOREST
                       </td>
                     </tr>
                   </table>
@@ -542,8 +528,8 @@
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 30px;">
-                              2.3k
+                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                              {{ formatted_priority_areas.peat }}
                             </td>
                           </tr>
                         </table>
@@ -552,7 +538,7 @@
                     <tr>
                       <td align="center"
                         style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
-                        DESCRIPTION
+                        PEAT
                       </td>
                     </tr>
                   </table>
@@ -567,8 +553,8 @@
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #333; width: 60px; height: 60px; border-radius: 30px;">
-                              2.3k
+                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                              {{ formatted_priority_areas.protected_areas }}
                             </td>
                           </tr>
                         </table>
@@ -577,7 +563,7 @@
                     <tr>
                       <td align="center"
                         style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
-                        DESCRIPTION
+                        PROTECTED AREAS
                       </td>
                     </tr>
                   </table>
@@ -617,9 +603,9 @@
                           <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
                             <tr>
                               <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #fff; text-align: center; height: 40px; border: solid 1px #97BD3D; display: block;">
-                                <a href="#"
+                                <a href="{{ alert_link }}"
                                   style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #333; text-align: center; text-decoration: none; white-space: nowrap;">
-                                  SECONDARY ACTION
+                                  SEE ON THE MAP
                                 </a>
                               </td>
                             </tr>
@@ -644,9 +630,9 @@
                         <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
                           <tr>
                             <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #97BD3D; text-align: center; height: 40px;">
-                              <a href="#"
+                              <a href="{{ dashboard_link }}"
                                 style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
-                                PRIMARY ACTION
+                                OPEN DASHBOARD
                               </a>
                             </td>
                           </tr>
@@ -676,7 +662,13 @@
               <tr>
                 <td
                   style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
-                  Text about why you are recieving this email, likely with a <a href="/example-link">link</a>.
+                  This notification reports new alerts for the area you subscribed to. You will receive a separate email for each. Please note that this information is subject to the
+                    <a href="http://www.globalforestwatch.org/terms" style="color:#9abe16;">
+                      Global Forest Watch Terms of Service
+                    </a>
+                    . You can unsubscribe or manage your subscriptions
+                    <a href="{{ unsubscribe_url }}" target="_blank" style="color:#9abe16;">
+                      here</a>.
                 </td>
               </tr>
             </table>
