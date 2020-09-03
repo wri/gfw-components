@@ -3,7 +3,7 @@ import React from 'react';
 import Template from './fires-alerts-en.html';
 
 const demoVars = {
-  name: 'area of interest',
+  alert_name: 'area of interest',
   subscriptions_url: 'https://test.com',
   tags: 'fish, chips',
   formatted_alert_count: '2.3k',
