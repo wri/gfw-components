@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Template from './fires-alerts-en.html';
+import FireAlertsTemplate from './fires-alerts-en.html';
 
 const demoVars = {
   alert_name: 'area of interest',
@@ -22,8 +22,8 @@ const demoVars = {
   'downloadUrls.csv': 'https://test.com',
 };
 
-const Email = () => {
-  let parsedTemplate = Template;
+const FireAlertsEmail = () => {
+  let parsedTemplate = FireAlertsTemplate;
 
   Object.keys(demoVars).forEach((key) => {
     const regex = new RegExp(`{{ ${key} }}`, 'g');
@@ -33,4 +33,4 @@ const Email = () => {
   return <div dangerouslySetInnerHTML={{ __html: parsedTemplate }} />;
 };
 
-export default Email;
+export default FireAlertsEmail;
