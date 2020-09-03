@@ -635,7 +635,7 @@
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" align="center" style="margin: auto; text-align: center; width: 120px; height: 120px;">
                       <tr>
                         <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
-                          {{ formatted_alert_count }}
+                          {{ formatted_glad_count }}
                         </td>
                       </tr>
                     </table>
@@ -649,8 +649,8 @@
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
                         <p style="margin: 0 0 20px 0;" class="has-markdown">
-                          There were <b style="color: #F26798;">{{ glad_count }} GLAD deforestation alerts</b> reported in the week of the {{ week_of }} (From {{ week_start }} to {{ week_end }}).
-	                          This is <b style="color: #F26798;">{{ glad_frequency }}</b> compared to the same week in previous years.
+                          There were <b style="color: #F26798;">{{ glad_count }} GLAD deforestation alerts</b> reported in the week of the {{ week_of }} (from {{ week_start }} to {{ week_end }}).
+	                        This is <b style="color: #F26798;">{{ glad_frequency }}</b> compared to the same week in previous years.
                         </p>
                       </td>
                     </tr>
@@ -689,7 +689,7 @@
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
                               <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                                {{ formatted_priority_areas.intact_forest }}
+                                {{ formatted_glad_priority_areas.intact_forest }}
                               </td>
                             </tr>
                           </table>
@@ -714,7 +714,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.primary_forest }}
+                              {{ formatted_glad_priority_areas.primary_forest }}
                             </td>
                           </tr>
                         </table>
@@ -739,7 +739,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.peat }}
+                              {{ formatted_glad_priority_areas.peat }}
                             </td>
                           </tr>
                         </table>
@@ -764,7 +764,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.protected_areas }}
+                              {{ formatted_glad_priority_areas.protected_areas }}
                             </td>
                           </tr>
                         </table>
@@ -821,7 +821,7 @@
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" align="center" style="margin: auto; text-align: center; width: 120px; height: 120px;">
                       <tr>
                         <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 120px; height: 120px; border-radius: 60px;">
-                          {{ formatted_alert_count }}
+                          {{ formatted_viirs_count }}
                         </td>
                       </tr>
                     </table>
@@ -835,8 +835,8 @@
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
                         <p style="margin: 0 0 20px 0;" class="has-markdown">
-                          There were <b style="color: #ED4602;">{{ viirs_count }} VIIRS fire alerts</b> reported in the week of the {{ week_of }} (From {{ week_start }} to {{ week_end }}).
-	                          This is <b style="color: #ED4602;">{{ viirs_frequency }}</b> compared to the same week in previous years.
+                          There were <b style="color: #ED4602;">{{ viirs_count }} VIIRS fire alerts</b> reported in the past {{ viirs_days_count }} days (From {{ viirs_day_start }} to {{ viirs_day_end }}).
+	                        This is <b style="color: #ED4602;">{{ viirs_frequency }}</b> compared to the same period in previous years.
                         </p>
                       </td>
                     </tr>
@@ -875,7 +875,7 @@
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
                               <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
-                                {{ formatted_priority_areas.intact_forest }}
+                                {{ formatted_viirs_priority_areas.intact_forest }}
                               </td>
                             </tr>
                           </table>
@@ -900,7 +900,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.primary_forest }}
+                              {{ formatted_viirs_priority_areas.primary_forest }}
                             </td>
                           </tr>
                         </table>
@@ -925,7 +925,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.peat }}
+                              {{ formatted_viirs_priority_areas.peat }}
                             </td>
                           </tr>
                         </table>
@@ -950,7 +950,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.protected_areas }}
+                              {{ formatted_viirs_priority_areas.protected_areas }}
                             </td>
                           </tr>
                         </table>
