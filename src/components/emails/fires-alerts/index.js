@@ -1,4 +1,5 @@
 import React from 'react';
+import { globalStringReplace } from 'utils/strings';
 
 import FireAlertsTemplate from './fires-alerts-en.html';
 
@@ -22,15 +23,12 @@ const demoVars = {
   'downloadUrls.csv': 'https://test.com',
 };
 
-const FireAlertsEmail = () => {
-  let parsedTemplate = FireAlertsTemplate;
-
-  Object.keys(demoVars).forEach((key) => {
-    const regex = new RegExp(`{{ ${key} }}`, 'g');
-    parsedTemplate = parsedTemplate.replace(regex, demoVars[key]);
-  });
-
-  return <div dangerouslySetInnerHTML={{ __html: parsedTemplate }} />;
-};
+const FireAlertsEmail = () => (
+  <div
+    dangerouslySetInnerHTML={{
+      __html: globalStringReplace(FireAlertsTemplate, demoVars),
+    }}
+  />
+);
 
 export default FireAlertsEmail;
