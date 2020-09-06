@@ -1,10 +1,10 @@
 import React from 'react';
 import { globalStringReplace } from 'utils/strings';
 
-import Template from './dashboard-pending.html';
+import Template from './dashboard-pending-zh.html';
 
 const demoVars = {
-  name: 'area of interest',
+  location: 'area of interest',
   tags: 'tag1, tag2',
   subscriptions_url: 'http://test.com',
   dashboard_link: 'http://test.com',
