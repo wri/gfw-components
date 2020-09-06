@@ -3,7 +3,7 @@
   xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <title>Dashboard complete for {{ name }}</title>
+  <title>Tableau de bord terminé pour la zone que vous avez récemment créée {{ location }}</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
@@ -288,7 +288,7 @@
     <!-- Visually Hidden Preview Text : BEGIN -->
     <div
       style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      Dashboard complete for {{ name }}
+      Tableau de bord terminé pour la zone que vous avez récemment créée {{ location }}
     </div>
     <!-- Visually Hidden Preview Text : END -->
 
@@ -330,7 +330,7 @@
               <tr>
                 <td width="20" height="60"
                   style="background-color: #333; height: 60px; color: #F7F7F7; vertical-align: middle; text-align: right; padding: 0 20px; font-size: 14px; line-height: 21px;">
-                  <p class="wri-text" style="font-family: arial, sans-serif;">A partnership convened by the World Resources Institute</p>
+                  <p class="wri-text" style="font-family: arial, sans-serif;">Partenariat organisé par le World Resources Institute</p>
                 </td>
               </tr>
               <tr>
@@ -362,7 +362,7 @@
                       style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
-                        Dashboard complete for {{ name }}</h1>
+                        Tableau de bord terminé pour la zone que vous avez récemment créée {{ location }}</h1>
                     </td>
                   </tr>
                   <!-- Subtitle and meta : BEGIN -->
@@ -378,7 +378,7 @@
                           {{ end }}
                           <td valign="top" align="right"
                             style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333;">
-                            <a style="color: #97BD3D; text-decoration: underline;" href="{{{ subscriptions_url }}}">Manage subscription</a>
+                            <a style="color: #97BD3D; text-decoration: underline;" href="{{{ subscriptions_url }}}">Gérer l’abonnement</a>
                           </td>
                         </tr>
                       </table>
@@ -408,19 +408,21 @@
               <tr>
                 <td
                   style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">We have finished fetching and analyzing all available data for your recently created area of interest <b>{{ name }}</b>.</p>
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">Nous avons terminé de récupérer et d’analyser toutes les données disponibles pour la zone
+                    d’intérêt que vous avez récemment créée.</p>
                 </td>
               </tr>
               <tr>
                 <td
                   style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">Your custom dashboard is complete and can be visited in MyGFW on the Global Forest Watch website, or click on the links below.</p>
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">Votre tableau de bord personnalisé est terminé et peut être consulté dans MyGFW sur le site
+                    Web de Global Forest Watch, ou cliquez sur les liens ci-dessous.</p>
                 </td>
               </tr>
               <tr>
                 <td
                   style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">Thank you,</p>
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">Merci,</p>
                 </td>
               </tr>
               <tr>
@@ -461,7 +463,7 @@
                               <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #fff; text-align: center; height: 40px; border: solid 1px #97BD3D; display: block;">
                                 <a href="{{{ map_link }}}"
                                   style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #333; text-align: center; text-decoration: none; white-space: nowrap;">
-                                  SEE ON THE MAP
+                                  VOIR SUR LA CARTE
                                 </a>
                               </td>
                             </tr>
@@ -488,7 +490,7 @@
                             <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #97BD3D; text-align: center; height: 40px;">
                               <a href="{{{ dashboard_link }}}"
                                 style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
-                                OPEN DASHBOARD
+                                TABLEAU DE BORD
                               </a>
                             </td>
                           </tr>
@@ -518,13 +520,13 @@
               <tr>
                 <td
                   style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
-                  Please note that this information is subject to the
+                  Veuillez noter que ces informations sont soumises aux
                     <a href="http://www.globalforestwatch.org/terms" style="color:#9abe16;">
-                      Global Forest Watch Terms of Service
+                      Conditions d'utilisation du Global Forest Watch
                     </a>
-                    . You can unsubscribe or manage your subscriptions
+                    . Vous pouvez vous désabonner ou gérer vos abonnements
                     <a href="{{{ subscriptions_url }}}" target="_blank" style="color:#9abe16;">
-                      here</a>.
+                      ici</a>.
                 </td>
               </tr>
             </table>
