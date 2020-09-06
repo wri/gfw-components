@@ -3,7 +3,7 @@
   xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <title>在 中检测到的毁林警报 {{ alert_name }}</title>
+  <title>内检测到的火灾警报 {{ alert_name }}</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
@@ -288,7 +288,7 @@
     <!-- Visually Hidden Preview Text : BEGIN -->
     <div
       style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      在  中检测到的毁林警报 {{ alert_name }}
+      内检测到的火灾警报 {{ alert_name }}
     </div>
     <!-- Visually Hidden Preview Text : END -->
 
@@ -362,7 +362,7 @@
                       style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
-                        <b style="color: #F26798">在 </b> 中检测到的毁林警报 {{ alert_name }}</h1>
+                        <b style="color: #ED4602">内检测到的火灾警报</b> {{ alert_name }}</h1>
                     </td>
                   </tr>
                   <!-- Subtitle and meta : BEGIN -->
@@ -408,7 +408,7 @@
               <tr>
                 <td style="font-family: arial, sans-serif;">
                   <h2 style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555; margin: 0 0 40px 0;">
-                    毁林警报
+                    火灾警
                   </h2>
                 </td>
               </tr>
@@ -424,7 +424,7 @@
                   <div style="display:inline-block; width: 30%; vertical-align: top; margin-bottom: 20px;" class="stack-column">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" align="center" style="margin: auto; text-align: center; width: 120px; height: 120px;">
                       <tr>
-                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
+                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 120px; height: 120px; border-radius: 60px;">
                           {{ formatted_alert_count }}
                         </td>
                       </tr>
@@ -439,8 +439,9 @@
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
                         <p style="margin: 0 0 20px 0;" class="has-markdown">
-                          在 {{ week_of }}（从 {{ week_start }}至 {{ week_end }}）的一周内报告  <b style="color: #F26798;">{{ glad_count }} 个 GLAD 毁林警报</b>。
-	                        相比之前几年的同一周，这种情况与同一周相比 <b style="color: #F26798;">{{ glad_frequency }}</b>。
+                          在过去的 7 （从 {{ week_start }}至 {{ week_end }}）内 ,
+	                        <b style="color: #ED4602;">检测到 {{ viirs_count }} 个 VIIRS </b> 火灾警报。
+                          与过去几年的同时间段相比较 <b style="color: #ED4602;">{{ viirs_frequency }}</b>
                         </p>
                       </td>
                     </tr>
@@ -460,7 +461,7 @@
                   style="font-family: arial, sans-serif;">
                   <h3
                     style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 30px 0; text-transform: uppercase;">
-                    优先区域内的毁林警报</h3>
+                    优先区域内的火灾警报</h3>
                 </td>
               </tr>
             </table>
@@ -478,7 +479,7 @@
                         <td width="60" height="60" valign="top" align="center">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
-                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
+                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
                                 {{ formatted_priority_areas.intact_forest }}
                               </td>
                             </tr>
@@ -503,7 +504,7 @@
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
                               {{ formatted_priority_areas.primary_forest }}
                             </td>
                           </tr>
@@ -528,7 +529,7 @@
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
                               {{ formatted_priority_areas.peat }}
                             </td>
                           </tr>
@@ -553,7 +554,7 @@
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
                               {{ formatted_priority_areas.protected_areas }}
                             </td>
                           </tr>
