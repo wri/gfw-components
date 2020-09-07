@@ -3,7 +3,7 @@
   xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <title>¡Gracias por contactarnos!</title>
+  <title>New contact form message</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
@@ -288,7 +288,7 @@
     <!-- Visually Hidden Preview Text : BEGIN -->
     <div
       style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      ¡Gracias por contactarnos!
+      New contact form message
     </div>
     <!-- Visually Hidden Preview Text : END -->
 
@@ -330,7 +330,7 @@
               <tr>
                 <td width="20" height="60"
                   style="background-color: #333; height: 60px; color: #F7F7F7; vertical-align: middle; text-align: right; padding: 0 20px; font-size: 14px; line-height: 21px;">
-                  <p class="wri-text" style="font-family: arial, sans-serif;">Asociación convocada por World Resources Institute</p>
+                  <p class="wri-text" style="font-family: arial, sans-serif;">A partnership convened by the World Resources Institute</p>
                 </td>
               </tr>
               <tr>
@@ -362,7 +362,7 @@
                       style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
-                        ¡Gracias por contactarnos!</h1>
+                        New contact form message</h1>
                     </td>
                   </tr>
                 </table>
@@ -382,27 +382,86 @@
         <tr>
           <td style="padding: 30px; background-color: #ffffff;" class="sm-p btr">
 
-            <!-- Component : Paragraph -->
+            <!-- Component : Secondary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
                 <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;" class="has-markdown">Alguien de nuestro equipo le responderá en un plazo de 5 a 7 días hábiles.</p>
+                  style="font-family: arial, sans-serif;">
+                  <h3
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
+                    User's email</h3>
                 </td>
               </tr>
               <tr>
                 <td
                   style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
                   <p style="margin: 0 0 20px 0;" class="has-markdown">
-                    Mientras tanto, eche un vistazo a nuestro <a style="color: #9abe16;" href="https://www.globalforestwatch.org/howto/">portal "Cómo"</a> (How to) para más información sobre cómo usar Global
-                    Forest Watch y recibir respuestas a las preguntas más frecuentes.
+                    {{ user_email }}
                   </p>
                 </td>
               </tr>
               <tr>
                 <td
+                  style="font-family: arial, sans-serif;">
+                  <h3
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
+                    Selected Topic</h3>
+                </td>
+              </tr>
+              <tr>
+                <td
                   style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p class="has-markdown">El equipo de Global Forest Watch</p>
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">
+                    {{ topic }}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif;">
+                  <h3
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
+                    Selected Tool</h3>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">
+                    {{ tool }}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif;">
+                  <h3
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
+                    Their Message</h3>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">
+                    {{ message }}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif;">
+                  <h3
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
+                    Opted in?</h3>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
+                  <p style="margin: 0 0 20px 0;" class="has-markdown">
+                    {{ opt_in }}
+                  </p>
                 </td>
               </tr>
             </table>
@@ -421,9 +480,9 @@
               <tr>
                 <td
                   style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
-                  Tenga en cuenta que esta información está sujeta a los
+                  Please note that this information is subject to the
                     <a href="https://www.globalforestwatch.org/terms" style="color:#9abe16;">
-                      Términos de servicio de Global Forest Watch
+                      Global Forest Watch Terms of Service
                     </a>
                     .
                 </td>
