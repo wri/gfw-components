@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 
 export const CookiesWrapper = styled.div`
   width: 100%;
-  bottom: 0;
   background-color: rgba(51, 51, 51, 0.9);
   padding: 20px 0;
 
