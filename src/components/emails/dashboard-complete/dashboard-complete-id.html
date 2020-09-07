@@ -3,7 +3,7 @@
   xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <title>Dasbor lengkap untuk kawasan yang baru Anda buat {{ location }}</title>
+  <title>Dasbor lengkap untuk kawasan yang baru Anda buat {{ name }}</title>
   <!-- The title tag shows in email notifications, like Android 4.4. -->
   <meta charset="utf-8"> <!-- utf-8 works for most cases -->
   <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
@@ -288,7 +288,7 @@
     <!-- Visually Hidden Preview Text : BEGIN -->
     <div
       style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      Dasbor lengkap untuk kawasan yang baru Anda buat {{ location }}
+      Dasbor lengkap untuk kawasan yang baru Anda buat {{ name }}
     </div>
     <!-- Visually Hidden Preview Text : END -->
 
@@ -362,7 +362,7 @@
                       style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
-                        Dasbor lengkap untuk kawasan yang baru Anda buat {{ location }}</h1>
+                        Dasbor lengkap untuk kawasan yang baru Anda buat {{ name }}</h1>
                     </td>
                   </tr>
                   <!-- Subtitle and meta : BEGIN -->
@@ -370,7 +370,7 @@
                     <td style="padding-bottom: 30px;" align="left">
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
-                          {{ if tags }}
+                          {{ if tags and tags != '' }}
                           <td valign="top" align="left"
                             style="font-family: arial, sans-serif; font-size: 14px; line-height: 13px; color: #333333; padding-right: 15px;">
                             {{ tags }}
