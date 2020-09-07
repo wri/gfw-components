@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MonthlySummaryTemplate from './monthly-summary-zh.html';
+import MonthlySummaryTemplate from './monthly-summary-en.html';
 
 const demoVars = {
   alert_name: 'area of interest',
