@@ -4,7 +4,7 @@ import { globalStringReplace } from 'utils/strings';
 import Template from './dashboard-complete-zh.html';
 
 const demoVars = {
-  location: 'area of interest',
+  name: 'area of interest',
   tags: 'tag1, tag2',
   subscriptions_url: 'http://test.com',
   dashboard_link: 'http://test.com',
