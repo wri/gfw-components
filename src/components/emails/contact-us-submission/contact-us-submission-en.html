@@ -71,6 +71,10 @@
       font-weight: 600;
     }
 
+    p, h1, h2, h3, a {
+      margin: 0 !important;
+    }
+
     /* What it does: A work-around for email clients automatically linking certain text strings. */
     /* iOS */
     a[x-apple-data-detectors],
@@ -346,7 +350,7 @@
       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 680px; width:100%">
         <!-- Primary Email Body : BEGIN -->
         <tr>
-          <td style="padding: 30px 30px 0; background-color: #ffffff;" class="sm-p btr">
+          <td style="padding: 30px; background-color: #ffffff;" class="sm-p btr">
             <div dir="ltr" style="display: table; width: 100%; margin: 0 auto; text-align: center; font-size: 0;">
               <!--[if mso]>
               </td>
@@ -359,10 +363,90 @@
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tr>
                     <td
-                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
+                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left; padding: 15px 0 25px;">
                       <h1
                         style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
                         New contact form message</h1>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; padding: 15px 0; text-align: left;">
+                      <h3
+                        style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                        User's email</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 25px;">
+                      <p>
+                        {{ user_email }}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; padding: 15px 0; text-align: left;">
+                      <h3
+                        style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                        Selected Topic</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 25px;">
+                      <p>
+                        {{ topic }}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; padding: 15px 0; text-align: left;">
+                      <h3
+                        style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                        Selected Tool</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 25px;">
+                      <p>
+                        {{ tool }}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; padding: 15px 0; text-align: left;">
+                      <h3
+                        style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                        Their Message</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 25px;">
+                      <p>
+                        {{ message }}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; padding: 15px 0; text-align: left;">
+                      <h3
+                        style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                        Opted in?</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 25px;">
+                      <p>
+                        {{ opt_in }}
+                      </p>
                     </td>
                   </tr>
                 </table>
@@ -377,100 +461,6 @@
           </td>
         </tr>
         <!-- Primary Email Body : END -->
-
-        <!-- Components : BEGIN -->
-        <tr>
-          <td style="padding: 30px; background-color: #ffffff;" class="sm-p btr">
-
-            <!-- Component : Secondary heading -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
-                    User's email</h3>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;">
-                    {{ user_email }}
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
-                    Selected Topic</h3>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;">
-                    {{ topic }}
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
-                    Selected Tool</h3>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;">
-                    {{ tool }}
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
-                    Their Message</h3>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;">
-                    {{ message }}
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 10px 0; text-transform: uppercase;">
-                    Opted in?</h3>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 20px;">
-                  <p style="margin: 0 0 20px 0;">
-                    {{ opt_in }}
-                  </p>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-        <!-- Secondary Email Body : END -->
-
-        <!-- Body body : END -->
 
         <!-- Footer : BEGIN -->
         <tr>
