@@ -1,7 +1,7 @@
 import React from 'react';
 import { globalStringReplace } from 'utils/strings';
 
-import FireAlertsTemplate from './fires-alerts-zh.html';
+import FireAlertsTemplate from './fires-alerts-en.html';
 
 const demoVars = {
   alert_name: 'area of interest',

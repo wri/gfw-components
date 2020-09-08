@@ -50,6 +50,19 @@
       border-collapse: collapse
     }
 
+    table p,
+    table h1,
+    table h2,
+    table h3,
+    table a,
+    td p,
+    td h1,
+    td h2,
+    td h3,
+    td a {
+      margin: 0 !important;
+    }
+
     /* What it does: Forces Samsung Android mail clients to use the entire viewport. */
     #MessageViewBody,
     #MessageWebViewDiv {
@@ -69,10 +82,6 @@
 
     b {
       font-weight: 600;
-    }
-
-    p, h1, h2, h3, a {
-      margin: 0 !important;
     }
 
     /* What it does: A work-around for email clients automatically linking certain text strings. */
@@ -367,15 +376,15 @@
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tr>
                     <td
-                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left;">
+                      style="font-family: arial, sans-serif; font-size: 15px; line-height: 140%; color: #333333; text-align: left; padding: 15px 0 20px;">
                       <h1
-                        style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333; margin: 20px 0;">
+                        style="font-weight: bold; font-size: 32px; line-height: 37px; color: #333333;">
                         <b style="color: #97BD3D">A big title</b> that tells the user the subject of the email</h1>
                     </td>
                   </tr>
                   <!-- Subtitle and meta : BEGIN -->
                   <tr>
-                    <td style="padding-bottom: 30px;" align="left">
+                    <td style="padding-bottom: 40px;" align="left">
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td valign="middle"
@@ -416,8 +425,8 @@
             <!-- Component : Primary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
-                <td style="font-family: arial, sans-serif;">
-                  <h2 style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555; margin: 0 0 40px 0;">
+                <td style="font-family: arial, sans-serif; padding: 0 0 40px 0;">
+                  <h2 style="font-weight: bold; font-size: 16px; line-height: 20px; color: #555555;">
                     PRIMARY HEADING
                   </h2>
                 </td>
@@ -428,9 +437,9 @@
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
                 <td
-                  style="font-family: arial, sans-serif;">
+                  style="font-family: arial, sans-serif; padding: 0 0 30px 0;">
                   <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; margin: 0 0 30px 0; text-transform: uppercase;">
+                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
                     SECONDARY HEADING</h3>
                 </td>
               </tr>
@@ -440,8 +449,8 @@
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
                 <td
-                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 40px;">
-                  <p style="margin: 0 0 20px 0;">Some content that may contain <b>bold text</b>
+                  style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; padding-bottom: 25px;">
+                  <p>Some content that may contain <b>bold text</b>
                     and even <a href="#" style="color: #97BD3D; text-decoration: none;">links</a>.</p>
                 </td>
               </tr>

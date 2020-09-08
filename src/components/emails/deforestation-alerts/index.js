@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DeforestationAlertsTemplate from './deforestation-alerts-zh.html';
+import DeforestationAlertsTemplate from './deforestation-alerts-en.html';
 
 const demoVars = {
   alert_name: 'area of interest',

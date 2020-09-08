@@ -1,7 +1,7 @@
 import React from 'react';
 import { globalStringReplace } from 'utils/strings';
 
-import Template from './subscription-preferences-changed-zh.html';
+import Template from './subscription-preferences-changed-en.html';
 
 const demoVars = {
   name: 'area of interest',
