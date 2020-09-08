@@ -1,4 +1,4 @@
-Alert email triggered when the VIIRS fire alerts data inside your area of interest has changed.
+Alert email triggered at the end of each month showing the total, GLAD, and VIIRS alerts inside your area of interest alongside intersected priority areas.
 
 ```js static
 {
