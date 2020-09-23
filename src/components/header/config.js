@@ -17,28 +17,30 @@ import forum from 'assets/icons/forum.svg';
 
 export default {
   navMain: [
-    { label: 'Map', href: '/map' },
-    { label: 'Dashboard', href: '/dashboards/global' },
+    { label: 'Map', href: '/map/' },
+    { label: 'Dashboard', href: '/dashboards/global/' },
     {
       label: 'Topics',
-      href: '/topics',
+      href: '/topics/',
       submenu: [
         {
           label: 'Biodiversity',
-          as: '/topics/biodiversity',
+          as: '/topics/biodiversity/',
           href: '/topics/[topic]',
         },
-        { label: 'Climate', as: '/topics/climate', href: '/topics/[topic]' },
+        { label: 'Climate', as: '/topics/climate/', href: '/topics/[topic]' },
         {
           label: 'Commodities',
-          as: '/topics/commodities',
+          as: '/topics/commodities/',
           href: '/topics/[topic]',
         },
-        { label: 'Water', as: '/topics/water', href: '/topics/[topic]' },
+        { label: 'Water', as: '/topics/water/', href: '/topics/[topic]' },
+        { label: 'Fires', as: '/topics/fires/', href: '/topics/[topic]' },
       ],
     },
     { label: 'Blog', extLink: BLOG_URL },
-    { label: 'About', href: '/about' },
+    { label: 'About', href: '/about/' },
+    { label: 'Help', href: '/help/' },
   ],
   apps: [
     {
