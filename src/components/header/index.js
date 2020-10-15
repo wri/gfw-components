@@ -144,6 +144,7 @@ class Header extends PureComponent {
       showMenu,
       customLogo,
       languages,
+      NavLinkComponent,
     } = this.props;
     const { showSubmenu, clickOutside, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
@@ -154,7 +155,12 @@ class Header extends PureComponent {
         <HeaderWrapper className={className}>
           <Row>
             <Column>
-              <NavLink className="logo" href="/" appUrl={appUrl}>
+              <NavLink
+                className="logo"
+                href="/"
+                appUrl={appUrl}
+                NavLinkComponent={NavLinkComponent}
+              >
                 <img
                   src={customLogo || gfwLogo}
                   alt="Global Forest Watch"

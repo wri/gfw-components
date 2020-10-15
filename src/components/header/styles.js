@@ -91,6 +91,7 @@ export const HeaderWrapper = styled.div`
       margin: 0 5px;
       position: relative;
       white-space: nowrap;
+      cursor: pointer;
 
       svg {
         fill: ${theme.colors.darkGrey};

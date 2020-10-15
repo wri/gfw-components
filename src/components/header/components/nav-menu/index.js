@@ -46,6 +46,7 @@ class NavMenu extends PureComponent {
                     <NavLink
                       className="nav-link"
                       {...item}
+                      NavLinkComponent={NavLinkComponent}
                       appUrl={appUrl}
                       pathname={pathname}
                     >

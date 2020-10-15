@@ -50,6 +50,7 @@ export const DropdownWrapper = styled.div`
         width: 100%;
         color: ${theme.colors.darkGrey};
         text-align: left;
+        cursor: pointer;
 
         > button {
           color: inherit;

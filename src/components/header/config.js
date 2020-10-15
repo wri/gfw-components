@@ -25,17 +25,15 @@ export default {
       submenu: [
         {
           label: 'Biodiversity',
-          as: '/topics/biodiversity/',
-          href: '/topics/[topic]',
+          href: '/topics/biodiversity/',
         },
-        { label: 'Climate', as: '/topics/climate/', href: '/topics/[topic]' },
+        { label: 'Climate', href: '/topics/climate/' },
         {
           label: 'Commodities',
-          as: '/topics/commodities/',
-          href: '/topics/[topic]',
+          href: '/topics/commodities/',
         },
-        { label: 'Water', as: '/topics/water/', href: '/topics/[topic]' },
-        { label: 'Fires', as: '/topics/fires/', href: '/topics/[topic]' },
+        { label: 'Water', href: '/topics/water/' },
+        { label: 'Fires', href: '/topics/fires/' },
       ],
     },
     { label: 'Blog', extLink: BLOG_URL },
@@ -59,7 +57,7 @@ export default {
     { label: 'How to Portal', extLink: HOWTO_URL, icon: howto },
     {
       label: 'Grants & Fellowships',
-      href: '/grants-and-fellowships',
+      href: '/grants-and-fellowships/projects/',
       icon: sgf,
     },
     { label: 'Open data portal', extLink: DATA_PORTAL_URL, icon: openData },
