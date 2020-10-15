@@ -31,6 +31,12 @@ class Search extends Component {
 
   state = { search: this.props.input };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.input !== this.props.input) {
+      this.handleChange(this.props.input);
+    }
+  }
+
   handleChange = (value) => {
     this.setState({ search: value });
     this.debouncedChange();
