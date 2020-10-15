@@ -13,6 +13,12 @@ export const SubmenuWrapper = styled.div`
 
   ${theme.mediaQueries.medium} {
     height: auto;
+
+    ${({ fullScreen }) =>
+      fullScreen &&
+      `
+      height: calc(100vh - 76px);
+    `}
   }
 
   &:focus {

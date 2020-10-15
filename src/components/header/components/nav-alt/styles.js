@@ -7,12 +7,6 @@ export const NavAltWrapper = styled.div`
   align-items: center;
   height: 100%;
 
-  ${({ showMenu }) =>
-    showMenu &&
-    `
-    border-left: solid 1px ${theme.colors.lightGrey};
-  `}
-
   .lang-selector {
     span {
       white-space: nowrap;

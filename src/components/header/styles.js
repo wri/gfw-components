@@ -11,11 +11,42 @@ export const bodyStyles = css`
 
 export const HeaderWrapper = styled.div`
   height: 56px;
-  background: ${theme.colors.white};
+  background-color: ${theme.colors.white};
   position: relative;
   width: 100%;
   border-bottom: solid 1px ${theme.colors.lightGrey};
   z-index: 1000;
+
+  ${({ fullScreen }) =>
+    fullScreen &&
+    `
+    background-color: transparent;
+    border-bottom: 0;
+    height: 76px;
+    pointer-events: none;
+
+    ${theme.mediaQueries.medium} {
+      > div {
+        max-width: 100%;
+
+        > div {
+          padding-left: 0;
+        }
+      }
+
+      .dropdown-menu {
+        top: 75px;
+      }
+    }
+  `}
+
+  ${({ showSubmenu }) =>
+    showSubmenu &&
+    `
+    background-color: ${theme.colors.white};
+    border-bottom: solid 1px ${theme.colors.lightGrey};
+    pointer-events: all;
+  `}
 
   .logo {
     position: absolute;
@@ -23,6 +54,8 @@ export const HeaderWrapper = styled.div`
     z-index: 2;
     width: 76px;
     height: 76px;
+    cursor: pointer;
+    pointer-events: all;
   }
 
   .nav {
@@ -30,8 +63,13 @@ export const HeaderWrapper = styled.div`
     position: relative;
     justify-content: flex-end;
     height: 56px;
-
     padding-left: 0;
+
+    ${({ fullScreen }) =>
+      fullScreen &&
+      `
+      height: 76px;
+    `}
 
     ${theme.mediaQueries.medium} {
       justify-content: flex-start;
@@ -54,6 +92,12 @@ export const HeaderWrapper = styled.div`
     height: 56px;
     width: 100%;
 
+    ${({ fullScreen }) =>
+      fullScreen &&
+      `
+      height: 76px;
+    `}
+
     &.show-menu {
       justify-content: space-between;
     }
@@ -70,6 +114,7 @@ export const HeaderWrapper = styled.div`
   .nav-item {
     height: 100%;
     position: relative;
+    z-index: 2;
 
     .nested {
       padding: 0;

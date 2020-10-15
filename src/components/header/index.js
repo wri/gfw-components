@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
 import { Global } from '@emotion/core';
@@ -46,8 +45,8 @@ class Header extends PureComponent {
     languages: PropTypes.array,
     /** override active pathname to set link to active */
     pathname: PropTypes.string,
-    /** hide the navigation menu */
-    showMenu: PropTypes.bool,
+    /** override control of submenu and make open menu fill whole screen */
+    fullScreen: PropTypes.bool,
     /** custom action after language selection */
     afterLangSelect: PropTypes.func,
     /** path to custom logo */
@@ -56,14 +55,13 @@ class Header extends PureComponent {
 
   static defaultProps = {
     appUrl: APP_URL,
-    showMenu: true,
     ...defaultConfig,
   };
 
   state = {
     pathname: this.props.pathname || '',
     showSubmenu: false,
-    clickOutside: false,
+    clickOutside: this.props.fullScreen,
     lang: isServer
       ? 'en'
       : JSON.parse(localStorage.getItem('txlive:selectedlang')) || 'en',
@@ -141,10 +139,10 @@ class Header extends PureComponent {
       className,
       appUrl,
       navMain,
-      showMenu,
       customLogo,
       languages,
       NavLinkComponent,
+      fullScreen,
     } = this.props;
     const { showSubmenu, clickOutside, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
@@ -152,89 +150,106 @@ class Header extends PureComponent {
     return (
       <MediaContextProvider>
         <Global styles={bodyStyles} />
-        <HeaderWrapper className={className}>
+        <HeaderWrapper
+          className={className}
+          fullScreen={fullScreen}
+          showSubmenu={showSubmenu}
+        >
           <Row>
             <Column>
-              <NavLink
-                className="logo"
-                href="/"
-                appUrl={appUrl}
-                NavLinkComponent={NavLinkComponent}
-              >
-                <img
-                  src={customLogo || gfwLogo}
-                  alt="Global Forest Watch"
-                  width="76"
-                  height="76"
-                />
-              </NavLink>
-              <div className="nav">
-                <Media
-                  greaterThanOrEqual="medium"
-                  className={cx('nav-desktop', { 'show-menu': showMenu })}
-                >
-                  {showMenu && (
-                    <NavMenu
-                      {...this.props}
-                      {...this.state}
-                      menuItems={navMain}
-                    />
-                  )}
-                  <NavAlt
-                    {...this.props}
-                    {...this.state}
-                    activeLang={activeLang}
-                    handleLangSelect={this.handleLangSelect}
-                    handleShowSubmenu={(show) =>
-                      this.setState({ showSubmenu: show })}
-                  />
-                </Media>
-                <Media lessThan="medium" className="nav-mobile">
-                  <OutsideClickHandler
-                    onOutsideClick={() => {
-                      if (!showSubmenu && !clickOutside) {
-                        this.setState({ showSubmenu: false });
-                      }
-                    }}
+              {!fullScreen || (fullScreen && showSubmenu) ? (
+                <>
+                  <NavLink
+                    className="logo"
+                    href="/"
+                    appUrl={appUrl}
+                    NavLinkComponent={NavLinkComponent}
                   >
-                    <div className="nav-item nav-more">
-                      {showSubmenu && (
-                        <button
-                          className="nav-link"
-                          onClick={() => {
-                            if (!clickOutside) {
-                              this.setState({ showSubmenu: false });
-                            }
-                          }}
-                        >
-                          close
-                          <CloseIcon className="icon-submenu icon-close" />
-                        </button>
-                      )}
-                      {!showSubmenu && (
-                        <button
-                          className="nav-link"
-                          onClick={() => {
-                            if (!clickOutside) {
-                              this.setState({ showSubmenu: true });
-                            }
-                          }}
-                        >
-                          more
-                          <MenuIcon className="icon-submenu icon-menu" />
-                        </button>
-                      )}
-                    </div>
-                  </OutsideClickHandler>
-                </Media>
-              </div>
+                    <img
+                      src={customLogo || gfwLogo}
+                      alt="Global Forest Watch"
+                      width="76"
+                      height="76"
+                    />
+                  </NavLink>
+                  <div className="nav">
+                    <Media greaterThanOrEqual="medium" className="nav-desktop">
+                      <NavMenu
+                        {...this.props}
+                        {...this.state}
+                        menuItems={navMain}
+                      />
+                      <NavAlt
+                        {...this.props}
+                        {...this.state}
+                        activeLang={activeLang}
+                        handleLangSelect={this.handleLangSelect}
+                        handleShowSubmenu={(show) =>
+                          this.setState({ showSubmenu: show })}
+                      />
+                    </Media>
+                    <Media lessThan="medium" className="nav-mobile">
+                      <OutsideClickHandler
+                        onOutsideClick={() => {
+                          if (!showSubmenu && !clickOutside) {
+                            this.setState({ showSubmenu: false });
+                          }
+                        }}
+                      >
+                        <div className="nav-item nav-more">
+                          {showSubmenu && (
+                            <button
+                              className="nav-link"
+                              onClick={() => {
+                                if (!clickOutside || fullScreen) {
+                                  this.setState({ showSubmenu: false });
+                                }
+                              }}
+                            >
+                              close
+                              <CloseIcon className="icon-submenu icon-close" />
+                            </button>
+                          )}
+                          {!showSubmenu && (
+                            <button
+                              className="nav-link"
+                              onClick={() => {
+                                if (!clickOutside) {
+                                  this.setState({ showSubmenu: true });
+                                }
+                              }}
+                            >
+                              more
+                              <MenuIcon className="icon-submenu icon-menu" />
+                            </button>
+                          )}
+                        </div>
+                      </OutsideClickHandler>
+                    </Media>
+                  </div>
+                </>
+              ) : (
+                <button
+                  className="logo"
+                  onClick={() => this.setState({ showSubmenu: true })}
+                >
+                  <img
+                    src={customLogo || gfwLogo}
+                    alt="Global Forest Watch"
+                    width="76"
+                    height="76"
+                  />
+                </button>
+              )}
             </Column>
           </Row>
           {showSubmenu && (
             <OutsideClickHandler
               onOutsideClick={() => {
-                this.setState({ showSubmenu: false, clickOutside: true });
-                setTimeout(() => this.setState({ clickOutside: false }), 50);
+                if (!fullScreen) {
+                  this.setState({ showSubmenu: false, clickOutside: true });
+                  setTimeout(() => this.setState({ clickOutside: false }), 50);
+                }
               }}
             >
               <SubmenuPanel

@@ -76,10 +76,11 @@ class Header extends PureComponent {
       appUrl,
       pathname,
       showMenu,
+      fullScreen,
     } = this.props;
 
     return (
-      <SubmenuWrapper>
+      <SubmenuWrapper fullScreen={fullScreen}>
         <div className="submenu-wrapper">
           <Search
             className="menu-search"
@@ -249,6 +250,7 @@ Header.propTypes = {
   openContactUsModal: PropTypes.func,
   loggedIn: PropTypes.bool,
   setQueryToUrl: PropTypes.func,
+  fullScreen: PropTypes.bool,
   NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };
 
