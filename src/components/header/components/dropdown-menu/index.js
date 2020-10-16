@@ -72,7 +72,6 @@ class DropdownMenu extends PureComponent {
                         {l.href && (
                           <NavLink
                             href={l.href}
-                            as={l.as}
                             className="nested"
                             pathname={pathname}
                             appUrl={appUrl}

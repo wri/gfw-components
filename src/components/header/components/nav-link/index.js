@@ -4,12 +4,12 @@ import cx from 'classnames';
 
 class NavLink extends PureComponent {
   static propTypes = {
-    as: PropTypes.string,
     href: PropTypes.string,
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
     className: PropTypes.string,
     active: PropTypes.bool,
+    activeShallow: PropTypes.bool,
     children: PropTypes.node.isRequired,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
@@ -20,7 +20,6 @@ class NavLink extends PureComponent {
 
   render() {
     const {
-      as: asPath,
       href,
       appUrl,
       NavLinkComponent,
@@ -28,23 +27,23 @@ class NavLink extends PureComponent {
       className,
       children,
       active,
+      activeShallow,
     } = this.props;
 
     return NavLinkComponent ? (
       <NavLinkComponent
         className={className}
         href={href}
-        as={asPath}
         activeClassName="active"
-        activeShallow
+        activeShallow={activeShallow}
       >
         {children}
       </NavLinkComponent>
     ) : (
       <a
-        href={`${appUrl}${asPath || href}`}
+        href={`${appUrl}${href}`}
         className={cx(className, {
-          active: active || (!!pathname && pathname.includes(asPath || href)),
+          active: active || (!!pathname && pathname.includes(href)),
         })}
       >
         {children}

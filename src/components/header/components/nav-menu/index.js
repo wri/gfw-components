@@ -35,7 +35,7 @@ class NavMenu extends PureComponent {
                 label={item.label}
                 options={item.submenu}
                 NavLinkComponent={NavLinkComponent}
-                active={!!pathname && pathname.includes(item.as || item.href)}
+                active={!!pathname && pathname.includes(item.href)}
                 pathname={pathname}
                 appUrl={appUrl}
               />
