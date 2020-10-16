@@ -6,6 +6,7 @@ export const NavAltWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: 100%;
+  border-left: solid 1px ${theme.colors.lightGrey};
 
   .lang-selector {
     span {

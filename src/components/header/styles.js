@@ -87,7 +87,6 @@ export const HeaderWrapper = styled.div`
 
   .nav-desktop {
     display: flex;
-    justify-content: flex-end;
     position: relative;
     height: 56px;
     width: 100%;
