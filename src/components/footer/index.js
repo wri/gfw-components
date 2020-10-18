@@ -23,6 +23,7 @@ class Footer extends PureComponent {
   static propTypes = {
     /** handle openning the contact us modal */
     openContactUsModal: PropTypes.func,
+    className: PropTypes.string,
   };
 
   renderCarousel = (slidesToShow) => (
@@ -70,12 +71,12 @@ class Footer extends PureComponent {
   );
 
   render() {
-    const { openContactUsModal } = this.props;
+    const { openContactUsModal, className } = this.props;
     const { links, socialLinks } = config;
 
     return (
       <MediaContextProvider>
-        <FooterWrapper>
+        <FooterWrapper className={className}>
           <Row className="footer-links">
             <Column width={[1, 1 / 2]}>
               <ul className="footer-links-texts">
