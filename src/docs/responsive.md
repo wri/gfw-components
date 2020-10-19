@@ -11,9 +11,8 @@ First you must wrap your layout with the `<MediaContextProvider />` so that the 
 ```jsx static
 breakpoints = {
   small: '768px'
-  medium: '860px'
-  large: '1024px'
-  xlarge: '1080px'
+  medium: '1024px'
+  large: '1080px'
 }
 ```
 
