@@ -11,7 +11,8 @@ export const SubmenuWrapper = styled.div`
   position: relative;
   z-index: 1;
 
-  ${theme.mediaQueries.medium} {
+  ${theme.mediaQueries.small} {
+    padding: 40px 20px 20px;
     height: auto;
 
     ${({ fullScreen }) =>

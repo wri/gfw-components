@@ -7,13 +7,14 @@ export const NavAltWrapper = styled.div`
   align-items: center;
   height: 100%;
   border-left: solid 1px ${theme.colors.lightGrey};
+  padding-left: 20px;
 
   .lang-selector {
     span {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      width: 100px;
+      max-width: 100px;
       text-align: right;
       margin-right: 5px;
     }
@@ -51,7 +52,6 @@ export const NavAltWrapper = styled.div`
     > .nav-link {
       padding-right: 0 !important;
       margin-right: 0 !important;
-      width: 70px;
     }
   }
 

@@ -16,7 +16,7 @@ export const CookiesWrapper = styled.div`
       font-size: 12px;
     }
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       margin-bottom: 0;
     }
   }
@@ -26,7 +26,7 @@ export const CookiesWrapper = styled.div`
     align-items: center;
     max-width: 220px;
 
-    ${theme.mediaQueries.medium} {
+    ${theme.mediaQueries.small} {
       max-width: auto;
     }
 

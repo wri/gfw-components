@@ -25,11 +25,11 @@ export const HeaderWrapper = styled.div`
     height: 76px;
     pointer-events: none;
 
-    ${theme.mediaQueries.medium} {
-      > div {
-        max-width: 100%;
+    ${theme.mediaQueries.small} {
+      .nav-row {
+        max-width: 100% !important;
 
-        > div {
+        .nav-column {
           padding-left: 0;
         }
       }
@@ -132,10 +132,13 @@ export const HeaderWrapper = styled.div`
       text-transform: uppercase;
       text-decoration: none;
       padding: 0 10px;
-      margin: 0 5px;
       position: relative;
       white-space: nowrap;
       cursor: pointer;
+
+      ${theme.mediaQueries.medium} {
+        margin: 0 5px;
+      }
 
       svg {
         fill: ${theme.colors.darkGrey};

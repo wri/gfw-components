@@ -1,14 +1,12 @@
 // breakpoints for grid
 export const SCREEN_S = 768;
-export const SCREEN_M = 860;
-export const SCREEN_L = 1024;
-export const SCREEN_XL = 1080;
+export const SCREEN_M = 1024;
+export const SCREEN_L = 1080;
 
 export const breakpoints = {
   small: SCREEN_S,
   medium: SCREEN_M,
   large: SCREEN_L,
-  xlarge: SCREEN_XL,
 };
 
 export const APP_URL = 'https://www.globalforestwatch.org';

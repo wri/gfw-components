@@ -155,8 +155,8 @@ class Header extends PureComponent {
           fullScreen={fullScreen}
           showSubmenu={showSubmenu}
         >
-          <Row>
-            <Column>
+          <Row className="nav-row">
+            <Column className="nav-column">
               {!fullScreen || (fullScreen && showSubmenu) ? (
                 <>
                   <NavLink
