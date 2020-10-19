@@ -133,7 +133,7 @@ export const FooterWrapper = styled.div`
         margin-top: 10px;
         margin-left: 8px;
 
-        ${theme.mediaQueries.xlarge} {
+        ${theme.mediaQueries.large} {
           width: calc(100% - 16px);
         }
       }
@@ -174,7 +174,7 @@ export const FooterWrapper = styled.div`
         align-items: center;
         justify-content: center;
 
-        ${theme.mediaQueries.xlarge} {
+        ${theme.mediaQueries.large} {
           padding: 0 5px;
         }
 
@@ -186,13 +186,13 @@ export const FooterWrapper = styled.div`
       }
 
       .slick-next {
-        ${theme.mediaQueries.xlarge} {
+        ${theme.mediaQueries.large} {
           right: -20px;
         }
       }
 
       .slick-prev {
-        ${theme.mediaQueries.xlarge} {
+        ${theme.mediaQueries.large} {
           left: -20px;
         }
       }

@@ -6,7 +6,7 @@ export const CarouselWrapper = styled.div`
   width: calc(100% - 20px);
   margin-left: 10px;
 
-  ${theme.mediaQueries.xlarge} {
+  ${theme.mediaQueries.large} {
     width: calc(100% + 40px);
     margin-left: -20px;
   }
@@ -84,7 +84,7 @@ export const CarouselWrapper = styled.div`
     opacity: 0.5;
     transition: opacity 0.5s ease-in-out;
 
-    ${theme.mediaQueries.xlarge} {
+    ${theme.mediaQueries.large} {
       padding: 0 20px;
     }
 
@@ -150,7 +150,7 @@ export const CarouselWrapper = styled.div`
     transform: rotate(-90deg);
     right: -20px;
 
-    ${theme.mediaQueries.xlarge} {
+    ${theme.mediaQueries.large} {
       right: 0;
     }
   }
@@ -159,7 +159,7 @@ export const CarouselWrapper = styled.div`
     transform: rotate(90deg);
     left: -20px;
 
-    ${theme.mediaQueries.xlarge} {
+    ${theme.mediaQueries.large} {
       left: 0;
     }
   }
