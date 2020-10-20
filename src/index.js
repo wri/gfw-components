@@ -61,7 +61,11 @@ export { default as MetaModal } from './components/modals/meta';
 export { default as ShareModal } from './components/modals/share';
 
 // Responsive
-export { Media, MediaContextProvider } from 'components/responsive';
+export {
+  Media,
+  MediaContextProvider,
+  mediaStyles,
+} from 'components/responsive';
 export { default as Mobile } from 'components/responsive/mobile';
 export { default as Desktop } from 'components/responsive/desktop';
 
