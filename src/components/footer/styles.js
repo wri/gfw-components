@@ -83,6 +83,7 @@ export const FooterWrapper = styled.div`
         margin-bottom: 10px;
         height: 30px;
         text-align: left;
+        cursor: pointer;
 
         ${theme.mediaQueries.small} {
           text-align: center;
