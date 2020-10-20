@@ -47,6 +47,11 @@ export const ButtonParent = styled.button`
       `
       height: 20px;
       padding: 0 16px;
+
+      svg {
+        width: 10px;
+        height: 10px;
+      }
     `) ||
     (size === 'medium' &&
       `
@@ -76,12 +81,20 @@ export const ButtonParent = styled.button`
   `}
 
   ${({ size, round }) =>
-    size === 'large' &&
-    round &&
-    `
+    (size === 'large' &&
+      round &&
+      `
     border-radius: 25px;
     width: 48px;
-  `}
+    `) ||
+    (size === 'small' &&
+      round &&
+      `
+    border-radius: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    width: 20px;
+  `)}
 
   ${({ light }) =>
     light &&
