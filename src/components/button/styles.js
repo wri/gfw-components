@@ -87,6 +87,14 @@ export const ButtonParent = styled.button`
     border-radius: 25px;
     width: 48px;
     `) ||
+    (size === 'medium' &&
+      round &&
+      `
+    border-radius: 30px;
+    min-width: 30px;
+    max-width: 30px;
+    width: 30px;
+  `) ||
     (size === 'small' &&
       round &&
       `
