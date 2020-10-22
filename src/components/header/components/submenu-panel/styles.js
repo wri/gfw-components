@@ -40,7 +40,7 @@ export const SubmenuWrapper = styled.div`
       `
       width: 100%;
       height: 100%;
-      max-width: ${theme.siteDefaultWidth};
+      max-width: 800px;
       margin: 0 auto;
     `}
     background-color: #fff;
