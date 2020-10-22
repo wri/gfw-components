@@ -199,6 +199,7 @@ class Header extends PureComponent {
                         <div className="nav-item nav-more">
                           {showSubmenu && (
                             <button
+                              type="button"
                               className="nav-link"
                               onClick={() => {
                                 if (!clickOutside || fullScreen) {
@@ -212,6 +213,7 @@ class Header extends PureComponent {
                           )}
                           {!showSubmenu && (
                             <button
+                              type="button"
                               className="nav-link"
                               onClick={() => {
                                 if (!clickOutside) {

@@ -38,6 +38,11 @@ class Header extends PureComponent {
 
   state = { search: '' };
 
+  constructor(props) {
+    super(props);
+    this.container = React.createRef();
+  }
+
   handleSubmit = () => {
     if (!isServer) {
       const { setQueryToUrl, hideMenu } = this.props;
@@ -61,6 +66,13 @@ class Header extends PureComponent {
     }
   };
 
+  handleClickOutside = (e) => {
+    const { hideMenu } = this.props;
+    if (e.target === this.container.current) {
+      hideMenu();
+    }
+  };
+
   render() {
     const {
       apps,
@@ -78,7 +90,11 @@ class Header extends PureComponent {
     } = this.props;
 
     return (
-      <SubmenuWrapper fullScreen={fullScreen}>
+      <SubmenuWrapper
+        ref={this.container}
+        fullScreen={fullScreen}
+        onClick={this.handleClickOutside}
+      >
         <div className="submenu-wrapper">
           <Search
             className="menu-search"

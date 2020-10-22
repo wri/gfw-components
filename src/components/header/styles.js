@@ -118,6 +118,12 @@ export const HeaderWrapper = styled.div`
     .nested {
       padding: 0;
       margin: 0;
+      .nav-link:hover {
+        &:after {
+          content: '';
+          background-color: transparent;
+        }
+      }
     }
 
     > a,
@@ -136,6 +142,10 @@ export const HeaderWrapper = styled.div`
       white-space: nowrap;
       cursor: pointer;
 
+      &[type='button'] {
+        margin-top: 1px;
+      }
+
       ${theme.mediaQueries.medium} {
         margin: 0 5px;
       }
@@ -146,18 +156,12 @@ export const HeaderWrapper = styled.div`
         transition: all 150ms ease-out;
       }
 
-      &:hover {
-        color: ${darken(0.2, theme.colors.darkGrey)};
-
-        svg {
-          fill: ${darken(0.2, theme.colors.darkGrey)};
-        }
-      }
-
       &:focus {
         outline: none;
       }
+    }
 
+    .nav-link {
       &::after {
         content: '';
         height: 5px;
@@ -168,8 +172,19 @@ export const HeaderWrapper = styled.div`
         background-color: transparent;
       }
 
+      &:hover {
+        color: ${darken(0.2, theme.colors.darkGrey)};
+        &:not([type='button']):after {
+          content: '';
+          background-color: ${theme.colors.green};
+        }
+        svg {
+          fill: ${darken(0.2, theme.colors.darkGrey)};
+        }
+      }
+
       &.active {
-        &::after {
+        &:not([type='button']):after {
           background-color: ${theme.colors.green};
         }
       }

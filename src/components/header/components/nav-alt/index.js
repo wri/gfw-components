@@ -74,6 +74,7 @@ class NavAlt extends PureComponent {
         <div className="nav-item nav-more">
           {showSubmenu && (
             <button
+              type="button"
               className="nav-link"
               onClick={() => handleShowSubmenu(false)}
             >
@@ -83,6 +84,7 @@ class NavAlt extends PureComponent {
           )}
           {!showSubmenu && (
             <button
+              type="button"
               className="nav-link"
               onClick={() => handleShowSubmenu(true)}
             >

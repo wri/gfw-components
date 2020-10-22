@@ -49,7 +49,7 @@ export const DropdownWrapper = styled.div`
         font-size: 14px;
         width: 100%;
         color: ${theme.colors.darkGrey};
-        text-align: left;
+        text-align: center;
         cursor: pointer;
 
         > button {

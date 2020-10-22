@@ -3,16 +3,15 @@ import styled from '@emotion/styled';
 import { darken } from 'polished';
 
 export const SubmenuWrapper = styled.div`
-  background-color: ${theme.colors.white};
-  padding: 40px 16px 20px;
-  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
-  max-height: calc(100vh - 56px);
-  overflow-y: scroll;
   position: relative;
+  width: ${theme.siteDefaultWidth};
+  max-height: calc(100vh - 56px);
+  margin: 0 auto;
+
+  overflow-y: scroll;
   z-index: 1;
 
   ${theme.mediaQueries.small} {
-    padding: 40px 20px 20px;
     height: auto;
 
     ${({ fullScreen }) =>
@@ -27,8 +26,11 @@ export const SubmenuWrapper = styled.div`
   }
 
   .submenu-wrapper {
-    max-width: 800px;
-    margin: auto;
+    width: 375px;
+    background-color: #fff;
+    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
+    padding: 0 20px 20px;
+    margin-left: auto;
   }
 
   .nav-item {
@@ -57,7 +59,11 @@ export const SubmenuWrapper = styled.div`
   }
 
   .menu-search {
-    margin-bottom: 20px;
+    position: sticky;
+    top: 0px;
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
 
     ${theme.mediaQueries.medium} {
       margin-bottom: 40px;

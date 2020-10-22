@@ -41,6 +41,7 @@ class DropdownMenu extends PureComponent {
           onOutsideClick={() => this.setState({ open: false })}
         >
           <button
+            type="button"
             className={cx('nav-link', { active })}
             onClick={() => this.setState({ open: !open })}
             aria-label={label}
@@ -78,6 +79,7 @@ class DropdownMenu extends PureComponent {
                             NavLinkComponent={NavLinkComponent}
                           >
                             <button
+                              type="button"
                               onClick={() =>
                                 this.setState({
                                   open: false,

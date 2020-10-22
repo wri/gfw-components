@@ -9,6 +9,7 @@ const mediaQueries = Object.entries(breakpoints).reduce(
 );
 
 export default {
+  siteDefaultWidth: '1120px',
   fontFamily: "'Fira Sans', Arial, sans-serif",
   mediaQueries,
   breakpoints: Object.values(breakpoints).map((br) => `${br}px`),
