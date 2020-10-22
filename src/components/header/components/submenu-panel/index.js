@@ -191,7 +191,13 @@ class Header extends PureComponent {
             <H4>More in GFW</H4>
             <Row as="ul" className="more-links">
               {moreLinks.map((m) => (
-                <Column key={m.label} as="li" width={[1, 1 / 4, 1 / 3]}>
+                <Column key={m.label} as="li">
+                  {m.onClick && (
+                    <button onClick={this[m.onClick]} type="button">
+                      <m.icon />
+                      {m.label}
+                    </button>
+                  )}
                   {m.href && (
                     <NavLink
                       {...m}
@@ -205,7 +211,7 @@ class Header extends PureComponent {
                       </button>
                     </NavLink>
                   )}
-                  {!m.href && (
+                  {!m.href && !m.onClick && (
                     <a
                       href={m.extLink}
                       target="_blank"
@@ -218,29 +224,6 @@ class Header extends PureComponent {
                 </Column>
               ))}
             </Row>
-          </div>
-          <div className="legal-section">
-            <NavLink
-              className="title"
-              href="/terms"
-              appUrl={appUrl}
-              NavLinkComponent={NavLinkComponent}
-            >
-              <button onClick={hideMenu}>Terms</button>
-            </NavLink>
-            <NavLink
-              className="title"
-              href="/privacy-policy"
-              appUrl={appUrl}
-              NavLinkComponent={NavLinkComponent}
-            >
-              <button onClick={hideMenu}>Privacy Policy</button>
-            </NavLink>
-            <div>
-              <button className="title" onClick={this.handleContactUsOpen}>
-                Contact us
-              </button>
-            </div>
           </div>
         </div>
       </SubmenuWrapper>

@@ -4,7 +4,14 @@ import { darken } from 'polished';
 
 export const SubmenuWrapper = styled.div`
   position: relative;
-  width: ${theme.siteDefaultWidth};
+  max-width: ${theme.siteDefaultWidth};
+
+  ${({ fullScreen }) =>
+    fullScreen &&
+    `
+    max-width: 100%;
+  `}
+
   max-height: calc(100vh - 56px);
   margin: 0 auto;
 
@@ -27,6 +34,12 @@ export const SubmenuWrapper = styled.div`
 
   .submenu-wrapper {
     width: 375px;
+    ${({ fullScreen }) =>
+      fullScreen &&
+      `
+      width: 100%;
+      height: 100%;
+    `}
     background-color: #fff;
     box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
     padding: 0 20px 20px;
@@ -59,6 +72,7 @@ export const SubmenuWrapper = styled.div`
   }
 
   .menu-search {
+    z-index: 4;
     position: sticky;
     top: 0px;
     background: #fff;
@@ -89,6 +103,12 @@ export const SubmenuWrapper = styled.div`
     padding-bottom: 30px;
     margin-bottom: 30px;
     border-bottom: solid 1px ${theme.colors.lightGrey};
+
+    &:last-child {
+      border-bottom: 1px solid transparent;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
     .apps-slider {
       overflow-x: auto;

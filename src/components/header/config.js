@@ -14,6 +14,7 @@ import sgf from 'assets/icons/sgf.svg';
 import openData from 'assets/icons/open-data.svg';
 import blog from 'assets/icons/blog.svg';
 import forum from 'assets/icons/forum.svg';
+import mail from 'assets/icons/mail.svg';
 
 export default {
   navMain: [
@@ -66,6 +67,11 @@ export default {
       label: 'Discussion Forum',
       extLink: 'https://groups.google.com/forum/#!forum/globalforestwatch',
       icon: forum,
+    },
+    {
+      label: 'Contact us',
+      onClick: 'handleContactUsOpen',
+      icon: mail,
     },
   ],
   languages: [
