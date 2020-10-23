@@ -118,12 +118,6 @@ export const HeaderWrapper = styled.div`
     .nested {
       padding: 0;
       margin: 0;
-      .nav-link:hover {
-        &:after {
-          content: '';
-          background-color: transparent;
-        }
-      }
     }
 
     > a,
@@ -174,7 +168,7 @@ export const HeaderWrapper = styled.div`
 
       &:hover {
         color: ${darken(0.2, theme.colors.darkGrey)};
-        &:not([type='button']):after {
+        &::after {
           content: '';
           background-color: ${theme.colors.green};
         }
@@ -184,7 +178,7 @@ export const HeaderWrapper = styled.div`
       }
 
       &.active {
-        &:not([type='button']):after {
+        &::after {
           background-color: ${theme.colors.green};
         }
       }
