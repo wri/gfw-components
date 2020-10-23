@@ -44,6 +44,12 @@ export const SubmenuWrapper = styled.div`
       width: 375px;
       margin: 0 0 0 auto;
       padding: 0;
+      ${({ fullScreen }) =>
+        fullScreen &&
+        `
+        width: 100%;
+        margin: 0 auto;
+      `}
     }
 
     background-color: #fff;
