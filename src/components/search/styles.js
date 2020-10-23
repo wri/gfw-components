@@ -17,7 +17,7 @@ export const SearchWrapper = styled.div`
 
   .submit-btn {
     position: absolute;
-    right: 10px;
+    right: 20px;
     height: calc(100% - 30px);
 
     .icon-search {

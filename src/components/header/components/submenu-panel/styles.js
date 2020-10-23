@@ -45,7 +45,6 @@ export const SubmenuWrapper = styled.div`
     `}
     background-color: #fff;
     box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
-    padding: 0 20px 20px;
     margin-left: auto;
   }
 
@@ -54,7 +53,6 @@ export const SubmenuWrapper = styled.div`
     button {
       display: flex;
       align-items: center;
-      padding: 15px 0 !important;
 
       &.active {
         color: ${theme.colors.green};
@@ -78,13 +76,8 @@ export const SubmenuWrapper = styled.div`
     z-index: 4;
     position: sticky;
     top: 0px;
+    padding: 20px 20px 10px 20px;
     background: #fff;
-    padding-top: 20px;
-    padding-bottom: 10px;
-
-    ${theme.mediaQueries.medium} {
-      margin-bottom: 40px;
-    }
   }
 
   h4,
@@ -92,7 +85,7 @@ export const SubmenuWrapper = styled.div`
     text-transform: uppercase;
     color: #aaa;
     font-size: 14px;
-    margin-bottom: 23px;
+    margin-bottom: 10px;
     text-align: left;
 
     button {
@@ -103,8 +96,30 @@ export const SubmenuWrapper = styled.div`
   }
 
   .menu-section {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
+    padding: 0 0 30px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      padding: 0 20px;
+    }
+
+    li {
+      > a,
+      > button {
+        height: 42px;
+        padding: 0 20px;
+        width: 100%;
+        &:hover {
+          color: ${darken(0.2, theme.colors.darkGrey)};
+          background-color: ${theme.colors.lightestGrey};
+        }
+      }
+    }
+
     border-bottom: solid 1px ${theme.colors.lightGrey};
 
     &:last-child {
@@ -117,9 +132,8 @@ export const SubmenuWrapper = styled.div`
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       display: flex;
-      margin-left: -16px;
-      width: calc(100% + 32px);
-      padding: 0 16px;
+      width: 100%;
+      padding: 0 20px;
     }
 
     .app-card {
@@ -162,9 +176,7 @@ export const SubmenuWrapper = styled.div`
 
     .more-links {
       > li {
-        margin-bottom: 20px;
-        padding-left: 0;
-
+        padding: 0;
         a,
         button {
           display: flex;
@@ -172,7 +184,6 @@ export const SubmenuWrapper = styled.div`
           font-size: 12px;
           color: ${theme.colors.darkGrey};
           text-transform: uppercase;
-          padding: 0;
           cursor: pointer;
 
           svg {
@@ -183,37 +194,6 @@ export const SubmenuWrapper = styled.div`
             min-height: 20px;
             fill: ${theme.colors.green};
           }
-
-          &:hover {
-            color: ${darken(0.2, theme.colors.darkGrey)};
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-
-  .legal-section {
-    display: flex;
-    flex-direction: column;
-
-    > a,
-    button {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    ${theme.mediaQueries.medium} {
-      flex-direction: row;
-
-      > a,
-      button {
-        margin-right: 30px;
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
         }
       }
     }
