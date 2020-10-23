@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
@@ -38,11 +39,6 @@ class Header extends PureComponent {
 
   state = { search: '' };
 
-  constructor(props) {
-    super(props);
-    this.container = React.createRef();
-  }
-
   handleSubmit = () => {
     if (!isServer) {
       const { setQueryToUrl, hideMenu } = this.props;
@@ -66,13 +62,6 @@ class Header extends PureComponent {
     }
   };
 
-  handleClickOutside = (e) => {
-    const { hideMenu } = this.props;
-    if (e.target === this.container.current) {
-      hideMenu();
-    }
-  };
-
   render() {
     const {
       apps,
@@ -90,141 +79,144 @@ class Header extends PureComponent {
     } = this.props;
 
     return (
-      <SubmenuWrapper
-        ref={this.container}
-        fullScreen={fullScreen}
-        onClick={this.handleClickOutside}
-      >
+      <SubmenuWrapper fullScreen={fullScreen}>
         <div className="submenu-wrapper">
-          <Search
-            className="menu-search"
-            placeholder="Search"
-            onChange={this.handleSearchChange}
-            onSubmit={this.handleSubmit}
-          />
-          <Media lessThan="medium">
-            <ul className="menu-section">
-              {navMain &&
-                navMain.map((item) => (
-                  <li key={item.label} className="nav-item">
-                    <NavLink
-                      {...item}
-                      pathname={pathname}
-                      appUrl={appUrl}
-                      NavLinkComponent={NavLinkComponent}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                ))}
-              <li className="nav-item">
-                <NavLink
-                  href="/my-gfw"
-                  pathname={pathname}
-                  appUrl={appUrl}
-                  NavLinkComponent={NavLinkComponent}
-                >
-                  My GFW
-                  <MyGfwIcon
-                    className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
-                  />
-                </NavLink>
-              </li>
-            </ul>
-          </Media>
-          <Media lessThan="medium">
-            <div className="menu-section">
-              <H4>Select a language</H4>
-              <ul>
-                {languages &&
-                  languages.map((item) => (
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              hideMenu();
+            }}
+          >
+            <Search
+              className="menu-search"
+              placeholder="Search"
+              onChange={this.handleSearchChange}
+              onSubmit={this.handleSubmit}
+            />
+            <Media lessThan="medium">
+              <ul className="menu-section">
+                {navMain &&
+                  navMain.map((item) => (
                     <li key={item.label} className="nav-item">
-                      <button
-                        className={cx({
-                          active: activeLang && activeLang.label === item.label,
-                        })}
+                      <NavLink
                         {...item}
-                        onClick={() => {
-                          handleLangSelect(item.value);
-                          hideMenu();
-                        }}
+                        pathname={pathname}
+                        appUrl={appUrl}
+                        NavLinkComponent={NavLinkComponent}
                       >
                         {item.label}
-                      </button>
+                      </NavLink>
                     </li>
                   ))}
-              </ul>
-            </div>
-          </Media>
-          <div className="menu-section">
-            <H4>Other applications</H4>
-            <div className="apps-slider">
-              {apps &&
-                apps.map((d) => (
-                  <a
-                    key={d.label}
-                    href={d.extLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="app-card"
+                <li className="nav-item">
+                  <NavLink
+                    href="/my-gfw"
+                    pathname={pathname}
+                    appUrl={appUrl}
+                    NavLinkComponent={NavLinkComponent}
                   >
-                    <div
-                      className="app-image"
-                      style={{ backgroundImage: `url('${d.image}')` }}
+                    My GFW
+                    <MyGfwIcon
+                      className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
                     />
-                  </a>
-                ))}
-              <a
-                href="https://developers.globalforestwatch.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-card"
-              >
-                <div className="all-apps">
-                  <MoreIcon className="icon-more" />
-                  Explore all apps
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="menu-section">
-            <H4>More in GFW</H4>
-            <Row as="ul" className="more-links">
-              {moreLinks.map((m) => (
-                <Column key={m.label} as="li">
-                  {m.onClick && (
-                    <button onClick={this[m.onClick]} type="button">
-                      <m.icon />
-                      {m.label}
-                    </button>
-                  )}
-                  {m.href && (
-                    <NavLink
-                      {...m}
-                      appUrl={appUrl}
-                      pathname={pathname}
-                      NavLinkComponent={NavLinkComponent}
+                  </NavLink>
+                </li>
+              </ul>
+            </Media>
+            <Media lessThan="medium">
+              <div className="menu-section">
+                <H4>Select a language</H4>
+                <ul>
+                  {languages &&
+                    languages.map((item) => (
+                      <li key={item.label} className="nav-item">
+                        <button
+                          className={cx({
+                            active:
+                              activeLang && activeLang.label === item.label,
+                          })}
+                          {...item}
+                          onClick={() => {
+                            handleLangSelect(item.value);
+                            hideMenu();
+                          }}
+                        >
+                          {item.label}
+                        </button>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </Media>
+            <div className="menu-section">
+              <H4>Other applications</H4>
+              <div className="apps-slider">
+                {apps &&
+                  apps.map((d) => (
+                    <a
+                      key={d.label}
+                      href={d.extLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="app-card"
                     >
-                      <button onClick={hideMenu}>
+                      <div
+                        className="app-image"
+                        style={{ backgroundImage: `url('${d.image}')` }}
+                      />
+                    </a>
+                  ))}
+                <a
+                  href="https://developers.globalforestwatch.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-card"
+                >
+                  <div className="all-apps">
+                    <MoreIcon className="icon-more" />
+                    Explore all apps
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className="menu-section">
+              <H4>More in GFW</H4>
+              <Row as="ul" className="more-links">
+                {moreLinks.map((m) => (
+                  <Column key={m.label} as="li">
+                    {m.onClick && (
+                      <button onClick={this[m.onClick]} type="button">
                         <m.icon />
                         {m.label}
                       </button>
-                    </NavLink>
-                  )}
-                  {!m.href && !m.onClick && (
-                    <a
-                      href={m.extLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <m.icon />
-                      {m.label}
-                    </a>
-                  )}
-                </Column>
-              ))}
-            </Row>
-          </div>
+                    )}
+                    {m.href && (
+                      <NavLink
+                        {...m}
+                        appUrl={appUrl}
+                        pathname={pathname}
+                        NavLinkComponent={NavLinkComponent}
+                      >
+                        <button onClick={hideMenu}>
+                          <m.icon />
+                          {m.label}
+                        </button>
+                      </NavLink>
+                    )}
+                    {!m.href && !m.onClick && (
+                      <a
+                        href={m.extLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <m.icon />
+                        {m.label}
+                      </a>
+                    )}
+                  </Column>
+                ))}
+              </Row>
+            </div>
+          </OutsideClickHandler>
         </div>
       </SubmenuWrapper>
     );
