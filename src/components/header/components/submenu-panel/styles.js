@@ -34,15 +34,18 @@ export const SubmenuWrapper = styled.div`
   }
 
   .submenu-wrapper {
-    width: 375px;
-    ${({ fullScreen }) =>
-      fullScreen &&
-      `
-      width: 100%;
-      height: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-    `}
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 20px;
+
+    ${theme.mediaQueries.small} {
+      width: 375px;
+      margin: 0 0 0 auto;
+      padding: 0;
+    }
+
     background-color: #fff;
     box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
     margin-left: auto;
@@ -75,9 +78,13 @@ export const SubmenuWrapper = styled.div`
   .menu-search {
     z-index: 4;
     position: sticky;
-    top: 0px;
-    padding: 20px 20px 10px 20px;
+    top: 0;
+    padding: 30px 20px 10px 20px;
     background: #fff;
+
+    ${theme.mediaQueries.small} {
+      padding-top: 20px;
+    }
   }
 
   h4,
