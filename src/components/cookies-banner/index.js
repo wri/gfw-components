@@ -30,10 +30,7 @@ class CookiesBanner extends PureComponent {
       <CookiesWrapper>
         <Row>
           <Column width={[0, 1 / 12]} />
-          <Column
-            width={[1, 2 / 3]}
-            className="column small-12 medium-8 medium-offset-1"
-          >
+          <Column width={[1, 2 / 3]}>
             <P className="cookies-text">
               This website uses cookies to provide you with an improved user
               experience. By continuing to browse this site, you consent to the
