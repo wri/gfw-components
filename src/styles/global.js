@@ -2,6 +2,12 @@ import { css } from '@emotion/core';
 
 import theme from './theme';
 
+export const bodyOverflowHidden = css`
+  body {
+    overflow: hidden;
+  }
+`;
+
 export default css`
   html {
     font-family: ${theme.fontFamily};

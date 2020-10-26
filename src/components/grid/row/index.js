@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import theme from 'styles/theme';
 
 const RowDiv = styled(Flex)`
-  max-width: 1120px;
+  max-width: ${theme.siteDefaultWidth};
   margin: auto;
 
   ${({ nested }) =>

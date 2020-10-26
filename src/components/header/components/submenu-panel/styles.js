@@ -1,18 +1,26 @@
 import theme from 'styles/theme';
 import styled from '@emotion/styled';
+
 import { darken } from 'polished';
 
 export const SubmenuWrapper = styled.div`
-  background-color: ${theme.colors.white};
-  padding: 40px 16px 20px;
-  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
-  max-height: calc(100vh - 56px);
-  overflow-y: scroll;
   position: relative;
+  max-width: ${theme.siteDefaultWidth};
+
+  ${({ fullScreen }) =>
+    fullScreen &&
+    `
+    max-width: 100%;
+    background: ${theme.colors.white};
+  `}
+
+  max-height: calc(100vh - 56px);
+  margin: 0 auto;
+
+  overflow-y: scroll;
   z-index: 1;
 
   ${theme.mediaQueries.small} {
-    padding: 40px 20px 20px;
     height: auto;
 
     ${({ fullScreen }) =>
@@ -27,8 +35,29 @@ export const SubmenuWrapper = styled.div`
   }
 
   .submenu-wrapper {
+    width: 100%;
+    height: 100%;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+
+    ${theme.mediaQueries.small} {
+      width: 375px;
+      margin: 0 0 0 auto;
+      padding: 0;
+      ${({ fullScreen }) =>
+        fullScreen &&
+        `
+        width: 100%;
+        margin: 0 auto;
+      `}
+    }
+
+    background-color: #fff;
+    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
+    border: 1px solid ${theme.colors.lightGrey};
+    border-top: 0;
+    margin-left: auto;
   }
 
   .nav-item {
@@ -36,7 +65,6 @@ export const SubmenuWrapper = styled.div`
     button {
       display: flex;
       align-items: center;
-      padding: 15px 0 !important;
 
       &.active {
         color: ${theme.colors.green};
@@ -57,10 +85,14 @@ export const SubmenuWrapper = styled.div`
   }
 
   .menu-search {
-    margin-bottom: 20px;
+    z-index: 4;
+    position: sticky;
+    top: 0;
+    padding: 30px 20px 10px 20px;
+    background: #fff;
 
-    ${theme.mediaQueries.medium} {
-      margin-bottom: 40px;
+    ${theme.mediaQueries.small} {
+      padding-top: 20px;
     }
   }
 
@@ -69,7 +101,7 @@ export const SubmenuWrapper = styled.div`
     text-transform: uppercase;
     color: #aaa;
     font-size: 14px;
-    margin-bottom: 23px;
+    margin-bottom: 10px;
     text-align: left;
 
     button {
@@ -80,17 +112,44 @@ export const SubmenuWrapper = styled.div`
   }
 
   .menu-section {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
+    padding: 0 0 30px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      padding: 0 20px;
+    }
+
+    li {
+      > a,
+      > button {
+        height: 42px;
+        padding: 0 20px;
+        width: 100%;
+        &:hover {
+          color: ${darken(0.2, theme.colors.darkGrey)};
+          background-color: ${theme.colors.lightestGrey};
+        }
+      }
+    }
+
     border-bottom: solid 1px ${theme.colors.lightGrey};
+
+    &:last-child {
+      border-bottom: 1px solid transparent;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
     .apps-slider {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       display: flex;
-      margin-left: -16px;
-      width: calc(100% + 32px);
-      padding: 0 16px;
+      width: 100%;
+      padding: 0 20px;
     }
 
     .app-card {
@@ -133,9 +192,7 @@ export const SubmenuWrapper = styled.div`
 
     .more-links {
       > li {
-        margin-bottom: 20px;
-        padding-left: 0;
-
+        padding: 0;
         a,
         button {
           display: flex;
@@ -143,7 +200,6 @@ export const SubmenuWrapper = styled.div`
           font-size: 12px;
           color: ${theme.colors.darkGrey};
           text-transform: uppercase;
-          padding: 0;
           cursor: pointer;
 
           svg {
@@ -154,37 +210,6 @@ export const SubmenuWrapper = styled.div`
             min-height: 20px;
             fill: ${theme.colors.green};
           }
-
-          &:hover {
-            color: ${darken(0.2, theme.colors.darkGrey)};
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-
-  .legal-section {
-    display: flex;
-    flex-direction: column;
-
-    > a,
-    button {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    ${theme.mediaQueries.medium} {
-      flex-direction: row;
-
-      > a,
-      button {
-        margin-right: 30px;
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
         }
       }
     }

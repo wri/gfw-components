@@ -17,9 +17,11 @@ export const SearchWrapper = styled.div`
 
   .submit-btn {
     position: absolute;
-    right: 10px;
-    height: 100%;
-
+    right: 25px;
+    height: calc(100% - 40px);
+    ${theme.mediaQueries.small} {
+      height: calc(100% - 30px);
+    }
     .icon-search {
       width: 20px;
       height: 20px;
@@ -29,7 +31,7 @@ export const SearchWrapper = styled.div`
 
   .clear-btn {
     position: absolute;
-    height: 100%;
+    height: calc(100% - 30px);
     right: 40px;
 
     .icon-close {

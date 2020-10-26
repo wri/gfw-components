@@ -1,13 +1,6 @@
 import theme from 'styles/theme';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import { darken } from 'polished';
-
-export const bodyStyles = css`
-  .Header__no-scroll {
-    overflow: hidden;
-  }
-`;
 
 export const HeaderWrapper = styled.div`
   height: 56px;
@@ -136,6 +129,10 @@ export const HeaderWrapper = styled.div`
       white-space: nowrap;
       cursor: pointer;
 
+      &[type='button'] {
+        margin-top: 1px;
+      }
+
       ${theme.mediaQueries.medium} {
         margin: 0 5px;
       }
@@ -146,18 +143,12 @@ export const HeaderWrapper = styled.div`
         transition: all 150ms ease-out;
       }
 
-      &:hover {
-        color: ${darken(0.2, theme.colors.darkGrey)};
-
-        svg {
-          fill: ${darken(0.2, theme.colors.darkGrey)};
-        }
-      }
-
       &:focus {
         outline: none;
       }
+    }
 
+    .nav-link {
       &::after {
         content: '';
         height: 5px;
@@ -166,6 +157,10 @@ export const HeaderWrapper = styled.div`
         right: 0;
         left: 0;
         background-color: transparent;
+      }
+
+      &:hover {
+        color: ${darken(0.2, theme.colors.darkGrey)};
       }
 
       &.active {

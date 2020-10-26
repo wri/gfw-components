@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
-import { Global } from '@emotion/core';
 
 import { checkLoggedIn } from 'services/user';
 
@@ -23,7 +22,7 @@ import SubmenuPanel from './components/submenu-panel';
 
 import defaultConfig from './config';
 
-import { HeaderWrapper, bodyStyles } from './styles';
+import { HeaderWrapper } from './styles';
 
 const isServer = typeof window === 'undefined';
 
@@ -72,17 +71,6 @@ class Header extends PureComponent {
   componentDidMount() {
     this.checkLoggedIn();
     this.findPathname();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { showSubmenu } = this.state;
-    if (typeof document !== 'undefined') {
-      if (prevState.showSubmenu && !showSubmenu) {
-        document.body.classList.remove('Header__no-scroll');
-      } else if (!prevState.showSubmenu && showSubmenu) {
-        document.body.classList.add('Header__no-scroll');
-      }
-    }
   }
 
   checkLoggedIn = () => {
@@ -149,7 +137,6 @@ class Header extends PureComponent {
 
     return (
       <MediaContextProvider>
-        <Global styles={bodyStyles} />
         <HeaderWrapper
           className={className}
           fullScreen={fullScreen}
@@ -199,6 +186,7 @@ class Header extends PureComponent {
                         <div className="nav-item nav-more">
                           {showSubmenu && (
                             <button
+                              type="button"
                               className="nav-link"
                               onClick={() => {
                                 if (!clickOutside || fullScreen) {
@@ -212,6 +200,7 @@ class Header extends PureComponent {
                           )}
                           {!showSubmenu && (
                             <button
+                              type="button"
                               className="nav-link"
                               onClick={() => {
                                 if (!clickOutside) {
