@@ -58,6 +58,13 @@ export const SubmenuWrapper = styled.div`
     border: 1px solid ${theme.colors.lightGrey};
     border-top: 0;
     margin-left: auto;
+
+    ${({ fullScreen }) =>
+      fullScreen &&
+      `
+      box-shadow: none;
+      border: none;
+    `}
   }
 
   .nav-item {
@@ -191,6 +198,8 @@ export const SubmenuWrapper = styled.div`
     }
 
     .more-links {
+      padding-bottom: 20px;
+
       > li {
         padding: 0;
         a,
