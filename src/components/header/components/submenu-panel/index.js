@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react';
+import { Global } from '@emotion/core';
+
 import OutsideClickHandler from 'react-outside-click-handler';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import { Media } from 'components/responsive';
+import Mobile from 'components/responsive/mobile';
 
 import NavLink from 'components/header/components/nav-link';
 import Search from 'components/search';
@@ -14,6 +17,7 @@ import H4 from 'components/html/h4';
 import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';
 
+import { bodyOverflowHidden } from 'styles/global';
 import { SubmenuWrapper } from './styles';
 
 const isServer = typeof window === 'undefined';
@@ -80,6 +84,9 @@ class Header extends PureComponent {
 
     return (
       <SubmenuWrapper fullScreen={fullScreen}>
+        <Mobile>
+          <Global styles={bodyOverflowHidden} />
+        </Mobile>
         <div className="submenu-wrapper">
           <OutsideClickHandler
             onOutsideClick={() => {

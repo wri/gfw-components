@@ -74,17 +74,6 @@ class Header extends PureComponent {
     this.findPathname();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const { showSubmenu } = this.state;
-    if (typeof document !== 'undefined') {
-      if (prevState.showSubmenu && !showSubmenu) {
-        document.body.classList.remove('Header__no-scroll');
-      } else if (!prevState.showSubmenu && showSubmenu) {
-        document.body.classList.add('Header__no-scroll');
-      }
-    }
-  }
-
   checkLoggedIn = () => {
     const query = (!isServer && qs.parse(window.location.search)) || {};
     const urlToken = query && query.token;

@@ -1,18 +1,11 @@
-import {
-  HOWTO_URL,
-  DATA_PORTAL_URL,
-  BLOG_URL,
-  DEVELOPERS_URL,
-} from 'constants';
+import { DATA_PORTAL_URL, BLOG_URL } from 'constants';
 
 import gfwPro from 'assets/logos/gfw-pro.png';
 import forestWatcher from 'assets/logos/gfw-watcher.png';
 
-import developer from 'assets/icons/developer.svg';
-import howto from 'assets/icons/howto.svg';
+import mapbuilder from 'assets/icons/mapbuilder.svg';
 import sgf from 'assets/icons/sgf.svg';
 import openData from 'assets/icons/open-data.svg';
-import blog from 'assets/icons/blog.svg';
 import forum from 'assets/icons/forum.svg';
 import mail from 'assets/icons/mail.svg';
 
@@ -49,20 +42,22 @@ export default {
     },
     {
       label: 'Forest Watcher',
-      extLink: 'http://forestwatcher.globalforestwatch.org',
+      extLink: 'https://forestwatcher.globalforestwatch.org',
       image: forestWatcher,
     },
   ],
   moreLinks: [
-    { label: 'Developer Tools', extLink: DEVELOPERS_URL, icon: developer },
-    { label: 'How to Portal', extLink: HOWTO_URL, icon: howto },
+    {
+      label: 'Mapbuilder',
+      href: '/mapbuilder/',
+      icon: mapbuilder,
+    },
     {
       label: 'Grants & Fellowships',
       href: '/grants-and-fellowships/projects/',
       icon: sgf,
     },
     { label: 'Open data portal', extLink: DATA_PORTAL_URL, icon: openData },
-    { label: 'Blog', extLink: BLOG_URL, icon: blog },
     {
       label: 'Discussion Forum',
       extLink: 'https://groups.google.com/forum/#!forum/globalforestwatch',

@@ -168,13 +168,6 @@ export const HeaderWrapper = styled.div`
 
       &:hover {
         color: ${darken(0.2, theme.colors.darkGrey)};
-        &::after {
-          content: '';
-          background-color: ${theme.colors.green};
-        }
-        svg {
-          fill: ${darken(0.2, theme.colors.darkGrey)};
-        }
       }
 
       &.active {

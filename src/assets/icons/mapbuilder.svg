@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>1F995D0E-1B49-40DC-A3DB-92A9C3359C14</title>
+    <g id="UI-Kit-Lite-✔️" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GFW---UI-kit---Headers-+-footer" transform="translate(-794.000000, -4305.000000)">
+            <rect fill="#555555" x="0" y="0" width="1440" height="7454"></rect>
+            <g id="Menu/Mobile/Expanded" transform="translate(762.000000, 3649.000000)">
+                <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="375" height="960"></rect>
+                <g id="Icons/24px/Developers-corner-Copy-2" transform="translate(32.000000, 656.000000)" fill="#97BD3D">
+                    <g id="Group" transform="translate(2.000000, 2.000000)">
+                        <path d="M13.3333333,18.6463487 L13.3333333,4.81120127 L6.66666667,2.34949535 L6.66666667,16.1846428 L13.3333333,18.6463487 Z M19.4260835,0 C19.8086945,0 20,0.20087077 20,0.60261231 L20,18.2099743 C20,18.5022759 19.8614684,18.6851375 19.583086,18.7585593 L13.3333333,21 L6.66666667,18.5382941 L0.729599578,20.9445874 L0.573916485,21 C0.191305495,21 0,20.7991292 0,20.3973877 L0,2.79002573 C0,2.49772412 0.138531565,2.31486246 0.416914044,2.24144073 L6.66666667,0 L13.3333333,2.46170592 L19.2704004,0.0554126262 L19.4260835,0 L19.4260835,0 Z" id="map"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
