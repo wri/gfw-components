@@ -55,6 +55,8 @@ export const SubmenuWrapper = styled.div`
 
     background-color: #fff;
     box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
+    border: 1px solid ${theme.colors.lightGrey};
+    border-top: 0;
     margin-left: auto;
   }
 
