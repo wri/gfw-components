@@ -1,13 +1,6 @@
 import theme from 'styles/theme';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import { darken } from 'polished';
-
-export const bodyStyles = css`
-  .Header__no-scroll {
-    overflow: hidden;
-  }
-`;
 
 export const HeaderWrapper = styled.div`
   height: 56px;

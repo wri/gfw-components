@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
-import { Global } from '@emotion/core';
 
 import { checkLoggedIn } from 'services/user';
 
@@ -23,7 +22,7 @@ import SubmenuPanel from './components/submenu-panel';
 
 import defaultConfig from './config';
 
-import { HeaderWrapper, bodyStyles } from './styles';
+import { HeaderWrapper } from './styles';
 
 const isServer = typeof window === 'undefined';
 
@@ -138,7 +137,6 @@ class Header extends PureComponent {
 
     return (
       <MediaContextProvider>
-        <Global styles={bodyStyles} />
         <HeaderWrapper
           className={className}
           fullScreen={fullScreen}
