@@ -14,6 +14,7 @@ export const CookiesWrapper = styled.div`
 
     a {
       font-size: 12px;
+      line-height: 18px;
     }
 
     ${theme.mediaQueries.small} {

@@ -1,3 +1,3 @@
 ```js
-<CookiesBanner />
+<CookiesBanner onAccept={() => console.info('cookies accepted')} />
 ```
