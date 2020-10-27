@@ -118,7 +118,7 @@ class Header extends PureComponent {
                   ))}
                 <li className="nav-item">
                   <NavLink
-                    href="/my-gfw"
+                    href="/my-gfw/"
                     pathname={pathname}
                     appUrl={appUrl}
                     NavLinkComponent={NavLinkComponent}
