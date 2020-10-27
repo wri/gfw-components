@@ -83,11 +83,6 @@
     "webpack-node-externals": "^1.7.2",
     "webpack-s3-plugin": "^1.0.3"
   },
-  "resolutions": {
-    "debug": "^2.6.9",
-    "minimist": "^1.2.3",
-    "node-forge": "^0.10.0"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
