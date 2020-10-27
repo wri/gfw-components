@@ -95,11 +95,11 @@ export const SubmenuWrapper = styled.div`
     z-index: 4;
     position: sticky;
     top: 0;
-    padding: 30px 20px 10px 20px;
+    padding: 30px ${theme.grid.mobileGutter} 10px ${theme.grid.mobileGutter};
     background: #fff;
 
     ${theme.mediaQueries.small} {
-      padding-top: 20px;
+      padding: 30px ${theme.grid.desktopGutter} 10px ${theme.grid.desktopGutter};
     }
   }
 
@@ -126,16 +126,29 @@ export const SubmenuWrapper = styled.div`
       margin-bottom: 0;
     }
 
+    &.-first {
+      margin-top: 10px;
+    }
+
     h4 {
-      padding: 0 20px;
+      padding: 0 ${theme.grid.desktopGutter};
+
+      ${theme.mediaQueries.small} {
+        padding: 0 ${theme.grid.desktopGutter};
+      }
     }
 
     li {
       > a,
       > button {
         height: 42px;
-        padding: 0 20px;
         width: 100%;
+        padding: 0 ${theme.grid.desktopGutter};
+
+        ${theme.mediaQueries.small} {
+          padding: 0 ${theme.grid.desktopGutter};
+        }
+
         &:hover {
           color: ${darken(0.2, theme.colors.darkGrey)};
           background-color: ${theme.colors.lightestGrey};
@@ -156,7 +169,11 @@ export const SubmenuWrapper = styled.div`
       -webkit-overflow-scrolling: touch;
       display: flex;
       width: 100%;
-      padding: 0 20px;
+      padding: 0 ${theme.grid.desktopGutter};
+
+      ${theme.mediaQueries.small} {
+        padding: 0 ${theme.grid.desktopGutter};
+      }
     }
 
     .app-card {
@@ -210,6 +227,10 @@ export const SubmenuWrapper = styled.div`
           color: ${theme.colors.darkGrey};
           text-transform: uppercase;
           cursor: pointer;
+
+          > button {
+            padding: 0;
+          }
 
           svg {
             margin-right: 15px;

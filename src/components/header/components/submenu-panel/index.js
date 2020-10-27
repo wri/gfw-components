@@ -90,7 +90,9 @@ class Header extends PureComponent {
         <div className="submenu-wrapper">
           <OutsideClickHandler
             onOutsideClick={() => {
-              hideMenu();
+              if (!fullScreen) {
+                hideMenu();
+              }
             }}
           >
             <Search
@@ -100,7 +102,7 @@ class Header extends PureComponent {
               onSubmit={this.handleSubmit}
             />
             <Media lessThan="medium">
-              <ul className="menu-section">
+              <ul className="menu-section -first">
                 {navMain &&
                   navMain.map((item) => (
                     <li key={item.label} className="nav-item">
