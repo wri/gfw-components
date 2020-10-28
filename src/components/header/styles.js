@@ -128,10 +128,7 @@ export const HeaderWrapper = styled.div`
       position: relative;
       white-space: nowrap;
       cursor: pointer;
-
-      &[type='button'] {
-        margin-top: 1px;
-      }
+      line-height: 1;
 
       ${theme.mediaQueries.medium} {
         margin: 0 5px;

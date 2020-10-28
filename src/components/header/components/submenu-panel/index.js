@@ -95,12 +95,13 @@ class Header extends PureComponent {
               }
             }}
           >
-            <Search
-              className="menu-search"
-              placeholder="Search"
-              onChange={this.handleSearchChange}
-              onSubmit={this.handleSubmit}
-            />
+            <div className="menu-search">
+              <Search
+                placeholder="Search"
+                onChange={this.handleSearchChange}
+                onSubmit={this.handleSubmit}
+              />
+            </div>
             <Media lessThan="medium">
               <ul className="menu-section -first">
                 {navMain &&
