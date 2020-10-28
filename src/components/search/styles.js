@@ -17,21 +17,19 @@ export const SearchWrapper = styled.div`
 
   .submit-btn {
     position: absolute;
-    right: 25px;
-    height: calc(100% - 40px);
-    ${theme.mediaQueries.small} {
-      height: calc(100% - 30px);
-    }
+    right: 10px;
+    height: 100%;
+
     .icon-search {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       fill: ${theme.colors.darkGrey};
     }
   }
 
   .clear-btn {
     position: absolute;
-    height: calc(100% - 30px);
+    height: 100%;
     right: 40px;
 
     .icon-close {
