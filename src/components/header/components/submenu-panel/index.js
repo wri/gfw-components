@@ -107,14 +107,27 @@ class Header extends PureComponent {
                 {navMain &&
                   navMain.map((item) => (
                     <li key={item.label} className="nav-item">
-                      <NavLink
-                        {...item}
-                        pathname={pathname}
-                        appUrl={appUrl}
-                        NavLinkComponent={NavLinkComponent}
-                      >
-                        {item.label}
-                      </NavLink>
+                      {item.href && (
+                        <NavLink
+                          {...item}
+                          pathname={pathname}
+                          appUrl={appUrl}
+                          NavLinkComponent={NavLinkComponent}
+                        >
+                          {item.label}
+                        </NavLink>
+                      )}
+                      {item.extLink && (
+                        <a
+                          href={item.extLink}
+                          className={cx({
+                            active:
+                              !!pathname && pathname.includes(item.extLink),
+                          })}
+                        >
+                          {item.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 <li className="nav-item">

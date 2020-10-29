@@ -42,17 +42,15 @@ class NavMenu extends PureComponent {
             ) : (
               <Fragment>
                 {item.href && (
-                  <Fragment>
-                    <NavLink
-                      className="nav-link"
-                      {...item}
-                      NavLinkComponent={NavLinkComponent}
-                      appUrl={appUrl}
-                      pathname={pathname}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </Fragment>
+                  <NavLink
+                    className="nav-link"
+                    {...item}
+                    NavLinkComponent={NavLinkComponent}
+                    appUrl={appUrl}
+                    pathname={pathname}
+                  >
+                    {item.label}
+                  </NavLink>
                 )}
                 {item.extLink && (
                   <a
