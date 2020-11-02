@@ -6,19 +6,19 @@ import { darken } from 'polished';
 export const SubmenuWrapper = styled.div`
   position: relative;
   max-width: ${theme.siteDefaultWidth};
-
-  ${({ fullScreen }) =>
-    fullScreen &&
-    `
-    max-width: 100%;
-    background: ${theme.colors.white};
-  `}
-
   max-height: calc(100vh - 56px);
   margin: 0 auto;
 
   overflow-y: scroll;
   z-index: 1;
+
+  ${({ fullScreen }) =>
+    fullScreen &&
+    `
+    max-width: 100%;
+    max-height: calc(100vh - 76px);
+    background: ${theme.colors.white};
+  `}
 
   ${theme.mediaQueries.small} {
     height: auto;
@@ -39,32 +39,32 @@ export const SubmenuWrapper = styled.div`
     height: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 20px;
+    background-color: #fff;
+    border-top: 0;
+    margin-left: auto;
 
     ${theme.mediaQueries.small} {
       width: 375px;
       margin: 0 0 0 auto;
       padding: 0;
+      box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
+      border: 1px solid ${theme.colors.lightGrey};
+      border-top: 0;
+      border-right: 0;
+
       ${({ fullScreen }) =>
         fullScreen &&
         `
         width: 100%;
         margin: 0 auto;
+        border: none;
+        box-shadow: none;
       `}
     }
 
-    background-color: #fff;
-    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
-    border: 1px solid ${theme.colors.lightGrey};
-    border-top: 0;
-    margin-left: auto;
-
-    ${({ fullScreen }) =>
-      fullScreen &&
-      `
-      box-shadow: none;
-      border: none;
-    `}
+    @media (min-width: 1120px) {
+      border-right: 1px solid ${theme.colors.lightGrey};
+    }
   }
 
   .nav-item {
@@ -95,7 +95,7 @@ export const SubmenuWrapper = styled.div`
     z-index: 4;
     position: sticky;
     top: 0;
-    padding: 30px ${theme.grid.mobileGutter} 10px ${theme.grid.mobileGutter};
+    padding: 40px ${theme.grid.mobileGutter} 10px ${theme.grid.mobileGutter};
     background: #fff;
 
     ${theme.mediaQueries.small} {
@@ -216,6 +216,12 @@ export const SubmenuWrapper = styled.div`
 
     .more-links {
       padding-bottom: 20px;
+
+      ${({ fullScreen }) =>
+        fullScreen &&
+        `
+          padding-bottom: 40px;
+        `}
 
       > li {
         padding: 0;
