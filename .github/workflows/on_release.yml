@@ -1,0 +1,29 @@
+
+name: CI - Release package
+on:
+  release:
+    types: [published]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.16.2'
+      - run: yarn install
+      - run: yarn compile
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+  deploy:
+    needs: [publish]
+    name: Deploy styleguidist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.16.2'
+      - run: yarn install
+      - run: yarn deploy
