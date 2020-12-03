@@ -28,7 +28,7 @@ export const HeaderWrapper = styled.div`
       }
 
       .dropdown-menu {
-        top: 75px;
+        top: 75px !important;
       }
     }
   `}

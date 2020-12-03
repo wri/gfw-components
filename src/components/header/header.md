@@ -6,7 +6,7 @@ import { ContactUsModal } from 'gfw-components';
 const [open, setIsOpen] = React.useState(false);
 
 <div style={{ minHeight: '80px' }}>
-  <Header openContactUsModal={() => setIsOpen(true)} />
+  <Header openContactUsModal={() => setIsOpen(true)} fullScreen />
   <ContactUsModal open={open}  onRequestClose={() => setIsOpen(false)} />
 </div>
 ```

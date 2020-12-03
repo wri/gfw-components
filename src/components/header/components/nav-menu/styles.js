@@ -6,5 +6,5 @@ export const NavMenuWrapper = styled.ul`
   height: 100%;
   justify-content: flex-start;
   flex: 1;
-  z-index: 1;
+  z-index: 2;
 `;
