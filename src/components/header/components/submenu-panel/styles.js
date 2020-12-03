@@ -64,6 +64,12 @@ export const SubmenuWrapper = styled.div`
 
     @media (min-width: 1120px) {
       border-right: 1px solid ${theme.colors.lightGrey};
+
+      ${({ fullScreen }) =>
+        fullScreen &&
+        `
+        border-right: none;
+      `}
     }
   }
 
