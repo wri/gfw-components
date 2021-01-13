@@ -23,6 +23,7 @@ export default {
     lightGrey: '#e5e5df',
     lightestGrey: '#f7f7f7',
     white: '#fff',
+    black: '#000',
     lightYellow: '#fffee2',
     error: '#ed1846',
   },

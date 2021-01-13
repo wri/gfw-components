@@ -10,6 +10,13 @@ export const HeaderWrapper = styled.div`
   border-bottom: solid 1px ${theme.colors.lightGrey};
   z-index: 1000;
 
+  ${(props) =>
+    props.theme &&
+    props.theme === 'pro' &&
+    `
+      background-color: ${theme.colors.black};
+    `};
+
   ${({ fullScreen }) =>
     fullScreen &&
     `
