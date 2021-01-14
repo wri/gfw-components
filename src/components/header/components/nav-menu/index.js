@@ -9,6 +9,7 @@ import { NavMenuWrapper } from './styles';
 
 class NavMenu extends PureComponent {
   static propTypes = {
+    theme: PropTypes.string,
     className: PropTypes.string,
     menuItems: PropTypes.array,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
@@ -18,6 +19,7 @@ class NavMenu extends PureComponent {
 
   render() {
     const {
+      theme,
       className,
       menuItems,
       NavLinkComponent,
@@ -45,6 +47,7 @@ class NavMenu extends PureComponent {
                   <NavLink
                     className="nav-link"
                     {...item}
+                    theme={theme}
                     NavLinkComponent={NavLinkComponent}
                     appUrl={appUrl}
                     pathname={pathname}

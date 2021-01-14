@@ -9,6 +9,13 @@ export const NavAltWrapper = styled.div`
   border-left: solid 1px ${theme.colors.lightGrey};
   padding-left: 20px;
 
+  ${(props) =>
+    props.theme &&
+    props.theme === 'pro' &&
+    `
+      border-left: solid 1px transparent;
+    `};
+
   .lang-selector {
     span {
       white-space: nowrap;

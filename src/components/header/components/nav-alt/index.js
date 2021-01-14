@@ -13,6 +13,7 @@ import { NavAltWrapper } from './styles';
 
 class NavAlt extends PureComponent {
   static propTypes = {
+    theme: PropTypes.string,
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
     languages: PropTypes.array,
@@ -27,6 +28,7 @@ class NavAlt extends PureComponent {
 
   render() {
     const {
+      theme,
       loggedIn,
       loggingIn,
       NavLinkComponent,
@@ -40,7 +42,7 @@ class NavAlt extends PureComponent {
     } = this.props;
 
     return (
-      <NavAltWrapper>
+      <NavAltWrapper theme={theme}>
         <div className="nav-item lang-selector">
           <DropdownMenu
             className="nested notranslate"
@@ -65,7 +67,7 @@ class NavAlt extends PureComponent {
             appUrl={appUrl}
             NavLinkComponent={NavLinkComponent}
           >
-            My GFW
+            {theme === 'pro' ? 'My GFW Pro' : 'My GFW'}
             <MyGfwIcon
               className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
             />

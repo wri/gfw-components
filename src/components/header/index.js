@@ -78,6 +78,7 @@ class Header extends PureComponent {
   }
 
   checkLoggedIn = () => {
+    const { theme } = this.props;
     const query = (!isServer && qs.parse(window.location.search)) || {};
     const urlToken = query && query.token;
     const token = urlToken || localStorage.getItem('userToken');
@@ -91,8 +92,8 @@ class Header extends PureComponent {
         `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}`
       );
     }
-
-    if (token) {
+    // TODO: Check if pro is authenticated?
+    if (token && theme !== 'pro') {
       this.setState({ loggedIn: false, loggingIn: true });
       checkLoggedIn(token)
         .then((response) => {
