@@ -52,13 +52,11 @@ class Header extends PureComponent {
     customLogo: PropTypes.string,
     /** allows to pass "theme" down to the header */
     theme: PropTypes.bool,
-    proAuthenticated: PropTypes.bool,
   };
 
   static defaultProps = {
     appUrl: APP_URL,
     theme: 'default',
-    proAuthenticated: false,
     ...defaultConfig,
   };
 
@@ -137,7 +135,6 @@ class Header extends PureComponent {
       customLogo,
       languages,
       NavLinkComponent,
-      proAuthenticated,
       fullScreen,
     } = this.props;
     const { showSubmenu, clickOutside, lang } = this.state;

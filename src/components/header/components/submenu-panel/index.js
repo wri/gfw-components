@@ -39,7 +39,6 @@ class Header extends PureComponent {
     setQueryToUrl: PropTypes.func,
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
-    proAuthenticated: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
