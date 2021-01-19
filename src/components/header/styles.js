@@ -10,6 +10,13 @@ export const HeaderWrapper = styled.div`
   border-bottom: solid 1px ${theme.colors.lightGrey};
   z-index: 1000;
 
+  ${(props) =>
+    props.theme &&
+    props.theme === 'pro' &&
+    `
+      background-color: ${theme.colors.proGrey};
+    `};
+
   ${({ fullScreen }) =>
     fullScreen &&
     `
@@ -33,8 +40,9 @@ export const HeaderWrapper = styled.div`
     }
   `}
 
-  ${({ showSubmenu }) =>
+  ${({ showSubmenu, theme: headerTheme }) =>
     showSubmenu &&
+    headerTheme !== 'pro' &&
     `
     background-color: ${theme.colors.white};
     border-bottom: solid 1px ${theme.colors.lightGrey};
@@ -130,12 +138,25 @@ export const HeaderWrapper = styled.div`
       cursor: pointer;
       line-height: 1;
 
+      ${(props) =>
+        props.theme &&
+        props.theme === 'pro' &&
+        `
+         color: ${theme.colors.white}
+        `};
+
       ${theme.mediaQueries.medium} {
         margin: 0 5px;
       }
 
       svg {
         fill: ${theme.colors.darkGrey};
+        ${(props) =>
+          props.theme &&
+          props.theme === 'pro' &&
+          `
+            fill: ${theme.colors.white};
+          `};
         margin-top: -2px;
         transition: all 150ms ease-out;
       }
@@ -158,6 +179,13 @@ export const HeaderWrapper = styled.div`
 
       &:hover {
         color: ${darken(0.2, theme.colors.darkGrey)};
+        ${(props) =>
+          props.theme &&
+          props.theme === 'pro' &&
+          `
+           color: ${theme.colors.white};
+           opacity: 0.9;
+          `};
       }
 
       &.active {

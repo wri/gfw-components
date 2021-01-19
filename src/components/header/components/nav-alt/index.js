@@ -5,14 +5,19 @@ import cx from 'classnames';
 import DropdownMenu from 'components/header/components/dropdown-menu';
 import NavLink from 'components/header/components/nav-link';
 
+import gfwProLogo from 'assets/logos/gfw-pro-header.png';
+
 import MyGfwIcon from 'assets/icons/mygfw.svg';
 import MoreIcon from 'assets/icons/more.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import { NavAltWrapper } from './styles';
 
+import AuthenticationInfo from '../authentication-info';
+
 class NavAlt extends PureComponent {
   static propTypes = {
+    theme: PropTypes.string,
     loggedIn: PropTypes.bool,
     loggingIn: PropTypes.bool,
     languages: PropTypes.array,
@@ -22,11 +27,13 @@ class NavAlt extends PureComponent {
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
+    proAuthenticated: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
   render() {
     const {
+      theme,
       loggedIn,
       loggingIn,
       NavLinkComponent,
@@ -37,10 +44,11 @@ class NavAlt extends PureComponent {
       handleLangSelect,
       languages,
       activeLang,
+      proAuthenticated,
     } = this.props;
 
     return (
-      <NavAltWrapper>
+      <NavAltWrapper theme={theme}>
         <div className="nav-item lang-selector">
           <DropdownMenu
             className="nested notranslate"
@@ -65,7 +73,7 @@ class NavAlt extends PureComponent {
             appUrl={appUrl}
             NavLinkComponent={NavLinkComponent}
           >
-            My GFW
+            {theme === 'pro' ? 'My GFW Pro' : 'My GFW'}
             <MyGfwIcon
               className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
             />
@@ -93,6 +101,18 @@ class NavAlt extends PureComponent {
             </button>
           )}
         </div>
+        {proAuthenticated && (
+          <AuthenticationInfo>
+            <img src={gfwProLogo} alt="gfw pro" />
+            <p>
+              You are logged in using your
+              {' '}
+              <a href="https://pro.globalforestwatch.org/" target="__BLANK">GFW Pro</a>
+              {' '}
+              account
+            </p>
+          </AuthenticationInfo>
+        )}
       </NavAltWrapper>
     );
   }

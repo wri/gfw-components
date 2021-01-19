@@ -50,10 +50,13 @@ class Header extends PureComponent {
     afterLangSelect: PropTypes.func,
     /** path to custom logo */
     customLogo: PropTypes.string,
+    /** allows to pass "theme" down to the header */
+    theme: PropTypes.bool,
   };
 
   static defaultProps = {
     appUrl: APP_URL,
+    theme: 'default',
     ...defaultConfig,
   };
 
@@ -74,6 +77,7 @@ class Header extends PureComponent {
   }
 
   checkLoggedIn = () => {
+    const { theme } = this.props;
     const query = (!isServer && qs.parse(window.location.search)) || {};
     const urlToken = query && query.token;
     const token = urlToken || localStorage.getItem('userToken');
@@ -87,8 +91,8 @@ class Header extends PureComponent {
         `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}`
       );
     }
-
-    if (token) {
+    // TODO: Check if pro is authenticated?
+    if (token && theme !== 'pro') {
       this.setState({ loggedIn: false, loggingIn: true });
       checkLoggedIn(token)
         .then((response) => {
@@ -125,6 +129,7 @@ class Header extends PureComponent {
   render() {
     const {
       className,
+      theme,
       appUrl,
       navMain,
       customLogo,
@@ -140,6 +145,7 @@ class Header extends PureComponent {
         <HeaderWrapper
           className={className}
           fullScreen={fullScreen}
+          theme={theme}
           showSubmenu={showSubmenu}
         >
           <Row className="nav-row">
