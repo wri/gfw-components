@@ -9,7 +9,6 @@ import { Media, MediaContextProvider } from 'components/responsive';
 import { APP_URL } from 'constants';
 
 import gfwLogo from 'assets/logos/gfw.png';
-import gfwProLogo from 'assets/logos/gfw-pro-header.png';
 import MenuIcon from 'assets/icons/menu.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
@@ -53,11 +52,13 @@ class Header extends PureComponent {
     customLogo: PropTypes.string,
     /** allows to pass "theme" down to the header */
     theme: PropTypes.bool,
+    proAuthenticated: PropTypes.bool,
   };
 
   static defaultProps = {
     appUrl: APP_URL,
     theme: 'default',
+    proAuthenticated: false,
     ...defaultConfig,
   };
 
@@ -136,6 +137,7 @@ class Header extends PureComponent {
       customLogo,
       languages,
       NavLinkComponent,
+      proAuthenticated,
       fullScreen,
     } = this.props;
     const { showSubmenu, clickOutside, lang } = this.state;
@@ -160,9 +162,7 @@ class Header extends PureComponent {
                     NavLinkComponent={NavLinkComponent}
                   >
                     <img
-                      src={
-                        customLogo || (theme === 'pro' ? gfwProLogo : gfwLogo)
-                      }
+                      src={customLogo || gfwLogo}
                       alt="Global Forest Watch"
                       width="76"
                       height="76"

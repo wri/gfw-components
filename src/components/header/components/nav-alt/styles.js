@@ -2,6 +2,7 @@ import theme from 'styles/theme';
 import styled from '@emotion/styled';
 
 export const NavAltWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -13,7 +14,7 @@ export const NavAltWrapper = styled.div`
     props.theme &&
     props.theme === 'pro' &&
     `
-      border-left: solid 1px transparent;
+      border-left: solid 1px #777777;
     `};
 
   .lang-selector {

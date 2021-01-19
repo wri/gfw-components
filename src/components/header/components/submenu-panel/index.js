@@ -26,6 +26,7 @@ class Header extends PureComponent {
   static propTypes = {
     apps: PropTypes.array,
     moreLinks: PropTypes.array,
+    theme: PropTypes.string,
     showSubmenu: PropTypes.bool,
     onClick: PropTypes.func,
     navMain: PropTypes.array,
@@ -38,6 +39,7 @@ class Header extends PureComponent {
     setQueryToUrl: PropTypes.func,
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
+    proAuthenticated: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
@@ -80,10 +82,11 @@ class Header extends PureComponent {
       appUrl,
       pathname,
       fullScreen,
+      theme,
     } = this.props;
 
     return (
-      <SubmenuWrapper fullScreen={fullScreen}>
+      <SubmenuWrapper theme={theme} fullScreen={fullScreen}>
         <Mobile>
           <Global styles={bodyOverflowHidden} />
         </Mobile>

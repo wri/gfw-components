@@ -5,11 +5,15 @@ import cx from 'classnames';
 import DropdownMenu from 'components/header/components/dropdown-menu';
 import NavLink from 'components/header/components/nav-link';
 
+import gfwProLogo from 'assets/logos/gfw-pro-header.png';
+
 import MyGfwIcon from 'assets/icons/mygfw.svg';
 import MoreIcon from 'assets/icons/more.svg';
 import CloseIcon from 'assets/icons/close.svg';
 
 import { NavAltWrapper } from './styles';
+
+import AuthenticationInfo from '../authentication-info';
 
 class NavAlt extends PureComponent {
   static propTypes = {
@@ -23,6 +27,7 @@ class NavAlt extends PureComponent {
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
+    proAuthenticated: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
@@ -39,6 +44,7 @@ class NavAlt extends PureComponent {
       handleLangSelect,
       languages,
       activeLang,
+      proAuthenticated,
     } = this.props;
 
     return (
@@ -95,6 +101,18 @@ class NavAlt extends PureComponent {
             </button>
           )}
         </div>
+        {proAuthenticated && (
+          <AuthenticationInfo>
+            <img src={gfwProLogo} alt="gfw pro" />
+            <p>
+              You are logged in using your
+              {' '}
+              <a href="https://pro.globalforestwatch.org/" target="__BLANK">GFW Pro</a>
+              {' '}
+              account
+            </p>
+          </AuthenticationInfo>
+        )}
       </NavAltWrapper>
     );
   }

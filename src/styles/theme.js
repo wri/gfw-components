@@ -25,6 +25,7 @@ export default {
     white: '#fff',
     black: '#000',
     lightYellow: '#fffee2',
+    proGrey: '#333333',
     error: '#ed1846',
   },
   grid: {

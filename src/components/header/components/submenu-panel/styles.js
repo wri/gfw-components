@@ -97,7 +97,6 @@ export const SubmenuWrapper = styled.div`
     top: 0;
     padding: 40px ${theme.grid.mobileGutter} 10px ${theme.grid.mobileGutter};
     background: #fff;
-
     ${theme.mediaQueries.small} {
       padding: 30px ${theme.grid.desktopGutter} 10px ${theme.grid.desktopGutter};
     }
@@ -148,6 +147,14 @@ export const SubmenuWrapper = styled.div`
         ${theme.mediaQueries.small} {
           padding: 0 ${theme.grid.desktopGutter};
         }
+
+        ${(props) =>
+          props.theme &&
+          props.theme === 'pro' &&
+          `
+           color: ${theme.colors.proGrey};
+          `};
+
 
         &:hover {
           color: ${darken(0.2, theme.colors.darkGrey)};

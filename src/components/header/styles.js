@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.div`
     props.theme &&
     props.theme === 'pro' &&
     `
-      background-color: ${theme.colors.black};
+      background-color: ${theme.colors.proGrey};
     `};
 
   ${({ fullScreen }) =>
