@@ -28,6 +28,7 @@ class NavLink extends PureComponent {
       children,
       active,
       activeShallow,
+      ...props
     } = this.props;
 
     return NavLinkComponent ? (
@@ -45,6 +46,7 @@ class NavLink extends PureComponent {
         className={cx(className, {
           active: active || (!!pathname && pathname.includes(href)),
         })}
+        {...props}
       >
         {children}
       </a>
