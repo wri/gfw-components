@@ -28,6 +28,7 @@ class NavAlt extends PureComponent {
     handleShowSubmenu: PropTypes.func,
     handleLangSelect: PropTypes.func,
     proAuthenticated: PropTypes.bool,
+    onProLogout: PropTypes.func,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
 
@@ -40,13 +41,13 @@ class NavAlt extends PureComponent {
       pathname,
       appUrl,
       handleShowSubmenu,
+      onProLogout,
       showSubmenu,
       handleLangSelect,
       languages,
       activeLang,
       proAuthenticated,
     } = this.props;
-
     return (
       <NavAltWrapper theme={theme}>
         <div className="nav-item lang-selector">
@@ -69,11 +70,12 @@ class NavAlt extends PureComponent {
             className={cx('nav-link', {
               'animate-user-icon': !loggedIn && loggingIn,
             })}
+            onClick={proAuthenticated ? onProLogout : null}
             pathname={pathname}
             appUrl={appUrl}
             NavLinkComponent={NavLinkComponent}
           >
-            {theme === 'pro' ? 'My GFW Pro' : 'My GFW'}
+            {theme === 'pro' ? 'Log out' : 'My GFW'}
             <MyGfwIcon
               className={cx('my-gfw-icon', { 'logged-in': loggedIn })}
             />
@@ -107,7 +109,9 @@ class NavAlt extends PureComponent {
             <p>
               You are logged in using your
               {' '}
-              <a href="https://pro.globalforestwatch.org/" target="__BLANK">GFW Pro</a>
+              <a href="https://pro.globalforestwatch.org/" target="__BLANK">
+                GFW Pro
+              </a>
               {' '}
               account
             </p>
