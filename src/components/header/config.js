@@ -1,4 +1,4 @@
-import { DATA_PORTAL_URL, BLOG_URL } from 'constants';
+import { DATA_PORTAL_URL } from 'constants';
 
 import gfwPro from 'assets/logos/gfw-pro.png';
 import forestWatcher from 'assets/logos/gfw-watcher.png';
@@ -30,7 +30,7 @@ export default {
         { label: 'Fires', href: '/topics/fires/' },
       ],
     },
-    { label: 'Blog', extLink: BLOG_URL },
+    { label: 'Blog', href: '/blog/' },
     { label: 'About', href: '/about/' },
     { label: 'Help', href: '/help/' },
   ],
