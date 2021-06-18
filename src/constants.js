@@ -10,6 +10,6 @@ export const breakpoints = {
 };
 
 export const APP_URL = 'https://www.globalforestwatch.org';
-export const GFW_API = 'https://production-api.globalforestwatch.org';
+export const GFW_API = 'https://api.resourcewatch.org';
 export const DATA_PORTAL_URL = 'https://data.globalforestwatch.org';
 export const BLOG_URL = 'https://blog.globalforestwatch.org';
