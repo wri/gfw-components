@@ -280,6 +280,70 @@
         border-bottom-right-radius: 0;
       }
     }
+
+    .priority-area-box {
+      display: inline-block; 
+      width: 24%; 
+      vertical-align: top;
+      margin-right: 5px;
+      padding-top: 20px; 
+      padding-bottom: 20px; 
+      border: 2px solid #F2F2F2; 
+      border-radius: 10px;
+    }
+
+    @media (max-device-width: 414px) {
+      .priority-area-box {
+        width: 25%; 
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    .priority-area-circle {
+      font-family: arial, sans-serif; 
+      font-size: 18px; 
+      font-weight: bold; 
+      color: #fff; 
+      text-align: center; 
+      vertical-align: middle; 
+      background-color: #ED4602; 
+      width: 60px; 
+      height: 60px;
+      border-radius: 30px;
+    }
+
+    .priority-area-label {
+      font-family: arial, sans-serif; 
+      font-size: 12px; 
+      color: #555; 
+      text-align: center; 
+      padding-top: 15px; 
+      font-weight: bold; 
+      text-decoration: underline;
+    }
+
+    .footer-title {
+      text-align: center;
+      font-weight: bold;
+      color: #333333;
+      padding-bottom: 25px;
+      padding-top: 25px;
+    }
+
+    .footer-text {
+      padding-bottom: 10px;
+      font-size: 14px;
+      line-height: 21px;
+      font-family: arial, sans-serif;
+      color: #555;
+      text-align: left;
+    }
+
+    .footer-link {
+      color: #9abe16;
+      text-decoration: underline;
+    }
   </style>
   <!-- Progressive Enhancements : END -->
 </head>
@@ -471,11 +535,15 @@
             <!-- Component : Secondary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
-                <td
-                  style="font-family: arial, sans-serif; padding-bottom: 30px;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
-                    优先区域内的火灾警报</h3>
+                <td style="font-family: arial, sans-serif; padding-bottom: 10px;">
+                  <h3 style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                    优先区域内的火灾警报
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family: arial, sans-serif; font-size: 14px; padding-bottom: 25px;">
+                  <p>点击下方地图查看：</p>
                 </td>
               </tr>
             </table>
@@ -487,13 +555,14 @@
                 <tr>
                 <td width="25%">
                 <![endif]-->
-                  <div style="display:inline-block; width: 25%; vertical-align: top;" class="stack-column">
-                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+                <a href="{{ alert_link }}">
+                  <div class="stack-column priority-area-box">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                       <tr>
                         <td width="60" height="60" valign="top" align="center">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
-                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                              <td width="60" height="60" valign="middle" align="center" class="priority-area-circle">
                                 {{ formatted_priority_areas.intact_forest }}
                               </td>
                             </tr>
@@ -501,24 +570,25 @@
                         </td>
                       </tr>
                       <tr>
-                        <td align="center"
-                          style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                        <td align="center" class="priority-area-label">
                           原生森林
                         </td>
                       </tr>
                     </table>
                   </div>
+                </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{ alert_link }}">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle">
                               {{ formatted_priority_areas.primary_forest }}
                             </td>
                           </tr>
@@ -526,24 +596,25 @@
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         原始森林
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{ alert_link }}">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle">
                               {{ formatted_priority_areas.peat }}
                             </td>
                           </tr>
@@ -551,24 +622,25 @@
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         泥煤
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{ alert_link }}">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle">
                               {{ formatted_priority_areas.protected_areas }}
                             </td>
                           </tr>
@@ -576,13 +648,13 @@
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         保护区域
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               </tr>
@@ -687,17 +759,37 @@
             <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <!-- Footer message : BEGIN -->
               <tr>
-                <td
-                  style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
-                  此通知报告您订阅区域内的新警报。
-											针对每个警报，您将收到一封单独的电子邮件。
-											请注意，该信息受
-                    <a href="https://www.globalforestwatch.org/terms" style="color:#9abe16;">
-                      Global Forest Watch 服务条款约束
-                    </a>
-                    . 您可以在此处取消订阅
-                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">
-                      或管理您的订阅</a>.
+                <td class="footer-title">
+                  <h3>为什么我会收到这个？</h3>
+                </td>
+              </tr>
+              <tr>
+                <td class="footer-text" style="padding-bottom: 20px;">
+                  您已选择在您所在地区检测到森林砍伐警报时立即接收通知。 每天都会发送电子邮件（在检测到新警报时）并包含过去一周的警报，因此您可能已经在之前的电子邮件中收到了有关其中一些警报的通知。
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  访问我们的帮助中心以了解如何：
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="https://www.globalforestwatch.org/help/map/guides/manage-saved-areas/" target="_blank" class="footer-link">管理您的区域</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="https://www.globalforestwatch.org/help/map/guides/save-area-subscribe-forest-change-notifications/" target="_blank" class="footer-link">保存更多区域</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="https://www.globalforestwatch.org/help/map/guides/investigate-forest-change-satellite-imagery/" target="_blank" class="footer-link">使用最近的卫星图像来验证警报</a>
                 </td>
               </tr>
             </table>
