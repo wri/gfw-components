@@ -283,7 +283,7 @@
 
     .priority-area-box {
       display: inline-block; 
-      width: 24%; 
+      width: 23%; 
       vertical-align: top;
       margin-right: 5px;
       padding-top: 20px; 
@@ -326,6 +326,8 @@
     .footer-title {
       text-align: center;
       font-weight: bold;
+      font-family: arial, sans-serif; 
+      font-size: 16px;
       color: #333333;
       padding-bottom: 25px;
       padding-top: 25px;
@@ -341,7 +343,7 @@
     }
 
     .footer-link {
-      color: #9abe16;
+      color: #9abe16 !important;
       text-decoration: underline;
     }
   </style>
@@ -555,7 +557,7 @@
                 <tr>
                 <td width="25%">
                 <![endif]-->
-                <a href="{{ alert_link }}">
+                <a href="{{{ alert_link }}}" style="cursor: pointer;">
                   <div class="stack-column priority-area-box">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                       <tr>
@@ -581,7 +583,7 @@
               </td>
               <td width="25%">
               <![endif]-->
-              <a href="{{ alert_link }}">
+              <a href="{{{ alert_link }}}" style="cursor: pointer;">
                 <div class="stack-column priority-area-box">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
@@ -607,7 +609,7 @@
               </td>
               <td width="25%">
               <![endif]-->
-              <a href="{{ alert_link }}">
+              <a href="{{{ alert_link }}}" style="cursor: pointer;">
                 <div class="stack-column priority-area-box">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
@@ -633,7 +635,7 @@
               </td>
               <td width="25%">
               <![endif]-->
-              <a href="{{ alert_link }}">
+              <a href="{{{ alert_link }}}" style="cursor: pointer;">
                 <div class="stack-column priority-area-box">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
@@ -730,7 +732,7 @@
                           <tr>
                             <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #97BD3D; text-align: center; height: 40px;">
                               <a href="{{{ dashboard_link }}}"
-                                style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
+                                style="padding: 11px 17px; display: block; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
                                 打开面板
                               </a>
                             </td>
