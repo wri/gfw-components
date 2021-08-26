@@ -18,6 +18,7 @@ class DropdownMenu extends PureComponent {
     appUrl: PropTypes.string,
     active: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    slim: PropTypes.bool,
   };
 
   state = { open: false };
@@ -32,11 +33,12 @@ class DropdownMenu extends PureComponent {
       appUrl,
       active,
       pathname,
+      slim,
     } = this.props;
     const { open } = this.state;
 
     return (
-      <DropdownWrapper className={className}>
+      <DropdownWrapper className={className} slim={slim}>
         <OutsideClickHandler
           onOutsideClick={() => this.setState({ open: false })}
         >

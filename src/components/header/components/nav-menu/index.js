@@ -15,6 +15,7 @@ class NavMenu extends PureComponent {
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
+    slim: PropTypes.bool,
   };
 
   render() {
@@ -25,6 +26,7 @@ class NavMenu extends PureComponent {
       NavLinkComponent,
       appUrl,
       pathname,
+      slim,
     } = this.props;
 
     return menuItems ? (
@@ -40,6 +42,7 @@ class NavMenu extends PureComponent {
                 active={!!pathname && pathname.includes(item.href)}
                 pathname={pathname}
                 appUrl={appUrl}
+                slim={slim}
               />
             ) : (
               <Fragment>

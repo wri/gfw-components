@@ -40,6 +40,21 @@ export const HeaderWrapper = styled.div`
     }
   `}
 
+  ${({ slim }) =>
+    slim &&
+    `
+    height: 43px;
+    .nav-row {
+      max-width: initial;
+      padding: 0;
+    }
+
+    .nav-column {
+      padding-left: 0;
+    }
+
+  `}
+
   ${({ showSubmenu, theme: headerTheme }) =>
     showSubmenu &&
     headerTheme !== 'pro' &&
@@ -72,6 +87,12 @@ export const HeaderWrapper = styled.div`
       height: 76px;
     `}
 
+    ${({ slim }) =>
+      slim &&
+      `
+      height: 43px;
+    `}
+
     ${theme.mediaQueries.medium} {
       justify-content: flex-start;
       padding-left: 80px;
@@ -96,6 +117,12 @@ export const HeaderWrapper = styled.div`
       fullScreen &&
       `
       height: 76px;
+    `}
+
+    ${({ slim }) =>
+      slim &&
+      `
+      height: 43px;
     `}
 
     &.show-menu {

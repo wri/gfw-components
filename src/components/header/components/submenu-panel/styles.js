@@ -20,6 +20,12 @@ export const SubmenuWrapper = styled.div`
     background: ${theme.colors.white};
   `}
 
+  ${({ slim }) =>
+    slim &&
+    `
+    max-width: initial;
+  `}
+
   ${theme.mediaQueries.small} {
     height: auto;
 
@@ -104,7 +110,9 @@ export const SubmenuWrapper = styled.div`
     padding: 40px ${theme.grid.mobileGutter} 10px ${theme.grid.mobileGutter};
     background: #fff;
     ${theme.mediaQueries.small} {
-      padding: 30px ${theme.grid.desktopGutter} 10px ${theme.grid.desktopGutter};
+      padding: 30px ${theme.grid.desktopGutter} 10px ${
+  theme.grid.desktopGutter
+};
     }
   }
 

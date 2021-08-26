@@ -38,6 +38,7 @@ class Header extends PureComponent {
     loggedIn: PropTypes.bool,
     setQueryToUrl: PropTypes.func,
     appUrl: PropTypes.string,
+    slim: PropTypes.bool,
     pathname: PropTypes.string,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   };
@@ -82,10 +83,11 @@ class Header extends PureComponent {
       pathname,
       fullScreen,
       theme,
+      slim,
     } = this.props;
 
     return (
-      <SubmenuWrapper theme={theme} fullScreen={fullScreen}>
+      <SubmenuWrapper theme={theme} slim={slim} fullScreen={fullScreen}>
         <Mobile>
           <Global styles={bodyOverflowHidden} />
         </Mobile>

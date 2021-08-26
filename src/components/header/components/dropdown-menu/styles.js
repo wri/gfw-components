@@ -28,6 +28,12 @@ export const DropdownWrapper = styled.div`
     border: solid 1px ${theme.colors.lightGrey};
     z-index: 1;
 
+    ${({ slim }) =>
+      slim &&
+      `
+        top: 42px;
+    `}
+
     > li {
       > button,
       > a {

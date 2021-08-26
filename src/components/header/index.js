@@ -52,6 +52,8 @@ class Header extends PureComponent {
     customLogo: PropTypes.string,
     /** allows to pass "theme" down to the header */
     theme: PropTypes.bool,
+    /** makes the header "slimmer" */
+    slim: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -72,6 +74,7 @@ class Header extends PureComponent {
   };
 
   componentDidMount() {
+    console.log('im mounted', this.props);
     this.checkLoggedIn();
     this.findPathname();
   }
@@ -136,6 +139,7 @@ class Header extends PureComponent {
       languages,
       NavLinkComponent,
       fullScreen,
+      slim,
     } = this.props;
     const { showSubmenu, clickOutside, lang } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
@@ -144,6 +148,7 @@ class Header extends PureComponent {
       <MediaContextProvider>
         <HeaderWrapper
           className={className}
+          slim={slim}
           fullScreen={fullScreen}
           theme={theme}
           showSubmenu={showSubmenu}
