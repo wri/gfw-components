@@ -74,7 +74,6 @@ class Header extends PureComponent {
   };
 
   componentDidMount() {
-    console.log('im mounted', this.props);
     this.checkLoggedIn();
     this.findPathname();
   }

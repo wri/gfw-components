@@ -1,6 +1,6 @@
 {
   "name": "gfw-components",
-  "version": "1.7.6",
+  "version": "1.7.7",
   "main": "lib/index.js",
   "scripts": {
     "start": "styleguidist server",
@@ -17,8 +17,8 @@
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "prop-types": "15.6.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "dependencies": {
     "@artsy/fresnel": "^1.1.0",
@@ -71,8 +71,8 @@
     "lodash-es": "^4.17.15",
     "prettier": "^2.0.4",
     "prop-types": "15.6.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-styleguidist": "^11.0.6",
     "release": "^6.3.0",
     "resolve-url-loader": "2.3.0",

@@ -7,16 +7,28 @@ import GoogleplusIcon from 'assets/icons/social/google-plus.svg';
 export default {
   links: [
     {
-      label: 'GFW',
-      link: 'https://www.globalforestwatch.org',
+      label: 'Map',
+      link: 'https://www.globalforestwatch.org/map',
+    },
+    {
+      label: 'Dashboards',
+      link: 'https://www.globalforestwatch.org/dashboards',
+    },
+    {
+      label: 'Topics',
+      link: 'https://www.globalforestwatch.org/topics/biodiversity/',
     },
     {
       label: 'Blog',
-      link: 'https://blog.globalforestwatch.org',
+      link: 'https://globalforestwatch.org/blog',
     },
     {
-      label: 'How to portal',
-      link: 'https://www.globalforestwatch.org/howto',
+      label: 'About',
+      link: 'https://www.globalforestwatch.org/about/',
+    },
+    {
+      label: 'Help',
+      link: 'https://www.globalforestwatch.org/help/',
     },
   ],
   socialLinks: [
