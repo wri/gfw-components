@@ -503,8 +503,8 @@
                   <div style="display:inline-block; width: 30%; vertical-align: top; margin-bottom: 20px;" class="stack-column">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" align="center" style="margin: auto; text-align: center; width: 120px; height: 120px;">
                       <tr>
-                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
-                          {{ formatted_alert_count }}
+                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 24px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
+                          {{ area_ha_sum }} ha
                         </td>
                       </tr>
                     </table>
@@ -518,8 +518,8 @@
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
                         <p>
-                          Il y a eu <b style="color: #F26798;">{{ glad_count }} alertes de déforestation GLAD</b> signalées au cours de la semaine du {{ week_of }} (du {{ week_start }} au {{ week_end }}).
-	                        Ce chiffre est <b style="color: #F26798;">{{ glad_frequency }}</b> comparé à la même semaine au cours des années précédentes.
+                          Il y a eu <b style="color: #F26798;">{{ glad_count }} nouveaux alertes de déforestation</b> signalées au cours de la semaine du {{ week_of }} (du {{ week_start }} au {{ week_end }}).
+	                        Les alertes couvraient un total de <b style="color: #F26798;">{{ area_ha_sum }} hectares</b>.
                         </p>
                       </td>
                     </tr>
@@ -563,7 +563,7 @@
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
                               <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
-                                {{ formatted_priority_areas.intact_forest }}
+                                {{ intact_forest_ha_sum }} ha
                               </td>
                             </tr>
                           </table>
@@ -589,7 +589,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
-                              {{ formatted_priority_areas.primary_forest }}
+                              {{ primary_forest_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
@@ -615,7 +615,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
-                              {{ formatted_priority_areas.peat }}
+                              {{ peat_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
@@ -641,7 +641,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
                             <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
-                              {{ formatted_priority_areas.protected_areas }}
+                              {{ wdpa_ha_sum }} ha
                             </td>
                           </tr>
                         </table>

@@ -47,7 +47,12 @@ Alert email triggered when the GLAD alerts data inside your area of interest has
   "help_center_url_save_more_areas": "http://staging.globalforestwatch.org/help/map/guides/save-area-subscribe-forest-change-notifications?lang=en",
   "help_center_url_investigate_alerts": "http://staging.globalforestwatch.org/help/map/guides/investigate-forest-change-satellite-imagery?lang=en",
   "alert_date_begin": "2021-06-22",
-  "alert_date_end": "2021-06-29"
+  "alert_date_end": "2021-06-29",
+  "area_ha_sum": 100,
+  "intact_forest_ha_sum": 10,
+  "primary_forest_hs_sum": 2,
+  "peat_ha_sum": 0,
+  "wdpa_ha_sum": 10
 }
 ```
 

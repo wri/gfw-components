@@ -57,6 +57,11 @@ const demoVars = {
     'http://staging.globalforestwatch.org/help/map/guides/investigate-forest-change-satellite-imagery?lang=en',
   alert_date_begin: '2021-06-22',
   alert_date_end: '2021-06-29',
+  area_ha_sum: 10000,
+  intact_forest_ha_sum: 9900,
+  primary_forest_hs_sum: 2,
+  peat_ha_sum: 0,
+  wdpa_ha_sum: 10
 };
 
 const DeforestationAlertsEmail = () => {
