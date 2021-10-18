@@ -52,7 +52,8 @@ Alert email triggered when the GLAD alerts data inside your area of interest has
   "intact_forest_ha_sum": 10,
   "primary_forest_hs_sum": 2,
   "peat_ha_sum": 0,
-  "wdpa_ha_sum": 10
+  "wdpa_ha_sum": 10,
+  "glad_alert_type": "RADD"
 }
 ```
 
