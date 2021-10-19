@@ -280,6 +280,71 @@
         border-bottom-right-radius: 0;
       }
     }
+    
+    .priority-area-box {
+      display: inline-block; 
+      width: 23%; 
+      vertical-align: top;
+      margin-right: 5px;
+      padding-top: 20px; 
+      padding-bottom: 20px; 
+      border: 2px solid #F2F2F2; 
+      border-radius: 10px;
+    }
+
+    @media (max-device-width: 414px) {
+      .priority-area-box {
+        width: 25%; 
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    .priority-area-circle {
+      font-family: arial, sans-serif; 
+      font-size: 18px; 
+      font-weight: bold; 
+      color: #fff; 
+      text-align: center; 
+      vertical-align: middle; 
+      width: 60px; 
+      height: 60px;
+      border-radius: 30px;
+    }
+
+    .priority-area-label {
+      font-family: arial, sans-serif; 
+      font-size: 12px; 
+      color: #555; 
+      text-align: center; 
+      padding-top: 15px; 
+      font-weight: bold; 
+      text-decoration: underline;
+    }
+
+    .footer-title {
+      text-align: center;
+      font-weight: bold;
+      font-family: arial, sans-serif; 
+      font-size: 16px;
+      color: #333333;
+      padding-bottom: 25px;
+      padding-top: 25px;
+    }
+
+    .footer-text {
+      padding-bottom: 10px;
+      font-size: 14px;
+      line-height: 21px;
+      font-family: arial, sans-serif;
+      color: #555;
+      text-align: left;
+    }
+
+    .footer-link {
+      color: #9abe16 !important;
+      text-decoration: underline;
+    }
   </style>
   <!-- Progressive Enhancements : END -->
 </head>
@@ -438,8 +503,8 @@
                   <div style="display:inline-block; width: 30%; vertical-align: top; margin-bottom: 20px;" class="stack-column">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" align="center" style="margin: auto; text-align: center; width: 120px; height: 120px;">
                       <tr>
-                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
-                          {{ formatted_alert_count }}
+                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 24px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
+                          {{ area_ha_sum }} ha
                         </td>
                       </tr>
                     </table>
@@ -453,8 +518,8 @@
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
                         <p>
-                          Houve <b style="color: #F26798;">{{ glad_count }} alertas de desmatamento GLAD</b> relatados na semana de {{ week_of }} (de {{ week_start }} até {{ week_end }}).
-	                        Esse número é <b style="color: #F26798;">{{ glad_frequency }}</b> em comparação com a mesma semana dos anos anteriores.
+                          Houve <b style="color: #F26798;">{{ glad_count }} {{ glad_alert_type }} alertas de desmatamento</b> relatados na semana de {{ week_of }} (de {{ week_start }} até {{ week_end }}).
+	                        Os alertas cobriram um total de <b style="color: #F26798;">{{ area_ha_sum }} hectares</b>.
                         </p>
                       </td>
                     </tr>
@@ -470,11 +535,15 @@
             <!-- Component : Secondary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
-                <td
-                  style="font-family: arial, sans-serif; padding-bottom: 30px;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
-                    ALERTAS DE DESMATAMENTO EM ÁREAS PRIORITÁRIAS</h3>
+                <td style="font-family: arial, sans-serif; padding-bottom: 10px;">
+                  <h3 style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                    ALERTAS DE DESMATAMENTO EM ÁREAS PRIORITÁRIAS
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family: arial, sans-serif; font-size: 14px; padding-bottom: 25px;">
+                  <p>Selecione abaixo para ver no mapa:</p>
                 </td>
               </tr>
             </table>
@@ -486,102 +555,106 @@
                 <tr>
                 <td width="25%">
                 <![endif]-->
-                  <div style="display:inline-block; width: 25%; vertical-align: top;" class="stack-column">
-                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+                <a href="{{{ map_url_intact_forest }}}" style="cursor: pointer;">
+                  <div class="stack-column priority-area-box">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                       <tr>
                         <td width="60" height="60" valign="top" align="center">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
-                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                                {{ formatted_priority_areas.intact_forest }}
+                              <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                                {{ intact_forest_ha_sum }} ha
                               </td>
                             </tr>
                           </table>
                         </td>
                       </tr>
                       <tr>
-                        <td align="center"
-                          style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                        <td align="center" class="priority-area-label">
                           FLORESTA INTACTA
                         </td>
                       </tr>
                     </table>
                   </div>
-              <!--[if mso]>
+                </a>
+                <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_primary_forest }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.primary_forest }}
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                              {{ primary_forest_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         FLORESTA PRIMÁRIA
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_peat }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.peat }}
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                              {{ peat_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         TURFA
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_wdpa }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.protected_areas }}
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                              {{ wdpa_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         ÁREAS PROTEGIDAS
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               </tr>
@@ -657,7 +730,7 @@
                           <tr>
                             <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #97BD3D; text-align: center; height: 40px;">
                               <a href="{{{ dashboard_link }}}"
-                                style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
+                                style="padding: 11px 17px; display: block; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
                                 ABRIR PAINEL
                               </a>
                             </td>
@@ -686,17 +759,48 @@
             <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <!-- Footer message : BEGIN -->
               <tr>
-                <td
-                  style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
+                <td class="footer-title">
+                  <h3>Por que estou recebendo isto?</h3>
+                </td>
+              </tr>
+              <tr>
+                <td class="footer-text" style="padding-bottom: 20px;">
+                  Você definiu receber notificações imediatamente após alterações florestais terem sido detectadas em sua área. Emails serão enviados diariamente (quando novos alertas forem detectados) e incluem também alertas da última semana. Portando, existe possibilidade de que você já tenha sido notificado sobre alguns alertas em emails anteriores.
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  Acesse nosso Centro de Apoio para aprender como:
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_manage_areas }}}" target="_blank" class="footer-link">Gerenciar suas áreas</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_save_more_areas }}}" target="_blank" class="footer-link">Salvar mais áreas</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_investigate_alerts }}}" target="_blank" class="footer-link">Usar imagens de satélite recente para verificar alertas</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding: 30px 0; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
                   Esta notificação relata novos alertas para as áreas em que você se inscreveu.
 											Você receberá um e-mail separado para cada uma.
 											Observe que estas informações estão sujeitas aos
                     <a href="https://www.globalforestwatch.org/terms" style="color:#9abe16;">
-                      Termos de Serviço do Global Forest Watch
-                    </a>
-                    . Cancele a assinatura ou administre suas assinaturas
-                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">
-                      aqui</a>.
+                      Termos de Serviço do Global Forest Watch</a>. Cancele a assinatura ou administre suas assinaturas
+                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">aqui</a>.
                 </td>
               </tr>
             </table>

@@ -280,6 +280,71 @@
         border-bottom-right-radius: 0;
       }
     }
+
+    .priority-area-box {
+      display: inline-block; 
+      width: 23%; 
+      vertical-align: top;
+      margin-right: 5px;
+      padding-top: 20px; 
+      padding-bottom: 20px; 
+      border: 2px solid #F2F2F2; 
+      border-radius: 10px;
+    }
+
+    @media (max-device-width: 414px) {
+      .priority-area-box {
+        width: 25%; 
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    .priority-area-circle {
+      font-family: arial, sans-serif; 
+      font-size: 18px; 
+      font-weight: bold; 
+      color: #fff; 
+      text-align: center; 
+      vertical-align: middle; 
+      width: 60px; 
+      height: 60px;
+      border-radius: 30px;
+    }
+
+    .priority-area-label {
+      font-family: arial, sans-serif; 
+      font-size: 12px; 
+      color: #555; 
+      text-align: center; 
+      padding-top: 15px; 
+      font-weight: bold; 
+      text-decoration: underline;
+    }
+
+    .footer-title {
+      text-align: center;
+      font-weight: bold;
+      font-family: arial, sans-serif; 
+      font-size: 16px;
+      color: #333333;
+      padding-bottom: 25px;
+      padding-top: 25px;
+    }
+
+    .footer-text {
+      padding-bottom: 10px;
+      font-size: 14px;
+      line-height: 21px;
+      font-family: arial, sans-serif;
+      color: #555;
+      text-align: left;
+    }
+
+    .footer-link {
+      color: #9abe16 !important;
+      text-decoration: underline;
+    }
   </style>
   <!-- Progressive Enhancements : END -->
 </head>
@@ -438,8 +503,8 @@
                   <div style="display:inline-block; width: 30%; vertical-align: top; margin-bottom: 20px;" class="stack-column">
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="120" height="120" align="center" style="margin: auto; text-align: center; width: 120px; height: 120px;">
                       <tr>
-                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 36px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
-                          {{ formatted_alert_count }}
+                        <td width="120" height="120" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 24px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 120px; height: 120px; border-radius: 60px;">
+                          {{ area_ha_sum }} ha
                         </td>
                       </tr>
                     </table>
@@ -453,8 +518,8 @@
                     <tr>
                       <td valign="top" style="font-family: arial, sans-serif; font-size: 18px; line-height: 30px; color: #4A4A4A; text-align: left; vertical-align: top;">
                         <p>
-                          在 {{ week_of }}（从 {{ week_start }}至 {{ week_end }}）的一周内报告  <b style="color: #F26798;">{{ glad_count }} 个 GLAD 毁林警报</b>。
-	                        相比之前几年的同一周，这种情况与同一周相比 <b style="color: #F26798;">{{ glad_frequency }}</b>。
+                          在 {{ week_of }}（从 {{ week_start }}至 {{ week_end }}）的一周内报告  <b style="color: #F26798;">{{ glad_count }} 个 {{ glad_alert_type }} 毁林警报</b>。
+	                        警报共覆盖 <b style="color: #F26798;">{{ area_ha_sum }} 公顷 (ha)</b>。
                         </p>
                       </td>
                     </tr>
@@ -470,11 +535,15 @@
             <!-- Component : Secondary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
-                <td
-                  style="font-family: arial, sans-serif; padding-bottom: 30px;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
-                    优先区域内的毁林警报</h3>
+                <td style="font-family: arial, sans-serif; padding-bottom: 10px;">
+                  <h3 style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                    优先区域内的毁林警报
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family: arial, sans-serif; font-size: 14px; padding-bottom: 25px;">
+                  <p>点击下面查看地图</p>
                 </td>
               </tr>
             </table>
@@ -486,102 +555,106 @@
                 <tr>
                 <td width="25%">
                 <![endif]-->
-                  <div style="display:inline-block; width: 25%; vertical-align: top;" class="stack-column">
-                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+                <a href="{{{ map_url_intact_forest }}}" style="cursor: pointer;">
+                  <div class="stack-column priority-area-box">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                       <tr>
                         <td width="60" height="60" valign="top" align="center">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
-                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                                {{ formatted_priority_areas.intact_forest }}
+                              <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                                {{ intact_forest_ha_sum }} ha
                               </td>
                             </tr>
                           </table>
                         </td>
                       </tr>
                       <tr>
-                        <td align="center"
-                          style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                        <td align="center" class="priority-area-label">
                           原生森林
                         </td>
                       </tr>
                     </table>
                   </div>
+                </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_primary_forest }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.primary_forest }}
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                              {{ primary_forest_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         原始森林
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_peat }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.peat }}
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                              {{ peat_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         泥煤
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_wdpa }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #F26798; width: 60px; height: 60px; border-radius: 30px;">
-                              {{ formatted_priority_areas.protected_areas }}
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #F26798;">
+                              {{ wdpa_ha_sum }} ha
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         保护区域
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               </tr>
@@ -657,7 +730,7 @@
                           <tr>
                             <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #97BD3D; text-align: center; height: 40px;">
                               <a href="{{{ dashboard_link }}}"
-                                style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
+                                style="padding: 11px 17px; display: block; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
                                 打开面板
                               </a>
                             </td>
@@ -686,17 +759,48 @@
             <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <!-- Footer message : BEGIN -->
               <tr>
-                <td
-                  style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
+                <td class="footer-title">
+                  <h3>我为什么收到这个？</h3>
+                </td>
+              </tr>
+              <tr>
+                <td class="footer-text" style="padding-bottom: 20px;">
+                  您已经选择接受您的地区的森林变化通知。您每天会收到电子邮件的通知（当有新的预警时），邮件里同时包括上一周的预警信息，所以您可能已经在之前的邮件中看到过其中的一些预警信息。
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  访问我们的帮助中心了解如何：
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_manage_areas }}}" target="_blank" class="footer-link">管理您的地区</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_save_more_areas }}}" target="_blank" class="footer-link">保存更多的地区</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_investigate_alerts }}}" target="_blank" class="footer-link">用最近的卫星图像来验证预警信息</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding: 30px 0; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
                   此通知报告您订阅区域内的新警报。
 											针对每个警报，您将收到一封单独的电子邮件。
 											请注意，该信息受
                     <a href="https://www.globalforestwatch.org/terms" style="color:#9abe16;">
-                      Global Forest Watch 服务条款约束
-                    </a>
-                    . 您可以在此处取消订阅
-                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">
-                      或管理您的订阅</a>.
+                      Global Forest Watch 服务条款约束</a>. 您可以在此处取消订阅
+                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">或管理您的订阅</a>.
                 </td>
               </tr>
             </table>

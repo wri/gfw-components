@@ -280,6 +280,71 @@
         border-bottom-right-radius: 0;
       }
     }
+
+    .priority-area-box {
+      display: inline-block; 
+      width: 23%; 
+      vertical-align: top;
+      margin-right: 5px;
+      padding-top: 20px; 
+      padding-bottom: 20px; 
+      border: 2px solid #F2F2F2; 
+      border-radius: 10px;
+    }
+
+    @media (max-device-width: 414px) {
+      .priority-area-box {
+        width: 25%; 
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    .priority-area-circle {
+      font-family: arial, sans-serif; 
+      font-size: 18px; 
+      font-weight: bold; 
+      color: #fff; 
+      text-align: center; 
+      vertical-align: middle;
+      width: 60px; 
+      height: 60px;
+      border-radius: 30px;
+    }
+
+    .priority-area-label {
+      font-family: arial, sans-serif; 
+      font-size: 12px; 
+      color: #555; 
+      text-align: center; 
+      padding-top: 15px; 
+      font-weight: bold; 
+      text-decoration: underline;
+    }
+
+    .footer-title {
+      text-align: center;
+      font-weight: bold;
+      font-family: arial, sans-serif; 
+      font-size: 16px;
+      color: #333333;
+      padding-bottom: 25px;
+      padding-top: 25px;
+    }
+
+    .footer-text {
+      padding-bottom: 10px;
+      font-size: 14px;
+      line-height: 21px;
+      font-family: arial, sans-serif;
+      color: #555;
+      text-align: left;
+    }
+
+    .footer-link {
+      color: #9abe16 !important;
+      text-decoration: underline;
+    }
   </style>
   <!-- Progressive Enhancements : END -->
 </head>
@@ -470,11 +535,15 @@
             <!-- Component : Secondary heading -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
               <tr>
-                <td
-                  style="font-family: arial, sans-serif; padding-bottom: 30px;">
-                  <h3
-                    style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
-                    ALERTE INCENDIES DANS LES ZONES PRIORITAIRES</h3>
+                <td style="font-family: arial, sans-serif; padding-bottom: 10px;">
+                  <h3 style="font-weight: bold; font-size: 13px; line-height: 20px; color: #555555; text-transform: uppercase;">
+                    ALERTE INCENDIES DANS LES ZONES PRIORITAIRES
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family: arial, sans-serif; font-size: 14px; padding-bottom: 25px;">
+                  <p>Cliquez sur la carte ci-dessous:</p>
                 </td>
               </tr>
             </table>
@@ -486,13 +555,14 @@
                 <tr>
                 <td width="25%">
                 <![endif]-->
-                  <div style="display:inline-block; width: 25%; vertical-align: top;" class="stack-column">
-                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+                <a href="{{{ map_url_intact_forest }}}" style="cursor: pointer;">
+                  <div class="stack-column priority-area-box">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                       <tr>
                         <td width="60" height="60" valign="top" align="center">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                             <tr>
-                              <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                              <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #ED4602;">
                                 {{ formatted_priority_areas.intact_forest }}
                               </td>
                             </tr>
@@ -500,24 +570,25 @@
                         </td>
                       </tr>
                       <tr>
-                        <td align="center"
-                          style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                        <td align="center" class="priority-area-label">
                           FORÊT VIERGE
                         </td>
                       </tr>
                     </table>
                   </div>
+                </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_primary_forest }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #ED4602;">
                               {{ formatted_priority_areas.primary_forest }}
                             </td>
                           </tr>
@@ -525,24 +596,25 @@
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         FORÊT PRIMAIRE
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_peat }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #ED4602;">
                               {{ formatted_priority_areas.peat }}
                             </td>
                           </tr>
@@ -550,24 +622,25 @@
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         TOURBIÈRE
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               <td width="25%">
               <![endif]-->
-                <div style="display:inline-block; margin: 0; width: 25%; vertical-align: top;" class="stack-column">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <a href="{{{ map_url_wdpa }}}" style="cursor: pointer;">
+                <div class="stack-column priority-area-box">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td width="60" height="60" valign="top" align="center">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="60" height="60" style="height: 60px;">
                           <tr>
-                            <td width="60" height="60" valign="middle" align="center" style="font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle; background-color: #ED4602; width: 60px; height: 60px; border-radius: 30px;">
+                            <td width="60" height="60" valign="middle" align="center" class="priority-area-circle" style="background-color: #ED4602;">
                               {{ formatted_priority_areas.protected_areas }}
                             </td>
                           </tr>
@@ -575,13 +648,13 @@
                       </td>
                     </tr>
                     <tr>
-                      <td align="center"
-                        style="font-family: arial, sans-serif; font-size: 12px; color: #555; text-align: center; padding-top: 15px;">
+                      <td align="center" class="priority-area-label">
                         ZONES PROTÉGÉES
                       </td>
                     </tr>
                   </table>
                 </div>
+              </a>
               <!--[if mso]>
               </td>
               </tr>
@@ -657,7 +730,7 @@
                           <tr>
                             <td width="100%" height="40" style="border-radius: 25px; width: 100%; background: #97BD3D; text-align: center; height: 40px;">
                               <a href="{{{ dashboard_link }}}"
-                                style="padding: 11px 17px; display: block; height: 100%; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
+                                style="padding: 11px 17px; display: block; border-radius: 25px; font-weight: bold;font-family: arial, sans-serif; font-size: 17px; line-height: 17px; color: #ffffff; text-align: center; text-decoration: none; white-space: nowrap;">
                                 TABLEAU DE BORD
                               </a>
                             </td>
@@ -686,17 +759,48 @@
             <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <!-- Footer message : BEGIN -->
               <tr>
-                <td
-                  style="padding-bottom: 10px; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
+                <td class="footer-title">
+                  <h3>Pourquoi est-ce que je reçois ceci?</h3>
+                </td>
+              </tr>
+              <tr>
+                <td class="footer-text" style="padding-bottom: 20px;">
+                  Vous avez choisi de recevoir des notifications dès que des feux sont détectés dans votre région. Les courriels sont envoyés quotidiennement (lorsque de nouvelles alertes sont détectées) et incluent les alertes de la semaine précédente, vous avez donc peut-être déjà été informé de certaines de ces alertes dans des courriels précédents.
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  Accédez à notre Centre d'aide pour apprendre à:
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_manage_areas }}}" target="_blank" class="footer-link">Gérez vos zones</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_save_more_areas }}}" target="_blank" class="footer-link">Sauvegarder plus de zones</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="footer-text">
+                  <a href="{{{ help_center_url_investigate_alerts }}}" target="_blank" class="footer-link">Utiliser une imagerie par satellite récente pour vérifier les alertes</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding: 30px 0; font-size: 14px; line-height: 21px; font-family: arial, sans-serif; color: #555; text-align: left;">
                   Cette notification fait état de nouvelles alertes pour la zone à laquelle vous vous êtes abonné.
 									  		Vous recevrez un e-mail séparé pour chacune d’elles.
 									  		Veuillez noter que ces informations sont soumises aux
                     <a href="https://www.globalforestwatch.org/terms" style="color:#9abe16;">
-                      Conditions d'utilisation du Global Forest Watch
-                    </a>
-                    . Vous pouvez vous désabonner ou gérer vos abonnements
-                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">
-                      ici</a>.
+                      Conditions d'utilisation du Global Forest Watch</a>. Vous pouvez vous désabonner ou gérer vos abonnements
+                    <a href="{{{ unsubscribe_url }}}" target="_blank" style="color:#9abe16;">ici</a>.
                 </td>
               </tr>
             </table>
