@@ -14,7 +14,7 @@ import Row from 'components/grid/row';
 import Column from 'components/grid/column';
 import H4 from 'components/html/h4';
 
-import MoreIcon from 'assets/icons/more.svg';
+// import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';
 
 import { bodyOverflowHidden } from 'styles/global';
@@ -175,7 +175,7 @@ class Header extends PureComponent {
               </div>
             </Media>
             <div className="menu-section">
-              <H4>Other applications</H4>
+              <H4>Other resources</H4>
               <div className="apps-slider">
                 {apps &&
                   apps.map((d) => (
@@ -192,7 +192,7 @@ class Header extends PureComponent {
                       />
                     </a>
                   ))}
-                <a
+                {/* <a
                   href="https://developers.globalforestwatch.org"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -202,7 +202,7 @@ class Header extends PureComponent {
                     <MoreIcon className="icon-more" />
                     Explore all apps
                   </div>
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="menu-section">
