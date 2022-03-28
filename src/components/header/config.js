@@ -2,6 +2,7 @@ import { DATA_PORTAL_URL } from 'constants';
 
 import gfwPro from 'assets/logos/gfw-pro.png';
 import forestWatcher from 'assets/logos/gfw-watcher.png';
+import gfr from 'assets/logos/gfr.png';
 
 import mapbuilder from 'assets/icons/mapbuilder.svg';
 import sgf from 'assets/icons/sgf.svg';
@@ -44,6 +45,11 @@ export default {
       label: 'Forest Watcher',
       extLink: 'https://forestwatcher.globalforestwatch.org',
       image: forestWatcher,
+    },
+    {
+      label: 'Global Forest Review',
+      extLink: 'https://research.wri.org/gfr/global-forest-review',
+      image: gfr,
     },
   ],
   moreLinks: [
