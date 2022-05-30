@@ -68,7 +68,6 @@ module.exports = {
     {
       name: 'Emails',
       content: 'src/docs/emails.md',
-      components: 'src/components/emails/*/index.js',
     },
     {
       name: 'Responsive',

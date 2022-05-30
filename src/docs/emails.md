@@ -1,5 +1,5 @@
 <br />
-HTML email templates used for GFW API transactional email notifications alongside a base template with copy and paste components for easy template building. All templates, layout, and components have been tested for all major email clients.
+GFW templates use <a href="https://www.sparkpost.com/features/email-templates/" target="_blank">Sparkpost templates</a> for transactional email notifications. These templates are managed as part of the RW API infrastructure. See <a href="https://github.com/resource-watch/api-infrastructure/tree/production/terraform/modules/email-templates" target="_blank">this link</a> for instructions on how to modify these templates.
 
 NOTE: Outlook 2016 and older does not support border radius property resulting in buttons and data circles showing as squares or rectangles.
 <br />
