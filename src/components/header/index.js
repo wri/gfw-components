@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import qs from 'query-string';
+import moment from 'moment';
 
 import { checkLoggedIn } from 'services/user';
 
@@ -82,9 +83,11 @@ class Header extends PureComponent {
     const { theme } = this.props;
     const query = (!isServer && qs.parse(window.location.search)) || {};
     const urlToken = query && query.token;
+    const isTokenValid =
+      moment() < moment(localStorage.getItem('userTokenExpirationDate'));
     const token = urlToken || localStorage.getItem('userToken');
 
-    if (urlToken && !isServer) {
+    if (urlToken && !isServer && isTokenValid) {
       delete query.token;
       const cleanQuery = query && qs.stringify(query);
       window.history.pushState(
