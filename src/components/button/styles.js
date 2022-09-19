@@ -120,6 +120,28 @@ export const ButtonParent = styled.button`
     }
   `}
 
+  ${({ lightGrey }) =>
+    lightGrey &&
+    `
+    background-color: ${theme.colors.lightGrey};
+
+    &:hover {
+      background-color: ${theme.colors.darkGrey};
+    }
+  `}
+
+  ${({ lightGreyAlternate }) =>
+    lightGreyAlternate &&
+    `
+    color: ${theme.colors.darkestGrey};
+    background-color: ${theme.colors.lightGrey};
+
+    &:hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.darkGrey};
+    }
+  `}
+
   ${({ dark }) =>
     dark &&
     `
