@@ -16,10 +16,9 @@ const CookiesBanner = ({ onAccept }) => (
           This website uses cookies to provide you with an improved user
           experience. By continuing to browse this site, you consent to the use
           of cookies and similar technologies. Please visit our
+          {' '}
           <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
-            {' '}
             privacy policy
-            {' '}
           </a>
           {' '}
           for further details.
