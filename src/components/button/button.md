@@ -13,6 +13,10 @@ Generic `<button />` with style fixes for IE>=11 and a variety of render props, 
 <br />
 <Button light>Light</Button>
 <br />
+<Button lightGrey>Light Grey</Button>
+<br />
+<Button lightGreyAlternate>Light Grey alternate</Button>
+<br />
 <Button dark>Dark</Button>
 <br />
 <Button clear>Clear</Button>

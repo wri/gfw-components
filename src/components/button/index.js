@@ -27,6 +27,10 @@ class Button extends PureComponent {
     round: PropTypes.bool,
     /** light colors */
     light: PropTypes.bool,
+    /** gray colors */
+    lightGrey: PropTypes.bool,
+    /** gray colors */
+    lightGreyAlternate: PropTypes.bool,
     /** dark colors */
     dark: PropTypes.bool,
     /** no colors */
