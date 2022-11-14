@@ -10,6 +10,7 @@ import Column from 'components/grid/column';
 import P from 'components/html/p';
 
 import WriIcon from 'assets/logos/wri.svg';
+import BefIcon from 'assets/logos/bef.svg';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import config from './config';
@@ -129,20 +130,30 @@ class Footer extends PureComponent {
             </Column>
           </Row>
           <Row className="footer-partners">
-            <Column width={[1, 1 / 4]}>
-              <div className="footer-wri">
+            <Column width={[1, 1, 5 / 16]}>
+              <div className="footer-partnership">
                 <P>A partnership convened by</P>
-                <a
-                  href="https://www.wri.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="world resource institute"
-                >
-                  <WriIcon className="wri-logo" />
-                </a>
+                <div className="footer-partnership-logos">
+                  <a
+                    href="https://www.wri.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="World Resources Institute"
+                  >
+                    <WriIcon className="wri-logo" />
+                  </a>
+                  <a
+                    href="https://www.bezosearthfund.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Bezos Earth Fund"
+                  >
+                    <BefIcon className="bef-logo" />
+                  </a>
+                </div>
               </div>
             </Column>
-            <Column width={[1, 3 / 4]}>
+            <Column width={[1, 1, 11 / 16]}>
               <div className="footer-partners-slide">
                 <div className="footer-logos">
                   <P>Partners</P>

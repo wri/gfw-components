@@ -103,19 +103,30 @@ export const FooterWrapper = styled.div`
       color: ${theme.colors.darkGrey};
     }
 
-    .footer-wri {
+    .footer-partnership {
       display: flex;
       align-items: center;
       flex-direction: column;
 
-      ${theme.mediaQueries.small} {
+      ${theme.mediaQueries.medium} {
         align-items: flex-start;
       }
 
-      .wri-logo {
+      &-logos {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
         margin: 30px 0;
-        width: 143px;
-        height: 47px;
+
+        ${theme.mediaQueries.medium} {
+          flex-direction: row;
+        }
+
+        .wri-logo,
+        .bef-logo {
+          height: 47px;
+          width: auto;
+        }
       }
     }
 
@@ -123,7 +134,7 @@ export const FooterWrapper = styled.div`
       p {
         text-align: center;
 
-        ${theme.mediaQueries.small} {
+        ${theme.mediaQueries.medium} {
           text-align: left;
         }
       }
