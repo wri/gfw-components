@@ -123,7 +123,7 @@ export const FooterWrapper = styled.div`
         }
 
         .wri-logo,
-        .bef-logo {
+        .lcl-logo {
           height: 47px;
           width: auto;
         }
