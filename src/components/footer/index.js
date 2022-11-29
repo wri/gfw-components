@@ -10,7 +10,7 @@ import Column from 'components/grid/column';
 import P from 'components/html/p';
 
 import WriIcon from 'assets/logos/wri.svg';
-import BefIcon from 'assets/logos/bef.svg';
+import LclIcon from 'assets/logos/lcl.svg';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import config from './config';
@@ -143,12 +143,12 @@ class Footer extends PureComponent {
                     <WriIcon className="wri-logo" />
                   </a>
                   <a
-                    href="https://www.bezosearthfund.org/"
+                    href="https://www.landcarbonlab.org/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Bezos Earth Fund"
                   >
-                    <BefIcon className="bef-logo" />
+                    <LclIcon className="lcl-logo" />
                   </a>
                 </div>
               </div>
