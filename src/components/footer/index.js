@@ -146,7 +146,7 @@ class Footer extends PureComponent {
                     href="https://www.landcarbonlab.org/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Bezos Earth Fund"
+                    aria-label="Land & Carbon Lab"
                   >
                     <LclIcon className="lcl-logo" />
                   </a>
