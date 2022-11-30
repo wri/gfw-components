@@ -122,10 +122,23 @@ export const FooterWrapper = styled.div`
           flex-direction: row;
         }
 
+        > a {
+          display: flex;
+          align-items: center;
+        }
+
         .wri-logo,
         .lcl-logo {
-          height: 47px;
           width: auto;
+        }
+
+        .wri-logo {
+          height: 47px;
+        }
+
+        .lcl-logo {
+          height: 42px;
+          opacity: 0.9;
         }
       }
     }
