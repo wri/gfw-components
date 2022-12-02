@@ -149,6 +149,7 @@ export const FooterWrapper = styled.div`
 
         ${theme.mediaQueries.medium} {
           text-align: left;
+          margin-bottom: 32px;
         }
       }
 

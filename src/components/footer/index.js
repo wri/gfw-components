@@ -9,7 +9,6 @@ import Row from 'components/grid/row';
 import Column from 'components/grid/column';
 import P from 'components/html/p';
 
-import WriIcon from 'assets/logos/wri.svg';
 import LclIcon from 'assets/logos/lcl.svg';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
@@ -130,18 +129,11 @@ class Footer extends PureComponent {
             </Column>
           </Row>
           <Row className="footer-partners">
-            <Column width={[1, 1, 5 / 16]}>
+            <Column width={[1, 1, 4 / 16]}>
               <div className="footer-partnership">
                 <P>A partnership convened by</P>
+                <P>World Resources Institute&apos;s</P>
                 <div className="footer-partnership-logos">
-                  <a
-                    href="https://www.wri.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="World Resources Institute"
-                  >
-                    <WriIcon className="wri-logo" />
-                  </a>
                   <a
                     href="https://www.landcarbonlab.org/"
                     target="_blank"
@@ -153,7 +145,7 @@ class Footer extends PureComponent {
                 </div>
               </div>
             </Column>
-            <Column width={[1, 1, 11 / 16]}>
+            <Column width={[1, 1, 12 / 16]}>
               <div className="footer-partners-slide">
                 <div className="footer-logos">
                   <P>Partners</P>
