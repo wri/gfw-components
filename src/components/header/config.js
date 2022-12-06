@@ -55,7 +55,7 @@ export default {
   moreLinks: [
     {
       label: 'Mapbuilder',
-      href: '/mapbuilder/',
+      extLink: 'https://mapbuilder.wri.org/',
       icon: mapbuilder,
     },
     {
