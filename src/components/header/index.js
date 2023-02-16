@@ -52,7 +52,7 @@ class Header extends PureComponent {
     /** path to custom logo */
     customLogo: PropTypes.string,
     /** allows to pass "theme" down to the header */
-    theme: PropTypes.bool,
+    theme: PropTypes.string,
     /** makes the header "slimmer" */
     slim: PropTypes.bool,
   };
