@@ -1,5 +1,5 @@
 {
-  "name": "gfw-components",
+  "name": "@worldresources/gfw-components",
   "version": "1.8.11",
   "main": "lib/index.js",
   "scripts": {
@@ -10,6 +10,9 @@
     "compile:static": "BUILD_MODE=static NODE_ENV=production webpack --progress",
     "deploy": "yarn build && gh-pages -d styleguide",
     "lint": "eslint src/** -c .eslintrc.json --ext js,jsx --no-error-on-unmatched-pattern"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.28",
