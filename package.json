@@ -1,6 +1,6 @@
 {
   "name": "@worldresources/gfw-components",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "lib/index.js",
   "scripts": {
     "start": "styleguidist server",
@@ -108,7 +108,7 @@
   "description": "React component library for the Global Forest Watch project.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vizzuality/gfw-components.git"
+    "url": "git+https://github.com/wri/gfw-components.git"
   },
   "keywords": [
     "gfw",
@@ -118,7 +118,7 @@
   "author": "Vizzuality",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Vizzuality/gfw-components/issues"
+    "url": "https://github.com/wri/gfw-components/issues"
   },
-  "homepage": "https://vizzuality.github.io/gfw-components/"
+  "homepage": "https://components.globalforestwatch.org/"
 }
