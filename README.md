@@ -13,13 +13,13 @@ The library can be installed in two ways:
 Install the package
 
 ```bash
-npm install gfw-components
+npm install @worldresources/gfw-components
 ```
 
 or with yarn
 
 ```bash
-yarn add gfw-components
+yarn add @worldresources/gfw-components
 ```
 
 import and add the global styles component to the root of your app
@@ -27,7 +27,7 @@ import and add the global styles component to the root of your app
 ```jsx static
 import React from 'react'
 
-import { GlobalStyles } from 'gfw-components'
+import { GlobalStyles } from '@worldresources/gfw-components'
 
 export const App = () => (
   <>
@@ -51,7 +51,7 @@ then import components and add them to your layout
 ```jsx static
 import React from 'react'
 
-import { Header, Footer } from 'gfw-components'
+import { Header, Footer } from '@worldresources/gfw-components'
 
 export const MyPage = () => (
   <div className='l-page'>
@@ -66,7 +66,7 @@ export const MyPage = () => (
 
 ### Requirements
 
-If you are using `gfw-components` as a npm module there are some external requirments:
+If you are using `@worldresources/gfw-components` as a npm module there are some external requirments:
 
 - `react >= 16.8`
 - `react-dom >= 16.8`
