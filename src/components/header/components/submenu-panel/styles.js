@@ -18,13 +18,27 @@ export const SubmenuWrapper = styled.div`
     max-width: 100%;
     max-height: calc(100vh - 76px);
     background: ${theme.colors.white};
+    overflow-y: hidden;
   `}
 
   ${({ slim }) =>
     slim &&
     `
+    overflow-y: scroll !important;
     max-width: initial;
+
+    ${theme.mediaQueries.medium} {
+      overflow-y: hidden !important;
+    }
   `}
+
+  ${theme.mediaQueries.large} {
+    overflow-y: hidden;
+  }
+
+  ${theme.mediaQueries.large} {
+    overflow-y: hidden;
+  }
 
   ${theme.mediaQueries.small} {
     height: auto;
@@ -47,26 +61,41 @@ export const SubmenuWrapper = styled.div`
     margin: 0 auto;
     background-color: #fff;
     border-top: 0;
-    margin-left: auto;
 
     ${theme.mediaQueries.small} {
-      width: 375px;
-      margin: 0 0 0 auto;
+      width: 340px;
       padding: 0;
       box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.25);
       border: 1px solid ${theme.colors.lightGrey};
       border-top: 0;
       border-right: 0;
+      margin-right: 0;
 
       ${({ fullScreen }) =>
         fullScreen &&
         `
         width: 100%;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: 0;
         border: none;
         box-shadow: none;
       `}
     }
+
+    ${theme.mediaQueries.medium} {
+      margin-right: auto;
+    }
+
+    ${({ slim }) =>
+      slim &&
+      `
+      margin-right: 0 !important;
+
+      ${theme.mediaQueries.medium} {
+        margin-left: 23% !important;
+        margin-right: auto !important;
+      }
+    `}
 
     @media (min-width: 1120px) {
       border-right: 1px solid ${theme.colors.lightGrey};
@@ -97,6 +126,11 @@ export const SubmenuWrapper = styled.div`
         }
       }
     }
+
+    .action {
+      height: 42px;
+      padding-left: 20px;
+    }
   }
 
   .my-gfw-icon {
@@ -116,6 +150,14 @@ export const SubmenuWrapper = styled.div`
     }
   }
 
+  .menu-top {
+    z-index: 4;
+    position: sticky;
+    top: 0;
+    padding: 1px;
+    background: #fff;
+  }
+
   h4,
   .title {
     text-transform: uppercase;
@@ -132,15 +174,14 @@ export const SubmenuWrapper = styled.div`
   }
 
   .menu-section {
-    margin: 30px 0;
-    padding: 0 0 30px 0;
+    margin-top: 30px;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     &.-first {
-      margin-top: 10px;
+      margin-top: 35px;
     }
 
     h4 {
@@ -177,7 +218,20 @@ export const SubmenuWrapper = styled.div`
       }
     }
 
-    border-bottom: solid 1px ${theme.colors.lightGrey};
+    .text {
+      a,
+      button {
+        display: flex;
+        align-items: center;
+        text-transformation: none;
+        font-size: 14px;
+        margin-left: 5px;
+        color: #555555;
+        justify-content: center;
+      }
+
+      font-weight: lighter;
+    }
 
     &:last-child {
       border-bottom: 1px solid transparent;
@@ -190,16 +244,10 @@ export const SubmenuWrapper = styled.div`
       -webkit-overflow-scrolling: touch;
       display: flex;
       width: 100%;
-      padding: 0 ${theme.grid.desktopGutter};
-
-      ${theme.mediaQueries.small} {
-        padding: 0 ${theme.grid.desktopGutter};
-      }
+      justify-content: space-evenly;
     }
 
     .app-card {
-      padding-right: 16px;
-
       &:last-child {
         padding-right: 0;
       }
@@ -236,7 +284,7 @@ export const SubmenuWrapper = styled.div`
     }
 
     .more-links {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
 
       ${({ fullScreen }) =>
         fullScreen &&
@@ -250,13 +298,30 @@ export const SubmenuWrapper = styled.div`
         button {
           display: flex;
           align-items: center;
-          font-size: 12px;
+          font-size: 14px;
           color: ${theme.colors.darkGrey};
           text-transform: uppercase;
           cursor: pointer;
 
           > button {
             padding: 0;
+          }
+
+          > .column {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-transform: none;
+            padding-right: 0;
+            padding-left: 0;
+
+            > .info-icon {
+              display: none;
+
+              ${theme.mediaQueries.small} {
+                display: block;
+              }
+            }
           }
 
           svg {
@@ -267,6 +332,27 @@ export const SubmenuWrapper = styled.div`
             min-height: 20px;
             fill: ${theme.colors.green};
           }
+        }
+      }
+    }
+  }
+
+  .list {
+    margin-top: 15px;
+  }
+
+  .border-t-2 {
+    border: 1px solid ${theme.colors.lightGrey};
+    margin-top: 0;
+    padding-bottom: 10px !important;
+    padding-top: 10px;
+
+    > div {
+      > a {
+        padding: 10px;
+
+        ${theme.mediaQueries.small} {
+          padding: 0;
         }
       }
     }

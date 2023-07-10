@@ -118,11 +118,49 @@ Once you have cloned the repo, install the dependancies and start the styleguide
 yarn && yarn start
 ```
 
-If you are using `yarn link` to develop with the component directly inside your app you can use the development of the bundle. This comes with source maps to help with debugging.
+If you need to develop with the component library directly inside your app, you can use [Yalc](https://github.com/wclr/yalc) in lieu of `yarn link`.
 
+To do so you need to:
+
+1. Install yalc locally:
 ```bash
-yarn dev
+yarn global add yalc
 ```
+or
+```bash
+npm install -g yalc
+```
+
+2. Work on the component updates inside this library.
+
+3. compile locally
+```bash
+yarn compile
+```
+
+4. publish in Yalc's local store
+```bash
+yalc publish
+```
+
+5. inside your app where you are using this library as a dependency, first remove the dependency and then add it with yalc:
+```bash
+yarn remove @worldresources/gfw-components
+
+yalc add @worldresources/gfw-components
+
+yarn install # or just yarn
+```
+
+6. now you can run your app using the local component.
+
+7. you can keep updating the component's code and just use:
+```bash
+yarn compile
+yalc push
+```
+
+and only re run your app to see the updates in the component.
 
 ## Deployment
 

@@ -8,21 +8,25 @@ import cx from 'classnames';
 import { Media } from 'components/responsive';
 import Mobile from 'components/responsive/mobile';
 
+import Tooltip from 'components/tooltip';
+
 import NavLink from 'components/header/components/nav-link';
-import Search from 'components/search';
 import Row from 'components/grid/row';
 import Column from 'components/grid/column';
 import H4 from 'components/html/h4';
 
-// import MoreIcon from 'assets/icons/more.svg';
 import MyGfwIcon from 'assets/icons/mygfw.svg';
+import SearchIcon from 'assets/icons/search.svg';
+// eslint-disable-next-line no-unused-vars
+import NotificationsIcon from 'assets/icons/notifications.svg';
+import RoundedInfo from 'assets/icons/rounded-info.svg';
 
 import { bodyOverflowHidden } from 'styles/global';
 import { SubmenuWrapper } from './styles';
 
 const isServer = typeof window === 'undefined';
 
-class Header extends PureComponent {
+class SubmenuPanel extends PureComponent {
   static propTypes = {
     apps: PropTypes.array,
     moreLinks: PropTypes.array,
@@ -99,41 +103,66 @@ class Header extends PureComponent {
               }
             }}
           >
-            <div className="menu-search">
-              <Search
-                placeholder="Search"
-                onChange={this.handleSearchChange}
-                onSubmit={this.handleSubmit}
-              />
-            </div>
+            <div className="menu-top" />
             <Media lessThan="medium">
               <ul className="menu-section -first">
                 {navMain &&
-                  navMain.map((item) => (
-                    <li key={item.label} className="nav-item">
-                      {item.href && (
-                        <NavLink
-                          {...item}
-                          pathname={pathname}
-                          appUrl={appUrl}
-                          NavLinkComponent={NavLinkComponent}
-                        >
-                          {item.label}
-                        </NavLink>
-                      )}
-                      {item.extLink && (
-                        <a
-                          href={item.extLink}
-                          className={cx({
-                            active:
-                              !!pathname && pathname.includes(item.extLink),
-                          })}
-                        >
-                          {item.label}
-                        </a>
-                      )}
-                    </li>
-                  ))}
+                  navMain
+                    .filter((item) => !!item.isVisibleOnMobile)
+                    .map((item) => (
+                      <li key={item.label} className="nav-item">
+                        {item.href && (
+                          <NavLink
+                            {...item}
+                            pathname={pathname}
+                            appUrl={appUrl}
+                            NavLinkComponent={NavLinkComponent}
+                          >
+                            {item.label}
+                          </NavLink>
+                        )}
+                        {item.extLink && (
+                          <a
+                            href={item.extLink}
+                            className={cx({
+                              active:
+                                !!pathname && pathname.includes(item.extLink),
+                            })}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.label}
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                <li className="nav-item">
+                  <NavLink
+                    href="/search/"
+                    pathname="search"
+                    appUrl="search"
+                    NavLinkComponent={NavLinkComponent}
+                  >
+                    Search
+                    <SearchIcon className="icon" />
+                  </NavLink>
+                </li>
+                {/* // TODO: display this link when the new page is ready
+                <li className="nav-item">
+                  <NavLink
+                    href="/notifications/"
+                    pathname="notifications"
+                    appUrl="notifications"
+                    NavLinkComponent={NavLinkComponent}
+                  >
+                    Notifications
+                    <NotificationsIcon
+                      className="icon"
+                      style={{ marginLeft: '5px' }}
+                    />
+                  </NavLink>
+                </li>
+                */}
                 <li className="nav-item">
                   <NavLink
                     href="/my-gfw/"
@@ -173,9 +202,60 @@ class Header extends PureComponent {
                     ))}
                 </ul>
               </div>
+              <div className="menu-section">
+                <h4>Help</h4>
+                <ul>
+                  <li className="nav-item">
+                    <a href="/help/">TUTORIALS</a>
+                  </li>
+                  {/* // TODO: enable these 2 links when we have the real urls
+                  <li className="nav-item">
+                    <a href="/events">EVENTS</a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="/faq">FAQ</a>
+                  </li>
+                   */}
+                  <li className="nav-item">
+                    <a
+                      href="https://groups.google.com/forum/#!forum/globalforestwatch"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      COMMUNITY FORUM
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="/grants-and-fellowships/projects/">
+                      GRANTS & OPPORTUNITIES
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      className="nav-link action"
+                      onClick={this.handleContactUsOpen}
+                    >
+                      CONTACT US
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div className="menu-section">
+                <h4>About</h4>
+                <ul>
+                  <li className="nav-item">
+                    <a href="/about/">ABOUT GFW</a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="/topics/biodiversity/">WHY FORESTS</a>
+                  </li>
+                </ul>
+              </div>
             </Media>
             <div className="menu-section">
-              <H4>Other resources</H4>
+              <Media lessThan="medium">
+                <h4>Other Tools</h4>
+              </Media>
               <div className="apps-slider">
                 {apps &&
                   apps.map((d) => (
@@ -205,43 +285,36 @@ class Header extends PureComponent {
                 </a> */}
               </div>
             </div>
-            <div className="menu-section">
-              <H4>More in GFW</H4>
+            <div className="menu-section list">
               <Row as="ul" className="more-links">
                 {moreLinks.map((m) => (
                   <Column key={m.label} as="li">
-                    {m.onClick && (
-                      <button onClick={this[m.onClick]} type="button">
-                        <m.icon />
-                        {m.label}
-                      </button>
-                    )}
-                    {m.href && (
-                      <NavLink
-                        {...m}
-                        appUrl={appUrl}
-                        pathname={pathname}
-                        NavLinkComponent={NavLinkComponent}
-                      >
-                        <button onClick={hideMenu}>
-                          <m.icon />
-                          {m.label}
-                        </button>
-                      </NavLink>
-                    )}
                     {!m.href && !m.onClick && (
                       <a
                         href={m.extLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <m.icon />
-                        {m.label}
+                        <div className="column">
+                          {m.label}
+                          <Tooltip content={m.tooltip}>
+                            <div className="info-icon">
+                              <RoundedInfo />
+                            </div>
+                          </Tooltip>
+                        </div>
                       </a>
                     )}
                   </Column>
                 ))}
               </Row>
+            </div>
+            <div className="menu-section border-t-2">
+              <div className="text">
+                <a href="/help">
+                  <b>Not sure? Learn more about our tools here</b>
+                </a>
+              </div>
             </div>
           </OutsideClickHandler>
         </div>
@@ -250,7 +323,7 @@ class Header extends PureComponent {
   }
 }
 
-Header.propTypes = {
+SubmenuPanel.propTypes = {
   className: PropTypes.string,
   apps: PropTypes.array,
   moreLinks: PropTypes.array,
@@ -268,4 +341,4 @@ Header.propTypes = {
   NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };
 
-export default Header;
+export default SubmenuPanel;
