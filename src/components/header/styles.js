@@ -138,6 +138,19 @@ export const HeaderWrapper = styled.div`
     }
   }
 
+  .other-tools {
+    margin-left: -14px !important;
+
+    ${theme.mediaQueries.small} {
+      margin-left: 0;
+    }
+  }
+
+  .top-menu-icon {
+    min-height: 28px;
+    min-width: 28px;
+  }
+
   .nav-item {
     height: 100%;
     position: relative;

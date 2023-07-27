@@ -178,6 +178,16 @@ class Header extends PureComponent {
                         {...this.props}
                         {...this.state}
                         menuItems={navMain}
+                        toggleShowSubmenu={() => {
+                          this.setState({ showSubmenu: false });
+
+                          if (
+                            !this.state.clickOutside ||
+                            !this.props.fullScreen
+                          ) {
+                            this.setState({ showSubmenu: true });
+                          }
+                        }}
                       />
                       <NavAlt
                         {...this.props}

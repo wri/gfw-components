@@ -5,10 +5,7 @@ import forestWatcher from 'assets/logos/gfw-watcher.png';
 import gfr from 'assets/logos/gfr.png';
 
 import mapbuilder from 'assets/icons/mapbuilder.svg';
-import sgf from 'assets/icons/sgf.svg';
 import openData from 'assets/icons/open-data.svg';
-import forum from 'assets/icons/forum.svg';
-import mail from 'assets/icons/mail.svg';
 
 export default {
   navMain: [
@@ -57,22 +54,13 @@ export default {
       label: 'Mapbuilder',
       extLink: 'https://mapbuilder.wri.org/',
       icon: mapbuilder,
+      tooltip: 'Combine your own data with GFW datasets',
     },
     {
-      label: 'Grants & Fellowships',
-      href: '/grants-and-fellowships/projects/',
-      icon: sgf,
-    },
-    { label: 'Open data portal', extLink: DATA_PORTAL_URL, icon: openData },
-    {
-      label: 'Discussion Forum',
-      extLink: 'https://groups.google.com/forum/#!forum/globalforestwatch',
-      icon: forum,
-    },
-    {
-      label: 'Contact us',
-      onClick: 'handleContactUsOpen',
-      icon: mail,
+      label: 'Open Data Portal',
+      extLink: DATA_PORTAL_URL,
+      icon: openData,
+      tooltip: 'Access GFW data directly',
     },
   ],
   languages: [
@@ -93,11 +81,11 @@ export default {
       value: 'id',
     },
     {
-      label: 'Português (Brasil)',
+      label: 'Português',
       value: 'pt_BR',
     },
     {
-      label: 'Español (Mexico)',
+      label: 'Español',
       value: 'es_MX',
     },
   ],

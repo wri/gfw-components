@@ -34,6 +34,13 @@ export const NavAltWrapper = styled.div`
   }
 
   .nav-link {
+    .icon {
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      margin-left: 5px;
+    }
+
     .my-gfw-icon {
       width: 15px;
       height: 15px;

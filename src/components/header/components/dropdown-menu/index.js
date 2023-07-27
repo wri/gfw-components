@@ -19,9 +19,18 @@ class DropdownMenu extends PureComponent {
     active: PropTypes.bool,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     slim: PropTypes.bool,
+    openContactUsModal: PropTypes.func,
   };
 
   state = { open: false };
+
+  handleContactUsOpen = () => {
+    const { openContactUsModal } = this.props;
+
+    if (openContactUsModal) {
+      openContactUsModal();
+    }
+  };
 
   render() {
     const {
@@ -51,59 +60,62 @@ class DropdownMenu extends PureComponent {
             {label}
             <ArrowIcon className={cx('icon-arrow', { active: open })} />
           </button>
-          {open && (
+          {open && options && (
             <ul className="dropdown-menu">
-              {options &&
-                options.map((l) => (
-                  <li
-                    key={l.value || l.label}
-                    className={cx({
-                      active: selected && selected.value === l.value,
-                    })}
-                  >
-                    {l.onClick ? (
-                      <button
-                        onClick={() => {
+              {options.map((l) => (
+                <li
+                  key={l.value || l.label}
+                  className={cx({
+                    active: selected && selected.value === l.value,
+                  })}
+                >
+                  {l.onClick ? (
+                    <button
+                      onClick={() => {
+                        if (l.isContactModal) {
+                          l.onClick(this.handleContactUsOpen());
+                        } else {
                           l.onClick(l.value);
-                          this.setState({ open: false });
-                        }}
-                      >
-                        {l.label}
-                      </button>
-                    ) : (
-                      <Fragment>
-                        {l.href && (
-                          <NavLink
-                            href={l.href}
-                            className="nested"
-                            pathname={pathname}
-                            appUrl={appUrl}
-                            NavLinkComponent={NavLinkComponent}
-                          >
-                            <button
-                              type="button"
-                              onClick={() =>
-                                this.setState({
-                                  open: false,
-                                })}
-                            >
-                              {l.label}
-                            </button>
-                          </NavLink>
-                        )}
-                        {l.extLink && (
-                          <a
-                            href={l.extLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        }
+                        this.setState({ open: false });
+                      }}
+                    >
+                      {l.label}
+                    </button>
+                  ) : (
+                    <Fragment>
+                      {l.href && (
+                        <NavLink
+                          href={l.href}
+                          className="nested"
+                          pathname={pathname}
+                          appUrl={appUrl}
+                          NavLinkComponent={NavLinkComponent}
+                        >
+                          <button
+                            type="button"
+                            onClick={() =>
+                              this.setState({
+                                open: false,
+                              })}
                           >
                             {l.label}
-                          </a>
-                        )}
-                      </Fragment>
-                    )}
-                  </li>
-                ))}
+                          </button>
+                        </NavLink>
+                      )}
+                      {l.extLink && (
+                        <a
+                          href={l.extLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {l.label}
+                        </a>
+                      )}
+                    </Fragment>
+                  )}
+                </li>
+              ))}
             </ul>
           )}
         </OutsideClickHandler>

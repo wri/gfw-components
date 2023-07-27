@@ -16,6 +16,8 @@ class NavMenu extends PureComponent {
     appUrl: PropTypes.string,
     pathname: PropTypes.string,
     slim: PropTypes.bool,
+    toggleShowSubmenu: PropTypes.func,
+    openContactUsModal: PropTypes.func,
   };
 
   render() {
@@ -27,6 +29,8 @@ class NavMenu extends PureComponent {
       appUrl,
       pathname,
       slim,
+      toggleShowSubmenu,
+      openContactUsModal,
     } = this.props;
 
     return menuItems ? (
@@ -43,6 +47,7 @@ class NavMenu extends PureComponent {
                 pathname={pathname}
                 appUrl={appUrl}
                 slim={slim}
+                openContactUsModal={openContactUsModal}
               />
             ) : (
               <Fragment>
@@ -72,6 +77,21 @@ class NavMenu extends PureComponent {
             )}
           </li>
         ))}
+        <li className="nav-item other-tools">
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+          <div className="nav-link" onClick={toggleShowSubmenu}>
+            <DropdownMenu
+              className="nested"
+              label="Other Tools"
+              options={null}
+              NavLinkComponent={NavLinkComponent}
+              active={!!pathname && pathname.includes('/other-tools/')}
+              pathname={pathname}
+              appUrl={appUrl}
+              slim={slim}
+            />
+          </div>
+        </li>
       </NavMenuWrapper>
     ) : null;
   }
