@@ -314,6 +314,7 @@ export const SubmenuWrapper = styled.div`
             text-transform: none;
             padding-right: 0;
             padding-left: 0;
+            width: 100%;
 
             > .info-icon {
               display: none;
