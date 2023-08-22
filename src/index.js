@@ -38,6 +38,7 @@ export { default as NoContent } from './components/no-content';
 export { default as Switch } from './components/switch';
 export { default as Tooltip } from './components/tooltip';
 export { default as CookiesBanner } from './components/cookies-banner';
+export { default as NotificationItem } from './components/notifications/notification-item';
 
 // Forms
 export { default as ContactUsForm } from './components/forms/contact-us';
