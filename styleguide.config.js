@@ -80,6 +80,11 @@ module.exports = {
       components: 'src/components/modals/*/index.js',
     },
     {
+      name: 'Notification Board',
+      content: 'src/docs/notifications.md',
+      components: 'src/components/notifications/*/index.jsx',
+    },
+    {
       name: 'Form components',
       content: 'src/docs/form-components.md',
       components: 'src/components/forms/components/*/index.js',
