@@ -23,7 +23,7 @@ const NotificationItem = ({ title, description, date, icon }) => {
   return (
     <NotificationItemWrapper data-component-type="notification-item">
       <div>{renderIcon(icon)}</div>
-      <div>
+      <div className="container">
         <div className="text">
           <div className="header">
             <div className="title">{title}</div>

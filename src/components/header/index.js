@@ -20,10 +20,12 @@ import Column from 'components/grid/column';
 import NavMenu from './components/nav-menu';
 import NavAlt from './components/nav-alt';
 import SubmenuPanel from './components/submenu-panel';
+import NotificationsPanel from './components/notifications-panel';
 
 import defaultConfig from './config';
 
 import { HeaderWrapper } from './styles';
+import { addNotifications } from '../../utils/storage';
 
 const isServer = typeof window === 'undefined';
 
@@ -55,6 +57,8 @@ class Header extends PureComponent {
     theme: PropTypes.string,
     /** makes the header "slimmer" */
     slim: PropTypes.bool,
+    /** list of notifications to display */
+    notifications: PropTypes.array,
   };
 
   static defaultProps = {
@@ -66,6 +70,7 @@ class Header extends PureComponent {
   state = {
     pathname: this.props.pathname || '',
     showSubmenu: false,
+    showNotificationsPanel: false,
     clickOutside: this.props.fullScreen,
     lang: isServer
       ? 'en'
@@ -142,9 +147,16 @@ class Header extends PureComponent {
       NavLinkComponent,
       fullScreen,
       slim,
+      notifications,
     } = this.props;
-    const { showSubmenu, clickOutside, lang } = this.state;
+    const {
+      showSubmenu,
+      clickOutside,
+      lang,
+      showNotificationsPanel,
+    } = this.state;
     const activeLang = languages && languages.find((l) => l.value === lang);
+    const ids = notifications?.map((item) => item.id) || [];
 
     return (
       <MediaContextProvider>
@@ -195,6 +207,17 @@ class Header extends PureComponent {
                         handleLangSelect={this.handleLangSelect}
                         handleShowSubmenu={(show) =>
                           this.setState({ showSubmenu: show })}
+                        handleShowNotificationsPanel={() => {
+                          if (!clickOutside) {
+                            // add notifications to storage
+                            addNotifications(ids);
+                            this.setState({ showNotificationsPanel: true });
+                          } else if (!clickOutside || fullScreen) {
+                            this.setState({ showNotificationsPanel: false });
+                          } else {
+                            this.setState({ showNotificationsPanel: false });
+                          }
+                        }}
                       />
                     </Media>
                     <Media lessThan="medium" className="nav-mobile">
@@ -254,6 +277,24 @@ class Header extends PureComponent {
               )}
             </Column>
           </Row>
+          {showNotificationsPanel && (
+            <OutsideClickHandler
+              onOutsideClick={() => {
+                this.setState({
+                  showNotificationsPanel: false,
+                  clickOutside: true,
+                });
+                setTimeout(() => this.setState({ clickOutside: false }), 50);
+              }}
+            >
+              <NotificationsPanel
+                slim={slim}
+                notifications={notifications}
+                handleClose={() =>
+                  this.setState({ showNotificationsPanel: false })}
+              />
+            </OutsideClickHandler>
+          )}
           {showSubmenu && (
             <OutsideClickHandler
               onOutsideClick={() => {

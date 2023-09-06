@@ -131,10 +131,21 @@ export const SubmenuWrapper = styled.div`
       height: 42px;
       padding-left: 20px;
     }
-  }
 
-  .my-gfw-icon {
-    margin-left: 5px;
+    .icon {
+      height: 16px;
+      margin-left: 10px;
+      width: 16px;
+    }
+
+    .notifications-icon-red-dot {
+      margin-left: 5px;
+    }
+
+    .notifications-icon {
+      margin-left: 5px;
+      width: 37px;
+    }
   }
 
   .menu-search {
@@ -357,5 +368,41 @@ export const SubmenuWrapper = styled.div`
         }
       }
     }
+  }
+
+  .notifications {
+    ${theme.mediaQueries.medium} {
+      display: none;
+    }
+
+    margin-top: 40px;
+    min-height: 100vh;
+
+    .back-button {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-left: 20px;
+    }
+
+    .title-notifications {
+      color: #9E9E9E;
+      font-size: 14px;
+      line-height: 1rem;
+      font-weight: 700;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+
+    .items {
+      margin-top: 10px;
+    }
+  }
+
+  .empty-list {
+    font-size: 14px;
+    padding: 20px;
+    text-align: center;
   }
 `;

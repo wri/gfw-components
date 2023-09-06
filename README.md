@@ -133,6 +133,9 @@ npm install -g yalc
 
 2. Work on the component updates inside this library.
 
+**Important**: you have to change the version inside the `package.json` every time you compile to avoid issues with the `node_modules` aggresively caching the library, preventing from seeing your latest changes.
+Once your changes are good and tested, be careful not to commit the changes in `package.json`.
+
 3. compile locally
 ```bash
 yarn compile
@@ -153,14 +156,6 @@ yarn install # or just yarn
 ```
 
 6. now you can run your app using the local component.
-
-7. you can keep updating the component's code and just use:
-```bash
-yarn compile
-yalc push
-```
-
-and only re run your app to see the updates in the component.
 
 ## Deployment
 

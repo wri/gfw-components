@@ -17,10 +17,12 @@ import SearchGreenIcon from 'assets/icons/search-green-icon.svg';
 import UserIcon from 'assets/icons/mygfw-green-icon.svg';
 // eslint-disable-next-line no-unused-vars
 import NotificationGreenIcon from 'assets/icons/notification-green-icon.svg';
+import NotificationGreenRedDotIcon from 'assets/icons/notification-green-icon-dot.svg';
 
 import { NavAltWrapper } from './styles';
 
 import AuthenticationInfo from '../authentication-info';
+import { notificationsExists } from '../../../../utils/storage';
 
 class NavAlt extends PureComponent {
   static propTypes = {
@@ -33,10 +35,12 @@ class NavAlt extends PureComponent {
     appUrl: PropTypes.string,
     showSubmenu: PropTypes.bool,
     handleShowSubmenu: PropTypes.func,
+    handleShowNotificationsPanel: PropTypes.func,
     handleLangSelect: PropTypes.func,
     proAuthenticated: PropTypes.bool,
     onProLogout: PropTypes.func,
     NavLinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    notifications: PropTypes.array,
   };
 
   render() {
@@ -48,13 +52,20 @@ class NavAlt extends PureComponent {
       pathname,
       appUrl,
       handleShowSubmenu,
+      handleShowNotificationsPanel,
       onProLogout,
       showSubmenu,
       handleLangSelect,
       languages,
       activeLang,
       proAuthenticated,
+      notifications,
     } = this.props;
+
+    const ids = notifications?.map((item) => item.id) || [];
+    const hasNotifications =
+      (notifications?.length || 0) !== 0 && !notificationsExists(ids);
+
     return (
       <NavAltWrapper theme={theme}>
         <div className="nav-item lang-selector">
@@ -86,23 +97,19 @@ class NavAlt extends PureComponent {
             </Tooltip>
           </NavLink>
         </div>
-        {/* // TODO: display this link when the new page is ready
         <div className="nav-item">
-          <NavLink
-            href="/notifications/"
-            className="nav-link"
-            pathname={pathname}
-            appUrl={appUrl}
-            NavLinkComponent={NavLinkComponent}
+          <button
+            data-component-type="button-toggle-notifications-header"
+            onClick={handleShowNotificationsPanel}
           >
             <Tooltip content="Notifications">
               <div>
-                <NotificationGreenIcon />
+                {!hasNotifications && <NotificationGreenIcon />}
+                {hasNotifications && <NotificationGreenRedDotIcon />}
               </div>
             </Tooltip>
-          </NavLink>
+          </button>
         </div>
-        */}
         <div className="nav-item">
           <NavLink
             href="/my-gfw/"
