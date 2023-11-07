@@ -3,23 +3,26 @@
  * @param {Array<number>} ids array of notification id
  */
 export const addNotifications = (ids) => {
-  const notificationIds =
-    JSON.parse(localStorage.getItem('gfw-notification-ids')) || [];
-  let needsUpdate = false;
+  try {
+    const notificationIds =
+      JSON.parse(localStorage.getItem('gfw-notification-ids')) || [];
+    let needsUpdate = false;
 
-  ids.forEach((id) => {
-    if (!notificationIds.includes(id)) {
-      needsUpdate = true;
-      notificationIds.push(id);
+    ids.forEach((id) => {
+      if (!notificationIds.includes(id)) {
+        needsUpdate = true;
+        notificationIds.push(id);
+      }
+    });
+
+    if (needsUpdate) {
+      localStorage.setItem(
+        'gfw-notification-ids',
+        JSON.stringify(notificationIds)
+      );
     }
-  });
-
-  if (needsUpdate) {
-    localStorage.setItem(
-      'gfw-notification-ids',
-      JSON.stringify(notificationIds)
-    );
-  }
+    // eslint-disable-next-line no-empty
+  } catch (error) {}
 };
 
 /**
