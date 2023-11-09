@@ -4,7 +4,7 @@ import theme from 'styles/theme';
 export const NotificationsPanelWrapper = styled.div`
   border: solid 1px ${theme.colors.lightGrey};
   background-color: #ffffff;
-  left: 30%;
+  left: calc(50% - 438px);
   position: relative;
   max-width: 438px;
   max-height: 400px;
@@ -15,7 +15,7 @@ export const NotificationsPanelWrapper = styled.div`
   ${({ slim }) =>
     slim &&
     `
-    left: 38%;
+    left: calc(60% - 438px);
     `}
 
   .empty-list {
