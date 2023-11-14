@@ -89,7 +89,7 @@ export default {
   ],
   moreLinks: [
     {
-      label: 'Mapbuilder',
+      label: 'MapBuilder',
       extLink: 'https://mapbuilder.wri.org/',
       icon: mapbuilder,
       tooltip: 'Combine your own data with GFW datasets',
