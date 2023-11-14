@@ -58,7 +58,7 @@ module.exports = {
     {
       name: 'Components',
       content: 'src/docs/components.md',
-      components: 'src/components/*/index.js',
+      components: 'src/components/*/index.js*',
     },
     {
       name: 'Grid',
