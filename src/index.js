@@ -34,6 +34,7 @@ export { default as Loader } from './components/loader';
 export { default as Search } from './components/search';
 export { default as Share } from './components/share';
 export { default as Pill } from './components/pill';
+export { default as Paginator } from './components/paginator';
 export { default as NoContent } from './components/no-content';
 export { default as Switch } from './components/switch';
 export { default as Tooltip } from './components/tooltip';
