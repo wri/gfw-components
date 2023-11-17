@@ -4,6 +4,7 @@ export const PaginatorWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
+  max-height: 1.75rem;
 
   .dots-left {
     align-content: end;
