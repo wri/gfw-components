@@ -50,5 +50,11 @@ export const PaginatorWrapper = styled.div`
 
   .disabled {
     cursor: default;
+
+    > svg {
+      > path {
+        fill: #969696;
+      }
+    }
   }
 `;
