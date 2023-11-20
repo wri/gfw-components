@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import CaretLeftIcon from 'assets/icons/caret-left.svg';
+import CaretRightIcon from 'assets/icons/caret-right.svg';
+import DoubleCaretLeftIcon from 'assets/icons/double-caret-left.svg';
+import DoubleCaretRightIcon from 'assets/icons/double-caret-right.svg';
 import { PaginatorWrapper } from './styles';
 
 const MAX_PAGES_DISPLAYED = 4;
@@ -31,9 +35,18 @@ const Paginator = ({ totalPages, currentPage, handleSelectPage }) => {
           disabled: currentPage === 1,
         })}
         disabled={currentPage === 1}
+        onClick={() => handleSelectPage(1)}
+      >
+        <DoubleCaretLeftIcon />
+      </button>
+      <button
+        className={classNames({
+          disabled: currentPage === 1,
+        })}
+        disabled={currentPage === 1}
         onClick={() => handleSelectPage(currentPage - 1)}
       >
-        PREVIOUS
+        <CaretLeftIcon />
       </button>
       {showLeftDots && <div className="dots-left">…</div>}
       {pages.map((page) => (
@@ -56,7 +69,16 @@ const Paginator = ({ totalPages, currentPage, handleSelectPage }) => {
         disabled={currentPage === totalPages}
         onClick={() => handleSelectPage(currentPage + 1)}
       >
-        NEXT
+        <CaretRightIcon />
+      </button>
+      <button
+        className={classNames({
+          disabled: currentPage === totalPages,
+        })}
+        disabled={currentPage === totalPages}
+        onClick={() => handleSelectPage(totalPages)}
+      >
+        <DoubleCaretRightIcon />
       </button>
     </PaginatorWrapper>
   );
