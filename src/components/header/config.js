@@ -21,7 +21,7 @@ export default {
       isVisibleOnMobile: false,
       submenu: [
         {
-          label: 'Tutorials',
+          label: 'Help Center',
           href: '/help/',
         },
         /* // TODO: enable these 2 links when we have the real urls
