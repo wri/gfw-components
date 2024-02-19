@@ -272,7 +272,7 @@ class SubmenuPanel extends PureComponent {
                     <h4>Help</h4>
                     <ul>
                       <li className="nav-item">
-                        <a href="/help/">TUTORIALS</a>
+                        <a href="/help/">HELP CENTER</a>
                       </li>
                       {/* // TODO: enable these 2 links when we have the real urls
                         <li className="nav-item">
