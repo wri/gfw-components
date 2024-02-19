@@ -35,10 +35,6 @@ export default {
         },
         */
         {
-          label: 'Community Forum',
-          extLink: 'https://groups.google.com/forum/#!forum/globalforestwatch/',
-        },
-        {
           label: 'Grants & Opportunities',
           href: '/grants-and-fellowships/projects/',
         },

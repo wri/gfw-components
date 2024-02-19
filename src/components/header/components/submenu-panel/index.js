@@ -283,15 +283,6 @@ class SubmenuPanel extends PureComponent {
                         </li>
                         */}
                       <li className="nav-item">
-                        <a
-                          href="https://groups.google.com/forum/#!forum/globalforestwatch"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          COMMUNITY FORUM
-                        </a>
-                      </li>
-                      <li className="nav-item">
                         <a href="/grants-and-fellowships/projects/">
                           GRANTS & OPPORTUNITIES
                         </a>

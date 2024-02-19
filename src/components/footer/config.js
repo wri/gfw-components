@@ -2,7 +2,6 @@ import TwitterIcon from 'assets/icons/social/twitter.svg';
 import FacebookIcon from 'assets/icons/social/facebook.svg';
 import InstagramIcon from 'assets/icons/social/instagram.svg';
 import YoutubeIcon from 'assets/icons/social/youtube.svg';
-import GoogleplusIcon from 'assets/icons/social/google-plus.svg';
 
 export default {
   links: [
@@ -51,11 +50,6 @@ export default {
       label: 'youtube',
       link: 'https://www.youtube.com/channel/UCAsamYre1KLulf4FD-xJfLA',
       icon: YoutubeIcon,
-    },
-    {
-      label: 'google plus',
-      link: 'https://groups.google.com/forum/#!forum/globalforestwatch',
-      icon: GoogleplusIcon,
     },
   ],
 };
