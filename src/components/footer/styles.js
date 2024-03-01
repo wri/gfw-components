@@ -15,7 +15,11 @@ export const FooterWrapper = styled.div`
       align-items: center;
 
       li {
-        margin-right: 25px;
+        margin-right: 18px;
+
+        ${theme.mediaQueries.small} {
+          margin-right: 25px;
+        }
 
         a {
           font-size: 14px;
