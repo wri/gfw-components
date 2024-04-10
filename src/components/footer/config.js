@@ -2,6 +2,7 @@ import TwitterIcon from 'assets/icons/social/twitter.svg';
 import FacebookIcon from 'assets/icons/social/facebook.svg';
 import InstagramIcon from 'assets/icons/social/instagram.svg';
 import YoutubeIcon from 'assets/icons/social/youtube.svg';
+import LinkedinIcon from 'assets/icons/social/linkedin.svg';
 
 export default {
   links: [
@@ -31,6 +32,11 @@ export default {
     },
   ],
   socialLinks: [
+    {
+      label: 'linkedin',
+      link: 'https://www.linkedin.com/showcase/globalforestwatch/',
+      icon: LinkedinIcon,
+    },
     {
       label: 'twitter',
       link: 'https://twitter.com/globalforests',
