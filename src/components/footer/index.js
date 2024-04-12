@@ -9,7 +9,7 @@ import Row from 'components/grid/row';
 import Column from 'components/grid/column';
 import P from 'components/html/p';
 
-import LclIcon from 'assets/logos/lcl.svg';
+import gfw10Years from 'assets/logos/gfw10years.png';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import config from './config';
@@ -131,16 +131,18 @@ class Footer extends PureComponent {
           <Row className="footer-partners">
             <Column width={[1, 1, 4 / 16]}>
               <div className="footer-partnership">
-                <P>A partnership convened by</P>
-                <P>World Resources Institute&apos;s</P>
+                <P>Global Forest Watch</P>
                 <div className="footer-partnership-logos">
                   <a
-                    href="https://www.landcarbonlab.org/"
-                    target="_blank"
+                    href="#"
                     rel="noopener noreferrer"
-                    aria-label="Land & Carbon Lab"
+                    aria-label="Global Forest Watch"
                   >
-                    <LclIcon className="lcl-logo" />
+                    <img
+                      className="gfw-logo"
+                      src={gfw10Years}
+                      alt="GFW 10 years of Impact"
+                    />
                   </a>
                 </div>
               </div>
