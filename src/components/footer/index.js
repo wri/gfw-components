@@ -131,10 +131,11 @@ class Footer extends PureComponent {
           <Row className="footer-partners">
             <Column width={[1, 1, 4 / 16]}>
               <div className="footer-partnership">
-                <P>Global Forest Watch</P>
+                <hr />
                 <div className="footer-partnership-logos">
                   <a
-                    href="#"
+                    href="https://www.globalforestwatch.org/about"
+                    target="_self"
                     rel="noopener noreferrer"
                     aria-label="Global Forest Watch"
                   >
