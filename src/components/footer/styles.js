@@ -131,8 +131,7 @@ export const FooterWrapper = styled.div`
           align-items: center;
         }
 
-        .wri-logo,
-        .lcl-logo {
+        .wri-logo {
           width: auto;
         }
 
@@ -140,9 +139,8 @@ export const FooterWrapper = styled.div`
           height: 47px;
         }
 
-        .lcl-logo {
-          height: 42px;
-          opacity: 0.9;
+        .gfw-logo {
+          width: 12rem;
         }
       }
     }
