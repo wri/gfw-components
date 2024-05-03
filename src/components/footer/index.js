@@ -165,7 +165,7 @@ class Footer extends PureComponent {
               <div className="footer-terms">
                 <a
                   className="terms"
-                  href="https://www.globalforestwatch.org/terms"
+                  href="https://www.wri.org/about/wri-data-platforms-tos"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
