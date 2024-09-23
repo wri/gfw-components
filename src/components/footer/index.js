@@ -24,6 +24,8 @@ class Footer extends PureComponent {
     /** handle openning the contact us modal */
     openContactUsModal: PropTypes.func,
     className: PropTypes.string,
+    handleCookiePreferencesClick: PropTypes.func,
+    showCookiePreferencesLink: PropTypes.bool,
   };
 
   renderCarousel = (slidesToShow) => (
@@ -71,7 +73,12 @@ class Footer extends PureComponent {
   );
 
   render() {
-    const { openContactUsModal, className } = this.props;
+    const {
+      openContactUsModal,
+      className,
+      handleCookiePreferencesClick = () => [],
+      showCookiePreferencesLink = false,
+    } = this.props;
     const { links, socialLinks } = config;
 
     return (
@@ -163,6 +170,17 @@ class Footer extends PureComponent {
           <Row>
             <Column>
               <div className="footer-terms">
+                {showCookiePreferencesLink && (
+                  <>
+                    <button
+                      className="terms osano-cookie-preference-link"
+                      onClick={handleCookiePreferencesClick}
+                    >
+                      Cookie Preferences
+                    </button>
+                    {' · '}
+                  </>
+                )}
                 <a
                   className="terms"
                   href="https://www.wri.org/about/wri-data-platforms-tos"

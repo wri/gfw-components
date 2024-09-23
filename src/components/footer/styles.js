@@ -242,6 +242,7 @@ export const FooterWrapper = styled.div`
     .terms {
       display: inline-block;
       color: inherit;
+      cursor: pointer;
       text-decoration: none;
     }
 
