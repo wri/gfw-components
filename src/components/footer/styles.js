@@ -140,7 +140,7 @@ export const FooterWrapper = styled.div`
         }
 
         .gfw-logo {
-          width: 12rem;
+          width: 73px;
         }
       }
     }

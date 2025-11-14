@@ -9,7 +9,7 @@ import Row from 'components/grid/row';
 import Column from 'components/grid/column';
 import P from 'components/html/p';
 
-import gfw10Years from 'assets/logos/gfw10years.png';
+import gfwLogo from 'assets/logos/gfw.png';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
 import config from './config';
@@ -136,7 +136,7 @@ class Footer extends PureComponent {
             </Column>
           </Row>
           <Row className="footer-partners">
-            <Column width={[1, 1, 4 / 16]}>
+            <Column width={[1, 1, 3 / 16]}>
               <div className="footer-partnership">
                 <hr />
                 <div className="footer-partnership-logos">
@@ -148,14 +148,15 @@ class Footer extends PureComponent {
                   >
                     <img
                       className="gfw-logo"
-                      src={gfw10Years}
-                      alt="GFW 10 years of Impact"
+                      src={gfwLogo}
+                      alt="GFW"
+                      height={73}
                     />
                   </a>
                 </div>
               </div>
             </Column>
-            <Column width={[1, 1, 12 / 16]}>
+            <Column width={[1, 1, 13 / 16]}>
               <div className="footer-partners-slide">
                 <div className="footer-logos">
                   <P>Partners</P>
