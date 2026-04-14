@@ -113,6 +113,18 @@ class ContactUsForm extends PureComponent {
                       validate={[email]}
                       required
                     />
+                    <Input
+                      name="firstName"
+                      type="text"
+                      label="first name"
+                      required
+                    />
+                    <Input
+                      name="lastName"
+                      type="text"
+                      label="last name"
+                      required
+                    />
                     <Select
                       name="topic"
                       label="topic"
