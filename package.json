@@ -92,8 +92,7 @@
   "resolutions": {
     "node-forge": "^0.10.0",
     "object-path": "^0.11.5",
-    "debug": "^2.6.9",
-    "fsevents": "^2.3.3"
+    "debug": "^2.6.9"
   },
   "husky": {
     "hooks": {
