@@ -1,6 +1,6 @@
 {
   "name": "@worldresources/gfw-components",
-  "version": "3.5.12",
+  "version": "3.5.13",
   "main": "lib/index.js",
   "scripts": {
     "start": "styleguidist server",
@@ -9,7 +9,8 @@
     "compile": "NODE_ENV=production webpack --progress",
     "compile:static": "BUILD_MODE=static NODE_ENV=production webpack --progress",
     "deploy": "yarn build && gh-pages -d styleguide",
-    "lint": "eslint src/** -c .eslintrc.json --ext js,jsx --no-error-on-unmatched-pattern"
+    "lint": "eslint src/** -c .eslintrc.json --ext js,jsx --no-error-on-unmatched-pattern",
+    "release": "release"
   },
   "publishConfig": {
     "access": "public"
@@ -91,7 +92,8 @@
   "resolutions": {
     "node-forge": "^0.10.0",
     "object-path": "^0.11.5",
-    "debug": "^2.6.9"
+    "debug": "^2.6.9",
+    "fsevents": "^2.3.3"
   },
   "husky": {
     "hooks": {

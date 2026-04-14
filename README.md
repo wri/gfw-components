@@ -164,7 +164,7 @@ To deploy a new version of the library follow these steps:
 1. Semver from master locally and follow the bash intructions for documenting the release.
 
 ```bash
-release [major|minor|patch]
+yarn release [major|minor|patch]
 ```
 
 2. Deploy the new released version to Github pages (styleguide) and to AWS bucket (static scripts).
