@@ -114,13 +114,13 @@ class ContactUsForm extends PureComponent {
                       required
                     />
                     <Input
-                      name="firstName"
+                      name="first_name"
                       type="text"
                       label="first name"
                       required
                     />
                     <Input
-                      name="lastName"
+                      name="last_name"
                       type="text"
                       label="last name"
                       required
