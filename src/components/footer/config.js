@@ -44,12 +44,12 @@ export default {
     },
     {
       label: 'facebook',
-      link: 'https://www.facebook.com/globalforests/',
+      link: 'https://www.facebook.com/globalnaturewatch',
       icon: FacebookIcon,
     },
     {
       label: 'instagram',
-      link: 'https://www.instagram.com/globalforests/',
+      link: 'https://www.instagram.com/globalnaturewatch/',
       icon: InstagramIcon,
     },
     {
