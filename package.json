@@ -1,6 +1,6 @@
 {
   "name": "@worldresources/gfw-components",
-  "version": "3.5.18",
+  "version": "3.5.19",
   "main": "lib/index.js",
   "scripts": {
     "start": "styleguidist server",

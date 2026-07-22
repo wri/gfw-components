@@ -229,7 +229,7 @@ class SubmenuPanel extends PureComponent {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        href="/my-gfw/"
+                        href="/my-gnw/"
                         pathname={pathname}
                         appUrl={appUrl}
                         NavLinkComponent={NavLinkComponent}

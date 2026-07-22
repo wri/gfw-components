@@ -112,7 +112,7 @@ class NavAlt extends PureComponent {
         </div>
         <div className="nav-item">
           <NavLink
-            href="/my-gfw/"
+            href="/my-gnw/"
             className={cx('nav-link', {
               'animate-user-icon': !loggedIn && loggingIn,
             })}
