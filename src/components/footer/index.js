@@ -129,7 +129,7 @@ class Footer extends PureComponent {
                   rel="noopener noreferrer"
                 >
                   <Button className="subscribe-btn">
-                    Subscribe to the GFW newsletter
+                    Subscribe to the GNW newsletter
                   </Button>
                 </a>
               </div>
@@ -144,12 +144,12 @@ class Footer extends PureComponent {
                     href="https://www.globalforestwatch.org/about"
                     target="_self"
                     rel="noopener noreferrer"
-                    aria-label="Global Forest Watch"
+                    aria-label="Global Nature Watch"
                   >
                     <img
                       className="gfw-logo"
                       src={gfwLogo}
-                      alt="GFW"
+                      alt="GNW"
                       height={73}
                     />
                   </a>
@@ -206,7 +206,7 @@ class Footer extends PureComponent {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Global Forest Watch System Status
+                  Global Nature Watch System Status
                 </a>
               </div>
             </Column>

@@ -179,7 +179,7 @@ class Header extends PureComponent {
                   >
                     <img
                       src={customLogo || gfwLogo}
-                      alt="Global Forest Watch"
+                      alt="Global Nature Watch"
                       width="76"
                       height="76"
                     />
@@ -269,7 +269,7 @@ class Header extends PureComponent {
                 >
                   <img
                     src={customLogo || gfwLogo}
-                    alt="Global Forest Watch"
+                    alt="Global Nature Watch"
                     width="76"
                     height="76"
                   />

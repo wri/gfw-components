@@ -72,7 +72,7 @@ class ContactUsForm extends PureComponent {
               {submitSucceeded ? (
                 <div className="feedback-message">
                   <H3>
-                    Thank you for contacting Global Forest Watch! Check your
+                    Thank you for contacting Global Nature Watch! Check your
                     inbox for a confirmation email.
                   </H3>
                   <P>Interested in getting news and updates from us?</P>

@@ -122,7 +122,7 @@ class NavAlt extends PureComponent {
             NavLinkComponent={NavLinkComponent}
           >
             {theme === 'pro' ? 'Log out' : ''}
-            <Tooltip content="My GFW">
+            <Tooltip content="My GNW">
               <div>
                 <UserIcon />
               </div>

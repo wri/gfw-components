@@ -234,7 +234,7 @@ class SubmenuPanel extends PureComponent {
                         appUrl={appUrl}
                         NavLinkComponent={NavLinkComponent}
                       >
-                        My GFW
+                        My GNW
                         <MyGfwIcon
                           className={cx('icon', {
                             'logged-in': loggedIn,
