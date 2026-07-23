@@ -301,7 +301,7 @@ class SubmenuPanel extends PureComponent {
                     <h4>About</h4>
                     <ul>
                       <li className="nav-item">
-                        <a href="/about/">ABOUT GFW</a>
+                        <a href="/about/">ABOUT US</a>
                       </li>
                       <li className="nav-item">
                         <a href="/topics/biodiversity/">WHY FORESTS</a>
