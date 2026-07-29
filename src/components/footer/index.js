@@ -12,6 +12,8 @@ import P from 'components/html/p';
 import gfwLogo from 'assets/logos/gfw.png';
 import ArrowIcon from 'assets/icons/arrow-down.svg';
 
+import { APP_URL } from 'constants';
+
 import config from './config';
 import partners from './partners.json';
 
@@ -124,7 +126,7 @@ class Footer extends PureComponent {
                   CONTACT US
                 </button>
                 <a
-                  href="https://www.globalforestwatch.org/subscribe"
+                  href={`${APP_URL}/subscribe`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -141,7 +143,7 @@ class Footer extends PureComponent {
                 <hr />
                 <div className="footer-partnership-logos">
                   <a
-                    href="https://www.globalforestwatch.org/about"
+                    href={`${APP_URL}/about`}
                     target="_self"
                     rel="noopener noreferrer"
                     aria-label="Global Nature Watch"
@@ -193,7 +195,7 @@ class Footer extends PureComponent {
                 {' · '}
                 <a
                   className="terms"
-                  href="https://www.globalforestwatch.org/privacy-policy"
+                  href={`${APP_URL}/privacy-policy`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

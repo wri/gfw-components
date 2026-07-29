@@ -9,6 +9,8 @@ import Tooltip from 'components/tooltip';
 
 import { Media } from 'components/responsive';
 
+import { PRO_URL } from 'constants';
+
 import gfwProLogo from 'assets/logos/gfw-pro-header.png';
 
 import MoreIcon from 'assets/icons/more.svg';
@@ -159,7 +161,7 @@ class NavAlt extends PureComponent {
             <p>
               You are logged in using your
               {' '}
-              <a href="https://pro.globalforestwatch.org/" target="__BLANK">
+              <a href={`${PRO_URL}/`} target="__BLANK">
                 GFW Pro
               </a>
               {' '}

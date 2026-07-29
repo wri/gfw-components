@@ -1,4 +1,4 @@
-import { DATA_PORTAL_URL } from 'constants';
+import { DATA_PORTAL_URL, PRO_URL, FOREST_WATCHER_URL } from 'constants';
 
 import gfwPro from 'assets/logos/gfw-pro.png';
 import forestWatcher from 'assets/logos/gfw-watcher.png';
@@ -69,12 +69,12 @@ export default {
   apps: [
     {
       label: 'GFW Pro',
-      extLink: 'https://pro.globalforestwatch.org',
+      extLink: PRO_URL,
       image: gfwPro,
     },
     {
       label: 'Forest Watcher',
-      extLink: 'https://forestwatcher.globalforestwatch.org',
+      extLink: FOREST_WATCHER_URL,
       image: forestWatcher,
     },
     {

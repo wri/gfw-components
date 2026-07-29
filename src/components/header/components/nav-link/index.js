@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import { APP_URL } from 'constants';
+
 class NavLink extends PureComponent {
   static propTypes = {
     href: PropTypes.string,
@@ -15,7 +17,7 @@ class NavLink extends PureComponent {
   };
 
   static defaultProps = {
-    appUrl: 'https://www.globalforestwatch.org',
+    appUrl: APP_URL,
   };
 
   render() {
