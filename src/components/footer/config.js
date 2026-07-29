@@ -4,31 +4,33 @@ import InstagramIcon from 'assets/icons/social/instagram.svg';
 import YoutubeIcon from 'assets/icons/social/youtube.svg';
 import LinkedinIcon from 'assets/icons/social/linkedin.svg';
 
+import { APP_URL, APEX_BLOG_URL } from 'constants';
+
 export default {
   links: [
     {
       label: 'Map',
-      link: 'https://www.globalforestwatch.org/map',
+      link: `${APP_URL}/map`,
     },
     {
       label: 'Dashboards',
-      link: 'https://www.globalforestwatch.org/dashboards',
+      link: `${APP_URL}/dashboards`,
     },
     {
       label: 'Topics',
-      link: 'https://www.globalforestwatch.org/topics/biodiversity/',
+      link: `${APP_URL}/topics/biodiversity/`,
     },
     {
       label: 'Blog',
-      link: 'https://globalforestwatch.org/blog',
+      link: APEX_BLOG_URL,
     },
     {
       label: 'About',
-      link: 'https://www.globalforestwatch.org/about/',
+      link: `${APP_URL}/about/`,
     },
     {
       label: 'Help',
-      link: 'https://www.globalforestwatch.org/help/',
+      link: `${APP_URL}/help/`,
     },
   ],
   socialLinks: [

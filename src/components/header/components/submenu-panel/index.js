@@ -24,6 +24,7 @@ import RoundedInfo from 'assets/icons/rounded-info.svg';
 import ArrowLeftIcon from 'assets/icons/arrow-left.svg';
 
 import { bodyOverflowHidden } from 'styles/global';
+import { APP_URL } from 'constants';
 import { SubmenuWrapper } from './styles';
 import {
   addNotifications,
@@ -65,7 +66,7 @@ class SubmenuPanel extends PureComponent {
       if (setQueryToUrl) {
         setQueryToUrl(this.state.search);
       } else {
-        window.location.href = `https://www.globalforestwatch.org/search?query=${this.state.search}`;
+        window.location.href = `${APP_URL}/search?query=${this.state.search}`;
       }
       hideMenu();
     }

@@ -9,7 +9,18 @@ export const breakpoints = {
   large: SCREEN_L,
 };
 
-export const APP_URL = 'https://www.globalforestwatch.org';
+// Once globalnaturewatch.org is serving the app, this is the only line that
+// needs to change for every *.globalforestwatch.org constant below.
+export const GFW_DOMAIN = 'globalforestwatch.org';
+
+export const APP_URL = `https://www.${GFW_DOMAIN}`;
 export const GFW_API = 'https://api.resourcewatch.org';
-export const DATA_PORTAL_URL = 'https://data.globalforestwatch.org';
-export const BLOG_URL = 'https://blog.globalforestwatch.org';
+export const DATA_PORTAL_URL = `https://data.${GFW_DOMAIN}`;
+export const BLOG_URL = `https://blog.${GFW_DOMAIN}`;
+export const PRO_URL = `https://pro.${GFW_DOMAIN}`;
+export const FOREST_WATCHER_URL = `https://forestwatcher.${GFW_DOMAIN}`;
+export const DEVELOPERS_URL = `https://developers.${GFW_DOMAIN}`;
+// Distinct from BLOG_URL (blog.globalforestwatch.org) — kept separate rather
+// than normalized since collapsing them would change the URL this footer
+// link currently produces.
+export const APEX_BLOG_URL = `https://${GFW_DOMAIN}/blog`;

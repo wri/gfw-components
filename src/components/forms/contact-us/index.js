@@ -17,6 +17,8 @@ import H3 from 'components/html/h3';
 
 import { email } from 'components/forms/validations';
 
+import { APP_URL } from 'constants';
+
 import { topics, tools } from './config';
 
 import { ContactFormWrapper } from './styles';
@@ -78,7 +80,7 @@ class ContactUsForm extends PureComponent {
                   <P>Interested in getting news and updates from us?</P>
                   <div className="button-group">
                     <a
-                      href="https://www.globalforestwatch.org/subscribe"
+                      href={`${APP_URL}/subscribe`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
