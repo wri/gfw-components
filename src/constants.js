@@ -11,7 +11,7 @@ export const breakpoints = {
 
 // Once globalnaturewatch.org is serving the app, this is the only line that
 // needs to change for every *.globalforestwatch.org constant below.
-export const GFW_DOMAIN = 'globalforestwatch.org';
+export const GFW_DOMAIN = 'globalnaturewatch.org';
 
 export const APP_URL = `https://www.${GFW_DOMAIN}`;
 export const GFW_API = 'https://api.resourcewatch.org';
