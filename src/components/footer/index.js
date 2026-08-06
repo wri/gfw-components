@@ -23,7 +23,11 @@ const images = require.context('assets/logos/partners', true);
 
 class Footer extends PureComponent {
   static propTypes = {
-    /** handle openning the contact us modal */
+    /** the contact modal has been removed
+     *  the prop openContactUsModal was left here for rollback purposes
+     */
+
+    // eslint-disable-next-line react/no-unused-prop-types
     openContactUsModal: PropTypes.func,
     className: PropTypes.string,
     handleCookiePreferencesClick: PropTypes.func,
@@ -76,7 +80,6 @@ class Footer extends PureComponent {
 
   render() {
     const {
-      openContactUsModal,
       className,
       handleCookiePreferencesClick = () => [],
       showCookiePreferencesLink = false,
@@ -122,9 +125,13 @@ class Footer extends PureComponent {
             </Column>
             <Column>
               <div className="footer-contact-us">
-                <button className="contact-btn" onClick={openContactUsModal}>
-                  CONTACT US
-                </button>
+                <a
+                  href="https://globalnaturewatch.zendesk.com/hc/en-us/requests/new"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="contact-btn">CONTACT US</button>
+                </a>
                 <a
                   href={`${APP_URL}/subscribe`}
                   target="_blank"

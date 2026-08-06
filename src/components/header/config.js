@@ -24,24 +24,14 @@ export default {
           label: 'Help Center',
           href: '/help/',
         },
-        /* // TODO: enable these 2 links when we have the real urls
-        {
-          label: 'Events',
-          href: '/events/',
-        },
-        {
-          label: 'FAQ',
-          href: '/faq/',
-        },
-        */
         {
           label: 'Grants & Opportunities',
           href: '/grants-and-fellowships/projects/',
         },
         {
           label: 'Contact Us',
-          onClick: () => [],
-          isContactModal: true,
+          extLink:
+            'https://globalnaturewatch.zendesk.com/hc/en-us/requests/new',
         },
       ],
     },
